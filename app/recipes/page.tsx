@@ -21,15 +21,15 @@ export default function RecipesPage() {
   const recipes = getAllRecipes();
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold mb-4">All Recipes</h1>
-        <p className="text-xl text-gray-600">
+    <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <header className="mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 px-1 sm:px-0">All Recipes</h1>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 px-1 sm:px-0">
           Discover our complete collection of delicious vegan recipes.
         </p>
       </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {recipes.map((recipe) => (
           <RecipeCard key={recipe.id} recipe={recipe} />
         ))}

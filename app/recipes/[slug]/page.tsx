@@ -152,25 +152,25 @@ export default async function RecipePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <JumpToRecipe recipeId="recipe" />
-      <article className="container mx-auto px-4 py-8 max-w-4xl">
+      <article className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
         {/* Recipe Header */}
-        <header className="mb-8">
-          <div className="mb-6">
-            <div className="flex flex-wrap gap-2 mb-4">
+        <header className="mb-6 sm:mb-8">
+          <div className="mb-4 sm:mb-6">
+            <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
               {recipe.category.map((cat) => (
                 <span
                   key={cat}
-                  className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full capitalize"
+                  className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-green-100 text-green-800 text-xs sm:text-sm rounded-full capitalize"
                 >
                   {cat}
                 </span>
               ))}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{recipe.title}</h1>
-            <p className="text-xl text-gray-600 mb-6">{recipe.description}</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 leading-tight px-1 sm:px-0">{recipe.title}</h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 px-1 sm:px-0 leading-relaxed">{recipe.description}</p>
             
             {/* Recipe Meta */}
-            <div className="flex flex-wrap gap-6 text-sm text-gray-600 mb-6">
+            <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6 px-1 sm:px-0">
               <div>
                 <span className="font-semibold">Prep Time:</span> {recipe.prepTime} min
               </div>
@@ -198,7 +198,7 @@ export default async function RecipePage({ params }: PageProps) {
             />
           </div>
 
-          <div className="relative h-96 w-full rounded-lg overflow-hidden mb-8">
+          <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] w-full rounded-lg overflow-hidden mb-6 sm:mb-8">
             <Image
               src={recipe.image}
               alt={recipe.title}
@@ -211,15 +211,15 @@ export default async function RecipePage({ params }: PageProps) {
         </header>
 
         {/* Prologue Section */}
-        <section className="mb-8">
-          <div className="prose prose-lg max-w-none">
+        <section className="mb-6 sm:mb-8">
+          <div className="prose prose-sm sm:prose-base md:prose-lg max-w-none px-1 sm:px-0">
             {recipe.prologue
               .split(/(?<=[.!?])\s+/)
               .filter(sentence => sentence.trim().length > 0)
               .map((sentence, index) => {
                 const trimmedSentence = sentence.trim();
                 return (
-                  <p key={index} className="text-gray-700 leading-relaxed text-lg mb-4">
+                  <p key={index} className="text-gray-700 leading-relaxed text-base sm:text-lg mb-3 sm:mb-4">
                     {trimmedSentence}
                   </p>
                 );
@@ -227,9 +227,9 @@ export default async function RecipePage({ params }: PageProps) {
           </div>
 
           {/* What Makes This Recipe Special - SEO Section */}
-          <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900">What Makes This Recipe Special</h2>
-            <ul className="space-y-2 text-gray-700">
+          <div className="bg-green-50 border-l-4 border-green-600 p-4 sm:p-6 rounded-r-lg mb-4 sm:mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">What Makes This Recipe Special</h2>
+            <ul className="space-y-2 text-sm sm:text-base text-gray-700">
               <li className="flex items-start">
                 <span className="mr-3 text-green-600 font-bold">✓</span>
                 <span>Made with simple, plant-based ingredients that are easy to find</span>
@@ -288,13 +288,13 @@ export default async function RecipePage({ params }: PageProps) {
         />
 
         {/* Recipe Card - Moved to Bottom (Nora Cooks Style) */}
-        <div id="recipe" className="bg-white border-2 border-gray-200 rounded-lg p-8 md:p-10 shadow-lg mt-12 mb-8">
-          <div className="mb-6 pb-6 border-b border-gray-200">
-            <h2 className="text-4xl font-bold mb-4">{recipe.title}</h2>
-            <p className="text-xl text-gray-600 mb-6">{recipe.description}</p>
+        <div id="recipe" className="bg-white border-2 border-gray-200 rounded-lg p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg mt-8 sm:mt-12 mb-6 sm:mb-8">
+          <div className="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-gray-200">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">{recipe.title}</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">{recipe.description}</p>
             
             {/* Recipe Meta */}
-            <div className="flex flex-wrap gap-6 text-sm text-gray-600 mb-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
               <div>
                 <span className="font-semibold">Prep Time:</span> {recipe.prepTime} min
               </div>
@@ -315,9 +315,9 @@ export default async function RecipePage({ params }: PageProps) {
 
             {/* Nutrition Info in Recipe Card */}
             {recipe.nutritionInfo && (
-              <div className="mt-4 pt-4 border-t border-gray-200">
-                <h3 className="text-lg font-semibold mb-3">Nutrition (per serving)</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+              <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
+                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">Nutrition (per serving)</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 text-xs sm:text-sm">
                   {recipe.nutritionInfo.calories && (
                     <div>
                       <span className="font-semibold">Calories:</span> {recipe.nutritionInfo.calories}
@@ -360,15 +360,15 @@ export default async function RecipePage({ params }: PageProps) {
           <AdRectangle className="hidden md:block" />
 
           {/* Instructions */}
-          <section className="mb-6">
-            <h3 className="text-2xl font-bold mb-4">Instructions</h3>
-            <ol className="space-y-4">
+          <section className="mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Instructions</h3>
+            <ol className="space-y-3 sm:space-y-4">
               {recipe.instructions.map((instruction) => (
-                <li key={instruction.step} className="flex gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <li key={instruction.step} className="flex gap-3 sm:gap-4">
+                  <span className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     {instruction.step}
                   </span>
-                  <p className="flex-1 text-gray-700 leading-relaxed">{instruction.text}</p>
+                  <p className="flex-1 text-sm sm:text-base text-gray-700 leading-relaxed">{instruction.text}</p>
                 </li>
               ))}
             </ol>

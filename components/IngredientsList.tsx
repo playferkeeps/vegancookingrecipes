@@ -75,30 +75,30 @@ export default function IngredientsList({ ingredients }: IngredientsListProps) {
     setCheckedItems(newChecked);
   };
 
-  return (
-    <section className="mb-8">
-      <h3 className="text-2xl font-bold mb-4">Ingredients</h3>
-      <ul className="space-y-2">
+      return (
+        <section className="mb-6 sm:mb-8">
+          <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Ingredients</h3>
+          <ul className="space-y-2 sm:space-y-3">
         {ingredients.map((ingredient, index) => {
           const isChecked = checkedItems.has(index);
           const ingredientText = `${ingredient.amount}${ingredient.unit ? ` ${ingredient.unit}` : ''} ${ingredient.name}${ingredient.notes ? ` (${ingredient.notes})` : ''}`;
           const parsedText = parseIngredientText(ingredientText);
           
-          return (
-            <li key={index} className="flex items-start">
-              <input
-                type="checkbox"
-                id={`ingredient-${index}`}
-                checked={isChecked}
-                onChange={() => toggleItem(index)}
-                className="mt-1 mr-3 w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500 focus:ring-2 cursor-pointer"
-              />
-              <label
-                htmlFor={`ingredient-${index}`}
-                className={`flex-1 text-gray-700 cursor-pointer ${
-                  isChecked ? 'line-through text-gray-400' : ''
-                }`}
-              >
+              return (
+                <li key={index} className="flex items-start">
+                  <input
+                    type="checkbox"
+                    id={`ingredient-${index}`}
+                    checked={isChecked}
+                    onChange={() => toggleItem(index)}
+                    className="mt-1 mr-3 w-5 h-5 sm:w-6 sm:h-6 text-green-600 border-gray-300 rounded focus:ring-green-500 focus:ring-2 cursor-pointer flex-shrink-0"
+                  />
+                  <label
+                    htmlFor={`ingredient-${index}`}
+                    className={`flex-1 text-sm sm:text-base text-gray-700 cursor-pointer leading-relaxed ${
+                      isChecked ? 'line-through text-gray-400' : ''
+                    }`}
+                  >
                 {parsedText.map((part, partIndex) => {
                   if (typeof part === 'string') {
                     return <span key={partIndex}>{part}</span>;

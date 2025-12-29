@@ -68,13 +68,13 @@ export default function Comments({ recipeId }: CommentsProps) {
   };
 
   return (
-    <section className="mt-12" id="comments" aria-labelledby="comments-heading">
-      <h2 id="comments-heading" className="text-3xl font-bold mb-6">
+    <section className="mt-8 sm:mt-12" id="comments" aria-labelledby="comments-heading">
+      <h2 id="comments-heading" className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 px-1 sm:px-0">
         Comments ({comments.length})
       </h2>
 
-      <form onSubmit={handleSubmit} className="mb-8 bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-xl font-semibold mb-4">Leave a Comment</h3>
+      <form onSubmit={handleSubmit} className="mb-6 sm:mb-8 bg-gray-50 p-4 sm:p-6 rounded-lg">
+        <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Leave a Comment</h3>
         <div className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -118,7 +118,7 @@ export default function Comments({ recipeId }: CommentsProps) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-sm sm:text-base min-h-[44px]"
           >
             {isSubmitting ? 'Submitting...' : 'Post Comment'}
           </button>
@@ -130,14 +130,14 @@ export default function Comments({ recipeId }: CommentsProps) {
           <p className="text-gray-600">No comments yet. Be the first to comment!</p>
         ) : (
           comments.map((comment) => (
-            <article key={comment.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="font-semibold text-lg">{comment.name}</h4>
-                <time dateTime={comment.date} className="text-sm text-gray-500">
+            <article key={comment.id} className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 sm:mb-3 gap-1 sm:gap-0">
+                <h4 className="font-semibold text-base sm:text-lg">{comment.name}</h4>
+                <time dateTime={comment.date} className="text-xs sm:text-sm text-gray-500">
                   {formatDate(comment.date)}
                 </time>
               </div>
-              <p className="text-gray-700 whitespace-pre-wrap">{comment.comment}</p>
+              <p className="text-gray-700 whitespace-pre-wrap text-sm sm:text-base leading-relaxed">{comment.comment}</p>
             </article>
           ))
         )}
