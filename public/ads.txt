@@ -1,0 +1,12 @@
+# ads.txt file for vegancooking.recipes
+# This file authorizes Google AdSense to serve ads on this domain
+# 
+# IMPORTANT: Replace ca-pub-XXXXXXXXXX with your actual AdSense Publisher ID
+# You can find your Publisher ID in your AdSense account under Account > Account information
+# Format: ca-pub-XXXXXXXXXXXXXXXX (where X is your unique ID)
+#
+# After updating, this file will be available at: https://vegancooking.recipes/ads.txt
+# Google will automatically crawl this file to verify authorized sellers
+
+google.com, pub-XXXXXXXXXX, DIRECT, f08c47fec0942fa0
+

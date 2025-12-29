@@ -46,13 +46,14 @@ export default function RelatedRecipes({
             href={`/recipes/${recipe.slug}`}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
           >
-            <div className="relative h-48 w-full">
+            <div className="relative h-48 w-full" style={{ aspectRatio: '16/9' }}>
               <Image
                 src={recipe.image}
-                alt={recipe.title}
+                alt={`${recipe.title} - Related vegan recipe`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: 'cover' }}
               />
             </div>
             <div className="p-4">

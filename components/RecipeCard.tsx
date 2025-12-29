@@ -20,13 +20,14 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
   return (
     <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
       <Link href={`/recipes/${recipe.slug}`} className="block">
-        <div className="relative h-40 sm:h-48 md:h-52 w-full">
+        <div className="relative h-40 sm:h-48 md:h-52 w-full" style={{ aspectRatio: '16/9' }}>
           <Image
             src={recipe.image}
-            alt={recipe.title}
+            alt={`${recipe.title} - Vegan recipe image`}
             fill
             className="object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            style={{ objectFit: 'cover' }}
           />
         </div>
         <div className="p-4 sm:p-5 md:p-6">

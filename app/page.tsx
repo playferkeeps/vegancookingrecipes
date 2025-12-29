@@ -118,6 +118,8 @@ export default function Home() {
               fill
               className="object-cover"
               priority
+              sizes="100vw"
+              style={{ objectFit: 'cover' }}
             />
           </div>
           <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
@@ -169,8 +171,9 @@ export default function Home() {
         {/* Category Sections */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-8 text-center">Recipe Categories</h2>
             <div className="mb-12">
-              <h2 className="text-3xl font-bold mb-4">Vegan Baking Recipes</h2>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Vegan Baking Recipes</h3>
               <p className="text-gray-600 mb-6">
                 Discover our collection of sweet and savory baked goods that are completely plant-based. From fluffy vegan cakes to hearty breads, our baking recipes use only plant-based ingredients without compromising on taste or texture. Perfect for breakfast, dessert, or anytime you crave something baked.
               </p>
@@ -191,7 +194,7 @@ export default function Home() {
             </div>
 
             <div className="mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">Savory Vegan Recipes</h2>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">Savory Vegan Recipes</h3>
               <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base px-2 sm:px-0">
                 Indulge in our hearty and flavorful savory dishes perfect for every occasion. From comforting soups and stews to satisfying main courses, these plant-based recipes prove that vegan food can be both nutritious and incredibly delicious. Each dish is packed with flavor and designed to satisfy even the most discerning palate.
               </p>
@@ -212,7 +215,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">International Vegan Cuisine</h2>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">International Vegan Cuisine</h3>
               <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base px-2 sm:px-0">
                 Take a culinary journey around the world with our collection of international plant-based recipes. From Asian-inspired dishes to Mediterranean classics, Mexican favorites to Indian curries, discover how diverse and exciting vegan cooking can be. These authentic recipes bring global flavors to your kitchen while staying completely plant-based.
               </p>

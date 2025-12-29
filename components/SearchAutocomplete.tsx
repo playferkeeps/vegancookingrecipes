@@ -115,13 +115,14 @@ export default function SearchAutocomplete({
               className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-inset"
             >
               {/* Recipe Image */}
-              <div className="relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-200">
+              <div className="relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-200" style={{ aspectRatio: '1/1' }}>
                 <Image
                   src={recipe.image}
-                  alt={recipe.title}
+                  alt={`${recipe.title} - Vegan recipe`}
                   fill
                   className="object-cover"
-                  sizes="80px"
+                  sizes="(max-width: 640px) 64px, 80px"
+                  style={{ objectFit: 'cover' }}
                 />
               </div>
 

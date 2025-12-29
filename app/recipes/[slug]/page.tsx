@@ -319,14 +319,15 @@ export default async function RecipePage({ params }: PageProps) {
             />
           </div>
 
-          <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] w-full rounded-lg overflow-hidden mb-6 sm:mb-8">
+          <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] w-full rounded-lg overflow-hidden mb-6 sm:mb-8" style={{ aspectRatio: '16/9' }}>
             <Image
               src={recipe.image}
-              alt={recipe.title}
+              alt={`${recipe.title} - Vegan recipe hero image`}
               fill
               className="object-cover"
               priority
               sizes="(max-width: 768px) 100vw, 800px"
+              style={{ objectFit: 'cover' }}
             />
           </div>
         </header>
@@ -349,7 +350,7 @@ export default async function RecipePage({ params }: PageProps) {
 
           {/* What Makes This Recipe Special - SEO Section */}
           <div className="bg-green-50 border-l-4 border-green-600 p-4 sm:p-6 rounded-r-lg mb-4 sm:mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">What Makes This Recipe Special</h2>
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">What Makes This Recipe Special</h3>
             <ul className="space-y-2 text-sm sm:text-base text-gray-700">
               <li className="flex items-start">
                 <span className="mr-3 text-green-600 font-bold">✓</span>
@@ -411,7 +412,6 @@ export default async function RecipePage({ params }: PageProps) {
         {/* Recipe Card - Moved to Bottom (Nora Cooks Style) */}
         <div id="recipe" className="bg-white border-2 border-gray-200 rounded-lg p-4 sm:p-6 md:p-8 lg:p-10 shadow-lg mt-8 sm:mt-12 mb-6 sm:mb-8">
           <div className="mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-gray-200">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">{recipe.title}</h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">{recipe.description}</p>
             
             {/* Recipe Meta */}

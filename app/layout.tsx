@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -75,6 +76,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* DNS Prefetch and Preconnect for CDN and external resources */}
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://www.gstatic.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="anonymous" />
+        
         <link rel="icon" href="/img/vcr-favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/img/vcr-favicon.png" />
         <meta name="application-name" content="vegancooking.recipes" />
@@ -86,10 +95,10 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
         </RecaptchaProvider>
-        {/* AdSense Script - Load once for entire site */}
-        <script
-          async
+        {/* AdSense Script - Load asynchronously to prevent render blocking */}
+        <Script
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX'}`}
+          strategy="lazyOnload"
           crossOrigin="anonymous"
         />
       </body>
