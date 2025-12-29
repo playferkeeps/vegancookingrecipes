@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run db:check && next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "npm run db:check && next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^7.2.0",
     "@supabase/supabase-js": "^2.89.0",
     "fuse.js": "^7.1.0",
     "next": "^16.1.1",
@@ -44,7 +45,6 @@
     "replicate": "^1.4.0"
   },
   "devDependencies": {
-    "@prisma/client": "^7.2.0",
     "@types/node": "^20.10.6",
     "@types/pg": "^8.16.0",
     "@types/react": "^18.2.46",
