@@ -94,7 +94,7 @@ async function generateRecipeImage(recipeTitle: string, description: string, ret
     console.log(`   🖼️  Generating image for "${recipeTitle}"...`);
 
     // Use FLUX Schnell - fastest and most cost-effective ($0.003 per image = $3 per 1000 images)
-    const output = await replicate.run(
+    const output: unknown = await replicate.run(
       "black-forest-labs/flux-schnell",
       {
         input: {
