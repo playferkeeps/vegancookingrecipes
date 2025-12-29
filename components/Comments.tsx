@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from 'react';
 import RecaptchaVerification from './RecaptchaVerification';
 import { isRecaptchaVerified } from '@/lib/recaptcha';
 import { getComments, submitComment } from '@/lib/supabase-helpers';
+import { Comment as SupabaseComment } from '@/lib/supabase-types';
 
 interface Comment {
   id: string;
@@ -37,7 +38,7 @@ export default function Comments({ recipeId }: CommentsProps) {
       try {
         const loadedComments = await getComments(recipeId);
         // Map to include date field for backward compatibility
-        setComments(loadedComments.map(c => ({
+        setComments(loadedComments.map((c: SupabaseComment): Comment => ({
           ...c,
           date: c.created_at,
         })));

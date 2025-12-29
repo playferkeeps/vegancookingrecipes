@@ -3,7 +3,7 @@
  */
 
 import { supabase, isSupabaseConfigured } from './supabase';
-import { Vote, VoteStats } from './supabase-types';
+import { Vote, VoteStats, Comment } from './supabase-types';
 
 /**
  * Get a unique user identifier (browser fingerprint)
@@ -158,7 +158,7 @@ export async function submitVote(
 /**
  * Get comments for a recipe
  */
-export async function getComments(recipeId: string) {
+export async function getComments(recipeId: string): Promise<Comment[]> {
   if (!isSupabaseConfigured() || !supabase) {
     return getCommentsFromLocalStorage(recipeId);
   }
@@ -306,13 +306,13 @@ function submitVoteToLocalStorage(
   }
 }
 
-function getCommentsFromLocalStorage(recipeId: string) {
+function getCommentsFromLocalStorage(recipeId: string): Comment[] {
   if (typeof window === 'undefined') return [];
 
   const stored = localStorage.getItem(`comments-${recipeId}`);
   if (stored) {
     try {
-      return JSON.parse(stored);
+      return JSON.parse(stored) as Comment[];
     } catch (e) {
       console.error('Error parsing comments from localStorage:', e);
     }
