@@ -778,4 +778,1606 @@ export const internationalRecipes: Recipe[] = [
     variations: ["Add a splash of soy sauce or tamari for extra flavor.","Incorporate other vegetables like carrots or bell peppers for added color and nutrition."],
     storage: 'Store any leftover soup in an airtight container in the refrigerator for up to 3 days. Reheat gently on the stove, avoiding boiling to preserve the flavor and health benefits of the miso.',
   },
+  {
+    id: '1766990131492.5967',
+    title: 'Vegan Thai Soup',
+    slug: 'vegan-thai-soup',
+    description: 'A fragrant and flavorful Thai soup loaded with vegetables and aromatic spices, perfect for a comforting meal.',
+    prologue: 'This Vegan Thai Soup is a delightful combination of fresh vegetables and bold flavors that transport your taste buds straight to Thailand. Packed with nutritious ingredients and made without any animal products, this soup is not only delicious but also healthy and satisfying. Explore the world of vegan cooking with this easy-to-follow recipe from vegancooking.recipes!',
+    image: '/recipe-images/vegan-thai-soup-1766990132831.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "coconut oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "finely chopped"
+        },
+        {
+          "name": "garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "ginger",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "freshly grated"
+        },
+        {
+          "name": "carrot",
+          "amount": "1",
+          "unit": "large",
+          "notes": "sliced"
+        },
+        {
+          "name": "bell pepper",
+          "amount": "1",
+          "unit": "large",
+          "notes": "sliced (red or yellow)"
+        },
+        {
+          "name": "mushrooms",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "sliced (shiitake or button)"
+        },
+        {
+          "name": "broccoli",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "cut into small florets"
+        },
+        {
+          "name": "vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "low-sodium"
+        },
+        {
+          "name": "coconut milk",
+          "amount": "1",
+          "unit": "can",
+          "notes": "full-fat for creaminess"
+        },
+        {
+          "name": "lime juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "soy sauce",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "or tamari for gluten-free"
+        },
+        {
+          "name": "Thai red curry paste",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "adjust to taste"
+        },
+        {
+          "name": "fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        },
+        {
+          "name": "green onions",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "sliced, for garnish"
+        },
+        {
+          "name": "salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the coconut oil over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the chopped onion and sauté for about 3-4 minutes until it becomes translucent."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the minced garlic and grated ginger, cooking for another minute until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the sliced carrot, bell pepper, and mushrooms to the pot. Sauté for about 5-6 minutes until the vegetables begin to soften."
+        },
+        {
+          "step": 5,
+          "text": "Stir in the broccoli florets, vegetable broth, coconut milk, lime juice, soy sauce, and Thai red curry paste."
+        },
+        {
+          "step": 6,
+          "text": "Bring the soup to a gentle simmer and let it cook for 10-15 minutes until all the vegetables are tender."
+        },
+        {
+          "step": 7,
+          "text": "Taste the soup and adjust seasoning with salt or more lime juice as needed."
+        },
+        {
+          "step": 8,
+          "text": "Serve hot, garnished with fresh cilantro and sliced green onions."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 290,
+        "protein": "6g",
+        "carbs": "20g",
+        "fat": "22g",
+        "fiber": "5g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","soup","Thai","whole-food-plant-based","healthy","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute any vegetables based on your preference or seasonal availability. You can use other types of mushrooms or even add spinach or kale for extra greens.',
+    faqs: [
+        {
+          "question": "Can I make this soup ahead of time?",
+          "answer": "Yes, this soup can be made ahead of time and stored in the refrigerator for up to 4 days."
+        },
+        {
+          "question": "Is this soup spicy?",
+          "answer": "The spice level can be adjusted by using more or less Thai red curry paste. Start with 1 tablespoon if you're sensitive to heat."
+        }
+      ],
+    tips: ["For a richer flavor, let the soup simmer longer to allow the spices to meld together.","Serve with a side of jasmine rice or quinoa for a more filling meal."],
+    variations: ["Add tofu or tempeh for additional protein.","Use zucchini or snap peas for a different texture."],
+    storage: 'Store leftover soup in an airtight container in the refrigerator for up to 4 days. This soup can also be frozen; thaw overnight in the fridge before reheating.',
+  },
+  {
+    id: '1766990162416.4304',
+    title: 'Vegan Quesadillas',
+    slug: 'vegan-quesadillas',
+    description: 'Deliciously crispy and packed with flavor, these vegan quesadillas are loaded with sautéed vegetables and a creamy cashew cheese filling, perfect for a quick meal or snack.',
+    prologue: 'Vegan Quesadillas are a delightful twist on a classic favorite, combining wholesome, plant-based ingredients that are both satisfying and nutritious. Using a savory mixture of veggies and a creamy cashew cheese, this recipe is perfect for anyone looking to enjoy a comforting dish without any animal products. Explore more vibrant vegan cooking ideas at vegancooking.recipes.',
+    image: '/recipe-images/vegan-quesadillas-1766990163870.webp',
+    prepTime: 15,
+    cookTime: 15,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat tortillas",
+          "amount": "4",
+          "unit": "tortillas",
+          "notes": "You can use gluten-free tortillas if necessary."
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Deseeded and diced."
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced."
+        },
+        {
+          "name": "Red onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Finely chopped."
+        },
+        {
+          "name": "Fresh spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Packed."
+        },
+        {
+          "name": "Cashews",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Soaked in water for at least 2 hours."
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For cheesy flavor."
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For added flavor."
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Freshly squeezed."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "For sautéing."
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "none",
+          "notes": "Adjust to preference."
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "none",
+          "notes": "Adjust to preference."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Begin by soaking the cashews in water for at least 2 hours. Drain and rinse them before using."
+        },
+        {
+          "step": 2,
+          "text": "In a blender or food processor, combine the soaked cashews, nutritional yeast, garlic powder, lemon juice, and a pinch of salt. Blend until smooth and creamy. Add a little water if necessary to reach a spreadable consistency."
+        },
+        {
+          "step": 3,
+          "text": "In a large skillet, heat the olive oil over medium heat. Add the chopped red onion and sauté for about 2-3 minutes until softened."
+        },
+        {
+          "step": 4,
+          "text": "Add the diced red bell pepper and zucchini to the skillet, and sauté for an additional 5 minutes until the vegetables are tender."
+        },
+        {
+          "step": 5,
+          "text": "Stir in the fresh spinach and cook until wilted, about 1-2 minutes. Season with salt and pepper to taste."
+        },
+        {
+          "step": 6,
+          "text": "Lay a tortilla in a separate skillet over medium heat. Spread a generous amount of the cashew cheese on half of the tortilla, then top with a portion of the sautéed vegetable mixture."
+        },
+        {
+          "step": 7,
+          "text": "Fold the tortilla over to create a half-moon shape. Cook for about 3-4 minutes on each side, or until golden brown and crispy."
+        },
+        {
+          "step": 8,
+          "text": "Repeat the process with the remaining tortillas and filling."
+        },
+        {
+          "step": 9,
+          "text": "Slice the quesadillas into wedges and serve hot with salsa or guacamole, if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "9g",
+        "carbs": "45g",
+        "fat": "14g",
+        "fiber": "8g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","quesadillas","whole-food-plant-based","easy","dinner","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Cashews can be substituted with silken tofu for a lower-fat option. Whole wheat tortillas add fiber, but corn tortillas can also be used for a gluten-free option.',
+    faqs: [
+        {
+          "question": "Can I make these quesadillas gluten-free?",
+          "answer": "Yes, simply use gluten-free tortillas."
+        },
+        {
+          "question": "What can I serve with quesadillas?",
+          "answer": "They pair well with salsa, guacamole, or a fresh salad."
+        }
+      ],
+    tips: ["Pre-soaking cashews helps achieve a smoother texture for the cheese.","Feel free to add other vegetables like mushrooms or corn for added flavor."],
+    variations: ["Add black beans or chickpeas for extra protein.","Use different spices like cumin or chili powder for a kick."],
+    storage: 'Store leftover quesadillas in an airtight container in the refrigerator for up to 3 days. Reheat in a skillet or toaster oven for best results.',
+  },
+  {
+    id: '1766990404557.2693',
+    title: 'Vegan Ramen',
+    slug: 'vegan-ramen',
+    description: 'Savor the rich, umami flavors of this hearty vegan ramen, packed with fresh vegetables and fragrant broth for a comforting meal.',
+    prologue: 'Discover the delicious world of vegan ramen with this whole-food-plant-based recipe on vegancooking.recipes. This dish combines a fragrant broth, fresh vegetables, and hearty noodles to create a perfect harmony of flavors. Whether you’re a ramen enthusiast or a newcomer, this recipe is easy to follow and will satisfy your cravings for a warm, nourishing bowl of goodness.',
+    image: '/recipe-images/vegan-ramen-1766990406224.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat ramen noodles",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "or any vegan ramen noodles"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "6",
+          "unit": "cups",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "or tamari for gluten-free"
+        },
+        {
+          "name": "Miso paste",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "white or yellow miso recommended"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "fresh, minced"
+        },
+        {
+          "name": "Green onions",
+          "amount": "4",
+          "unit": "stalks",
+          "notes": "sliced, for garnish"
+        },
+        {
+          "name": "Carrots",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "julienned or sliced"
+        },
+        {
+          "name": "Mushrooms",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "shiitake or button, sliced"
+        },
+        {
+          "name": "Baby spinach",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "fresh"
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "optional, for flavor"
+        },
+        {
+          "name": "Tofu",
+          "amount": "12",
+          "unit": "oz",
+          "notes": "firm, cubed, optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the vegetable broth over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add minced garlic and ginger to the pot, sautéing for about 2-3 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the soy sauce and miso paste, mixing until the miso is fully dissolved."
+        },
+        {
+          "step": 4,
+          "text": "Add the sliced mushrooms and carrots. Let the mixture simmer for about 10 minutes until the vegetables are tender."
+        },
+        {
+          "step": 5,
+          "text": "Meanwhile, cook the ramen noodles according to package instructions. Drain and set aside."
+        },
+        {
+          "step": 6,
+          "text": "Once the vegetables are tender, stir in the baby spinach and let it wilt for about 2-3 minutes."
+        },
+        {
+          "step": 7,
+          "text": "If using tofu, add the cubed tofu to the broth and let it heat through for another 2 minutes."
+        },
+        {
+          "step": 8,
+          "text": "Taste and adjust seasoning if necessary. Add sesame oil if desired."
+        },
+        {
+          "step": 9,
+          "text": "To serve, place a portion of ramen noodles in a bowl, ladle the hot broth and vegetables over the noodles, and garnish with sliced green onions."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "18g",
+        "carbs": "53g",
+        "fat": "10g",
+        "fiber": "5g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","ramen","whole-food-plant-based","Asian cuisine","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a richer flavor, consider using a homemade vegetable broth. You can substitute the vegetables based on what you have available, such as bok choy or bell peppers. Tofu can be replaced with tempeh or omitted entirely for a lighter dish.',
+    faqs: [
+        {
+          "question": "Can I make this recipe gluten-free?",
+          "answer": "Yes, you can use gluten-free ramen noodles and tamari instead of soy sauce."
+        },
+        {
+          "question": "How can I store leftovers?",
+          "answer": "Store the broth and noodles separately in airtight containers in the refrigerator for up to 3 days."
+        }
+      ],
+    tips: ["For an extra flavor boost, add a splash of rice vinegar or lime juice just before serving.","Experiment with different toppings like seaweed, sesame seeds, or pickled vegetables."],
+    variations: ["Add more protein by including edamame or chickpeas.","Make it spicy by adding chili paste or fresh chili slices."],
+    storage: 'Store leftovers in the fridge in separate containers for up to 3 days. Reheat on the stovetop, adding a little extra broth or water if necessary.',
+  },
+  {
+    id: '1766990510195.108',
+    title: 'Vegan Tabbouleh',
+    slug: 'vegan-tabbouleh',
+    description: 'A refreshing and vibrant Middle Eastern salad made with parsley, bulgur, and fresh vegetables, perfect for a light meal or a side dish.',
+    prologue: 'Tabbouleh is a classic dish that embodies the flavors of the Mediterranean, featuring fresh herbs, zesty lemon, and wholesome grains. This vegan version is not only delicious but also packed with nutrients, making it a perfect addition to your whole-food, plant-based diet. Whether you\'re serving it at a family gathering or enjoying it as a healthy lunch, this Tabbouleh recipe will leave you feeling satisfied and refreshed. Explore more delicious vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/vegan-tabbouleh-1766990511475.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Bulgur wheat",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fine or medium bulgur works best"
+        },
+        {
+          "name": "Boiling water",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "To soak the bulgur"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "1",
+          "unit": "bunch",
+          "notes": "Finely chopped, preferably flat-leaf"
+        },
+        {
+          "name": "Fresh mint leaves",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Finely chopped"
+        },
+        {
+          "name": "Tomatoes",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Green onions",
+          "amount": "3",
+          "unit": "stalks",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Freshly squeezed for best flavor"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Extra virgin recommended"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Freshly ground, adjust to taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Rinse the bulgur wheat under cold water in a fine-mesh sieve."
+        },
+        {
+          "step": 2,
+          "text": "In a large bowl, combine the rinsed bulgur and boiling water, cover, and let it sit for about 15-20 minutes until the bulgur is tender and the water is absorbed."
+        },
+        {
+          "step": 3,
+          "text": "While the bulgur is soaking, prepare the vegetables and herbs. Finely chop the parsley, mint, tomatoes, cucumber, and green onions."
+        },
+        {
+          "step": 4,
+          "text": "Once the bulgur is ready, fluff it with a fork and let it cool slightly."
+        },
+        {
+          "step": 5,
+          "text": "Add the chopped parsley, mint, tomatoes, cucumber, and green onions to the bulgur."
+        },
+        {
+          "step": 6,
+          "text": "In a small bowl, whisk together the lemon juice, olive oil, salt, and pepper."
+        },
+        {
+          "step": 7,
+          "text": "Pour the dressing over the tabbouleh mixture and toss until everything is well combined."
+        },
+        {
+          "step": 8,
+          "text": "Taste and adjust seasoning if needed. Serve chilled or at room temperature."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "5g",
+        "carbs": "30g",
+        "fat": "4g",
+        "fiber": "5g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","salad","Mediterranean","whole-food-plant-based","healthy","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Bulgur is a whole grain that adds fiber and protein to the dish. For a gluten-free option, consider using quinoa instead. Fresh herbs are key in this recipe, so opt for high-quality, fresh ingredients for the best flavor.',
+    faqs: [
+        {
+          "question": "Can I make tabbouleh ahead of time?",
+          "answer": "Yes, tabbouleh can be prepared a few hours in advance. Just keep it covered in the refrigerator, and give it a gentle toss before serving."
+        },
+        {
+          "question": "What can I substitute for bulgur?",
+          "answer": "Quinoa or finely chopped cauliflower can be used as a gluten-free alternative to bulgur."
+        }
+      ],
+    tips: ["Use a sharp knife to chop herbs for a finer consistency.","For added flavor, consider adding a pinch of cumin or cayenne pepper."],
+    variations: ["Add chickpeas for extra protein and texture.","Incorporate roasted red peppers for a smoky flavor."],
+    storage: 'Store any leftover tabbouleh in an airtight container in the refrigerator for up to 3 days. The flavors will continue to develop as it sits.',
+  },
+  {
+    id: '1766990761561.7742',
+    title: 'Vegan Indian Curry',
+    slug: 'vegan-indian-curry',
+    description: 'This vibrant and flavorful vegan Indian curry is packed with wholesome ingredients and spices, offering a delightful explosion of taste in every bite.',
+    prologue: 'Discover the rich flavors of Indian cuisine with this easy-to-make vegan curry that’s perfect for any occasion. Using whole food plant-based ingredients, this recipe is not only delicious but also healthy and satisfying. Ideal for those looking to explore vegan cooking, vegancooking.recipes offers a simple yet authentic way to enjoy a classic dish without any animal products.',
+    image: '/recipe-images/vegan-indian-curry-1766990763146.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Chickpeas",
+          "amount": "1",
+          "unit": "can (15 oz)",
+          "notes": "Rinsed and drained"
+        },
+        {
+          "name": "Coconut milk",
+          "amount": "1",
+          "unit": "can (13.5 oz)",
+          "notes": "Full fat for creaminess"
+        },
+        {
+          "name": "Diced tomatoes",
+          "amount": "1",
+          "unit": "can (14.5 oz)",
+          "notes": "No salt added preferred"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "Fresh, grated"
+        },
+        {
+          "name": "Curry powder",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Or more to taste"
+        },
+        {
+          "name": "Turmeric powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For color and health benefits"
+        },
+        {
+          "name": "Cumin seeds",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For added flavor"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Low sodium preferred"
+        },
+        {
+          "name": "Spinach",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Fresh or frozen"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "Use Himalayan or sea salt"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "Freshly ground"
+        },
+        {
+          "name": "Cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped, for garnish"
+        },
+        {
+          "name": "Lime",
+          "amount": "1",
+          "unit": "",
+          "notes": "Juiced, for flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat a splash of vegetable broth over medium heat. Add the chopped onion and sauté for about 5 minutes until it becomes translucent."
+        },
+        {
+          "step": 2,
+          "text": "Add the minced garlic and grated ginger, cooking for an additional 2 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the cumin seeds, curry powder, and turmeric powder. Cook for about 1 minute to toast the spices."
+        },
+        {
+          "step": 4,
+          "text": "Add the diced tomatoes along with their juice, and cook for about 5 minutes until the mixture thickens."
+        },
+        {
+          "step": 5,
+          "text": "Pour in the coconut milk and vegetable broth, stirring until well combined."
+        },
+        {
+          "step": 6,
+          "text": "Add the rinsed chickpeas and bring the curry to a simmer. Allow it to cook for about 10 minutes, stirring occasionally."
+        },
+        {
+          "step": 7,
+          "text": "Stir in the spinach and cook for an additional 5 minutes until wilted."
+        },
+        {
+          "step": 8,
+          "text": "Season with salt and black pepper to taste, and finish with a squeeze of lime juice."
+        },
+        {
+          "step": 9,
+          "text": "Serve hot, garnished with chopped cilantro. Enjoy with rice or whole grain naan."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "12g",
+        "carbs": "45g",
+        "fat": "16g",
+        "fiber": "10g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","curry","Indian","whole-food-plant-based","gluten-free","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Chickpeas can be substituted with cooked lentils or beans. If you prefer a spicier curry, add chopped green chilies or cayenne pepper to taste. For a creamier consistency, use light coconut milk or add more coconut cream.',
+    faqs: [
+        {
+          "question": "Can I use frozen spinach?",
+          "answer": "Yes, you can use frozen spinach. Just make sure to thaw and drain excess water before adding it to the curry."
+        },
+        {
+          "question": "How can I make this curry spicier?",
+          "answer": "You can increase the amount of curry powder or add fresh chopped green chilies during cooking."
+        }
+      ],
+    tips: ["Make sure to toast the spices to enhance their flavors.","For a richer taste, let the curry simmer for longer before adding spinach."],
+    variations: ["Add vegetables like bell peppers, carrots, or peas for additional nutrition and flavor.","Substitute chickpeas with tofu or tempeh for a different protein source."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. Reheat gently on the stove or in the microwave. This curry can also be frozen for up to 3 months; thaw in the refrigerator before reheating.',
+  },
+  {
+    id: '1766991326493.7751',
+    title: 'Vegan Teriyaki Stir-Fry',
+    slug: 'vegan-teriyaki-stir-fry',
+    description: 'This vibrant Vegan Teriyaki Stir-Fry is a delightful blend of fresh vegetables and tofu, all coated in a luscious homemade teriyaki sauce. Perfect for a quick weeknight dinner!',
+    prologue: 'Discover the joy of vegan cooking with this Vegan Teriyaki Stir-Fry recipe from vegancooking.recipes. Loaded with nutrient-rich vegetables and protein-packed tofu, this dish is not only delicious but also adheres to whole-food-plant-based principles. The homemade teriyaki sauce brings a savory-sweet flavor that makes this meal irresistible for everyone, whether vegan or not.',
+    image: '/recipe-images/vegan-teriyaki-stir-fry-1766991328189.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "pressed and cubed"
+        },
+        {
+          "name": "Broccoli florets",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "cut into bite-sized pieces"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced thinly"
+        },
+        {
+          "name": "Snap peas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "trimmed"
+        },
+        {
+          "name": "Green onions",
+          "amount": "4",
+          "unit": "stalks",
+          "notes": "sliced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Fresh ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "grated"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "low-sodium recommended"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sweetness"
+        },
+        {
+          "name": "Rice vinegar",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for acidity"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for thickening"
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Cooked brown rice or quinoa",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "for serving"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by pressing the tofu to remove excess moisture. Wrap it in a clean kitchen towel and place a heavy object on top for about 10 minutes."
+        },
+        {
+          "step": 2,
+          "text": "While the tofu is pressing, prepare the teriyaki sauce. In a bowl, combine the soy sauce, maple syrup, rice vinegar, and cornstarch. Whisk until smooth and set aside."
+        },
+        {
+          "step": 3,
+          "text": "After pressing, cut the tofu into 1-inch cubes. In a large non-stick skillet or wok, heat the sesame oil over medium-high heat."
+        },
+        {
+          "step": 4,
+          "text": "Add the cubed tofu to the skillet and sauté for about 8-10 minutes, turning occasionally until golden brown on all sides."
+        },
+        {
+          "step": 5,
+          "text": "Add the minced garlic and grated ginger to the skillet and cook for an additional minute until fragrant."
+        },
+        {
+          "step": 6,
+          "text": "Add the broccoli, bell pepper, carrot, and snap peas to the skillet. Stir-fry the vegetables for about 5-7 minutes until they are tender but still crisp."
+        },
+        {
+          "step": 7,
+          "text": "Pour the teriyaki sauce over the tofu and vegetables. Stir well to coat everything evenly, and cook for another 2-3 minutes until the sauce thickens."
+        },
+        {
+          "step": 8,
+          "text": "Remove from heat and stir in the sliced green onions."
+        },
+        {
+          "step": 9,
+          "text": "Serve the teriyaki stir-fry over cooked brown rice or quinoa, and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 400,
+        "protein": "22g",
+        "carbs": "60g",
+        "fat": "12g",
+        "fiber": "8g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","stir-fry","Asian","whole-food-plant-based","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a different flavor, you can substitute tamari for soy sauce for a gluten-free option. You may also add other vegetables like zucchini or mushrooms based on availability and preference.',
+    faqs: [
+        {
+          "question": "Can I use a different protein instead of tofu?",
+          "answer": "Yes, you can replace tofu with tempeh or seitan for a different texture and flavor."
+        },
+        {
+          "question": "What can I use instead of maple syrup?",
+          "answer": "Agave nectar or brown rice syrup can be used as substitutes for maple syrup."
+        }
+      ],
+    tips: ["For extra crunch, consider adding sesame seeds on top before serving.","This stir-fry is also great served cold as a salad the next day."],
+    variations: ["Add cashews or peanuts for added protein and crunch.","Incorporate bok choy or baby corn for a different vegetable mix."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat on the stovetop or in the microwave before serving.',
+  },
+  {
+    id: '1766991696583.1052',
+    title: 'Vegan Biryani',
+    slug: 'vegan-biryani',
+    description: 'A fragrant and flavorful vegan biryani packed with spices, vegetables, and aromatic basmati rice.',
+    prologue: 'Biryani is a beloved dish in many cultures, known for its rich flavors and delightful aromas. This vegan version, made with wholesome plant-based ingredients, is not only satisfying but also a feast for the senses. Perfect for special occasions or a comforting weeknight meal, this Vegan Biryani is a must-try for anyone looking to explore the world of vegan cooking. Visit vegancooking.recipes for more exciting vegan recipes.',
+    image: '/recipe-images/vegan-biryani-1766991698114.webp',
+    prepTime: 30,
+    cookTime: 45,
+    totalTime: 75,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Basmati rice",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "Rinsed and soaked for 30 minutes"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "Low sodium preferred"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "large",
+          "notes": "Thinly sliced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "Grated"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced (any color)"
+        },
+        {
+          "name": "Green peas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh or frozen"
+        },
+        {
+          "name": "Potato",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Tomato",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Biryani spice mix",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Store-bought or homemade"
+        },
+        {
+          "name": "Turmeric powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For color and flavor"
+        },
+        {
+          "name": "Cilantro",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "Chopped, for garnish"
+        },
+        {
+          "name": "Mint leaves",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "Chopped, for garnish"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Freshly squeezed"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "Adjust according to preference"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For cooking"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the olive oil over medium heat. Add the sliced onions and sauté until they are golden brown."
+        },
+        {
+          "step": 2,
+          "text": "Add the minced garlic and grated ginger to the pot and sauté for another 1-2 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the diced carrot, bell pepper, potato, and chopped tomato. Cook for about 5-7 minutes until the vegetables start to soften."
+        },
+        {
+          "step": 4,
+          "text": "Add the biryani spice mix, turmeric powder, and salt to the vegetables, stirring well to coat them in the spices."
+        },
+        {
+          "step": 5,
+          "text": "Pour in the vegetable broth and bring to a boil."
+        },
+        {
+          "step": 6,
+          "text": "Once boiling, add the soaked and drained basmati rice to the pot. Stir gently to combine."
+        },
+        {
+          "step": 7,
+          "text": "Reduce the heat to low, cover the pot, and let it simmer for 20-25 minutes, or until the rice is cooked and liquid is absorbed."
+        },
+        {
+          "step": 8,
+          "text": "After cooking, remove the pot from heat and let it sit covered for an additional 10 minutes."
+        },
+        {
+          "step": 9,
+          "text": "Fluff the biryani with a fork and gently fold in the green peas, chopped cilantro, and mint leaves. Drizzle lemon juice on top."
+        },
+        {
+          "step": 10,
+          "text": "Serve hot, garnished with additional cilantro and mint if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 290,
+        "protein": "8g",
+        "carbs": "60g",
+        "fat": "7g",
+        "fiber": "6g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","biryani","whole-food-plant-based","Indian cuisine","rice dish","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Basmati rice is preferred for its aroma and texture. If unavailable, you can substitute with jasmine rice. The biryani spice mix can be made at home using equal parts garam masala, cumin, coriander, and cardamom.',
+    faqs: [
+        {
+          "question": "Can I add other vegetables?",
+          "answer": "Absolutely! Feel free to add vegetables like cauliflower, green beans, or zucchini based on your preference."
+        },
+        {
+          "question": "How can I make this biryani spicier?",
+          "answer": "You can add chopped green chilies or a pinch of red chili powder when adding the other spices."
+        }
+      ],
+    tips: ["Be sure to rinse the basmati rice thoroughly before soaking to remove excess starch for fluffier rice.","Letting the biryani sit after cooking helps to enhance the flavors."],
+    variations: ["For a protein boost, consider adding cooked chickpeas or tofu.","Try adding dried fruits like raisins or nuts like cashews for added texture and flavor."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. Reheat in a microwave or on the stovetop with a splash of water to loosen the rice.',
+  },
+  {
+    id: '1766992451964.0273',
+    title: 'Vegan Hummus',
+    slug: 'vegan-hummus',
+    description: 'A creamy and delicious hummus that’s perfect for dipping, spreading, or enjoying straight from the bowl. This classic Middle Eastern dip is made with wholesome ingredients and is entirely plant-based.',
+    prologue: 'Hummus is a versatile and healthy dip that can elevate any meal or snack. Made from whole food ingredients, this vegan hummus recipe is rich in flavor and nutrients, making it a perfect addition to your plant-based diet. Whether you\'re serving it at a gathering or enjoying it on your own, this recipe from vegancooking.recipes will satisfy your cravings and leave you feeling good.',
+    image: '/recipe-images/vegan-hummus-1766992453294.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "canned chickpeas",
+          "amount": "1",
+          "unit": "can",
+          "notes": "drained and rinsed"
+        },
+        {
+          "name": "tahini",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "preferably raw tahini"
+        },
+        {
+          "name": "fresh lemon juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "about half a lemon"
+        },
+        {
+          "name": "garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "extra virgin olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "optional, for creaminess"
+        },
+        {
+          "name": "ground cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "adds depth of flavor"
+        },
+        {
+          "name": "sea salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "adjust to taste"
+        },
+        {
+          "name": "water",
+          "amount": "2-4",
+          "unit": "tbsp",
+          "notes": "to achieve desired consistency"
+        },
+        {
+          "name": "paprika",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for garnish, optional"
+        },
+        {
+          "name": "fresh parsley",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "chopped, for garnish, optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a food processor, combine the drained and rinsed chickpeas, tahini, lemon juice, minced garlic, ground cumin, and sea salt."
+        },
+        {
+          "step": 2,
+          "text": "Blend the mixture on high speed until it is smooth and creamy. You may need to scrape down the sides with a spatula occasionally."
+        },
+        {
+          "step": 3,
+          "text": "While blending, slowly drizzle in the olive oil (if using) and continue blending until fully incorporated."
+        },
+        {
+          "step": 4,
+          "text": "Add 2 tablespoons of water to the mixture and blend again. If the hummus is too thick, add more water, one tablespoon at a time, until you reach your desired consistency."
+        },
+        {
+          "step": 5,
+          "text": "Taste and adjust seasoning, adding more salt or lemon juice if desired."
+        },
+        {
+          "step": 6,
+          "text": "Transfer the hummus to a serving bowl, drizzle with additional olive oil if desired, and sprinkle with paprika and chopped parsley for garnish."
+        },
+        {
+          "step": 7,
+          "text": "Serve with fresh vegetables, pita bread, or your favorite crackers."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 100,
+        "protein": "5g",
+        "carbs": "14g",
+        "fat": "4g",
+        "fiber": "4g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","hummus","dip","snack","whole food","international","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Canned chickpeas are convenient, but you can use cooked dry chickpeas for a whole-food option. Soak and cook them beforehand if you prefer this method. For a nut-free option, ensure your tahini is free of cross-contamination.',
+    faqs: [
+        {
+          "question": "Can I make hummus without tahini?",
+          "answer": "Yes, you can substitute tahini with sunflower seed butter or omit it entirely for a lighter version. However, tahini adds a unique flavor that is characteristic of traditional hummus."
+        },
+        {
+          "question": "How long will homemade hummus last in the fridge?",
+          "answer": "Homemade hummus can be stored in an airtight container in the refrigerator for up to 5 days."
+        }
+      ],
+    tips: ["For an extra creamy texture, peel the chickpeas before blending.","Experiment with different spices like smoked paprika or cayenne for a flavor twist."],
+    variations: ["Add roasted red peppers for a sweet and smoky flavor.","Incorporate fresh herbs like basil or cilantro for a refreshing twist."],
+    storage: 'Store leftover hummus in an airtight container in the refrigerator for up to 5 days. You can also freeze hummus in portions for up to 3 months. Thaw in the fridge before serving.',
+  },
+  {
+    id: '1766992745399.5476',
+    title: 'Vegan Kung Pao Tofu',
+    slug: 'vegan-kung-pao-tofu',
+    description: 'A deliciously spicy and savory dish featuring crispy tofu, vibrant vegetables, and a flavorful sauce, perfect for a nutritious meal.',
+    prologue: 'Explore the vibrant flavors of vegan Kung Pao Tofu, an iconic dish that brings together crispy tofu with a medley of vegetables and a rich, spicy sauce. This whole-food, plant-based recipe is not only satisfying but also packed with nutrients, making it the perfect choice for any meal. Join us at vegancooking.recipes to discover how to bring this classic Asian dish into your kitchen, using wholesome ingredients that are entirely plant-based.',
+    image: '/recipe-images/vegan-kung-pao-tofu-1766992746645.webp',
+    prepTime: 20,
+    cookTime: 15,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "drained and pressed"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "for coating the tofu"
+        },
+        {
+          "name": "Peanut oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "or any neutral oil"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced (red or green)"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Scallions",
+          "amount": "4",
+          "unit": "stalks",
+          "notes": "chopped, green and white parts separated"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "fresh, minced"
+        },
+        {
+          "name": "Dried red chilies",
+          "amount": "5",
+          "unit": "pieces",
+          "notes": "adjust for spice preference"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "or tamari for gluten-free"
+        },
+        {
+          "name": "Rice vinegar",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for acidity"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for sweetness"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sauce consistency"
+        },
+        {
+          "name": "Roasted peanuts",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        },
+        {
+          "name": "Sesame seeds",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Begin by pressing the firm tofu to remove excess moisture. Cut the tofu into 1-inch cubes."
+        },
+        {
+          "step": 2,
+          "text": "In a bowl, toss the tofu cubes with cornstarch until evenly coated."
+        },
+        {
+          "step": 3,
+          "text": "Heat 1 tablespoon of peanut oil in a large skillet or wok over medium-high heat."
+        },
+        {
+          "step": 4,
+          "text": "Once hot, add the coated tofu cubes and cook until golden and crispy, about 5-7 minutes. Stir occasionally to ensure even cooking. Remove the tofu from the pan and set aside."
+        },
+        {
+          "step": 5,
+          "text": "In the same skillet, add another tablespoon of oil. Add the diced bell pepper, zucchini, and the white parts of the scallions. Sauté for about 3-4 minutes until slightly tender."
+        },
+        {
+          "step": 6,
+          "text": "Add the minced garlic, ginger, and dried red chilies to the skillet. Cook for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 7,
+          "text": "In a small bowl, mix together the soy sauce, rice vinegar, maple syrup, and vegetable broth. Pour this sauce over the sautéed vegetables."
+        },
+        {
+          "step": 8,
+          "text": "Add the crispy tofu back into the skillet and stir well to coat everything in the sauce. Cook for another 2-3 minutes to heat through."
+        },
+        {
+          "step": 9,
+          "text": "Serve hot, garnished with chopped roasted peanuts, sesame seeds, and the green parts of the scallions."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 310,
+        "protein": "15g",
+        "carbs": "24g",
+        "fat": "18g",
+        "fiber": "3g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","Asian","tofu","spicy","whole-food-plant-based","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Firm tofu is essential for a good texture. You can substitute cornstarch with arrowroot powder if desired. Peanuts can be replaced with cashews for a different nutty flavor.',
+    faqs: [
+        {
+          "question": "Can I use a different protein instead of tofu?",
+          "answer": "Yes, you can substitute tofu with tempeh or seitan for a different texture, but ensure they are cooked appropriately."
+        },
+        {
+          "question": "Is this recipe gluten-free?",
+          "answer": "Use tamari instead of soy sauce to make this dish gluten-free."
+        }
+      ],
+    tips: ["Pressing tofu longer will yield a firmer texture for better crispiness.","Adjust the number of dried chilies based on your spice preference."],
+    variations: ["Add broccoli or snap peas for extra crunch and nutrition.","Substitute maple syrup with agave syrup for a different sweetener."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat on the stove or in the microwave until warmed through.',
+  },
+  {
+    id: '1766993153779.6597',
+    title: 'Vegan Falafel',
+    slug: 'vegan-falafel',
+    description: 'Crispy on the outside and tender on the inside, these homemade falafels are packed with flavor and perfect for any meal.',
+    prologue: 'Discover the ultimate vegan falafel recipe that’s both nutritious and delicious! Made with wholesome ingredients and full of Middle Eastern spices, these falafels are perfect for a quick lunch or dinner. Whether served in a wrap, on a salad, or alone with a dipping sauce, this recipe is a must-try for anyone looking to enjoy plant-based cooking at its finest. For more vegan recipes, visit vegancooking.recipes.',
+    image: '/recipe-images/vegan-falafel-1766993155114.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Dried chickpeas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Soaked in water for at least 8 hours or overnight"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Packed, finely chopped"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Packed, finely chopped"
+        },
+        {
+          "name": "Garlic cloves",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Finely chopped"
+        },
+        {
+          "name": "Ground cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavor"
+        },
+        {
+          "name": "Ground coriander",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavor"
+        },
+        {
+          "name": "Baking powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Helps the falafels rise"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For frying"
+        },
+        {
+          "name": "Tahini",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For serving, optional"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For serving, optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Drain and rinse the soaked chickpeas and place them in a food processor."
+        },
+        {
+          "step": 2,
+          "text": "Add the chopped parsley, cilantro, garlic, onion, cumin, coriander, baking powder, salt, and pepper to the chickpeas."
+        },
+        {
+          "step": 3,
+          "text": "Pulse the mixture until it is a coarse meal, being careful not to over-process it into a paste."
+        },
+        {
+          "step": 4,
+          "text": "Transfer the mixture to a bowl and refrigerate it for at least 30 minutes to help it firm up."
+        },
+        {
+          "step": 5,
+          "text": "Preheat your oven to 375°F (190°C) or heat a deep skillet with olive oil on medium-high heat."
+        },
+        {
+          "step": 6,
+          "text": "Shape the chilled mixture into small balls or patties, about the size of a golf ball."
+        },
+        {
+          "step": 7,
+          "text": "If baking, place the falafel on a lined baking sheet, drizzle with a little olive oil, and bake for about 25-30 minutes, turning halfway through."
+        },
+        {
+          "step": 8,
+          "text": "If frying, carefully drop the falafel into the hot oil and fry for about 3-4 minutes on each side until golden brown."
+        },
+        {
+          "step": 9,
+          "text": "Remove from oil and place on a paper towel to drain excess oil."
+        },
+        {
+          "step": 10,
+          "text": "Serve warm with tahini sauce and a squeeze of lemon juice."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 300,
+        "protein": "12g",
+        "carbs": "45g",
+        "fat": "10g",
+        "fiber": "10g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","falafel","Middle Eastern","whole-food-plant-based","gluten-free","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Dried chickpeas are preferred over canned for better texture. You can substitute parsley with spinach or kale for a different flavor. If you need a gluten-free option, ensure the spices and tahini are certified gluten-free.',
+    faqs: [
+        {
+          "question": "Can I use canned chickpeas?",
+          "answer": "Yes, but the texture will be different; if using canned, drain and rinse well and reduce the baking powder."
+        },
+        {
+          "question": "How can I make these gluten-free?",
+          "answer": "This recipe is already gluten-free as it contains no wheat, just ensure all spices and tahini are gluten-free."
+        }
+      ],
+    tips: ["For extra flavor, add a pinch of cayenne pepper or chili powder to the mixture.","Make sure the oil is hot enough before frying to ensure crispy falafels."],
+    variations: ["Add grated carrots or zucchini for additional nutrients and flavors.","Experiment with spices like smoked paprika or turmeric for a different taste."],
+    storage: 'Store leftover falafels in an airtight container in the refrigerator for up to 4 days. Reheat in the oven to retain crispness.',
+  },
 ];

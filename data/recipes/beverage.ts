@@ -482,4 +482,498 @@ export const beverageRecipes: Recipe[] = [
     variations: ["Add a splash of almond extract for a nutty flavor.","Incorporate a few drops of essential oils like peppermint for a refreshing twist."],
     storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat gently on the stove before serving.',
   },
+  {
+    id: '1766990091116.8208',
+    title: 'Vegan Green Smoothie',
+    slug: 'vegan-green-smoothie',
+    description: 'This refreshing vegan green smoothie is packed with nutrients and flavor, making it the perfect way to start your day or refuel after a workout.',
+    prologue: 'Discover the vibrancy of plant-based nutrition with this delicious vegan green smoothie recipe from vegancooking.recipes. Made with wholesome ingredients like spinach, banana, and almond milk, this smoothie is not only nutrient-dense but also incredibly easy to prepare. Perfect for breakfast or a quick snack, this recipe will keep you energized and satisfied while adhering to a whole-food, plant-based lifestyle.',
+    image: '/recipe-images/vegan-green-smoothie-1766990093124.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Packed tightly, stems removed"
+        },
+        {
+          "name": "Banana",
+          "amount": "1",
+          "unit": "large",
+          "notes": "Frozen for a creamier texture"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Unsweetened preferred"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Optional for added omega-3s"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1/2",
+          "unit": "medium",
+          "notes": "Ripe, for creaminess"
+        },
+        {
+          "name": "Fresh lemon juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "To brighten flavors"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Optional for sweetness"
+        },
+        {
+          "name": "Ice cubes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "To chill the smoothie"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a blender, add 2 cups of fresh spinach. Make sure the stems are removed for a smoother texture."
+        },
+        {
+          "step": 2,
+          "text": "Peel the large banana and break it into chunks, adding it to the blender."
+        },
+        {
+          "step": 3,
+          "text": "Pour in 1 cup of unsweetened almond milk to help blend the ingredients smoothly."
+        },
+        {
+          "step": 4,
+          "text": "Add 1 tablespoon of chia seeds for a nutrient boost and optional 1/2 avocado for creaminess."
+        },
+        {
+          "step": 5,
+          "text": "Squeeze in 1 tablespoon of fresh lemon juice to enhance the flavor."
+        },
+        {
+          "step": 6,
+          "text": "If desired, add 1 tablespoon of maple syrup for sweetness. Adjust to your taste."
+        },
+        {
+          "step": 7,
+          "text": "Finally, add 1 cup of ice cubes to chill the smoothie."
+        },
+        {
+          "step": 8,
+          "text": "Blend on high until smooth and creamy, about 30-60 seconds."
+        },
+        {
+          "step": 9,
+          "text": "Taste and adjust sweetness or thickness as needed, then blend again if necessary."
+        },
+        {
+          "step": 10,
+          "text": "Pour the smoothie into glasses and serve immediately for the best flavor and texture."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "6g",
+        "carbs": "42g",
+        "fat": "9g",
+        "fiber": "10g",
+        "sugar": "18g"
+      },
+    tags: ["smoothie","vegan","healthy","breakfast","snack","beverage","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Fresh spinach is high in vitamins and minerals. For a sweeter smoothie, ensure your banana is very ripe. You can substitute almond milk with any plant-based milk of your choice. If you’re allergic to nuts, consider using oat milk or soy milk.',
+    faqs: [
+        {
+          "question": "Can I use other greens instead of spinach?",
+          "answer": "Yes, you can substitute kale or Swiss chard, but keep in mind that this may slightly alter the flavor."
+        },
+        {
+          "question": "How can I make it sweeter?",
+          "answer": "You can add more maple syrup, a pitted medjool date, or another ripe banana if you prefer a sweeter taste."
+        }
+      ],
+    tips: ["For added protein, consider adding a scoop of plant-based protein powder.","Blend the greens and liquid first before adding fruits for a smoother consistency."],
+    variations: ["Add a tablespoon of nut butter for extra creaminess and protein.","Substitute half the spinach with kale for a different nutrient profile."],
+    storage: 'This smoothie is best enjoyed fresh, but if you have leftovers, store it in an airtight container in the refrigerator for up to 24 hours. Shake well before consuming as separation may occur.',
+  },
+  {
+    id: '1766990698161.687',
+    title: 'Vegan Vegetable Juice',
+    slug: 'vegan-vegetable-juice',
+    description: 'Revitalize your day with this refreshing and nutrient-packed vegetable juice, bursting with the vibrant flavors of fresh produce.',
+    prologue: 'This homemade vegan vegetable juice is a fantastic way to incorporate more vitamins and minerals into your diet while enjoying a delicious drink. Made with whole food plant-based ingredients, it\'s perfect for a quick breakfast or a mid-day pick-me-up. At vegancooking.recipes, we encourage you to explore the richness of plant-based living through simple and satisfying recipes like this one.',
+    image: '/recipe-images/vegan-vegetable-juice-1766990699487.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Carrots",
+          "amount": "4",
+          "unit": "medium",
+          "notes": "peeled and chopped"
+        },
+        {
+          "name": "Celery",
+          "amount": "3",
+          "unit": "stalks",
+          "notes": "chopped"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "washed and chopped"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "fresh, packed"
+        },
+        {
+          "name": "Tomatoes",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "cored and chopped"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "juiced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "peeled and chopped"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "filtered or spring"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "pinch",
+          "notes": "optional, to taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by preparing all your vegetables. Peel and chop the carrots, wash and chop the cucumber, and core and chop the tomatoes."
+        },
+        {
+          "step": 2,
+          "text": "In a blender, combine the chopped carrots, celery, cucumber, spinach, tomatoes, and ginger."
+        },
+        {
+          "step": 3,
+          "text": "Add the lemon juice and water to the blender."
+        },
+        {
+          "step": 4,
+          "text": "Blend on high speed until smooth. If the mixture is too thick, add more water as needed."
+        },
+        {
+          "step": 5,
+          "text": "Once blended, strain the juice through a fine mesh sieve or nut milk bag into a large bowl or pitcher to remove the pulp."
+        },
+        {
+          "step": 6,
+          "text": "Taste the juice and add a pinch of salt if desired."
+        },
+        {
+          "step": 7,
+          "text": "Pour the juice into glasses and serve immediately, or refrigerate for up to 24 hours."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 75,
+        "protein": "3g",
+        "carbs": "17g",
+        "fat": "0g",
+        "fiber": "4g",
+        "sugar": "6g"
+      },
+    tags: ["beverage","juice","vegan","whole food plant based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Fresh vegetables are key to a vibrant juice. Feel free to substitute any vegetables based on your preference, such as adding beets for sweetness or kale for extra nutrients.',
+    faqs: [
+        {
+          "question": "Can I use frozen vegetables?",
+          "answer": "Yes, you can use frozen vegetables, but fresh produce will yield a better flavor and texture."
+        },
+        {
+          "question": "How long can I store the juice?",
+          "answer": "It is best consumed fresh, but you can store it in an airtight container in the refrigerator for up to 24 hours."
+        }
+      ],
+    tips: ["For a more refreshing taste, chill your vegetables in the refrigerator before juicing.","Experiment with different herbs like parsley or cilantro for additional flavor."],
+    variations: ["Add a green apple for a touch of sweetness.","Include a handful of parsley or mint for a refreshing twist."],
+    storage: 'Store the juice in an airtight container in the refrigerator for up to 24 hours. Shake well before drinking, as separation may occur.',
+  },
+  {
+    id: '1766991787345.2024',
+    title: 'Vegan Tropical Fruit Punch',
+    slug: 'vegan-tropical-fruit-punch',
+    description: 'This refreshing tropical fruit punch is packed with vibrant flavors and perfect for any gathering, celebration, or simply enjoying on a hot day.',
+    prologue: 'Looking for a delightful and refreshing beverage that will impress your guests? This Vegan Tropical Fruit Punch combines the sweetness of fresh fruits with the zing of citrus, creating a thirst-quenching drink that\'s perfect for any occasion. Check out vegancooking.recipes for more amazing vegan recipes and elevate your beverage game with this easy-to-make punch.',
+    image: '/recipe-images/vegan-tropical-fruit-punch-1766991788618.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 8,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh pineapple",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "chopped into small pieces"
+        },
+        {
+          "name": "Fresh strawberries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "sliced"
+        },
+        {
+          "name": "Fresh mango",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "chopped into small pieces"
+        },
+        {
+          "name": "Fresh orange juice",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "freshly squeezed for best flavor"
+        },
+        {
+          "name": "Fresh lime juice",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Coconut water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "unsweetened"
+        },
+        {
+          "name": "Sparkling water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "to add fizz"
+        },
+        {
+          "name": "Agave syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "optional, adjust to taste"
+        },
+        {
+          "name": "Fresh mint leaves",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pitcher, combine the chopped fresh pineapple, sliced strawberries, and chopped mango."
+        },
+        {
+          "step": 2,
+          "text": "Add the freshly squeezed orange juice and lime juice to the fruit mixture."
+        },
+        {
+          "step": 3,
+          "text": "Pour in the coconut water and gently stir to combine all ingredients."
+        },
+        {
+          "step": 4,
+          "text": "If desired, add agave syrup for sweetness and stir well."
+        },
+        {
+          "step": 5,
+          "text": "Just before serving, add the sparkling water to the mixture to give it a refreshing fizz."
+        },
+        {
+          "step": 6,
+          "text": "Serve the punch over ice in individual glasses and garnish with fresh mint leaves."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 90,
+        "protein": "1g",
+        "carbs": "23g",
+        "fat": "0g",
+        "fiber": "2g",
+        "sugar": "15g"
+      },
+    tags: ["beverage","punch","vegan","refreshing","summer","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute any of the fruits with seasonal options or your favorites. For a less sweet punch, reduce or omit the agave syrup. Ensure to use fresh juices for the best flavor.',
+    faqs: [
+        {
+          "question": "Can I make this punch ahead of time?",
+          "answer": "Yes, you can prepare the fruit mixture and juices a few hours ahead. Add the sparkling water just before serving to maintain the fizz."
+        },
+        {
+          "question": "Is this punch suitable for children?",
+          "answer": "Absolutely! This punch is made with wholesome ingredients and is perfect for kids and adults alike."
+        }
+      ],
+    tips: ["Use chilled ingredients to keep the punch cold without needing too much ice.","Experiment with different fruits like kiwi or berries for variety."],
+    variations: ["Add a splash of rum for an adult version.","Include herbal tea, like hibiscus, for a unique flavor."],
+    storage: 'Store any leftover punch in the refrigerator for up to 24 hours, but be aware that the sparkling water will lose its fizz over time.',
+  },
+  {
+    id: '1766992851704.201',
+    title: 'Vegan Herbal Tea',
+    slug: 'vegan-herbal-tea',
+    description: 'A soothing blend of fresh herbs that invigorate the senses and promote relaxation, perfect for any time of the day.',
+    prologue: 'Discover the art of crafting your own herbal tea with this simple and delightful recipe. With a perfect balance of flavors from fresh herbs and spices, this vegan herbal tea is not only refreshing but also packed with wellness benefits. At vegancooking.recipes, we believe in using whole-food, plant-based ingredients to create beverages that nourish both body and soul.',
+    image: '/recipe-images/vegan-herbal-tea-1766992852951.webp',
+    prepTime: 10,
+    cookTime: 5,
+    totalTime: 15,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh mint leaves",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Lightly packed"
+        },
+        {
+          "name": "Fresh chamomile flowers",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Or 2 tbsp of dried chamomile"
+        },
+        {
+          "name": "Fresh lemon balm leaves",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Lightly packed"
+        },
+        {
+          "name": "Fresh ginger root",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "Peeled and sliced"
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Filtered or spring water preferred"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Freshly squeezed, optional for added flavor"
+        },
+        {
+          "name": "Honey or agave syrup",
+          "amount": "to taste",
+          "unit": "optional",
+          "notes": "For sweetness, optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by gathering all your fresh herbs and ingredients. Rinse the mint, chamomile, and lemon balm leaves thoroughly under cold water."
+        },
+        {
+          "step": 2,
+          "text": "In a medium-sized saucepan, bring 4 cups of filtered water to a boil over medium-high heat."
+        },
+        {
+          "step": 3,
+          "text": "Once the water is boiling, reduce the heat to low and add the sliced ginger, fresh mint, chamomile flowers, and lemon balm leaves."
+        },
+        {
+          "step": 4,
+          "text": "Cover the saucepan and let the herbal mixture steep for about 5 minutes. If you prefer a stronger flavor, you can steep for an additional 2-3 minutes."
+        },
+        {
+          "step": 5,
+          "text": "After steeping, remove the saucepan from heat and strain the tea through a fine mesh strainer into a teapot or heatproof pitcher."
+        },
+        {
+          "step": 6,
+          "text": "If desired, add freshly squeezed lemon juice and sweeten with honey or agave syrup to taste. Stir well."
+        },
+        {
+          "step": 7,
+          "text": "Serve the herbal tea hot or let it cool and serve over ice for a refreshing cold beverage."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 20,
+        "protein": "0g",
+        "carbs": "5g",
+        "fat": "0g",
+        "fiber": "0g",
+        "sugar": "0g"
+      },
+    tags: ["herbal tea","vegan","beverage","whole-food-plant-based","refreshing"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute the herbs with your favorites, such as lavender or rosemary, based on your preference. Fresh herbs provide the best flavor, but dried herbs can also be used in smaller quantities.',
+    faqs: [
+        {
+          "question": "Can I use dried herbs instead of fresh?",
+          "answer": "Yes, you can use dried herbs, but use about 1/3 of the amount as dried herbs are more concentrated in flavor."
+        },
+        {
+          "question": "How long can I store leftover herbal tea?",
+          "answer": "You can store leftover tea in the refrigerator for up to 3 days. Reheat it on the stove or enjoy it cold."
+        }
+      ],
+    tips: ["Experiment with different herb combinations to find your perfect blend.","For a caffeine-free option, always stick to herbal ingredients."],
+    variations: ["Add a splash of your favorite fruit juice for a fruity twist.","Incorporate spices like cinnamon or turmeric for added health benefits."],
+    storage: 'Store any leftover tea in a sealed container in the refrigerator for up to 3 days. Reheat gently on the stove before serving or enjoy chilled.',
+  },
 ];
