@@ -660,8 +660,8 @@ function loadAllExistingRecipes(): { bySlug: Map<string, Recipe>, byTitle: Map<s
     const originalPath = path.join(process.cwd(), 'data', 'recipes', 'originalRecipesData.ts');
     if (fs.existsSync(originalPath)) {
       const originalContent = fs.readFileSync(originalPath, 'utf-8');
-      const slugMatches = originalContent.matchAll(/slug:\s*'([^']+)'/g);
-      const titleMatches = originalContent.matchAll(/title:\s*'([^']+)'/g);
+      const slugMatches = Array.from(originalContent.matchAll(/slug:\s*'([^']+)'/g));
+      const titleMatches = Array.from(originalContent.matchAll(/title:\s*'([^']+)'/g));
       
       // Extract slugs and titles (we'll use these for checking)
       for (const match of slugMatches) {
