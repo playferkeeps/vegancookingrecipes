@@ -102,12 +102,12 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
         </RecaptchaProvider>
-        {/* Google Analytics - Load with afterInteractive strategy for proper detection */}
+        {/* Google Analytics - Load with beforeInteractive to place in head for detection */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-5PG8FMRN5R"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
