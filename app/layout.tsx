@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   creator: 'vegancooking.recipes',
   publisher: 'vegancooking.recipes',
   alternates: {
-    canonical: 'https://vegancooking.recipes',
+    canonical: 'https://vegancooking.recipes/',
   },
   openGraph: {
     type: 'website',

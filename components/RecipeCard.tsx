@@ -1,12 +1,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Recipe } from '@/types/recipe';
+import SocialShareCompact from './SocialShareCompact';
 
 interface RecipeCardProps {
   recipe: Recipe;
 }
 
 export default function RecipeCard({ recipe }: RecipeCardProps) {
+  // Ensure image URL is absolute for social sharing
+  const imageUrl = recipe.image.startsWith('http') 
+    ? recipe.image 
+    : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
+  
+  const recipeUrl = `https://vegancooking.recipes/recipes/${recipe.slug}`;
+  const shareTitle = `${recipe.title} - Vegan Recipe | vegancooking.recipes`;
+  const shareDescription = recipe.description || `Delicious vegan ${recipe.title} recipe. Find this and more plant-based recipes at vegancooking.recipes`;
+
   return (
     <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
       <Link href={`/recipes/${recipe.slug}`} className="block">
@@ -27,7 +37,7 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
             <span className="whitespace-nowrap">{recipe.servings} servings</span>
             <span className="capitalize whitespace-nowrap">{recipe.difficulty}</span>
           </div>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
             {recipe.category.slice(0, 2).map((cat) => (
               <span
                 key={cat}
@@ -39,6 +49,14 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           </div>
         </div>
       </Link>
+      <div className="px-4 sm:px-5 md:px-6 pb-4 sm:pb-5 md:pb-6 pt-0 flex justify-end">
+        <SocialShareCompact
+          url={recipeUrl}
+          title={shareTitle}
+          description={shareDescription}
+          image={imageUrl}
+        />
+      </div>
     </article>
   );
 }

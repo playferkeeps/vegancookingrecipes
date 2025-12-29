@@ -889,113 +889,88 @@ async function main() {
     
     try {
       // STRICT UNIQUE PROTOCOL: Find a unique title BEFORE generating
-      // This prevents wasting API calls on duplicates
+      // Retry loop: Keep checking until unique is found, max 100 attempts
       let uniqueTitle: string | null = null;
-      let attempts = 0;
-      const maxTitleAttempts = 50;
+      let uniqueSlug: string | null = null;
+      let checkAttempts = 0;
+      const maxCheckAttempts = 100;
       
-      // First, check if the original title from the plan is actually unique
-      let originalTitleIsUnique = false;
-      if (originalTitle) {
-        const normalizedOriginal = originalTitle.toLowerCase().trim();
-        const originalSlug = generateSlug(originalTitle);
+      // Start with the original title from the plan, or get a random one
+      let candidateTitle: string | null = originalTitle || getRandomRecipeTitle(category);
+      
+      while (checkAttempts < maxCheckAttempts) {
+        checkAttempts++;
         
-        // Check if original title is not in existing recipes and not attempted in this batch
-        if (!existingRecipes.byTitle.has(normalizedOriginal) && 
-            !existingRecipes.bySlug.has(originalSlug) &&
-            !attemptedTitles.has(normalizedOriginal) && 
-            !attemptedSlugs.has(originalSlug)) {
-          originalTitleIsUnique = true;
-          uniqueTitle = originalTitle;
-          attemptedTitles.add(normalizedOriginal);
-          attemptedSlugs.add(originalSlug);
-        }
-      }
-      
-      // If original title is not unique, find a different one
-      if (!originalTitleIsUnique) {
-        // Keep trying until we find a unique title that hasn't been attempted in this batch
-        while (attempts < maxTitleAttempts) {
-          const candidateTitle = getUniqueRecipeTitle(category, existingRecipes);
-          
+        if (!candidateTitle) {
+          // No more titles available, try getting a random one
+          candidateTitle = getRandomRecipeTitle(category);
           if (!candidateTitle) {
-            break; // No more titles available in category
+            console.log(`   ⚠️  SKIPPED: No more recipe titles available for ${category} category.`);
+            skippedCount++;
+            break; // Exit the retry loop
           }
+        }
+        
+        const normalizedCandidate = candidateTitle.toLowerCase().trim();
+        const candidateSlug = generateSlug(candidateTitle);
+        
+        // Check if this title/slug is unique (not in existing recipes AND not attempted in this batch)
+        const isTitleUnique = !existingRecipes.byTitle.has(normalizedCandidate) && 
+                              !attemptedTitles.has(normalizedCandidate);
+        const isSlugUnique = !existingRecipes.bySlug.has(candidateSlug) && 
+                             !attemptedSlugs.has(candidateSlug);
+        
+        if (isTitleUnique && isSlugUnique) {
+          // Double-check with the duplicate function
+          const testRecipe = { title: candidateTitle, slug: candidateSlug } as Recipe;
+          const duplicateCheck = isDuplicateRecipe(testRecipe, existingRecipes);
           
-          const normalizedCandidate = candidateTitle.toLowerCase().trim();
-          const candidateSlug = generateSlug(candidateTitle);
-          
-          // Check if this title/slug was already attempted in this batch
-          if (!attemptedTitles.has(normalizedCandidate) && !attemptedSlugs.has(candidateSlug)) {
-            // Also check against existing recipes (double-check)
-            const testRecipe = { title: candidateTitle, slug: candidateSlug } as Recipe;
-            const duplicateCheck = isDuplicateRecipe(testRecipe, existingRecipes);
+          if (!duplicateCheck.isDuplicate) {
+            // Found a unique title and slug!
+            uniqueTitle = candidateTitle;
+            uniqueSlug = candidateSlug;
+            attemptedTitles.add(normalizedCandidate);
+            attemptedSlugs.add(candidateSlug);
             
-            if (!duplicateCheck.isDuplicate) {
-              uniqueTitle = candidateTitle;
-              attemptedTitles.add(normalizedCandidate);
-              attemptedSlugs.add(candidateSlug);
-              break;
+            if (originalTitle && normalizedCandidate !== originalTitle.toLowerCase().trim()) {
+              console.log(`   ℹ️  Original title "${originalTitle}" was duplicate, using: "${uniqueTitle}"`);
             }
+            break; // Exit the retry loop - we found a unique title
+          } else {
+            // Mark as attempted even though it's a duplicate
+            attemptedTitles.add(normalizedCandidate);
+            attemptedSlugs.add(candidateSlug);
+            console.log(`   ⚠️  Attempt ${checkAttempts}/${maxCheckAttempts}: "${candidateTitle}" is duplicate (${duplicateCheck.reason}). Trying another...`);
           }
+        } else {
+          // Mark as attempted
+          attemptedTitles.add(normalizedCandidate);
+          attemptedSlugs.add(candidateSlug);
           
-          attempts++;
-        }
-        
-        if (!uniqueTitle) {
-          console.log(`   ⚠️  SKIPPED: Could not find a unique recipe title for ${category} after ${maxTitleAttempts} attempts.`);
-          console.log(`   📋 STRICT UNIQUE PROTOCOL: All available titles in this category appear to be taken or already attempted.`);
-          skippedCount++;
-          continue;
-        }
-        
-        // Only log if the original title actually existed (was a duplicate)
-        if (originalTitle) {
-          const normalizedOriginal = originalTitle.toLowerCase().trim();
-          if (existingRecipes.byTitle.has(normalizedOriginal) || existingRecipes.bySlug.has(generateSlug(originalTitle))) {
-            console.log(`   ℹ️  Original title "${originalTitle}" already exists, using unique title: "${uniqueTitle}"`);
+          if (!isTitleUnique) {
+            console.log(`   ⚠️  Attempt ${checkAttempts}/${maxCheckAttempts}: Title "${candidateTitle}" already exists. Trying another...`);
+          } else if (!isSlugUnique) {
+            console.log(`   ⚠️  Attempt ${checkAttempts}/${maxCheckAttempts}: Slug "${candidateSlug}" already exists. Trying another...`);
           }
         }
+        
+        // Get a new candidate title for the next iteration
+        candidateTitle = getUniqueRecipeTitle(category, existingRecipes);
       }
       
-      // FINAL PRE-GENERATION CHECK: Verify the slug that will be generated is unique
-      const expectedSlug = generateSlug(uniqueTitle!);
-      if (existingRecipes.bySlug.has(expectedSlug) || attemptedSlugs.has(expectedSlug)) {
-        console.log(`   ⚠️  SKIPPED: Slug "${expectedSlug}" would be a duplicate. Finding new title...`);
-        // Mark as attempted and continue to find a new title
-        attemptedSlugs.add(expectedSlug);
-        attemptedTitles.add(uniqueTitle!.toLowerCase().trim());
-        // Try to find a new unique title
-        let foundNewTitle = false;
-        for (let retry = 0; retry < 10; retry++) {
-          const newCandidate = getUniqueRecipeTitle(category, existingRecipes);
-          if (newCandidate) {
-            const newSlug = generateSlug(newCandidate);
-            const normalizedNew = newCandidate.toLowerCase().trim();
-            if (!existingRecipes.byTitle.has(normalizedNew) && 
-                !existingRecipes.bySlug.has(newSlug) &&
-                !attemptedTitles.has(normalizedNew) && 
-                !attemptedSlugs.has(newSlug)) {
-              uniqueTitle = newCandidate;
-              attemptedTitles.add(normalizedNew);
-              attemptedSlugs.add(newSlug);
-              foundNewTitle = true;
-              break;
-            }
-          }
-        }
-        if (!foundNewTitle) {
-          console.log(`   ⚠️  SKIPPED: Could not find a unique recipe title/slug for ${category}.`);
-          skippedCount++;
-          continue;
-        }
+      // If we exhausted all attempts without finding a unique title, skip this recipe
+      if (!uniqueTitle || !uniqueSlug) {
+        console.log(`   ⚠️  SKIPPED: Could not find a unique recipe title/slug for ${category} after ${checkAttempts} attempts.`);
+        console.log(`   📋 STRICT UNIQUE PROTOCOL: Maximum check attempts (${maxCheckAttempts}) reached.`);
+        skippedCount++;
+        continue;
       }
       
       console.log(`   📝 Generating: "${uniqueTitle}" (${category})...`);
-      console.log(`   🔍 Pre-check: Title and slug are unique before API call`);
+      console.log(`   🔍 Pre-check: Title and slug are unique before API call (verified after ${checkAttempts} check(s))`);
       
       // Generate the recipe with the unique title
-      const recipe = await generateRecipeWithOpenAI({
+      let recipe = await generateRecipeWithOpenAI({
         title: uniqueTitle!,
         category: [category],
         veganType: ['whole-food-plant-based'],
@@ -1003,7 +978,30 @@ async function main() {
       
       // CRITICAL: Always check for duplicates after generation
       // Even though we checked before, OpenAI might have modified the title despite our instructions
-      const duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
+      let duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
+      let isDuplicateInBatch = attemptedSlugs.has(recipe.slug) || attemptedTitles.has(recipe.title.toLowerCase().trim());
+      let titleChanged = recipe.title.toLowerCase().trim() !== uniqueTitle!.toLowerCase().trim();
+      
+      // If OpenAI changed the title, check if the new title/slug is unique
+      if (titleChanged) {
+        console.log(`   ⚠️  WARNING: OpenAI changed title from "${uniqueTitle}" to "${recipe.title}"`);
+        duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
+        isDuplicateInBatch = attemptedSlugs.has(recipe.slug) || attemptedTitles.has(recipe.title.toLowerCase().trim());
+        
+        if (duplicateCheck.isDuplicate || isDuplicateInBatch) {
+          console.log(`   ❌ DUPLICATE DETECTED due to title change: ${duplicateCheck.reason || 'slug/title already in batch'}`);
+          console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved. Marking as attempted and skipping.`);
+          
+          // Mark as attempted
+          attemptedTitles.add(recipe.title.toLowerCase().trim());
+          attemptedSlugs.add(recipe.slug);
+          
+          failCount++;
+          continue;
+        }
+      }
+      
+      // Final duplicate check
       if (duplicateCheck.isDuplicate) {
         console.log(`   ❌ DUPLICATE DETECTED after generation: ${duplicateCheck.reason}`);
         console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved (this should be rare).`);
@@ -1016,27 +1014,17 @@ async function main() {
         continue;
       }
       
-      // Also check if the generated slug conflicts with any attempted slugs in this batch
-      if (attemptedSlugs.has(recipe.slug)) {
-        console.log(`   ❌ DUPLICATE SLUG DETECTED in this batch: "${recipe.slug}"`);
+      // Check if the generated slug conflicts with any attempted slugs in this batch
+      if (isDuplicateInBatch) {
+        console.log(`   ❌ DUPLICATE SLUG/TITLE DETECTED in this batch: "${recipe.slug}"`);
         console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved.`);
+        
+        // Mark as attempted
+        attemptedTitles.add(recipe.title.toLowerCase().trim());
+        attemptedSlugs.add(recipe.slug);
+        
         failCount++;
         continue;
-      }
-      
-      // Verify OpenAI didn't change the title (which would change the slug)
-      if (recipe.title.toLowerCase().trim() !== uniqueTitle!.toLowerCase().trim()) {
-        console.log(`   ⚠️  WARNING: OpenAI changed title from "${uniqueTitle}" to "${recipe.title}"`);
-        // Re-check the new slug
-        const newSlugCheck = isDuplicateRecipe(recipe, existingRecipes);
-        if (newSlugCheck.isDuplicate) {
-          console.log(`   ❌ DUPLICATE DETECTED due to title change: ${newSlugCheck.reason}`);
-          console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved.`);
-          attemptedTitles.add(recipe.title.toLowerCase().trim());
-          attemptedSlugs.add(recipe.slug);
-          failCount++;
-          continue;
-        }
       }
 
       console.log(`✅ Generated: ${recipe.title}`);

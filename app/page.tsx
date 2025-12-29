@@ -4,6 +4,7 @@ import { getAllRecipes, getRecipesByCategory } from '@/data/recipes';
 import RecipeCard from '@/components/RecipeCard';
 import AdBanner from '@/components/AdBanner';
 import AdInFeed from '@/components/AdInFeed';
+import SocialShare from '@/components/SocialShare';
 import { Recipe } from '@/types/recipe';
 
 // Generate Organization schema for homepage SEO (2025/2026 best practice)
@@ -59,7 +60,7 @@ export const metadata = {
     siteName: 'vegancooking.recipes',
   },
   alternates: {
-    canonical: 'https://vegancooking.recipes',
+    canonical: 'https://vegancooking.recipes/',
   },
 };
 
@@ -129,8 +130,9 @@ export default function Home() {
             <Link
               href="/recipes"
               className="inline-block bg-white text-green-600 font-semibold py-3 sm:py-3.5 px-6 sm:px-8 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
+              aria-label="Browse all vegan recipes"
             >
-              Browse All Recipes
+              Browse Recipes
             </Link>
           </div>
         </section>
@@ -141,6 +143,18 @@ export default function Home() {
         {/* Featured Recipes */}
         <section className="py-16 container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Featured Vegan Recipes</h2>
+          <p className="text-gray-600 mb-6 text-center max-w-3xl mx-auto">
+            Explore our handpicked selection of the best vegan recipes. Each recipe is carefully crafted to be delicious, nutritious, and easy to follow. Whether you&apos;re new to plant-based cooking or a seasoned vegan chef, you&apos;ll find something to love in our collection.
+          </p>
+          <div className="mb-8 flex flex-col items-center gap-3">
+            <p className="text-sm font-semibold text-gray-700">Share vegancooking.recipes with friends:</p>
+            <SocialShare
+              url="https://vegancooking.recipes"
+              title="Vegan Recipes - Plant-Based Meals | vegancooking.recipes"
+              description="Discover delicious vegan recipes for every meal. Plant-based cooking with baking, savory dishes, and international cuisine."
+              image="https://vegancooking.recipes/img/vcr-logo-lg.png"
+            />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredRecipes.map((recipe, index) => (
               <div key={recipe.id}>
@@ -171,7 +185,7 @@ export default function Home() {
                   className="inline-block text-green-600 hover:text-green-700 font-semibold focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-2.5 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                   aria-label="Browse all vegan baking recipes"
                 >
-                  View All Baking Recipes →
+                  More Baking Recipes
                 </Link>
               </div>
             </div>
@@ -192,7 +206,7 @@ export default function Home() {
                   className="inline-block text-green-600 hover:text-green-700 font-semibold focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-2.5 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                   aria-label="Browse all savory vegan recipes"
                 >
-                  View All Savory Recipes →
+                  More Savory Recipes
                 </Link>
               </div>
             </div>
@@ -213,7 +227,7 @@ export default function Home() {
                   className="inline-block text-green-600 hover:text-green-700 font-semibold focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-2.5 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
                   aria-label="Browse all international vegan recipes"
                 >
-                  View All International Recipes →
+                  More International Recipes
                 </Link>
               </div>
             </div>

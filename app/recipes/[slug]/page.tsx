@@ -31,6 +31,10 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
+  // Ensure image URL is absolute for Open Graph
+  const imageUrl = recipe.image.startsWith('http') 
+    ? recipe.image 
+    : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
   
   return {
     title: `${recipe.title} - Vegan Recipe | vegancooking.recipes`,
@@ -43,7 +47,7 @@ export async function generateMetadata({ params }: PageProps) {
       siteName: 'vegancooking.recipes',
       images: [
         {
-          url: recipe.image,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: recipe.title,
@@ -51,13 +55,19 @@ export async function generateMetadata({ params }: PageProps) {
       ],
       locale: 'en_US',
       type: 'article',
+      publishedTime: recipe.datePublished,
+      modifiedTime: recipe.dateModified || recipe.datePublished,
+      authors: ['vegancooking.recipes'],
+      section: recipe.category[0] || 'Recipes',
+      tags: recipe.tags,
     },
     twitter: {
       card: 'summary_large_image',
       title: `${recipe.title} | vegancooking.recipes`,
       description: `${recipe.description} - Find this and more vegan recipes at vegancooking.recipes`,
-      images: [recipe.image],
+      images: [imageUrl],
       site: '@vegancooking',
+      creator: '@vegancooking',
     },
     alternates: {
       canonical: url,
@@ -81,7 +91,10 @@ export async function generateStaticParams() {
 // Generate JSON-LD structured data for SEO (2025/2026 best practices)
 function generateStructuredData(recipe: Recipe) {
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
-  const imageUrl = recipe.image.startsWith('http') ? recipe.image : `https://vegancooking.recipes${recipe.image}`;
+  // Ensure image URL is absolute for structured data
+  const imageUrl = recipe.image.startsWith('http') 
+    ? recipe.image 
+    : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
   
   // Base Recipe schema
   const recipeSchema: any = {

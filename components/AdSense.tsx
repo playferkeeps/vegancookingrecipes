@@ -45,6 +45,8 @@ export default function AdSense({
           ...style,
         }}
         suppressHydrationWarning
+        aria-label="Advertisement"
+        role="region"
       />
     );
   }
@@ -61,6 +63,8 @@ export default function AdSense({
       data-ad-format={adFormat}
       data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
       suppressHydrationWarning
+      aria-label="Advertisement"
+      role="region"
     />
   );
 }
