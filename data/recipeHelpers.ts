@@ -39,58 +39,12 @@ export function generateSlug(title: string): string {
 }
 
 /**
- * Get random image URL for a category
+ * Get placeholder image URL - using a simple data URI placeholder
+ * Images should be added per recipe when actual photos are available
  */
 export function getImageUrl(category: RecipeCategory): string {
-  const imageMap: Record<RecipeCategory, string[]> = {
-    baking: [
-      'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800',
-      'https://images.unsplash.com/photo-1587132137056-bfbf0166836f?w=800',
-      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=800',
-    ],
-    savory: [
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800',
-      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800',
-      'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800',
-    ],
-    ethnic: [
-      'https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800',
-      'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800',
-      'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800',
-    ],
-    breakfast: [
-      'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=800',
-      'https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?w=800',
-      'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800',
-    ],
-    lunch: [
-      'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800',
-      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800',
-      'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800',
-    ],
-    dinner: [
-      'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=800',
-      'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800',
-      'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800',
-    ],
-    dessert: [
-      'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800',
-      'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800',
-      'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800',
-    ],
-    snack: [
-      'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=800',
-      'https://images.unsplash.com/photo-1504113888839-1c8eb50233d9?w=800',
-      'https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800',
-    ],
-    beverage: [
-      'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800',
-      'https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=800',
-      'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800',
-    ],
-  };
-  
-  const images = imageMap[category] || imageMap.savory;
-  return images[Math.floor(Math.random() * images.length)];
+  // Return a simple placeholder - actual recipe images should be added individually
+  // Using a 1x1 transparent pixel as placeholder
+  return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzljYTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIENvbWluZyBTb29uPC90ZXh0Pjwvc3ZnPg==';
 }
 

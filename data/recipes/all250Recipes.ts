@@ -28,6 +28,7 @@ const recipeDetails: Record<string, {
   faqs?: Array<{ question: string; answer: string }>;
   tips?: string[];
   variations?: string[];
+  storage?: string;
   ingredientNotes?: string;
 }> = {
   // Baking recipes details
@@ -175,7 +176,7 @@ const ethnicTitles = [
 ];
 
 ethnicTitles.forEach(title => {
-  allRecipes.push(createBasicRecipe(
+  allRecipes.push(createEnhancedRecipe(
     title,
     ['ethnic', 'dinner'],
     ['whole-food-plant-based'],

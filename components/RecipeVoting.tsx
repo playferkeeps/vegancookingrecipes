@@ -82,7 +82,7 @@ export default function RecipeVoting({ recipeId }: RecipeVotingProps) {
 
   const totalVotes = voteData.upVotes + voteData.downVotes;
   const rating = totalVotes > 0 
-    ? ((voteData.upVotes / totalVotes) * 100).toFixed(0)
+    ? Math.round((voteData.upVotes / totalVotes) * 100)
     : 0;
 
   return (
@@ -157,7 +157,7 @@ export default function RecipeVoting({ recipeId }: RecipeVotingProps) {
               className="bg-green-600 h-2 rounded-full transition-all duration-300"
               style={{ width: `${rating}%` }}
               role="progressbar"
-              aria-valuenow={parseInt(rating)}
+              aria-valuenow={rating}
               aria-valuemin={0}
               aria-valuemax={100}
               aria-label={`${rating}% of users found this recipe helpful`}

@@ -1,6 +1,7 @@
 import { Recipe } from '@/types/recipe';
-import { originalRecipes } from '../recipes';
 import { all250Recipes } from './all250Recipes';
+// Import original recipes from a separate file to avoid circular dependency
+import { originalRecipes } from './originalRecipesData';
 import { bakingRecipes } from './baking';
 import { savoryRecipes } from './savory';
 import { ethnicRecipes } from './ethnic';

@@ -3,9 +3,10 @@ import { getRecipeBySlug } from '@/data/recipes';
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
-  const recipe = getRecipeBySlug(params.slug);
+  const { slug } = await params;
+  const recipe = getRecipeBySlug(slug);
 
   if (!recipe) {
     return NextResponse.json({ error: 'Recipe not found' }, { status: 404 });
