@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { getAllRecipes, getRecipesByCategory } from '@/data/recipes';
 import RecipeCard from '@/components/RecipeCard';
+import AdBanner from '@/components/AdBanner';
+import AdInFeed from '@/components/AdInFeed';
 
 export const metadata = {
   title: 'Home - Delicious Vegan Recipes for Every Meal | vegancooking.recipes',
@@ -46,12 +48,19 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Top Banner Ad */}
+        <AdBanner />
+
         {/* Featured Recipes */}
         <section className="py-16 container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Featured Recipes</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredRecipes.map((recipe) => (
-              <RecipeCard key={recipe.id} recipe={recipe} />
+            {featuredRecipes.map((recipe, index) => (
+              <div key={recipe.id}>
+                <RecipeCard recipe={recipe} />
+                {/* In-feed ad after 3rd recipe */}
+                {index === 2 && <AdInFeed />}
+              </div>
             ))}
           </div>
         </section>

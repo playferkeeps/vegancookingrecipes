@@ -8,6 +8,9 @@ import RecipeVoting from '@/components/RecipeVoting';
 import RecipeFAQ from '@/components/RecipeFAQ';
 import RecipeTips from '@/components/RecipeTips';
 import RelatedRecipes from '@/components/RelatedRecipes';
+import IngredientsList from '@/components/IngredientsList';
+import AdBanner from '@/components/AdBanner';
+import AdRectangle from '@/components/AdRectangle';
 import { Recipe } from '@/types/recipe';
 
 interface PageProps {
@@ -210,9 +213,17 @@ export default async function RecipePage({ params }: PageProps) {
         {/* Prologue Section */}
         <section className="mb-8">
           <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed text-lg mb-6">
-              {recipe.prologue}
-            </p>
+            {recipe.prologue
+              .split(/(?<=[.!?])\s+/)
+              .filter(sentence => sentence.trim().length > 0)
+              .map((sentence, index) => {
+                const trimmedSentence = sentence.trim();
+                return (
+                  <p key={index} className="text-gray-700 leading-relaxed text-lg mb-4">
+                    {trimmedSentence}
+                  </p>
+                );
+              })}
           </div>
 
           {/* What Makes This Recipe Special - SEO Section */}
@@ -249,6 +260,9 @@ export default async function RecipePage({ params }: PageProps) {
             </a>
           </div>
         </section>
+
+        {/* Banner Ad After Prologue */}
+        <AdBanner />
 
         {/* Tips, Variations, and Storage */}
         <RecipeTips
@@ -340,23 +354,10 @@ export default async function RecipePage({ params }: PageProps) {
           </div>
 
           {/* Ingredients */}
-          <section className="mb-8">
-            <h3 className="text-2xl font-bold mb-4">Ingredients</h3>
-            <ul className="space-y-2">
-              {recipe.ingredients.map((ingredient, index) => (
-                <li key={index} className="flex items-start">
-                  <span className="mr-3 text-green-600 font-bold mt-1">▢</span>
-                  <span className="text-gray-700">
-                    <strong>{ingredient.amount}</strong>
-                    {ingredient.unit && ` ${ingredient.unit}`} {ingredient.name}
-                    {ingredient.notes && (
-                      <span className="text-gray-500 italic"> ({ingredient.notes})</span>
-                    )}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
+          <IngredientsList ingredients={recipe.ingredients} />
+
+          {/* In-Content Ad Between Ingredients and Instructions */}
+          <AdRectangle className="hidden md:block" />
 
           {/* Instructions */}
           <section className="mb-6">
@@ -387,6 +388,9 @@ export default async function RecipePage({ params }: PageProps) {
             </div>
           </div>
         </div>
+
+        {/* Banner Ad After Recipe Content */}
+        <AdBanner />
 
         {/* Comments Section */}
         <Comments recipeId={recipe.id} />
