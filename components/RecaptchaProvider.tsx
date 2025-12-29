@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { GoogleRecaptchaProvider } from 'react-google-recaptcha-v3';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 interface RecaptchaProviderProps {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ export default function RecaptchaProvider({ children }: RecaptchaProviderProps) 
   }
 
   return (
-    <GoogleRecaptchaProvider
+    <GoogleReCaptchaProvider
       reCaptchaKey={siteKey}
       language="en"
       scriptProps={{
@@ -26,7 +26,7 @@ export default function RecaptchaProvider({ children }: RecaptchaProviderProps) 
       }}
     >
       {children}
-    </GoogleRecaptchaProvider>
+    </GoogleReCaptchaProvider>
   );
 }
 

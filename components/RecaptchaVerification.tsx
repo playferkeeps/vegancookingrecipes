@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useGoogleRecaptcha } from 'react-google-recaptcha-v3';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { isRecaptchaVerified, saveRecaptchaVerification } from '@/lib/recaptcha';
 
 interface RecaptchaVerificationProps {
@@ -19,7 +19,7 @@ export default function RecaptchaVerification({
   onError,
   children,
 }: RecaptchaVerificationProps) {
-  const { executeRecaptcha } = useGoogleRecaptcha();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [isVerified, setIsVerified] = useState(false);
   const [isVerifying, setIsVerifying] = useState(false);
 

@@ -275,7 +275,6 @@ export default function RecipeVoting({ recipeId }: RecipeVotingProps) {
               aria-valuemax={100}
               aria-label={`${rating}% of users found this recipe helpful`}
             />
-            </div>
           </div>
         </div>
       )}
