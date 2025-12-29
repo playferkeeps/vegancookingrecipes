@@ -80,6 +80,10 @@ export const metadata = {
   alternates: {
     canonical: 'https://vegancooking.recipes/',
   },
+  other: {
+    'og:image:width': '1200',
+    'og:image:height': '630',
+  },
 };
 
 /**

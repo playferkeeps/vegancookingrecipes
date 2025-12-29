@@ -31,10 +31,15 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
-  // Ensure image URL is absolute for Open Graph
+  // Ensure image URL is absolute for Open Graph and Twitter
+  // Twitter requires direct, publicly accessible image URLs
   const imageUrl = recipe.image.startsWith('http') 
     ? recipe.image 
     : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
+  
+  // Twitter image URL - use direct path (not Next.js optimized)
+  // Recipe images are stored as direct paths in /recipe-images/ or /img/
+  const twitterImageUrl = imageUrl;
   
   // Optimize description length for Google preview (150-160 characters ideal)
   const optimizedDescription = recipe.description.length > 155
@@ -76,7 +81,7 @@ export async function generateMetadata({ params }: PageProps) {
       card: 'summary_large_image',
       title: optimizedTitle,
       description: optimizedDescription,
-      images: [imageUrl],
+      images: [twitterImageUrl], // Use direct image URL for Twitter
       site: '@vegancooking',
       creator: '@vegancooking',
     },
@@ -88,6 +93,12 @@ export async function generateMetadata({ params }: PageProps) {
       'article:publisher': 'https://vegancooking.recipes',
       'og:image:secure_url': imageUrl,
       'og:image:type': 'image/webp',
+      'og:image:width': '1200',
+      'og:image:height': '630',
+      // Explicit Twitter image meta tags for better compatibility
+      'twitter:image': twitterImageUrl,
+      'twitter:image:src': twitterImageUrl,
+      'twitter:image:alt': `${recipe.title} - Vegan recipe image`,
     },
   };
 }

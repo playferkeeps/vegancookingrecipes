@@ -68,6 +68,8 @@ export const metadata: Metadata = {
   other: {
     'og:site': 'vegancooking.recipes',
     'google-adsense-account': process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX',
+    'og:image:width': '1200',
+    'og:image:height': '630',
   },
 };
 
