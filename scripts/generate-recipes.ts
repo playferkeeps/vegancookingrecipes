@@ -361,9 +361,16 @@ function getRandomCategory(): RecipeCategory {
   return ALL_CATEGORIES[Math.floor(Math.random() * ALL_CATEGORIES.length)];
 }
 
-function getRandomRecipeTitle(category: RecipeCategory): string {
-  const titles = RECIPE_TITLES_BY_CATEGORY[category];
-  return titles[Math.floor(Math.random() * titles.length)];
+function getRandomRecipeTitle(category: RecipeCategory | string): string {
+  // Handle new categories that aren't in the predefined list
+  if (category in RECIPE_TITLES_BY_CATEGORY) {
+    const titles = RECIPE_TITLES_BY_CATEGORY[category as RecipeCategory];
+    if (titles && titles.length > 0) {
+      return titles[Math.floor(Math.random() * titles.length)];
+    }
+  }
+  // For new categories, generate a generic title
+  return `Vegan ${category.charAt(0).toUpperCase() + category.slice(1)} Recipe`;
 }
 
 /**
@@ -399,11 +406,20 @@ function getUniqueRecipeTitle(
   return null;
 }
 
-function distributeRecipesAcrossCategories(count: number): Array<{ category: RecipeCategory; title: string }> {
-  const recipes: Array<{ category: RecipeCategory; title: string }> = [];
+function distributeRecipesAcrossCategories(
+  count: number, 
+  targetCategories: (RecipeCategory | string)[] = ALL_CATEGORIES
+): Array<{ category: RecipeCategory | string; title: string }> {
+  const recipes: Array<{ category: RecipeCategory | string; title: string }> = [];
+  
+  // Use only target categories
+  const categories = [...targetCategories];
+  
+  if (categories.length === 0) {
+    throw new Error('No valid categories specified. Use --category to specify categories.');
+  }
   
   // First, ensure each category gets at least one recipe
-  const categories = [...ALL_CATEGORIES];
   for (let i = 0; i < Math.min(count, categories.length); i++) {
     const category = categories[i];
     recipes.push({
@@ -412,9 +428,9 @@ function distributeRecipesAcrossCategories(count: number): Array<{ category: Rec
     });
   }
   
-  // Then randomly distribute the remaining recipes
+  // Then randomly distribute the remaining recipes across target categories
   for (let i = categories.length; i < count; i++) {
-    const category = getRandomCategory();
+    const category = categories[Math.floor(Math.random() * categories.length)];
     recipes.push({
       category,
       title: getRandomRecipeTitle(category),
@@ -434,11 +450,16 @@ interface GenerateOptions {
   title: string;
   category: RecipeCategory[];
   veganType?: VeganType[];
+  maxTime?: number; // Maximum total time in minutes
 }
 
 async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recipe> {
-  const { title, category, veganType = ['whole-food-plant-based'] } = options;
+  const { title, category, veganType = ['whole-food-plant-based'], maxTime } = options;
   const openai = getOpenAIClient();
+
+  const maxTimeConstraint = maxTime 
+    ? `\nCRITICAL TIME CONSTRAINT: The total time (prepTime + cookTime) MUST be ${maxTime} minutes or less. This is a hard requirement - the recipe must be quick and simple enough to complete within ${maxTime} minutes total.`
+    : '';
 
   const prompt = `Create a detailed, accurate vegan recipe for "${title}". 
 
@@ -450,7 +471,7 @@ Requirements:
 - Instructions must be detailed, step-by-step, and accurate
 - Include realistic prep time, cook time, and servings
 - Make it suitable for ${category.join(' and ')} category
-- Vegan type: ${veganType.join(', ')}
+- Vegan type: ${veganType.join(', ')}${maxTimeConstraint}
 
 Return a JSON object with this exact structure:
 {
@@ -535,6 +556,26 @@ Ensure:
   const recipeDescription = recipeData.description || '';
   const imageUrl = await generateRecipeImage(recipeTitle, recipeDescription);
 
+  let prepTime = recipeData.prepTime || 15;
+  let cookTime = recipeData.cookTime || 20;
+  let totalTime = prepTime + cookTime;
+  
+  // Validate and adjust maxTime constraint if provided
+  if (maxTime && totalTime > maxTime) {
+    // Try to proportionally reduce times to fit within maxTime
+    const ratio = maxTime / totalTime;
+    prepTime = Math.max(5, Math.floor(prepTime * ratio)); // Minimum 5 min prep
+    cookTime = Math.max(5, Math.floor(cookTime * ratio)); // Minimum 5 min cook
+    totalTime = prepTime + cookTime;
+    
+    // If still over, throw error (will trigger retry)
+    if (totalTime > maxTime) {
+      throw new Error(`Recipe total time (${totalTime}min) exceeds maxTime constraint (${maxTime}min). Retrying with adjusted times.`);
+    }
+    
+    console.log(`   ⚠️  Adjusted times to fit maxTime: ${prepTime}min prep + ${cookTime}min cook = ${totalTime}min`);
+  }
+
   const recipe: Recipe = {
     id,
     title: recipeTitle,
@@ -542,9 +583,9 @@ Ensure:
     description: recipeDescription,
     prologue: recipeData.prologue || '',
     image: imageUrl,
-    prepTime: recipeData.prepTime || 15,
-    cookTime: recipeData.cookTime || 20,
-    totalTime: (recipeData.prepTime || 15) + (recipeData.cookTime || 20),
+    prepTime,
+    cookTime,
+    totalTime,
     servings: recipeData.servings || 4,
     difficulty: recipeData.difficulty || 'easy',
     category,
@@ -565,8 +606,8 @@ Ensure:
   return recipe;
 }
 
-function getCategoryFilePath(category: RecipeCategory): string {
-  const categoryMap: Record<RecipeCategory, string> = {
+function getCategoryFilePath(category: RecipeCategory | string): string {
+  const categoryMap: Record<string, string> = {
     baking: 'baking.ts',
     savory: 'savory.ts',
     international: 'international.ts',
@@ -578,7 +619,9 @@ function getCategoryFilePath(category: RecipeCategory): string {
     beverage: 'beverage.ts',
   };
 
-  return path.join(process.cwd(), 'data', 'recipes', categoryMap[category] || 'savory.ts');
+  // For new categories, use the category name as filename (sanitized)
+  const filename = categoryMap[category] || `${category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.ts`;
+  return path.join(process.cwd(), 'data', 'recipes', filename);
 }
 
 function escapeString(str: string): string {
@@ -891,9 +934,28 @@ function isDuplicateRecipe(recipe: Recipe, existingRecipes: { bySlug: Map<string
   return { isDuplicate: false };
 }
 
-async function saveRecipeToCategoryFile(recipe: Recipe, category: RecipeCategory): Promise<void> {
+async function saveRecipeToCategoryFile(recipe: Recipe, category: RecipeCategory | string): Promise<void> {
   const filePath = getCategoryFilePath(category);
-  let fileContent = fs.readFileSync(filePath, 'utf-8');
+  
+  // Generate a valid variable name from category (e.g., "new-category" -> "newCategory")
+  const categoryVarName = typeof category === 'string' 
+    ? category.replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase())
+              .replace(/^./, char => char.toLowerCase())
+    : category;
+  
+  // Check if file exists, if not create it
+  let fileContent: string;
+  if (!fs.existsSync(filePath)) {
+    // Create new category file
+    console.log(`📁 Creating new category file: ${path.basename(filePath)}`);
+    fileContent = `import { Recipe } from '@/types/recipe';
+
+export const ${categoryVarName}Recipes: Recipe[] = [
+];
+`;
+  } else {
+    fileContent = fs.readFileSync(filePath, 'utf-8');
+  }
 
   // Find the export statement - match more flexibly
   const exportMatch = fileContent.match(/export const \w+Recipes: Recipe\[\] = \[([\s\S]*?)\];/);
@@ -927,11 +989,11 @@ async function saveRecipeToCategoryFile(recipe: Recipe, category: RecipeCategory
     (match, existing) => {
       const trimmed = existing.trim();
       if (trimmed && !trimmed.endsWith(',')) {
-        return `export const ${category}Recipes: Recipe[] = [\n${trimmed},\n${recipeString}\n];`;
+        return `export const ${categoryVarName}Recipes: Recipe[] = [\n${trimmed},\n${recipeString}\n];`;
       } else if (trimmed) {
-        return `export const ${category}Recipes: Recipe[] = [\n${trimmed}\n${recipeString}\n];`;
+        return `export const ${categoryVarName}Recipes: Recipe[] = [\n${trimmed}\n${recipeString}\n];`;
       } else {
-        return `export const ${category}Recipes: Recipe[] = [\n${recipeString}\n];`;
+        return `export const ${categoryVarName}Recipes: Recipe[] = [\n${recipeString}\n];`;
       }
     }
   );
@@ -952,20 +1014,67 @@ async function main() {
   
   let count = 0;
 
+  let maxTime: number | undefined;
+  const targetCategories: RecipeCategory[] = [];
+  const newCategories: string[] = [];
+
   // Parse command line arguments
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--count' && args[i + 1]) {
       count = parseInt(args[i + 1], 10);
       i++;
+    } else if (args[i] === '--maxTime' && args[i + 1]) {
+      maxTime = parseInt(args[i + 1], 10);
+      if (isNaN(maxTime) || maxTime <= 0) {
+        console.error('❌ Error: --maxTime must be a positive number');
+        process.exit(1);
+      }
+      i++;
+    } else if (args[i] === '--category' && args[i + 1]) {
+      const category = args[i + 1].toLowerCase();
+      if (ALL_CATEGORIES.includes(category as RecipeCategory)) {
+        targetCategories.push(category as RecipeCategory);
+      } else {
+        console.error(`❌ Error: Invalid category "${category}". Valid categories: ${ALL_CATEGORIES.join(', ')}`);
+        process.exit(1);
+      }
+      i++;
+    } else if (args[i] === '--newCategory' && args[i + 1]) {
+      const newCategory = args[i + 1].trim();
+      if (newCategory.length === 0) {
+        console.error('❌ Error: --newCategory requires a category name');
+        process.exit(1);
+      }
+      newCategories.push(newCategory);
+      i++;
     }
   }
+  
+  // Add new categories to target categories (cast as RecipeCategory for type compatibility)
+  const allTargetCategories: (RecipeCategory | string)[] = [
+    ...targetCategories,
+    ...newCategories,
+  ];
+  
+  // Use all categories if none specified
+  const categoriesToUse = allTargetCategories.length > 0 
+    ? allTargetCategories 
+    : ALL_CATEGORIES;
 
   if (!count || count <= 0) {
     console.error('❌ Error: --count is required and must be greater than 0');
     console.log('\n📖 Usage:');
     console.log('  npm run generate-recipes -- --count 50');
-    console.log('  npm run generate-recipes -- --count 100');
-    console.log('\n💡 The tool will automatically cycle through all categories and generate recipes randomly.');
+    console.log('  npm run generate-recipes -- --count 100 --category baking --category dessert');
+    console.log('  npm run generate-recipes -- --count 20 --newCategory "raw-food" --maxTime 15');
+    console.log('\n💡 Options:');
+    console.log('  --count <number>          Number of recipes to generate (required)');
+    console.log('  --category <name>          Target specific category (can be used multiple times)');
+    console.log('  --newCategory <name>       Create recipes in a new category (can be used multiple times)');
+    console.log('  --maxTime <minutes>        Maximum total time for recipes');
+    console.log('  --supabase                Save to Supabase database');
+    console.log('  --no-supabase             Force saving to static files');
+    console.log('\n💡 If no categories are specified, recipes will be generated across all categories.');
     process.exit(1);
   }
 
@@ -990,8 +1099,18 @@ async function main() {
 
   console.log('\n🍳 Recipe Generator - Admin Tool');
   console.log('================================\n');
-  console.log(`📝 Generating ${count} recipe(s) randomly across all categories`);
-  console.log(`📂 Categories: ${ALL_CATEGORIES.join(', ')}`);
+  console.log(`📝 Generating ${count} recipe(s)`);
+  if (categoriesToUse.length === ALL_CATEGORIES.length) {
+    console.log(`📂 Categories: All categories (${ALL_CATEGORIES.join(', ')})`);
+  } else {
+    console.log(`📂 Target Categories: ${categoriesToUse.join(', ')}`);
+    if (newCategories.length > 0) {
+      console.log(`   🆕 New Categories: ${newCategories.join(', ')}`);
+    }
+  }
+  if (maxTime) {
+    console.log(`⏱️  Max Total Time: ${maxTime} minutes`);
+  }
   console.log(`💾 Saving to: ${useSupabase ? 'Supabase (database)' : 'Static files'}`);
   if (useSupabase && !hasDatabaseConfig) {
     console.log('   ⚠️  Warning: Database not configured, but --supabase flag was used');
@@ -999,7 +1118,7 @@ async function main() {
   console.log('');
 
   // Distribute recipes across categories
-  const recipePlan = distributeRecipesAcrossCategories(count);
+  const recipePlan = distributeRecipesAcrossCategories(count, categoriesToUse);
   
   // Count recipes per category
   const categoryCounts: Record<string, number> = {};
@@ -1115,11 +1234,32 @@ async function main() {
       console.log(`   🔍 Pre-check: Title and slug are unique before API call (verified after ${checkAttempts} check(s))`);
       
       // Generate the recipe with the unique title
-      let recipe = await generateRecipeWithOpenAI({
-        title: uniqueTitle!,
-        category: [category],
-        veganType: ['whole-food-plant-based'],
-      });
+      // Retry if maxTime constraint is violated
+      let recipe: Recipe | null = null;
+      let generationAttempts = 0;
+      const maxGenerationAttempts = 3;
+      
+      while (!recipe && generationAttempts < maxGenerationAttempts) {
+        try {
+          recipe = await generateRecipeWithOpenAI({
+            maxTime,
+            title: uniqueTitle!,
+            category: [category],
+            veganType: ['whole-food-plant-based'],
+          });
+        } catch (error: any) {
+          if (error.message?.includes('exceeds maxTime') && generationAttempts < maxGenerationAttempts - 1) {
+            generationAttempts++;
+            console.log(`   ⚠️  Recipe exceeded maxTime, retrying (attempt ${generationAttempts + 1}/${maxGenerationAttempts})...`);
+            continue;
+          }
+          throw error;
+        }
+      }
+      
+      if (!recipe) {
+        throw new Error('Failed to generate recipe within maxTime constraint after retries');
+      }
       
       // CRITICAL: Always check for duplicates after generation
       // Even though we checked before, OpenAI might have modified the title despite our instructions
