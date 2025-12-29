@@ -53,11 +53,29 @@ export const metadata = {
   description: 'Discover delicious vegan recipes for every meal. Plant-based cooking with baking, savory dishes, and international cuisine. Easy, healthy, and delicious.',
   keywords: ['vegan recipes', 'plant-based cooking', 'vegancooking.recipes', 'vegan meals', 'vegan baking'],
   openGraph: {
-    title: 'Vegan Cooking Recipes - Delicious Plant-Based Meals | vegancooking.recipes',
-    description: 'Discover amazing vegan recipes for every meal at vegancooking.recipes.',
+    title: 'Vegan Cooking Recipes - Delicious Plant-Based Meals',
+    description: 'Discover amazing vegan recipes for every meal. From baking to savory dishes, international cuisine, and more. All recipes are plant-based, delicious, and easy to follow.',
     type: 'website',
     url: 'https://vegancooking.recipes',
     siteName: 'vegancooking.recipes',
+    locale: 'en_US',
+    images: [
+      {
+        url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+        width: 1200,
+        height: 630,
+        alt: 'vegancooking.recipes - Vegan Cooking Recipes',
+        type: 'image/png',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Vegan Cooking Recipes - Delicious Plant-Based Meals',
+    description: 'Discover amazing vegan recipes for every meal. Plant-based cooking made easy.',
+    site: '@vegancooking',
+    creator: '@vegancooking',
+    images: ['https://vegancooking.recipes/img/vcr-logo-lg.png'],
   },
   alternates: {
     canonical: 'https://vegancooking.recipes/',

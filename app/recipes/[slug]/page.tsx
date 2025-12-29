@@ -36,13 +36,23 @@ export async function generateMetadata({ params }: PageProps) {
     ? recipe.image 
     : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
   
+  // Optimize description length for Google preview (150-160 characters ideal)
+  const optimizedDescription = recipe.description.length > 155
+    ? `${recipe.description.substring(0, 152)}...`
+    : recipe.description;
+  
+  // Optimize title length (50-60 characters ideal for Google)
+  const optimizedTitle = recipe.title.length > 60
+    ? `${recipe.title.substring(0, 57)}...`
+    : recipe.title;
+
   return {
-    title: `${recipe.title} - Vegan Recipe | vegancooking.recipes`,
-    description: `${recipe.description} - Find this and more vegan recipes at vegancooking.recipes`,
+    title: `${optimizedTitle} - Vegan Recipe | vegancooking.recipes`,
+    description: `${optimizedDescription} Find this and more vegan recipes at vegancooking.recipes.`,
     keywords: [...recipe.tags, ...recipe.category, ...recipe.veganType, 'vegancooking.recipes', 'vegan recipes'].join(', '),
     openGraph: {
-      title: `${recipe.title} | vegancooking.recipes`,
-      description: `${recipe.description} - Find this and more vegan recipes at vegancooking.recipes`,
+      title: `${optimizedTitle} | vegancooking.recipes`,
+      description: `${optimizedDescription} Find this and more vegan recipes at vegancooking.recipes.`,
       url,
       siteName: 'vegancooking.recipes',
       images: [
@@ -50,7 +60,8 @@ export async function generateMetadata({ params }: PageProps) {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: recipe.title,
+          alt: `${recipe.title} - Vegan recipe image`,
+          type: 'image/webp',
         },
       ],
       locale: 'en_US',
@@ -58,13 +69,13 @@ export async function generateMetadata({ params }: PageProps) {
       publishedTime: recipe.datePublished,
       modifiedTime: recipe.dateModified || recipe.datePublished,
       authors: ['vegancooking.recipes'],
-      section: recipe.category[0] || 'Recipes',
+      section: recipe.category[0] ? recipe.category[0].charAt(0).toUpperCase() + recipe.category[0].slice(1) : 'Recipes',
       tags: recipe.tags,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${recipe.title} | vegancooking.recipes`,
-      description: `${recipe.description} - Find this and more vegan recipes at vegancooking.recipes`,
+      title: optimizedTitle,
+      description: optimizedDescription,
       images: [imageUrl],
       site: '@vegancooking',
       creator: '@vegancooking',
@@ -75,6 +86,8 @@ export async function generateMetadata({ params }: PageProps) {
     other: {
       'article:author': 'https://vegancooking.recipes',
       'article:publisher': 'https://vegancooking.recipes',
+      'og:image:secure_url': imageUrl,
+      'og:image:type': 'image/webp',
     },
   };
 }
@@ -115,6 +128,8 @@ function generateStructuredData(recipe: Recipe) {
       logo: {
         '@type': 'ImageObject',
         url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+        width: 1200,
+        height: 630,
       },
     },
     author: {
@@ -145,7 +160,10 @@ function generateStructuredData(recipe: Recipe) {
       text: inst.text,
       name: `Step ${inst.step}`,
     })),
-    suitableForDiet: 'https://schema.org/VegetarianDiet',
+    suitableForDiet: [
+      'https://schema.org/VegetarianDiet',
+      'https://schema.org/VeganDiet',
+    ],
     recipeCuisine: recipe.category.includes('international') ? 'International' : 'Vegan',
   };
 
@@ -238,6 +256,8 @@ function generateStructuredData(recipe: Recipe) {
       logo: {
         '@type': 'ImageObject',
         url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+        width: 1200,
+        height: 630,
       },
     },
     mainEntityOfPage: {
