@@ -67,6 +67,14 @@ export default function Header() {
                 Categories
               </Link>
             </li>
+            <li>
+              <Link 
+                href="/#about" 
+                className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
+              >
+                About
+              </Link>
+            </li>
           </ul>
 
           {/* Mobile Menu Button */}
@@ -116,6 +124,15 @@ export default function Header() {
                   onClick={closeMenu}
                 >
                   Categories
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/#about" 
+                  className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
+                  onClick={closeMenu}
+                >
+                  About
                 </Link>
               </li>
             </ul>

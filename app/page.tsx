@@ -265,45 +265,84 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* About Section - Additional Content for SEO */}
-        <section className="py-16 container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-center">About Vegan Cooking Recipes</h2>
-            <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Welcome to vegancooking.recipes, your ultimate destination for delicious, healthy, and easy-to-follow vegan recipes. Our mission is to make plant-based cooking accessible, enjoyable, and inspiring for everyone, whether you&apos;re a seasoned vegan or just starting your journey toward a more plant-based lifestyle.
-              </p>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                We believe that vegan food should be anything but boring. That&apos;s why we&apos;ve curated a diverse collection of recipes spanning all meal types and cuisines. From quick breakfast ideas to elaborate dinner parties, from simple snacks to decadent desserts, we have something for every occasion and every skill level.
-              </p>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                All our recipes are carefully tested and developed to ensure they&apos;re not only delicious but also nutritious. We focus on using whole, plant-based ingredients that provide essential nutrients while delivering incredible flavors. Our recipes are free from animal products, making them suitable for vegans, vegetarians, and anyone looking to incorporate more plant-based meals into their diet.
-              </p>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Whether you&apos;re looking for comfort food classics made vegan, exploring international cuisines, or trying your hand at plant-based baking, vegancooking.recipes has you covered. Join our community of plant-based food lovers and discover how delicious and satisfying vegan cooking can be.
-              </p>
-            </div>
-            <div className="mt-8 text-center">
-              <p className="text-gray-600 mb-4">
-                For more information about vegan nutrition and cooking tips, visit{' '}
-                <a 
-                  href="https://www.vegan.org" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-green-600 hover:text-green-700 underline"
-                >
-                  The Vegan Society
-                </a>
-                {' '}or explore plant-based resources at{' '}
-                <a 
-                  href="https://www.plantbasednews.org" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-green-600 hover:text-green-700 underline"
-                >
-                  Plant Based News
-                </a>.
-              </p>
+        {/* About Section - Combined */}
+        <section id="about" className="py-16 sm:py-20 bg-gray-50 scroll-mt-20">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 text-center text-gray-900">
+                About Vegan Cooking Recipes
+              </h2>
+              
+              <div className="space-y-6 sm:space-y-8 mb-16 sm:mb-20">
+                <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                  Welcome to vegancooking.recipes, your ultimate destination for delicious, healthy, and easy-to-follow vegan recipes. Our mission is to make plant-based cooking accessible, enjoyable, and inspiring for everyone, whether you&apos;re a seasoned vegan or just starting your journey toward a more plant-based lifestyle.
+                </p>
+                <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                  We believe that vegan food should be anything but boring. That&apos;s why we&apos;ve curated a diverse collection of recipes spanning all meal types and cuisines. From quick breakfast ideas to elaborate dinner parties, from simple snacks to decadent desserts, we have something for every occasion and every skill level.
+                </p>
+                <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                  All our recipes are carefully tested and developed to ensure they&apos;re not only delicious but also nutritious. We focus on using whole, plant-based ingredients that provide essential nutrients while delivering incredible flavors. Our recipes are free from animal products, making them suitable for vegans, vegetarians, and anyone looking to incorporate more plant-based meals into their diet.
+                </p>
+                <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                  Whether you&apos;re looking for comfort food classics made vegan, exploring international cuisines, or trying your hand at plant-based baking, vegancooking.recipes has you covered. Join our community of plant-based food lovers and discover how delicious and satisfying vegan cooking can be.
+                </p>
+              </div>
+
+              {/* Meet Katie - The Chef Behind the Recipes */}
+              <div className="border-t-2 border-gray-300 pt-12 sm:pt-16 mt-12 sm:mt-16">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12 text-center text-gray-900">
+                  Meet Katie, The Chef Behind the Recipes
+                </h3>
+                
+                <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-center md:items-start">
+                  {/* Katie's Image - Circular */}
+                  <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:justify-start">
+                    <div className="rounded-full overflow-hidden shadow-xl ring-4 ring-green-100 hover:ring-green-200 transition-all duration-300">
+                      <Image
+                        src="/img/vcr-katie.png"
+                        alt="Katie - Barefoot Chef and Creator of vegancooking.recipes"
+                        width={200}
+                        height={200}
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Bio Text */}
+                  <div className="flex-1 space-y-5 sm:space-y-6">
+                    <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                      Hello beautiful souls, and welcome! I&apos;m Katie. 🌻 I believe the kitchen is a sacred space and that plants are our best medicine. I&apos;m a barefoot chef obsessed with whole foods, healing herbs, and cooking with intention.
+                    </p>
+                    <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                      My food philosophy is simple: nourish your body, respect Mother Earth, and eat with joy. The VCR on my apron stands for <strong className="text-green-700 font-semibold">Vibrant, Conscious, Roots</strong>—because that&apos;s what I hope my recipes help you cultivate. No judgment here, just big flavours and warm hugs. Let&apos;s get crunchy! 🥕✨🌱
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12 sm:mt-16 text-center border-t border-gray-300 pt-8 sm:pt-10">
+                <p className="text-gray-600 text-sm sm:text-base">
+                  For more information about vegan nutrition and cooking tips, visit{' '}
+                  <a 
+                    href="https://www.vegan.org" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-700 underline font-medium transition-colors"
+                  >
+                    The Vegan Society
+                  </a>
+                  {' '}or explore plant-based resources at{' '}
+                  <a 
+                    href="https://www.plantbasednews.org" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-green-600 hover:text-green-700 underline font-medium transition-colors"
+                  >
+                    Plant Based News
+                  </a>.
+                </p>
+              </div>
             </div>
           </div>
         </section>
