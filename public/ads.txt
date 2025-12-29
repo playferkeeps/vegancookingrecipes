@@ -8,5 +8,5 @@
 # After updating, this file will be available at: https://vegancooking.recipes/ads.txt
 # Google will automatically crawl this file to verify authorized sellers
 
-google.com, pub-XXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, ca-pub-8284075260547668, DIRECT, f08c47fec0942fa0
 
