@@ -43,10 +43,45 @@ function getReplicateClient() {
 }
 
 /**
+ * Check if an image file already exists for a recipe
+ */
+function checkForExistingImage(recipeTitle: string): string | null {
+  const safeTitle = recipeTitle
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .substring(0, 50);
+  
+  const imagesDir = path.join(process.cwd(), 'public', 'recipe-images');
+  if (!fs.existsSync(imagesDir)) {
+    return null;
+  }
+  
+  const files = fs.readdirSync(imagesDir);
+  const matchingFile = files.find(file => 
+    file.startsWith(safeTitle) && /\.(webp|jpg|jpeg|png)$/i.test(file)
+  );
+  
+  if (matchingFile) {
+    return `/recipe-images/${matchingFile}`;
+  }
+  
+  return null;
+}
+
+/**
  * Generate an AI image for a recipe using Replicate with retry logic for rate limits
  * Uses FLUX Schnell for fast and cost-effective food photography ($3 per 1000 images)
+ * Checks for existing images first to avoid regenerating
  */
 async function generateRecipeImage(recipeTitle: string, description: string, retryCount: number = 0): Promise<string> {
+  // First, check if an image already exists for this recipe
+  const existingImage = checkForExistingImage(recipeTitle);
+  if (existingImage) {
+    console.log(`   ✅ Found existing image: ${existingImage}`);
+    return existingImage;
+  }
+  
   const maxRetries = 5;
   const baseDelay = 10000; // 10 seconds base delay (6 requests per minute = 10 seconds between requests)
   
@@ -129,16 +164,18 @@ async function generateRecipeImage(recipeTitle: string, description: string, ret
     return imageUrl;
   } catch (error: any) {
     // Check if it's a rate limit error
-    if (error.status === 429 || error.message?.includes('rate limit') || error.message?.includes('throttled')) {
-      const retryAfter = error.retry_after || error.retryAfter || 10; // Default to 10 seconds
+    if (error.status === 429 || error.message?.includes('rate limit') || error.message?.includes('throttled') || error.message?.includes('429')) {
+      const retryAfterMatch = error.message?.match(/retry_after["\s:]*(\d+)/i) || 
+                              error.message?.match(/retryAfter["\s:]*(\d+)/i);
+      const retryAfter = retryAfterMatch ? parseInt(retryAfterMatch[1]) : (error.retry_after || error.retryAfter || 10);
       
-      if (retryCount < 5) {
-        const delay = retryAfter * 1000 + (retryCount * 2000); // Add extra delay for each retry
-        console.log(`   ⚠️  Rate limited. Waiting ${delay / 1000} seconds before retry ${retryCount + 1}/5...`);
+      if (retryCount < maxRetries) {
+        const delay = (retryAfter + 1) * 1000 + (retryCount * 5000); // Add extra delay for each retry
+        console.log(`   ⚠️  Rate limited. Waiting ${delay / 1000} seconds before retry ${retryCount + 1}/${maxRetries}...`);
         await new Promise(resolve => setTimeout(resolve, delay));
         return generateRecipeImage(recipeTitle, description, retryCount + 1);
       } else {
-        console.error(`   ❌ Rate limit exceeded after 5 retries. Using placeholder.`);
+        console.error(`   ❌ Rate limit exceeded after ${maxRetries} retries. Using placeholder.`);
         // Fallback to placeholder if rate limit persists
         return 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzljYTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIENvbWluZyBTb29uPC90ZXh0Pjwvc3ZnPg==';
       }
@@ -227,6 +264,39 @@ function getRandomCategory(): RecipeCategory {
 function getRandomRecipeTitle(category: RecipeCategory): string {
   const titles = RECIPE_TITLES_BY_CATEGORY[category];
   return titles[Math.floor(Math.random() * titles.length)];
+}
+
+/**
+ * Get a unique recipe title for a category
+ * Tries multiple random titles until finding one that doesn't exist
+ * Returns null if no unique title can be found after max attempts
+ */
+function getUniqueRecipeTitle(
+  category: RecipeCategory,
+  existingRecipes: { byTitle: Map<string, Recipe> },
+  maxAttempts: number = 50
+): string | null {
+  const titles = RECIPE_TITLES_BY_CATEGORY[category];
+  const attemptedTitles = new Set<string>();
+  
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    const randomTitle = getRandomRecipeTitle(category);
+    const normalizedTitle = randomTitle.toLowerCase().trim();
+    
+    // Check if we've already tried this title in this search
+    if (attemptedTitles.has(normalizedTitle)) {
+      continue;
+    }
+    attemptedTitles.add(normalizedTitle);
+    
+    // Check if this title already exists in our recipe database
+    if (!existingRecipes.byTitle.has(normalizedTitle)) {
+      return randomTitle; // Found a unique title!
+    }
+  }
+  
+  // Couldn't find a unique title after max attempts
+  return null;
 }
 
 function distributeRecipesAcrossCategories(count: number): Array<{ category: RecipeCategory; title: string }> {
@@ -577,6 +647,114 @@ function formatRecipeForFile(recipe: Recipe): string {
   return lines.join('\n');
 }
 
+/**
+ * Load all existing recipes from all category files and originalRecipesData
+ * Returns a map of slug -> recipe and title -> recipe for duplicate checking
+ */
+function loadAllExistingRecipes(): { bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe> } {
+  const bySlug = new Map<string, Recipe>();
+  const byTitle = new Map<string, Recipe>();
+  
+  // Load original recipes
+  try {
+    const originalPath = path.join(process.cwd(), 'data', 'recipes', 'originalRecipesData.ts');
+    if (fs.existsSync(originalPath)) {
+      const originalContent = fs.readFileSync(originalPath, 'utf-8');
+      const slugMatches = originalContent.matchAll(/slug:\s*'([^']+)'/g);
+      const titleMatches = originalContent.matchAll(/title:\s*'([^']+)'/g);
+      
+      // Extract slugs and titles (we'll use these for checking)
+      for (const match of slugMatches) {
+        const slug = match[1];
+        // Find the corresponding title
+        const recipeStart = originalContent.lastIndexOf('{', match.index!);
+        const recipeEnd = originalContent.indexOf('},', match.index!);
+        if (recipeStart !== -1 && recipeEnd !== -1) {
+          const recipeBlock = originalContent.substring(recipeStart, recipeEnd);
+          const titleMatch = recipeBlock.match(/title:\s*'([^']+)'/);
+          if (titleMatch) {
+            const title = titleMatch[1];
+            bySlug.set(slug, { slug } as Recipe);
+            byTitle.set(title.toLowerCase().trim(), { title } as Recipe);
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.warn('⚠️  Could not load original recipes for duplicate check:', error);
+  }
+  
+  // Load all category files
+  const categoryFiles = [
+    'baking.ts', 'savory.ts', 'ethnic.ts', 'breakfast.ts',
+    'lunch.ts', 'dinner.ts', 'dessert.ts', 'snack.ts', 'beverage.ts'
+  ];
+  
+  for (const categoryFile of categoryFiles) {
+    try {
+      const categoryPath = path.join(process.cwd(), 'data', 'recipes', categoryFile);
+      if (fs.existsSync(categoryPath)) {
+        const categoryContent = fs.readFileSync(categoryPath, 'utf-8');
+        
+        // Extract all slugs and titles from this file
+        const slugMatches = Array.from(categoryContent.matchAll(/slug:\s*'([^']+)'/g));
+        const titleMatches = Array.from(categoryContent.matchAll(/title:\s*'([^']+)'/g));
+        
+        // Match slugs with titles by finding recipe blocks
+        for (const slugMatch of slugMatches) {
+          const slug = slugMatch[1];
+          const slugIndex = slugMatch.index!;
+          
+          // Find the recipe block containing this slug
+          const recipeStart = categoryContent.lastIndexOf('{', slugIndex);
+          const recipeEnd = categoryContent.indexOf('},', slugIndex);
+          
+          if (recipeStart !== -1 && recipeEnd !== -1) {
+            const recipeBlock = categoryContent.substring(recipeStart, recipeEnd);
+            const titleMatch = recipeBlock.match(/title:\s*'([^']+)'/);
+            if (titleMatch) {
+              const title = titleMatch[1];
+              bySlug.set(slug, { slug, title } as Recipe);
+              byTitle.set(title.toLowerCase().trim(), { slug, title } as Recipe);
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.warn(`⚠️  Could not load ${categoryFile} for duplicate check:`, error);
+    }
+  }
+  
+  return { bySlug, byTitle };
+}
+
+/**
+ * Check if a recipe is a duplicate (STRICT UNIQUE PROTOCOL)
+ * Checks by both slug and title across ALL recipe files
+ */
+function isDuplicateRecipe(recipe: Recipe, existingRecipes: { bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe> }): { isDuplicate: boolean; reason?: string } {
+  // Check by slug (most important - must be unique)
+  if (existingRecipes.bySlug.has(recipe.slug)) {
+    const existing = existingRecipes.bySlug.get(recipe.slug)!;
+    return {
+      isDuplicate: true,
+      reason: `Recipe with slug "${recipe.slug}" already exists (title: "${existing.title || 'unknown'}")`
+    };
+  }
+  
+  // Check by title (case-insensitive, trimmed)
+  const normalizedTitle = recipe.title.toLowerCase().trim();
+  if (existingRecipes.byTitle.has(normalizedTitle)) {
+    const existing = existingRecipes.byTitle.get(normalizedTitle)!;
+    return {
+      isDuplicate: true,
+      reason: `Recipe with title "${recipe.title}" already exists (slug: "${existing.slug || 'unknown'}")`
+    };
+  }
+  
+  return { isDuplicate: false };
+}
+
 async function saveRecipeToCategoryFile(recipe: Recipe, category: RecipeCategory): Promise<void> {
   const filePath = getCategoryFilePath(category);
   let fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -590,10 +768,19 @@ async function saveRecipeToCategoryFile(recipe: Recipe, category: RecipeCategory
 
   const existingRecipes = exportMatch[1].trim();
   
-  // Check if recipe already exists (by slug)
+  // STRICT UNIQUE CHECK: Check by slug in this file
   if (existingRecipes.includes(`slug: '${recipe.slug}'`)) {
-    console.log(`⚠️  Recipe with slug "${recipe.slug}" already exists in ${filePath}. Skipping.`);
-    return;
+    throw new Error(`❌ DUPLICATE DETECTED: Recipe with slug "${recipe.slug}" already exists in ${filePath}. STRICT UNIQUE PROTOCOL: Recipe not saved.`);
+  }
+  
+  // Also check by title in this file (case-insensitive)
+  const normalizedTitle = recipe.title.toLowerCase().trim();
+  const titlePattern = new RegExp(`title:\\s*'([^']+)'`, 'gi');
+  const titleMatches = Array.from(existingRecipes.matchAll(titlePattern));
+  for (const match of titleMatches) {
+    if (match[1].toLowerCase().trim() === normalizedTitle) {
+      throw new Error(`❌ DUPLICATE DETECTED: Recipe with title "${recipe.title}" already exists in ${filePath}. STRICT UNIQUE PROTOCOL: Recipe not saved.`);
+    }
   }
   
   const recipeString = formatRecipeForFile(recipe);
@@ -679,27 +866,70 @@ async function main() {
   });
   console.log('');
 
+  // STRICT UNIQUE PROTOCOL: Load all existing recipes ONCE at the start
+  console.log('🔍 Loading all existing recipes for duplicate checking...');
+  const existingRecipes = loadAllExistingRecipes();
+  console.log(`   ✅ Found ${existingRecipes.bySlug.size} existing recipes (by slug)`);
+  console.log(`   ✅ Found ${existingRecipes.byTitle.size} existing recipes (by title)`);
+  console.log('');
+
   let successCount = 0;
   let failCount = 0;
+  let skippedCount = 0;
 
   for (let i = 0; i < recipePlan.length; i++) {
-    const { category, title } = recipePlan[i];
-    console.log(`\n[${i + 1}/${count}] Generating: "${title}" (${category})...`);
+    const { category, originalTitle } = recipePlan[i];
+    console.log(`\n[${i + 1}/${count}] Generating recipe for category: ${category}...`);
     
     try {
+      // STRICT UNIQUE PROTOCOL: Find a unique title BEFORE generating
+      // This prevents wasting API calls on duplicates
+      let uniqueTitle = getUniqueRecipeTitle(category, existingRecipes);
+      
+      if (!uniqueTitle) {
+        console.log(`   ⚠️  SKIPPED: Could not find a unique recipe title for ${category} after 50 attempts.`);
+        console.log(`   📋 STRICT UNIQUE PROTOCOL: All available titles in this category appear to be taken.`);
+        skippedCount++;
+        continue;
+      }
+      
+      // If the original title was a duplicate, log that we're using a different one
+      const normalizedOriginalTitle = originalTitle.toLowerCase().trim();
+      if (normalizedOriginalTitle !== uniqueTitle.toLowerCase().trim()) {
+        console.log(`   ℹ️  Original title "${originalTitle}" already exists, using unique title: "${uniqueTitle}"`);
+      }
+      
+      console.log(`   📝 Generating: "${uniqueTitle}" (${category})...`);
+      
+      // Generate the recipe with the unique title
       const recipe = await generateRecipeWithOpenAI({
-        title,
+        title: uniqueTitle,
         category: [category],
         veganType: ['whole-food-plant-based'],
       });
+      
+      // Final verification: Check if the generated recipe is still unique
+      // (slug might differ from title, so we need to check both)
+      const duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
+      if (duplicateCheck.isDuplicate) {
+        console.log(`   ❌ DUPLICATE DETECTED after generation: ${duplicateCheck.reason}`);
+        console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved (this should be rare).`);
+        failCount++;
+        continue;
+      }
 
       console.log(`✅ Generated: ${recipe.title}`);
       console.log(`   ⏱️  Prep: ${recipe.prepTime}min | Cook: ${recipe.cookTime}min | Total: ${recipe.totalTime}min`);
       console.log(`   👥 Servings: ${recipe.servings} | Difficulty: ${recipe.difficulty}`);
       console.log(`   📦 Ingredients: ${recipe.ingredients.length} | Steps: ${recipe.instructions.length}`);
 
-      // Save to the category file
+      // Save to the category file (includes additional duplicate checks)
       await saveRecipeToCategoryFile(recipe, category);
+      
+      // Add to existing recipes map to prevent duplicates in the same batch
+      existingRecipes.bySlug.set(recipe.slug, recipe);
+      existingRecipes.byTitle.set(recipe.title.toLowerCase().trim(), recipe);
+      
       successCount++;
 
       // Delay to respect rate limits
@@ -720,9 +950,13 @@ async function main() {
 
   console.log('\n✨ Recipe generation complete!');
   console.log(`✅ Successfully generated: ${successCount} recipe(s)`);
+  if (skippedCount > 0) {
+    console.log(`⚠️  Skipped (duplicates): ${skippedCount} recipe(s)`);
+  }
   if (failCount > 0) {
     console.log(`❌ Failed: ${failCount} recipe(s)`);
   }
+  console.log(`\n📋 STRICT UNIQUE PROTOCOL: All saved recipes are guaranteed unique by slug and title.`);
   console.log('⚠️  Next step: Run "npm run build" to rebuild the site with new recipes\n');
 }
 

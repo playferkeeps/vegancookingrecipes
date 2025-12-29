@@ -27,9 +27,6 @@ export default function Home() {
 
   return (
     <>
-      <a href="#main-content" className="skip-to-main">
-        Skip to main content
-      </a>
       <div id="main-content">
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
