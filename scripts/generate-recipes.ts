@@ -754,35 +754,38 @@ function formatRecipeForFile(recipe: Recipe): string {
  * Returns a map of slug -> recipe and title -> recipe for duplicate checking
  */
 async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe> }> {
-  if (useSupabase && process.env.DATABASE_URL) {
+  const bySlug = new Map<string, Recipe>();
+  const byTitle = new Map<string, Recipe>();
+  
+  // Always check Supabase if database is configured (regardless of useSupabase flag)
+  // This ensures we catch duplicates even if saving to files
+  const hasDatabaseConfig = !!(process.env.DIRECT_URL || process.env.DATABASE_URL);
+  if (hasDatabaseConfig) {
     try {
       console.log('📊 Loading existing recipes from Supabase...');
       const slugs = await getAllRecipeSlugsFromSupabase();
       const titles = await getAllRecipeTitlesFromSupabase();
       
-      const bySlug = new Map<string, Recipe>();
-      const byTitle = new Map<string, Recipe>();
-      
-      // Create placeholder recipes for duplicate checking
+      // Add Supabase recipes to the maps
       for (const slug of slugs) {
         bySlug.set(slug, { slug } as Recipe);
       }
       
       for (const title of titles) {
-        byTitle.set(title, { title } as Recipe);
+        const normalizedTitle = title.toLowerCase().trim();
+        byTitle.set(normalizedTitle, { title } as Recipe);
       }
       
-      console.log(`✅ Loaded ${slugs.size} recipes from Supabase`);
-      return { bySlug, byTitle };
+      console.log(`   ✅ Loaded ${slugs.size} recipes from Supabase (${slugs.size} slugs, ${titles.size} titles)`);
     } catch (error) {
-      console.warn('⚠️  Could not load from Supabase, falling back to static files:', error);
-      // Fall through to static file loading
+      console.warn('⚠️  Could not load from Supabase:', error);
+      // Continue to load static files even if Supabase fails
     }
   }
   
-  // Load from static files (original behavior)
-  const bySlug = new Map<string, Recipe>();
-  const byTitle = new Map<string, Recipe>();
+  // Also load from static files to catch any recipes not yet in Supabase
+  // This ensures comprehensive duplicate checking
+  console.log('📊 Loading existing recipes from static files...');
   
   // Load original recipes
   try {
@@ -853,6 +856,10 @@ async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: M
       console.warn(`⚠️  Could not load ${categoryFile} for duplicate check:`, error);
     }
   }
+  
+  const totalSlugs = bySlug.size;
+  const totalTitles = byTitle.size;
+  console.log(`   ✅ Loaded ${totalSlugs} total recipes from all sources (${totalSlugs} slugs, ${totalTitles} titles)`);
   
   return { bySlug, byTitle };
 }

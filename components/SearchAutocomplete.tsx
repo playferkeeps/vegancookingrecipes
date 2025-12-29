@@ -17,28 +17,64 @@ export default function SearchAutocomplete({
   query,
   recipes,
   onSelect,
-  maxResults = 5,
+  maxResults,
 }: SearchAutocompleteProps) {
   const [results, setResults] = useState<Recipe[]>([]);
+  const [displayedResults, setDisplayedResults] = useState<Recipe[]>([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [isVisible, setIsVisible] = useState(false);
   const listRef = useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const INITIAL_DISPLAY_COUNT = 10;
+  const LOAD_MORE_COUNT = 10;
 
+  // Get all search results (no limit for infinite scroll)
   useEffect(() => {
     if (query.trim().length >= 2) {
+      // User is typing - show search results
       const searchResults = searchRecipes(recipes, query, {
-        limit: maxResults,
         minScore: 0.5, // Slightly more lenient for autocomplete
       });
       setResults(searchResults);
+      setDisplayedResults(searchResults.slice(0, INITIAL_DISPLAY_COUNT));
       setIsVisible(searchResults.length > 0);
+      setSelectedIndex(-1);
+    } else if (query.trim().length === 0 && recipes.length > 0) {
+      // Empty query - show popular recipes (passed from parent)
+      setResults(recipes);
+      setDisplayedResults(recipes.slice(0, INITIAL_DISPLAY_COUNT));
+      setIsVisible(true);
       setSelectedIndex(-1);
     } else {
       setResults([]);
+      setDisplayedResults([]);
       setIsVisible(false);
       setSelectedIndex(-1);
     }
-  }, [query, recipes, maxResults]);
+  }, [query, recipes]);
+
+  // Handle infinite scroll
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || results.length <= displayedResults.length) return;
+
+    const handleScroll = () => {
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      // Load more when user scrolls near bottom (within 100px)
+      if (scrollHeight - scrollTop - clientHeight < 100) {
+        const nextCount = Math.min(
+          displayedResults.length + LOAD_MORE_COUNT,
+          results.length
+        );
+        if (nextCount > displayedResults.length) {
+          setDisplayedResults(results.slice(0, nextCount));
+        }
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [results, displayedResults]);
 
   useEffect(() => {
     // Scroll selected item into view
@@ -51,14 +87,23 @@ export default function SearchAutocomplete({
   }, [selectedIndex]);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (!isVisible || results.length === 0) return;
+    if (!isVisible || displayedResults.length === 0) return;
 
     switch (e.key) {
       case 'ArrowDown':
         e.preventDefault();
-        setSelectedIndex(prev => 
-          prev < results.length - 1 ? prev + 1 : prev
-        );
+        setSelectedIndex(prev => {
+          const nextIndex = prev < displayedResults.length - 1 ? prev + 1 : prev;
+          // Load more if near end
+          if (nextIndex >= displayedResults.length - 2 && results.length > displayedResults.length) {
+            const nextCount = Math.min(
+              displayedResults.length + LOAD_MORE_COUNT,
+              results.length
+            );
+            setDisplayedResults(results.slice(0, nextCount));
+          }
+          return nextIndex;
+        });
         break;
       case 'ArrowUp':
         e.preventDefault();
@@ -66,8 +111,8 @@ export default function SearchAutocomplete({
         break;
       case 'Enter':
         e.preventDefault();
-        if (selectedIndex >= 0 && selectedIndex < results.length) {
-          handleSelect(results[selectedIndex]);
+        if (selectedIndex >= 0 && selectedIndex < displayedResults.length) {
+          handleSelect(displayedResults[selectedIndex]);
         }
         break;
       case 'Escape':
@@ -92,6 +137,7 @@ export default function SearchAutocomplete({
   return (
     <div
       id="search-autocomplete"
+      ref={containerRef}
       className="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-96 overflow-y-auto"
       role="listbox"
       aria-label="Search suggestions"
@@ -99,7 +145,7 @@ export default function SearchAutocomplete({
       onMouseDown={(e) => e.preventDefault()} // Prevent input blur when clicking on autocomplete
     >
       <ul ref={listRef} className="divide-y divide-gray-200">
-        {results.map((recipe, index) => (
+        {displayedResults.map((recipe, index) => (
           <li
             key={recipe.id}
             role="option"
@@ -145,6 +191,11 @@ export default function SearchAutocomplete({
             </Link>
           </li>
         ))}
+        {results.length > displayedResults.length && (
+          <li className="px-4 py-2 text-sm text-gray-500 text-center bg-gray-50">
+            Showing {displayedResults.length} of {results.length} results. Scroll for more...
+          </li>
+        )}
       </ul>
     </div>
   );

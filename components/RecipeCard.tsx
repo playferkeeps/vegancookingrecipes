@@ -34,7 +34,10 @@ export default function RecipeCard({ recipe }: RecipeCardProps) {
           <h2 className="text-lg sm:text-xl font-bold mb-2 line-clamp-2 leading-tight">{recipe.title}</h2>
           <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 leading-relaxed">{recipe.description}</p>
           <div className="flex items-center justify-between text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4 flex-wrap gap-2">
-            <span className="whitespace-nowrap">{recipe.totalTime} min</span>
+            <span className="whitespace-nowrap">{recipe.totalTime} min total</span>
+            {recipe.cookTime > 0 && (
+              <span className="whitespace-nowrap">{recipe.cookTime} min cook</span>
+            )}
             <span className="whitespace-nowrap">{recipe.servings} servings</span>
             <span className="capitalize whitespace-nowrap">{recipe.difficulty}</span>
           </div>

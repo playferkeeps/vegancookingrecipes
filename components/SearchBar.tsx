@@ -6,6 +6,7 @@ import { HiSearch, HiX } from 'react-icons/hi';
 // Client component - uses API route to fetch recipes
 import { Recipe } from '@/types/recipe';
 import SearchAutocomplete from './SearchAutocomplete';
+import { getPopularRecipes, trackRecipeSearch } from '@/lib/search-tracking';
 
 interface SearchBarProps {
   className?: string;
@@ -90,6 +91,9 @@ export default function SearchBar({
   };
 
   const handleSelectRecipe = (recipe: Recipe) => {
+    // Track the recipe selection
+    trackRecipeSearch(recipe, query);
+    
     router.push(`/recipes/${recipe.slug}`);
     setQuery('');
     setIsFocused(false);
@@ -137,9 +141,8 @@ export default function SearchBar({
       {isFocused && recipes.length > 0 && (
         <SearchAutocomplete
           query={query}
-          recipes={recipes}
+          recipes={query.trim().length >= 2 ? recipes : getPopularRecipes(recipes, 20)}
           onSelect={handleSelectRecipe}
-          maxResults={5}
         />
       )}
     </div>

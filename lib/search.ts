@@ -132,14 +132,16 @@ export function searchRecipes(
 
   // Search with both original and normalized query
   // This ensures we catch matches even with plural/singular differences
+  // Use a very high limit if no limit specified to get all results
+  const searchLimit = options?.limit || 10000;
   const results1 = searchIndex.search(trimmedQuery, {
-    limit: options?.limit || 50,
+    limit: searchLimit,
   });
   
   // Also search with normalized query if different
   const results2 = normalizedQuery !== trimmedQuery.toLowerCase()
     ? searchIndex.search(normalizedQuery, {
-        limit: options?.limit || 50,
+        limit: searchLimit,
       })
     : [];
 
