@@ -3,36 +3,15 @@
  */
 
 import 'dotenv/config';
-import { PrismaClient } from '@prisma/client';
-import { Pool } from 'pg';
-import { PrismaPg } from '@prisma/adapter-pg';
 import { Recipe, RecipeCategory, VeganType, Ingredient, Instruction, FAQ } from '../types/recipe';
-import { getDatabaseUrl } from '../lib/db-connection';
 
-// Create Prisma client with adapter (required for Prisma 7)
-let prisma: PrismaClient | null = null;
-
-function getPrismaClient(): PrismaClient {
-  if (prisma) {
-    return prisma;
+// Use the singleton Prisma client from lib/prisma to avoid duplicate connection pools
+function getPrismaClient() {
+  // Import the singleton Prisma client
+  const { prisma } = require('../lib/prisma');
+  if (!prisma) {
+    throw new Error('Prisma Client is not initialized. Check DATABASE_URL configuration.');
   }
-
-  const databaseUrl = getDatabaseUrl();
-  if (!databaseUrl) {
-    throw new Error('DATABASE_URL or DIRECT_URL is required to save recipes to Supabase');
-  }
-
-  const pool = new Pool({ 
-    connectionString: databaseUrl,
-    statement_timeout: 0,
-  });
-  const adapter = new PrismaPg(pool);
-  
-  prisma = new PrismaClient({
-    adapter,
-    log: ['error', 'warn'],
-  });
-
   return prisma;
 }
 

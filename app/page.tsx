@@ -109,13 +109,13 @@ function getRandomRecipes(recipes: Recipe[], count: number): Recipe[] {
 }
 
 export default async function Home() {
-  // Fetch all recipes (handles both sync and async)
-  const [allRecipes, bakingRecipesArray, savoryRecipesArray, internationalRecipesArray] = await Promise.all([
-    getAllRecipesAsync(),
-    getRecipesByCategoryAsync('baking'),
-    getRecipesByCategoryAsync('savory'),
-    getRecipesByCategoryAsync('international'),
-  ]);
+  // Fetch all recipes sequentially to avoid connection pool exhaustion
+  // Supabase session mode only allows 1 connection at a time
+  // Running queries in parallel causes "max clients reached" errors
+  const allRecipes = await getAllRecipesAsync();
+  const bakingRecipesArray = await getRecipesByCategoryAsync('baking');
+  const savoryRecipesArray = await getRecipesByCategoryAsync('savory');
+  const internationalRecipesArray = await getRecipesByCategoryAsync('international');
   
   // Get random recipes for each section
   const featuredRecipes = getRandomRecipes(allRecipes, 6);

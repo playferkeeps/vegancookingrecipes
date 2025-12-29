@@ -6,9 +6,6 @@
 // Load environment variables from .env file
 import 'dotenv/config';
 
-import { PrismaClient } from '@prisma/client';
-import { Pool } from 'pg';
-import { PrismaPg } from '@prisma/adapter-pg';
 import { Recipe, RecipeCategory, VeganType, Ingredient, Instruction, FAQ } from '../types/recipe';
 import { getAllRecipes } from '../data/recipes/static';
 import { getDatabaseUrl } from '../lib/db-connection';
@@ -20,11 +17,23 @@ if (!databaseUrl) {
   process.exit(1);
 }
 
-// Create Prisma client with adapter (required for Prisma 7)
+// Use the singleton Prisma client from lib/prisma to avoid duplicate connection pools
+// For seed script, we'll create a temporary instance since it runs standalone
+// But we'll use the same pool configuration
+import { Pool } from 'pg';
+import { PrismaPg } from '@prisma/adapter-pg';
+import { PrismaClient } from '@prisma/client';
+
+// Create a temporary Prisma client for the seed script (runs standalone)
+// This is okay since seed runs separately from the server
 const pool = new Pool({ 
   connectionString: databaseUrl,
-  // Disable prepared statements to avoid conflicts with Supabase pooler
+  max: 1, // Use single connection like the singleton
+  min: 0,
+  idleTimeoutMillis: 5000,
+  connectionTimeoutMillis: 3000,
   statement_timeout: 0,
+  allowExitOnIdle: true,
 });
 const adapter = new PrismaPg(pool);
 const prisma = new PrismaClient({

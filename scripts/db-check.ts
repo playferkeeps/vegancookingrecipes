@@ -7,9 +7,6 @@
 // Load environment variables from .env file
 import 'dotenv/config';
 
-import { PrismaClient } from '@prisma/client';
-import { Pool } from 'pg';
-import { PrismaPg } from '@prisma/adapter-pg';
 import { Recipe, RecipeCategory, VeganType, Ingredient, Instruction, FAQ } from '../types/recipe';
 import { getDatabaseUrl } from '../lib/db-connection';
 
@@ -20,17 +17,12 @@ if (!databaseUrl) {
   process.exit(0);
 }
 
-// Create Prisma client with adapter
-const pool = new Pool({ 
-  connectionString: databaseUrl,
-  // Disable prepared statements to avoid conflicts with Supabase pooler
-  statement_timeout: 0,
-});
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({
-  adapter,
-  log: ['error'],
-});
+// Use the singleton Prisma client from lib/prisma to avoid duplicate connection pools
+const { prisma } = require('../lib/prisma');
+if (!prisma) {
+  console.error('❌ Prisma Client is not initialized. Check DATABASE_URL configuration.');
+  process.exit(1);
+}
 
 /**
  * Check if database needs seeding and seed if necessary
