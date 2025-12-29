@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
+import RecaptchaVerification from './RecaptchaVerification';
+import { isRecaptchaVerified } from '@/lib/recaptcha';
+import { getVoteStats, getUserVote, submitVote } from '@/lib/supabase-helpers';
 
 interface RecipeVotingProps {
   recipeId: string;
@@ -20,64 +23,131 @@ export default function RecipeVoting({ recipeId }: RecipeVotingProps) {
     downVotes: 0,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [needsRecaptcha, setNeedsRecaptcha] = useState(false);
 
-  // Load votes from localStorage
+  // Load votes from Supabase (or localStorage fallback)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem(`votes-${recipeId}`);
-      if (stored) {
-        try {
-          const parsed = JSON.parse(stored);
-          setVoteData(parsed);
-        } catch (e) {
-          console.error('Error parsing votes:', e);
-        }
+    const loadVotes = async () => {
+      setIsLoading(true);
+      
+      try {
+        // Load vote stats and user's vote in parallel
+        const [stats, userVote] = await Promise.all([
+          getVoteStats(recipeId),
+          getUserVote(recipeId),
+        ]);
+
+        setVoteData({
+          userVote: userVote,
+          upVotes: stats.up_votes,
+          downVotes: stats.down_votes,
+        });
+      } catch (error) {
+        console.error('Error loading votes:', error);
+      } finally {
+        setIsLoading(false);
       }
+    };
+
+    if (typeof window !== 'undefined') {
+      loadVotes();
+      
+      // Check if reCAPTCHA verification is needed
+      setNeedsRecaptcha(!isRecaptchaVerified());
     }
   }, [recipeId]);
 
-  const handleVote = async (voteType: 'up' | 'down') => {
+  const handleVote = async (voteType: 'up' | 'down', recaptchaToken?: string) => {
     if (isSubmitting) return;
+
+    // If reCAPTCHA is needed but token is not provided, trigger verification
+    if (needsRecaptcha && !recaptchaToken) {
+      return;
+    }
 
     setIsSubmitting(true);
 
-    const newVoteData: VoteData = { ...voteData };
+    try {
+      // Optimistic update
+      const newVoteData: VoteData = { ...voteData };
+      const isRemovingVote = newVoteData.userVote === voteType;
 
-    // If clicking the same vote, remove it
-    if (newVoteData.userVote === voteType) {
-      if (voteType === 'up') {
-        newVoteData.upVotes = Math.max(0, newVoteData.upVotes - 1);
-      } else {
-        newVoteData.downVotes = Math.max(0, newVoteData.downVotes - 1);
-      }
-      newVoteData.userVote = null;
-    } else {
-      // If switching from one vote to another
-      if (newVoteData.userVote === 'up' && voteType === 'down') {
-        newVoteData.upVotes = Math.max(0, newVoteData.upVotes - 1);
-        newVoteData.downVotes += 1;
-      } else if (newVoteData.userVote === 'down' && voteType === 'up') {
-        newVoteData.downVotes = Math.max(0, newVoteData.downVotes - 1);
-        newVoteData.upVotes += 1;
-      } else {
-        // New vote
+      if (isRemovingVote) {
+        // Removing vote
         if (voteType === 'up') {
+          newVoteData.upVotes = Math.max(0, newVoteData.upVotes - 1);
+        } else {
+          newVoteData.downVotes = Math.max(0, newVoteData.downVotes - 1);
+        }
+        newVoteData.userVote = null;
+      } else {
+        // Changing or adding vote
+        if (newVoteData.userVote === 'up' && voteType === 'down') {
+          newVoteData.upVotes = Math.max(0, newVoteData.upVotes - 1);
+          newVoteData.downVotes += 1;
+        } else if (newVoteData.userVote === 'down' && voteType === 'up') {
+          newVoteData.downVotes = Math.max(0, newVoteData.downVotes - 1);
           newVoteData.upVotes += 1;
         } else {
-          newVoteData.downVotes += 1;
+          // New vote
+          if (voteType === 'up') {
+            newVoteData.upVotes += 1;
+          } else {
+            newVoteData.downVotes += 1;
+          }
         }
+        newVoteData.userVote = voteType;
       }
-      newVoteData.userVote = voteType;
-    }
 
-    setVoteData(newVoteData);
-    
-    // Save to localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem(`votes-${recipeId}`, JSON.stringify(newVoteData));
-    }
+      setVoteData(newVoteData);
 
-    setIsSubmitting(false);
+      // Submit to Supabase (or localStorage fallback)
+      // Note: submitVote will automatically delete if the vote type matches existing vote
+      const result = await submitVote(recipeId, voteType);
+      
+      if (!result.success) {
+        console.error('Error submitting vote:', result.error);
+        // Revert optimistic update on error
+        const [stats, userVote] = await Promise.all([
+          getVoteStats(recipeId),
+          getUserVote(recipeId),
+        ]);
+        setVoteData({
+          userVote: userVote,
+          upVotes: stats.up_votes,
+          downVotes: stats.down_votes,
+        });
+      } else {
+        // Refresh stats from server to ensure accuracy
+        const stats = await getVoteStats(recipeId);
+        setVoteData(prev => ({
+          ...prev,
+          upVotes: stats.up_votes,
+          downVotes: stats.down_votes,
+        }));
+      }
+
+      // Mark reCAPTCHA as no longer needed after successful vote
+      if (needsRecaptcha && recaptchaToken) {
+        setNeedsRecaptcha(false);
+      }
+    } catch (error) {
+      console.error('Error handling vote:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const [pendingVote, setPendingVote] = useState<'up' | 'down' | null>(null);
+
+  const handleRecaptchaVerify = async (token: string) => {
+    // reCAPTCHA verified - token is saved automatically by RecaptchaVerification
+    // If there's a pending vote, execute it now
+    if (pendingVote) {
+      await handleVote(pendingVote, token);
+      setPendingVote(null);
+    }
   };
 
   const totalVotes = voteData.upVotes + voteData.downVotes;
@@ -85,17 +155,53 @@ export default function RecipeVoting({ recipeId }: RecipeVotingProps) {
     ? Math.round((voteData.upVotes / totalVotes) * 100)
     : 0;
 
+  if (isLoading) {
+    return (
+      <section className="my-8 p-6 bg-gray-50 rounded-lg border border-gray-200" aria-label="Recipe rating">
+        <h2 className="text-2xl font-bold mb-4">Rate this Recipe</h2>
+        <p className="text-gray-600">Loading votes...</p>
+      </section>
+    );
+  }
+
   return (
-    <section className="my-8 p-6 bg-gray-50 rounded-lg border border-gray-200" aria-label="Recipe rating">
-      <h2 className="text-2xl font-bold mb-4">Rate this Recipe</h2>
-      <p className="text-gray-600 mb-4">
-        Help others discover great recipes! Did you enjoy this recipe?
-      </p>
-      
-      <div className="flex items-center gap-6 mb-4">
-        <button
-          onClick={() => handleVote('up')}
-          disabled={isSubmitting}
+    <RecaptchaVerification
+      onVerify={handleRecaptchaVerify}
+      onError={(error) => console.error('reCAPTCHA error:', error)}
+    >
+      {({ isVerified, isVerifying, verify }) => (
+        <section className="my-8 p-6 bg-gray-50 rounded-lg border border-gray-200" aria-label="Recipe rating">
+          <h2 className="text-2xl font-bold mb-4">Rate this Recipe</h2>
+          <p className="text-gray-600 mb-4">
+            Help others discover great recipes! Did you enjoy this recipe?
+          </p>
+          
+          {needsRecaptcha && !isVerified && (
+            <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p className="text-sm text-yellow-800 mb-3">
+                Please verify you're human before voting.
+              </p>
+              <button
+                onClick={verify}
+                disabled={isVerifying}
+                className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isVerifying ? 'Verifying...' : 'Verify'}
+              </button>
+            </div>
+          )}
+          
+          <div className="flex items-center gap-6 mb-4">
+            <button
+              onClick={async () => {
+                if (needsRecaptcha && !isVerified) {
+                  setPendingVote('up');
+                  await verify();
+                } else {
+                  await handleVote('up');
+                }
+              }}
+              disabled={isSubmitting || isVerifying}
           className={`
             flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all
             focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2
@@ -117,9 +223,16 @@ export default function RecipeVoting({ recipeId }: RecipeVotingProps) {
           <span className="ml-1 font-bold">({voteData.upVotes})</span>
         </button>
 
-        <button
-          onClick={() => handleVote('down')}
-          disabled={isSubmitting}
+            <button
+              onClick={async () => {
+                if (needsRecaptcha && !isVerified) {
+                  setPendingVote('down');
+                  await verify();
+                } else {
+                  await handleVote('down');
+                }
+              }}
+              disabled={isSubmitting || isVerifying}
           className={`
             flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all
             focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
@@ -162,10 +275,13 @@ export default function RecipeVoting({ recipeId }: RecipeVotingProps) {
               aria-valuemax={100}
               aria-label={`${rating}% of users found this recipe helpful`}
             />
+            </div>
           </div>
         </div>
       )}
-    </section>
+        </section>
+      )}
+    </RecaptchaVerification>
   );
 }
 

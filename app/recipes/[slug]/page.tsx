@@ -157,9 +157,9 @@ export default async function RecipePage({ params }: PageProps) {
         <header className="mb-6 sm:mb-8">
           <div className="mb-4 sm:mb-6">
             <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
-              {recipe.category.map((cat) => (
+              {Array.from(new Set(recipe.category)).map((cat, index) => (
                 <span
-                  key={cat}
+                  key={`${cat}-${index}`}
                   className="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-green-100 text-green-800 text-xs sm:text-sm rounded-full capitalize"
                 >
                   {cat}
@@ -375,12 +375,12 @@ export default async function RecipePage({ params }: PageProps) {
           </section>
 
           {/* Tags */}
-          <div className="mt-6 pt-6 border-t border-gray-200">
-            <div className="flex flex-wrap gap-2">
-              {recipe.tags.map((tag) => (
+          <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              {Array.from(new Set(recipe.tags)).map((tag, index) => (
                 <span
-                  key={tag}
-                  className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                  key={`${tag}-${index}`}
+                  className="px-2 sm:px-3 py-1 bg-gray-100 text-gray-700 text-xs sm:text-sm rounded-full"
                 >
                   #{tag}
                 </span>
