@@ -39,7 +39,7 @@ npm run generate-recipes -- --count 250
 
 ### How It Works
 
-- The tool cycles through all 9 categories: `baking`, `savory`, `ethnic`, `breakfast`, `lunch`, `dinner`, `dessert`, `snack`, `beverage`
+- The tool cycles through all 9 categories: `baking`, `savory`, `international`, `breakfast`, `lunch`, `dinner`, `dessert`, `snack`, `beverage`
 - Each category gets at least one recipe (if count >= 9)
 - Remaining recipes are randomly distributed across categories
 - Recipe titles are randomly selected from category-specific suggestions
@@ -55,7 +55,7 @@ npm run generate-recipes -- --count 250
 2. **Review the generated recipes** in the category files:
    - `data/recipes/baking.ts`
    - `data/recipes/savory.ts`
-   - `data/recipes/ethnic.ts`
+   - `data/recipes/international.ts`
    - etc.
 
 3. **Rebuild the site** to include new recipes:
@@ -93,7 +93,7 @@ npm run generate-recipes -- --count 250
 Recipes are saved to category files:
 - `data/recipes/baking.ts` - Baking recipes
 - `data/recipes/savory.ts` - Savory recipes
-- `data/recipes/ethnic.ts` - Ethnic recipes
+- `data/recipes/international.ts` - International recipes
 - `data/recipes/breakfast.ts` - Breakfast recipes
 - `data/recipes/lunch.ts` - Lunch recipes
 - `data/recipes/dinner.ts` - Dinner recipes

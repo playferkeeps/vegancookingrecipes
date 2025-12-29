@@ -142,7 +142,7 @@ function calculateRealisticTimes(
       baseCook = 25;
     }
   } else {
-    // Default for savory, ethnic
+    // Default for savory, international
     basePrep = 15;
     baseCook = 25;
   }
@@ -267,8 +267,8 @@ savoryTitles.forEach(title => {
   ));
 });
 
-// ETHNIC RECIPES (30 recipes)
-const ethnicTitles = [
+// INTERNATIONAL RECIPES (30 recipes)
+const internationalTitles = [
   'Pad Thai', 'Thai Curry', 'Thai Soup', 'Thai Salad',
   'Indian Curry', 'Dal', 'Biryani', 'Samosas',
   'Mexican Tacos', 'Enchiladas', 'Burritos', 'Quesadillas',
@@ -279,12 +279,12 @@ const ethnicTitles = [
   'Greek Salad', 'Spanakopita'
 ];
 
-ethnicTitles.forEach(title => {
+internationalTitles.forEach(title => {
   allRecipes.push(createEnhancedRecipe(
     title,
-    ['ethnic', 'dinner'],
+    ['international', 'dinner'],
     ['whole-food-plant-based'],
-    [title.toLowerCase().replace(/\s+/g, '-'), 'ethnic']
+    [title.toLowerCase().replace(/\s+/g, '-'), 'international']
   ));
 });
 
@@ -417,7 +417,7 @@ export const all250Recipes: Recipe[] = allRecipes;
 // Distribution:
 // - Baking: 30 recipes
 // - Savory: 30 recipes
-// - Ethnic: 30 recipes
+// - International: 30 recipes
 // - Breakfast: 25 recipes
 // - Lunch: 25 recipes
 // - Dinner: 30 recipes

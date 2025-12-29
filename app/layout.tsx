@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: 'Vegan Cooking Recipes - Delicious Plant-Based Meals | vegancooking.recipes',
     template: '%s | vegancooking.recipes',
   },
-  description: 'Discover amazing vegan recipes for every meal at vegancooking.recipes. From baking to savory dishes, ethnic cuisine, and more. All recipes are plant-based, delicious, and easy to follow.',
+  description: 'Discover amazing vegan recipes for every meal at vegancooking.recipes. From baking to savory dishes, international cuisine, and more. All recipes are plant-based, delicious, and easy to follow.',
   keywords: ['vegan recipes', 'plant-based cooking', 'vegan meals', 'vegan baking', 'vegan food', 'dairy-free recipes', 'egg-free recipes', 'vegancooking.recipes', 'vegan cooking recipes'],
   authors: [{ name: 'vegancooking.recipes', url: 'https://vegancooking.recipes' }],
   creator: 'vegancooking.recipes',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     url: 'https://vegancooking.recipes',
     siteName: 'vegancooking.recipes',
     title: 'Vegan Cooking Recipes - Delicious Plant-Based Meals | vegancooking.recipes',
-    description: 'Discover amazing vegan recipes for every meal at vegancooking.recipes. From baking to savory dishes, ethnic cuisine, and more.',
+    description: 'Discover amazing vegan recipes for every meal at vegancooking.recipes. From baking to savory dishes, international cuisine, and more.',
   },
   twitter: {
     card: 'summary_large_image',

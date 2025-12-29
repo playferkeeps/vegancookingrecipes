@@ -110,7 +110,7 @@ function generateStructuredData(recipe: Recipe) {
     totalTime: `PT${recipe.totalTime}M`,
     recipeYield: `${recipe.servings} servings`,
     recipeCategory: recipe.category.join(', '),
-    recipeCuisine: recipe.category.includes('ethnic') ? 'International' : 'Vegan',
+    recipeCuisine: recipe.category.includes('international') ? 'International' : 'Vegan',
     keywords: [...recipe.tags, 'vegancooking.recipes', 'vegan recipes'].join(', '),
     recipeIngredient: recipe.ingredients.map(
       (ing) => `${ing.amount} ${ing.unit || ''} ${ing.name}${ing.notes ? ` (${ing.notes})` : ''}`

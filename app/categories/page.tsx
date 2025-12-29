@@ -3,7 +3,7 @@ import { RecipeCategory } from '@/types/recipe';
 
 export const metadata = {
   title: 'Recipe Categories | vegancooking.recipes',
-  description: 'Browse vegan recipes by category at vegancooking.recipes. Find recipes for baking, savory dishes, ethnic cuisine, breakfast, lunch, dinner, desserts, and more.',
+    description: 'Browse vegan recipes by category at vegancooking.recipes. Find recipes for baking, savory dishes, international cuisine, breakfast, lunch, dinner, desserts, and more.',
   keywords: ['vegan recipe categories', 'vegan recipes by category', 'vegancooking.recipes'],
   openGraph: {
     title: 'Recipe Categories | vegancooking.recipes',
@@ -29,7 +29,7 @@ const categories: { name: RecipeCategory; description: string; icon: string }[] 
     icon: '🍲',
   },
   {
-    name: 'ethnic',
+    name: 'international',
     description: 'Flavors from around the world',
     icon: '🌍',
   },

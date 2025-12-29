@@ -574,7 +574,7 @@ async function main() {
     'originalRecipesData.ts',
     'baking.ts',
     'savory.ts',
-    'ethnic.ts',
+    'international.ts',
     'breakfast.ts',
     'lunch.ts',
     'dinner.ts',

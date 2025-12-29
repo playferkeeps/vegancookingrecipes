@@ -190,7 +190,7 @@ async function generateRecipeImage(recipeTitle: string, description: string, ret
 const ALL_CATEGORIES: RecipeCategory[] = [
   'baking',
   'savory',
-  'ethnic',
+  'international',
   'breakfast',
   'lunch',
   'dinner',
@@ -213,7 +213,7 @@ const RECIPE_TITLES_BY_CATEGORY: Record<RecipeCategory, string[]> = {
     'Roasted Vegetables', 'Stuffed Peppers', 'Stuffed Zucchini', 'Ratatouille', 'Vegetable Curry',
     'Chickpea Curry', 'Lentil Curry', 'Potato Curry', 'Vegetable Stir Fry', 'Tofu Stir Fry'
   ],
-  ethnic: [
+  international: [
     'Pad Thai', 'Thai Curry', 'Thai Soup', 'Indian Curry', 'Dal', 'Biryani', 'Samosas',
     'Tacos', 'Enchiladas', 'Burritos', 'Quesadillas', 'Pasta', 'Pizza', 'Risotto',
     'Fried Rice', 'Kung Pao Tofu', 'Mapo Tofu', 'Dumplings', 'Ramen', 'Sushi Rolls',
@@ -467,7 +467,7 @@ function getCategoryFilePath(category: RecipeCategory): string {
   const categoryMap: Record<RecipeCategory, string> = {
     baking: 'baking.ts',
     savory: 'savory.ts',
-    ethnic: 'ethnic.ts',
+    international: 'international.ts',
     breakfast: 'breakfast.ts',
     lunch: 'lunch.ts',
     dinner: 'dinner.ts',
@@ -686,7 +686,7 @@ function loadAllExistingRecipes(): { bySlug: Map<string, Recipe>, byTitle: Map<s
   
   // Load all category files
   const categoryFiles = [
-    'baking.ts', 'savory.ts', 'ethnic.ts', 'breakfast.ts',
+    'baking.ts', 'savory.ts', 'international.ts', 'breakfast.ts',
     'lunch.ts', 'dinner.ts', 'dessert.ts', 'snack.ts', 'beverage.ts'
   ];
   

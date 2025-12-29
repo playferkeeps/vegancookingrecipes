@@ -7,7 +7,7 @@ This directory contains all recipes organized by category for better maintainabi
 - `index.ts` - Main export file that combines all recipes
 - `baking.ts` - Baking recipes (cookies, breads, cakes, etc.)
 - `savory.ts` - Savory dishes
-- `ethnic.ts` - Ethnic/international cuisine
+- `international.ts` - International cuisine
 - `breakfast.ts` - Breakfast recipes
 - `lunch.ts` - Lunch recipes
 - `dinner.ts` - Dinner recipes

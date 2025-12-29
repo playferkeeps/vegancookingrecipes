@@ -15,7 +15,7 @@
 ## Distribution Target (250 total)
 - Baking: 30 recipes
 - Savory: 30 recipes  
-- Ethnic: 30 recipes
+- International: 30 recipes
 - Breakfast: 25 recipes
 - Lunch: 25 recipes
 - Dinner: 30 recipes

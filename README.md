@@ -4,7 +4,7 @@ A modern, SEO-friendly vegan cooking website built with Next.js, TypeScript, and
 
 ## Features
 
-- 🥗 **Comprehensive Recipe Collection**: Recipes covering baking, savory dishes, ethnic cuisine, breakfast, lunch, dinner, desserts, and more
+- 🥗 **Comprehensive Recipe Collection**: Recipes covering baking, savory dishes, international cuisine, breakfast, lunch, dinner, desserts, and more
 - 🔍 **SEO Optimized**: 
   - Structured data (JSON-LD) for recipes
   - Meta tags and Open Graph tags

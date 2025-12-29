@@ -3,7 +3,7 @@ import { Recipe } from '@/types/recipe';
 import { originalRecipes } from './originalRecipesData';
 import { bakingRecipes } from './baking';
 import { savoryRecipes } from './savory';
-import { ethnicRecipes } from './ethnic';
+import { internationalRecipes } from './international';
 import { breakfastRecipes } from './breakfast';
 import { lunchRecipes } from './lunch';
 import { dinnerRecipes } from './dinner';
@@ -19,7 +19,7 @@ export const allRecipes: Recipe[] = [
   // ...all250Recipes, // REMOVED: These contained placeholder ingredients/instructions
   ...bakingRecipes,
   ...savoryRecipes,
-  ...ethnicRecipes,
+  ...internationalRecipes,
   ...breakfastRecipes,
   ...lunchRecipes,
   ...dinnerRecipes,
@@ -53,7 +53,7 @@ export function getRecipesByTag(tag: string): Recipe[] {
 export {
   bakingRecipes,
   savoryRecipes,
-  ethnicRecipes,
+  internationalRecipes,
   breakfastRecipes,
   lunchRecipes,
   dinnerRecipes,

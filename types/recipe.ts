@@ -1,7 +1,7 @@
 export type RecipeCategory = 
   | 'baking'
   | 'savory'
-  | 'ethnic'
+  | 'international'
   | 'breakfast'
   | 'lunch'
   | 'dinner'
