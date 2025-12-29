@@ -27,3 +27,4 @@ const recipeTemplates = {
 // This would generate recipes, but for now let's create category files manually
 // with a good mix of recipes
 
+

@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next';
-import { getAllRecipes } from '@/data/recipes';
+import { getAllRecipesAsync } from '@/data/recipes/helpers';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://vegancooking.recipes';
-  const recipes = getAllRecipes();
+  const recipes = await getAllRecipesAsync();
 
   const recipeUrls = recipes.map((recipe) => ({
     url: `${baseUrl}/recipes/${recipe.slug}`,

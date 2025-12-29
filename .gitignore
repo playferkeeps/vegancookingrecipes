@@ -215,3 +215,5 @@ storybook-static
 # Temporary folders
 tmp/
 temp/
+
+/lib/generated/prisma

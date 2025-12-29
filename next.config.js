@@ -28,8 +28,6 @@ const nextConfig = {
   compress: true,
   // Remove X-Powered-By header for security
   poweredByHeader: false,
-  // Optimize bundle size
-  swcMinify: true,
   // Enable experimental features for better performance
   experimental: {
     optimizeCss: true,

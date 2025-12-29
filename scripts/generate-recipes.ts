@@ -2,16 +2,18 @@
  * Admin Tool: Recipe Generator
  * 
  * This is a pre-deployment tool to generate accurate vegan recipes using OpenAI.
- * Use this BEFORE deploying the site to generate and save recipes to category files.
+ * Use this BEFORE deploying the site to generate and save recipes.
  * 
  * Usage:
  *   npm run generate-recipes -- --count 50
  *   npm run generate-recipes -- --count 100
+ *   npm run generate-recipes -- --count 50 --supabase  # Save to Supabase instead of files
  * 
  * The tool will automatically cycle through all categories and generate recipes randomly.
  * 
  * Make sure to create a .env file in the root directory with:
  *   OPENAI_API_KEY=your_api_key_here
+ *   DATABASE_URL=your_supabase_connection_string  # Optional, for Supabase mode
  */
 
 import 'dotenv/config';
@@ -23,6 +25,12 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as https from 'https';
 import * as http from 'http';
+import { 
+  saveRecipeToSupabase, 
+  checkRecipeExistsInSupabase,
+  getAllRecipeSlugsFromSupabase,
+  getAllRecipeTitlesFromSupabase,
+} from './save-recipe-to-supabase';
 
 function getOpenAIClient() {
   if (!process.env.OPENAI_API_KEY) {
@@ -199,61 +207,153 @@ const ALL_CATEGORIES: RecipeCategory[] = [
   'beverage',
 ];
 
-// Recipe title suggestions by category
+// Comprehensive recipe title suggestions by category - covering ALL vegan cuisine types
 const RECIPE_TITLES_BY_CATEGORY: Record<RecipeCategory, string[]> = {
   baking: [
     'Chocolate Chip Cookies', 'Oatmeal Cookies', 'Sugar Cookies', 'Brownies', 'Blondies',
     'Banana Bread', 'Zucchini Bread', 'Pumpkin Bread', 'Cornbread', 'Blueberry Muffins',
     'Chocolate Muffins', 'Vanilla Cupcakes', 'Chocolate Cupcakes', 'Carrot Cake', 'Lemon Cake',
-    'Cinnamon Rolls', 'Scones', 'Biscuits', 'Bagels', 'Donuts'
+    'Cinnamon Rolls', 'Scones', 'Biscuits', 'Bagels', 'Donuts', 'Apple Pie', 'Pecan Pie',
+    'Cherry Pie', 'Lemon Bars', 'Peanut Butter Cookies', 'Oatmeal Raisin Cookies', 'Snickerdoodles',
+    'Shortbread Cookies', 'Gingerbread Cookies', 'Pumpkin Pie', 'Sweet Potato Pie', 'Key Lime Pie',
+    'Chocolate Chip Muffins', 'Banana Muffins', 'Corn Muffins', 'English Muffins', 'Pretzels',
+    'Cinnamon Bread', 'Raisin Bread', 'Focaccia', 'Garlic Bread', 'Dinner Rolls'
   ],
   savory: [
     'Tomato Soup', 'Lentil Soup', 'Minestrone', 'Broccoli Soup', 'Vegetable Stew',
     'Bean Stew', 'Mushroom Stew', 'Chickpea Stew', 'Green Bean Casserole', 'Potato Casserole',
     'Roasted Vegetables', 'Stuffed Peppers', 'Stuffed Zucchini', 'Ratatouille', 'Vegetable Curry',
-    'Chickpea Curry', 'Lentil Curry', 'Potato Curry', 'Vegetable Stir Fry', 'Tofu Stir Fry'
+    'Chickpea Curry', 'Lentil Curry', 'Potato Curry', 'Vegetable Stir Fry', 'Tofu Stir Fry',
+    'Mushroom Risotto', 'Butternut Squash Soup', 'Carrot Soup', 'Pea Soup', 'Corn Chowder',
+    'Vegetable Lasagna', 'Eggplant Parmesan', 'Stuffed Mushrooms', 'Baked Beans', 'Refried Beans',
+    'Black Bean Soup', 'White Bean Soup', 'Split Pea Soup', 'Cabbage Rolls', 'Stuffed Cabbage',
+    'Vegetable Pot Pie', 'Shepherd\'s Pie', 'Mushroom Gravy', 'Onion Gravy', 'Vegetable Broth'
   ],
   international: [
+    // Asian
     'Pad Thai', 'Thai Curry', 'Thai Soup', 'Indian Curry', 'Dal', 'Biryani', 'Samosas',
-    'Tacos', 'Enchiladas', 'Burritos', 'Quesadillas', 'Pasta', 'Pizza', 'Risotto',
     'Fried Rice', 'Kung Pao Tofu', 'Mapo Tofu', 'Dumplings', 'Ramen', 'Sushi Rolls',
-    'Teriyaki', 'Miso Soup', 'Falafel', 'Hummus', 'Baba Ganoush', 'Tabbouleh', 'Greek Salad'
+    'Teriyaki', 'Miso Soup', 'General Tso\'s Tofu', 'Sweet and Sour Tofu', 'Orange Tofu',
+    'Szechuan Tofu', 'Thai Basil Tofu', 'Pad See Ew', 'Pad Kee Mao', 'Drunken Noodles',
+    'Pho', 'Banh Mi', 'Spring Rolls', 'Summer Rolls', 'Bao Buns', 'Char Siu Tofu',
+    'Katsu Curry', 'Yakisoba', 'Okonomiyaki', 'Takoyaki', 'Onigiri', 'Miso Ramen',
+    'Tom Kha Soup', 'Tom Yum Soup', 'Green Curry', 'Red Curry', 'Massaman Curry',
+    'Palak Paneer', 'Chana Masala', 'Aloo Gobi', 'Baingan Bharta', 'Dal Makhani',
+    'Vegetable Biryani', 'Pulao', 'Jeera Rice', 'Naan', 'Roti', 'Paratha',
+    // Middle Eastern
+    'Falafel', 'Hummus', 'Baba Ganoush', 'Tabbouleh', 'Greek Salad', 'Fattoush',
+    'Mujaddara', 'Shakshuka', 'Ful Medames', 'Koshari', 'Dolma', 'Stuffed Grape Leaves',
+    'Pita Bread', 'Za\'atar Bread', 'Labneh', 'Muhammara', 'Mutabal', 'Kibbeh',
+    // Mediterranean
+    'Greek Moussaka', 'Spanakopita', 'Dolmades', 'Greek Lemon Potatoes', 'Briam',
+    'Fasolada', 'Gigantes', 'Horta', 'Tzatziki', 'Tahini Sauce',
+    // Latin American
+    'Tacos', 'Enchiladas', 'Burritos', 'Quesadillas', 'Tamales', 'Empanadas',
+    'Arepas', 'Pupusas', 'Chiles Rellenos', 'Mole', 'Salsa Verde', 'Pico de Gallo',
+    'Black Bean Tacos', 'Jackfruit Tacos', 'Cauliflower Tacos', 'Ceviche', 'Guacamole',
+    // European
+    'Pasta', 'Pizza', 'Risotto', 'Gnocchi', 'Polenta', 'Ratatouille',
+    'Bouillabaisse', 'Minestrone', 'Ribollita', 'Panzanella', 'Caponata',
+    'Borscht', 'Pierogi', 'Goulash', 'Schnitzel', 'Spaetzle'
   ],
   breakfast: [
     'Avocado Toast', 'Pancakes', 'Waffles', 'French Toast', 'Overnight Oats', 'Granola',
     'Smoothie Bowl', 'Chia Pudding', 'Breakfast Burrito', 'Breakfast Bowl', 'Tofu Scramble',
     'Breakfast Sandwich', 'Muffins', 'Scones', 'Bagels', 'English Muffins', 'Breakfast Cookies',
-    'Energy Bars', 'Breakfast Smoothie', 'Green Smoothie', 'Breakfast Casserole', 'Breakfast Hash'
+    'Energy Bars', 'Breakfast Smoothie', 'Green Smoothie', 'Breakfast Casserole', 'Breakfast Hash',
+    'Vegan Eggs', 'Just Egg Scramble', 'Breakfast Tacos', 'Breakfast Quesadilla', 'Breakfast Pizza',
+    'Oatmeal', 'Steel Cut Oats', 'Quinoa Porridge', 'Cream of Wheat', 'Grits',
+    'Breakfast Sausage', 'Vegan Bacon', 'Breakfast Sausage Patties', 'Hash Browns', 'Home Fries',
+    'Breakfast Potatoes', 'Breakfast Skillet', 'Breakfast Wrap', 'Breakfast Burrito Bowl',
+    'Acai Bowl', 'Chia Seed Pudding', 'Overnight Chia Oats', 'Breakfast Parfait', 'Yogurt Bowl'
   ],
   lunch: [
     'Caesar Salad', 'Greek Salad', 'Cobb Salad', 'Quinoa Salad', 'Lentil Salad', 'Chickpea Salad',
     'Pasta Salad', 'Potato Salad', 'Sandwich', 'Wrap', 'Burrito', 'Quesadilla', 'Soup', 'Stew',
     'Chili', 'Curry', 'Bowl', 'Stir Fry', 'Fried Rice', 'Noodles', 'Pizza', 'Flatbread', 'Tacos',
-    'Sushi', 'Buddha Bowl'
+    'Sushi', 'Buddha Bowl', 'Grain Bowl', 'Power Bowl', 'Nourish Bowl', 'Mediterranean Bowl',
+    'Mexican Bowl', 'Asian Bowl', 'BBQ Bowl', 'Teriyaki Bowl', 'Poke Bowl', 'Burrito Bowl',
+    'Taco Bowl', 'Fajita Bowl', 'Gyro Bowl', 'Falafel Bowl', 'Hummus Bowl', 'Quinoa Bowl',
+    'Rice Bowl', 'Noodle Bowl', 'Ramen Bowl', 'Pho Bowl', 'Soba Bowl', 'Udon Bowl',
+    'Club Sandwich', 'BLT', 'Reuben Sandwich', 'Grilled Cheese', 'Panini', 'Sub Sandwich',
+    'Hoagie', 'Hero Sandwich', 'Banh Mi', 'Veggie Burger', 'Black Bean Burger', 'Chickpea Burger',
+    'Lentil Burger', 'Mushroom Burger', 'Quinoa Burger', 'Sweet Potato Burger', 'Falafel Burger'
   ],
   dinner: [
+    // Pasta & Italian
     'Lasagna', 'Spaghetti', 'Penne', 'Fettuccine', 'Ravioli', 'Gnocchi', 'Risotto', 'Paella',
-    'Shepherd\'s Pie', 'Pot Pie', 'Casserole', 'Bake', 'Stir Fry', 'Curry', 'Stew', 'Soup',
-    'Tacos', 'Enchiladas', 'Burritos', 'Fajitas', 'Pizza', 'Flatbread', 'Calzone', 'Focaccia',
-    'Burgers', 'Sliders', 'Meatballs', 'Meatloaf', 'Roast', 'Skewers'
+    'Linguine', 'Fusilli', 'Rigatoni', 'Macaroni', 'Manicotti', 'Cannelloni', 'Tortellini',
+    'Penne Arrabbiata', 'Spaghetti Aglio e Olio', 'Pasta Primavera', 'Pasta Puttanesca',
+    'Pasta Carbonara', 'Pasta Alfredo', 'Pasta Marinara', 'Pasta Pomodoro',
+    // Casseroles & Bakes
+    'Shepherd\'s Pie', 'Pot Pie', 'Casserole', 'Bake', 'Enchilada Casserole', 'Taco Casserole',
+    'Lasagna Roll Ups', 'Stuffed Shells', 'Baked Ziti', 'Eggplant Rollatini', 'Stuffed Manicotti',
+    // Seitan & Meat Alternatives
+    'Vegan Ribs', 'Vegan Sausages', 'Seitan Ribs', 'Seitan Sausages', 'Seitan Steaks',
+    'Seitan Roast', 'Seitan Brisket', 'Seitan Wings', 'Seitan Nuggets', 'Seitan Cutlets',
+    'Vegan Pulled Pork', 'Jackfruit Pulled Pork', 'Vegan Chicken', 'Vegan Beef', 'Vegan Turkey',
+    'Vegan Meatballs', 'Vegan Meatloaf', 'Vegan Burgers', 'Vegan Hot Dogs', 'Vegan Bratwurst',
+    'Vegan Chorizo', 'Vegan Italian Sausage', 'Vegan Breakfast Sausage', 'Vegan Bacon',
+    'Vegan Ham', 'Vegan Deli Slices', 'Vegan Jerky', 'Vegan Pepperoni',
+    // Main Dishes
+    'Stir Fry', 'Curry', 'Stew', 'Soup', 'Tacos', 'Enchiladas', 'Burritos', 'Fajitas',
+    'Pizza', 'Flatbread', 'Calzone', 'Focaccia', 'Burgers', 'Sliders', 'Meatballs', 'Meatloaf',
+    'Roast', 'Skewers', 'Kebabs', 'Shish Kebabs', 'Satay', 'Teriyaki', 'General Tso\'s',
+    'Orange Chicken', 'Sweet and Sour', 'Kung Pao', 'Mapo Tofu', 'Szechuan', 'Thai Basil',
+    'Pad Thai', 'Pad See Ew', 'Drunken Noodles', 'Fried Rice', 'Lo Mein', 'Chow Mein',
+    'Ramen', 'Pho', 'Udon', 'Soba', 'Dumplings', 'Bao Buns', 'Sushi', 'Poke Bowl',
+    'Falafel', 'Shawarma', 'Gyro', 'Kebab', 'Kofta', 'Biryani', 'Dal', 'Curry',
+    'Tagine', 'Couscous', 'Paella', 'Risotto', 'Polenta', 'Gnocchi', 'Ratatouille',
+    'Moussaka', 'Spanakopita', 'Dolmades', 'Stuffed Peppers', 'Stuffed Zucchini',
+    'Stuffed Cabbage', 'Stuffed Grape Leaves', 'Cabbage Rolls', 'Eggplant Parmesan',
+    'Chiles Rellenos', 'Tamales', 'Empanadas', 'Arepas', 'Pupusas', 'Pierogi',
+    'Goulash', 'Borscht', 'Schnitzel', 'Spaetzle', 'Rouladen', 'Sauerbraten'
   ],
   dessert: [
     'Chocolate Cake', 'Vanilla Cake', 'Carrot Cake', 'Red Velvet Cake', 'Cheesecake', 'Ice Cream',
     'Sorbet', 'Pudding', 'Mousse', 'Truffles', 'Fudge', 'Caramels', 'Cookies', 'Brownies', 'Blondies',
     'Bars', 'Tarts', 'Pies', 'Cobbler', 'Crisp', 'Crumble', 'Parfait', 'Trifle', 'Tiramisu',
-    'Panna Cotta', 'Creme Brulee', 'Flan', 'Gelato', 'Frozen Yogurt', 'Nice Cream'
+    'Panna Cotta', 'Creme Brulee', 'Flan', 'Gelato', 'Frozen Yogurt', 'Nice Cream',
+    'Chocolate Mousse', 'Lemon Mousse', 'Strawberry Mousse', 'Chocolate Pudding', 'Vanilla Pudding',
+    'Rice Pudding', 'Bread Pudding', 'Chia Pudding', 'Tapioca Pudding', 'Coconut Pudding',
+    'Apple Pie', 'Cherry Pie', 'Pecan Pie', 'Pumpkin Pie', 'Sweet Potato Pie', 'Key Lime Pie',
+    'Lemon Meringue Pie', 'Banana Cream Pie', 'Coconut Cream Pie', 'Chocolate Cream Pie',
+    'Strawberry Pie', 'Blueberry Pie', 'Peach Pie', 'Rhubarb Pie', 'Blackberry Pie',
+    'Lemon Bars', 'Lime Bars', 'Raspberry Bars', 'Strawberry Bars', 'Date Bars', 'Oatmeal Bars',
+    'Chocolate Chip Cookies', 'Oatmeal Cookies', 'Sugar Cookies', 'Snickerdoodles', 'Gingerbread Cookies',
+    'Peanut Butter Cookies', 'Shortbread Cookies', 'Macarons', 'Macaroons', 'Biscotti',
+    'Cupcakes', 'Muffins', 'Scones', 'Donuts', 'Cinnamon Rolls', 'Sticky Buns',
+    'Churros', 'Beignets', 'Funnel Cake', 'Fried Dough', 'Zeppole', 'Cannoli',
+    'Baklava', 'Knafeh', 'Halva', 'Turkish Delight', 'Loukoumades', 'Kataifi'
   ],
   snack: [
     'Trail Mix', 'Granola Bars', 'Energy Balls', 'Protein Bars', 'Crackers', 'Chips', 'Popcorn',
     'Nuts', 'Seeds', 'Dried Fruit', 'Fruit Leather', 'Veggie Chips', 'Hummus', 'Guacamole',
     'Salsa', 'Dip', 'Spread', 'Butter', 'Cheese', 'Yogurt', 'Smoothie', 'Juice', 'Tea', 'Coffee',
-    'Hot Chocolate'
+    'Hot Chocolate', 'Roasted Nuts', 'Spiced Nuts', 'Candied Nuts', 'Trail Mix Bars',
+    'Protein Balls', 'Date Balls', 'Energy Bites', 'Granola', 'Roasted Chickpeas',
+    'Kale Chips', 'Zucchini Chips', 'Sweet Potato Chips', 'Plantain Chips', 'Beet Chips',
+    'Carrot Chips', 'Parsnip Chips', 'Apple Chips', 'Banana Chips', 'Coconut Chips',
+    'Pita Chips', 'Tortilla Chips', 'Crackers', 'Rice Crackers', 'Seed Crackers',
+    'Nut Butter', 'Almond Butter', 'Peanut Butter', 'Cashew Butter', 'Sunflower Butter',
+    'Tahini', 'Hummus', 'Baba Ganoush', 'Guacamole', 'Salsa', 'Pico de Gallo',
+    'Salsa Verde', 'Mango Salsa', 'Corn Salsa', 'Black Bean Dip', 'White Bean Dip',
+    'Spinach Dip', 'Artichoke Dip', 'Buffalo Cauliflower Dip', 'Queso', 'Cheese Sauce',
+    'Vegan Cheese', 'Cream Cheese', 'Ricotta', 'Mozzarella', 'Cheddar', 'Parmesan'
   ],
   beverage: [
     'Smoothie', 'Green Smoothie', 'Protein Smoothie', 'Fruit Smoothie', 'Juice', 'Green Juice',
     'Vegetable Juice', 'Fruit Juice', 'Tea', 'Herbal Tea', 'Iced Tea', 'Chai Tea', 'Coffee',
     'Cold Brew', 'Latte', 'Cappuccino', 'Hot Chocolate', 'Cocoa', 'Golden Milk', 'Turmeric Latte',
-    'Lemonade', 'Limeade', 'Punch', 'Mocktail', 'Milkshake'
+    'Lemonade', 'Limeade', 'Punch', 'Mocktail', 'Milkshake', 'Smoothie Bowl', 'Acai Bowl',
+    'Matcha Latte', 'Chai Latte', 'London Fog', 'Dirty Chai', 'Pumpkin Spice Latte',
+    'Peppermint Mocha', 'Caramel Macchiato', 'Vanilla Latte', 'Hazelnut Latte', 'Almond Latte',
+    'Oat Milk Latte', 'Soy Milk Latte', 'Coconut Milk Latte', 'Cashew Milk Latte',
+    'Hot Toddy', 'Mulled Cider', 'Spiced Cider', 'Apple Cider', 'Cranberry Juice',
+    'Orange Juice', 'Grapefruit Juice', 'Pomegranate Juice', 'Coconut Water', 'Aloe Vera Juice',
+    'Kombucha', 'Kefir', 'Probiotic Drink', 'Kvass', 'Tepache', 'Jun Tea',
+    'Bubble Tea', 'Boba Tea', 'Thai Iced Tea', 'Vietnamese Iced Coffee', 'Cafe au Lait',
+    'Cortado', 'Macchiato', 'Americano', 'Espresso', 'Affogato', 'Frappe', 'Frappuccino'
   ],
 };
 
@@ -650,10 +750,37 @@ function formatRecipeForFile(recipe: Recipe): string {
 }
 
 /**
- * Load all existing recipes from all category files and originalRecipesData
+ * Load all existing recipes from Supabase or static files
  * Returns a map of slug -> recipe and title -> recipe for duplicate checking
  */
-function loadAllExistingRecipes(): { bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe> } {
+async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe> }> {
+  if (useSupabase && process.env.DATABASE_URL) {
+    try {
+      console.log('📊 Loading existing recipes from Supabase...');
+      const slugs = await getAllRecipeSlugsFromSupabase();
+      const titles = await getAllRecipeTitlesFromSupabase();
+      
+      const bySlug = new Map<string, Recipe>();
+      const byTitle = new Map<string, Recipe>();
+      
+      // Create placeholder recipes for duplicate checking
+      for (const slug of slugs) {
+        bySlug.set(slug, { slug } as Recipe);
+      }
+      
+      for (const title of titles) {
+        byTitle.set(title, { title } as Recipe);
+      }
+      
+      console.log(`✅ Loaded ${slugs.size} recipes from Supabase`);
+      return { bySlug, byTitle };
+    } catch (error) {
+      console.warn('⚠️  Could not load from Supabase, falling back to static files:', error);
+      // Fall through to static file loading
+    }
+  }
+  
+  // Load from static files (original behavior)
   const bySlug = new Map<string, Recipe>();
   const byTitle = new Map<string, Recipe>();
   
@@ -809,6 +936,13 @@ async function saveRecipeToCategoryFile(recipe: Recipe, category: RecipeCategory
 async function main() {
   const args = process.argv.slice(2);
   
+  // Check for --supabase flag or if database is configured
+  // Default to Supabase if DIRECT_URL or DATABASE_URL is set (unless --no-supabase flag is used)
+  const hasDatabaseConfig = !!(process.env.DIRECT_URL || process.env.DATABASE_URL);
+  const useSupabase = args.includes('--no-supabase') 
+    ? false 
+    : (args.includes('--supabase') || process.env.USE_SUPABASE === 'true' || hasDatabaseConfig);
+  
   let count = 0;
 
   // Parse command line arguments
@@ -851,6 +985,10 @@ async function main() {
   console.log('================================\n');
   console.log(`📝 Generating ${count} recipe(s) randomly across all categories`);
   console.log(`📂 Categories: ${ALL_CATEGORIES.join(', ')}`);
+  console.log(`💾 Saving to: ${useSupabase ? 'Supabase (database)' : 'Static files'}`);
+  if (useSupabase && !hasDatabaseConfig) {
+    console.log('   ⚠️  Warning: Database not configured, but --supabase flag was used');
+  }
   console.log('');
 
   // Distribute recipes across categories
@@ -870,7 +1008,7 @@ async function main() {
 
   // STRICT UNIQUE PROTOCOL: Load all existing recipes ONCE at the start
   console.log('🔍 Loading all existing recipes for duplicate checking...');
-  const existingRecipes = loadAllExistingRecipes();
+  const existingRecipes = await loadAllExistingRecipes(useSupabase);
   console.log(`   ✅ Found ${existingRecipes.bySlug.size} existing recipes (by slug)`);
   console.log(`   ✅ Found ${existingRecipes.byTitle.size} existing recipes (by title)`);
   console.log('');
@@ -978,50 +1116,68 @@ async function main() {
       
       // CRITICAL: Always check for duplicates after generation
       // Even though we checked before, OpenAI might have modified the title despite our instructions
-      let duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
-      let isDuplicateInBatch = attemptedSlugs.has(recipe.slug) || attemptedTitles.has(recipe.title.toLowerCase().trim());
-      let titleChanged = recipe.title.toLowerCase().trim() !== uniqueTitle!.toLowerCase().trim();
+      const normalizedGeneratedTitle = recipe.title.toLowerCase().trim();
+      const generatedSlug = recipe.slug;
+      const titleChanged = normalizedGeneratedTitle !== uniqueTitle!.toLowerCase().trim();
+      const slugChanged = generatedSlug !== uniqueSlug;
       
-      // If OpenAI changed the title, check if the new title/slug is unique
-      if (titleChanged) {
-        console.log(`   ⚠️  WARNING: OpenAI changed title from "${uniqueTitle}" to "${recipe.title}"`);
+      // Check against existing recipes
+      let duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
+      
+      // Check against batch attempts - but EXCLUDE the slug/title we reserved for this recipe
+      // If the generated slug/title matches what we reserved, it's NOT a duplicate
+      const isReservedSlug = generatedSlug === uniqueSlug;
+      const isReservedTitle = normalizedGeneratedTitle === uniqueTitle!.toLowerCase().trim();
+      
+      // Only check for batch duplicates if it's NOT the reserved slug/title
+      const isDuplicateInBatch = (!isReservedSlug && attemptedSlugs.has(generatedSlug)) || 
+                                 (!isReservedTitle && attemptedTitles.has(normalizedGeneratedTitle));
+      
+      // If OpenAI changed the title/slug, we need to verify the new title/slug is unique
+      if (titleChanged || slugChanged) {
+        if (titleChanged) {
+          console.log(`   ⚠️  WARNING: OpenAI changed title from "${uniqueTitle}" to "${recipe.title}"`);
+        }
+        if (slugChanged) {
+          console.log(`   ⚠️  WARNING: Generated slug "${generatedSlug}" differs from expected "${uniqueSlug}"`);
+        }
+        // Re-check with the new title/slug
         duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
-        isDuplicateInBatch = attemptedSlugs.has(recipe.slug) || attemptedTitles.has(recipe.title.toLowerCase().trim());
         
         if (duplicateCheck.isDuplicate || isDuplicateInBatch) {
-          console.log(`   ❌ DUPLICATE DETECTED due to title change: ${duplicateCheck.reason || 'slug/title already in batch'}`);
+          console.log(`   ❌ DUPLICATE DETECTED due to title/slug change: ${duplicateCheck.reason || `slug "${generatedSlug}" or title already in batch`}`);
           console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved. Marking as attempted and skipping.`);
           
-          // Mark as attempted
-          attemptedTitles.add(recipe.title.toLowerCase().trim());
-          attemptedSlugs.add(recipe.slug);
+          // Mark as attempted so we don't try it again
+          attemptedTitles.add(normalizedGeneratedTitle);
+          attemptedSlugs.add(generatedSlug);
           
           failCount++;
           continue;
         }
       }
       
-      // Final duplicate check
+      // Final duplicate checks
       if (duplicateCheck.isDuplicate) {
         console.log(`   ❌ DUPLICATE DETECTED after generation: ${duplicateCheck.reason}`);
         console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved (this should be rare).`);
         
         // Mark this title/slug as attempted so we don't try it again
-        attemptedTitles.add(recipe.title.toLowerCase().trim());
-        attemptedSlugs.add(recipe.slug);
+        attemptedTitles.add(normalizedGeneratedTitle);
+        attemptedSlugs.add(generatedSlug);
         
         failCount++;
         continue;
       }
       
-      // Check if the generated slug conflicts with any attempted slugs in this batch
+      // Check if the generated slug conflicts with any attempted slugs in this batch (excluding reserved)
       if (isDuplicateInBatch) {
-        console.log(`   ❌ DUPLICATE SLUG/TITLE DETECTED in this batch: "${recipe.slug}"`);
+        console.log(`   ❌ DUPLICATE SLUG/TITLE DETECTED in this batch: "${generatedSlug}"`);
         console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved.`);
         
         // Mark as attempted
-        attemptedTitles.add(recipe.title.toLowerCase().trim());
-        attemptedSlugs.add(recipe.slug);
+        attemptedTitles.add(normalizedGeneratedTitle);
+        attemptedSlugs.add(generatedSlug);
         
         failCount++;
         continue;
@@ -1044,8 +1200,20 @@ async function main() {
         continue;
       }
       
-      // Save to the category file (includes additional duplicate checks at file level)
-      await saveRecipeToCategoryFile(recipe, category);
+      // Save to Supabase or category file
+      if (useSupabase) {
+        try {
+          await saveRecipeToSupabase(recipe);
+          console.log(`   💾 Saved to Supabase`);
+        } catch (error: any) {
+          console.error(`   ❌ Error saving to Supabase: ${error.message}`);
+          failCount++;
+          continue;
+        }
+      } else {
+        // Save to the category file (includes additional duplicate checks at file level)
+        await saveRecipeToCategoryFile(recipe, category);
+      }
       
       // CRITICAL: Add to existing recipes map IMMEDIATELY after successful save
       // This prevents duplicates in the same batch

@@ -1838,4 +1838,1200 @@ export const beverageRecipes: Recipe[] = [
     variations: ["Add a splash of peppermint extract for a seasonal twist.","Top with whipped coconut cream for an indulgent treat."],
     storage: 'Cappuccinos are best enjoyed fresh. However, brewed espresso can be stored in the fridge for up to 3 days. Reheat gently before serving.',
   },
+  {
+    id: '1767018364792.745',
+    title: 'Cranberry Juice',
+    slug: 'cranberry-juice',
+    description: 'Refreshing and tart, this homemade cranberry juice captures the essence of fresh cranberries while being completely vegan and free from additives.',
+    prologue: 'Welcome to vegancooking.recipes, where we bring you wholesome and delicious plant-based recipes! This cranberry juice recipe is not only simple but also ensures you enjoy the vibrant flavor of fresh cranberries in a healthy drink. Packed with antioxidants and vitamins, this juice is perfect for any season and can be enjoyed on its own or used as a mixer in various beverages.',
+    image: '/recipe-images/cranberry-juice-1767018366087.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh cranberries",
+          "amount": "12",
+          "unit": "oz",
+          "notes": "Rinse thoroughly before use."
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Use filtered water for best flavor."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Adjust sweetness to taste."
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Freshly squeezed for best results."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Rinse the fresh cranberries under cold water and remove any stems or bad berries."
+        },
+        {
+          "step": 2,
+          "text": "In a medium saucepan, combine the rinsed cranberries and 4 cups of water."
+        },
+        {
+          "step": 3,
+          "text": "Bring the mixture to a boil over medium-high heat."
+        },
+        {
+          "step": 4,
+          "text": "Once boiling, reduce the heat to medium-low and let it simmer for about 15-20 minutes, or until the cranberries have burst."
+        },
+        {
+          "step": 5,
+          "text": "Remove the saucepan from heat and let it cool for a few minutes."
+        },
+        {
+          "step": 6,
+          "text": "Using a fine mesh strainer or cheesecloth, strain the juice into a large bowl or pitcher, pressing the cranberries to extract as much liquid as possible."
+        },
+        {
+          "step": 7,
+          "text": "Stir in the maple syrup and lemon juice to the strained juice, adjusting sweetness as desired."
+        },
+        {
+          "step": 8,
+          "text": "Chill the cranberry juice in the refrigerator for at least 1 hour before serving."
+        },
+        {
+          "step": 9,
+          "text": "Serve chilled, over ice if desired, and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 50,
+        "protein": "0g",
+        "carbs": "13g",
+        "fat": "0g",
+        "fiber": "1g",
+        "sugar": "10g"
+      },
+    tags: ["beverage","juice","vegan","whole-food","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Fresh cranberries are the star of this recipe, providing a tart flavor and vibrant color. You can substitute maple syrup with agave nectar or another sweetener if preferred. For a less tart juice, consider adding more sweetener or blending in fruits like apples or oranges.',
+    faqs: [
+        {
+          "question": "Can I use frozen cranberries?",
+          "answer": "Yes, you can use frozen cranberries. Just ensure they are thawed and rinsed before use."
+        },
+        {
+          "question": "How long does homemade cranberry juice last?",
+          "answer": "Homemade cranberry juice can be stored in the refrigerator for up to 5 days."
+        }
+      ],
+    tips: ["For an extra burst of flavor, try adding a few slices of fresh ginger during the simmering process.","If you enjoy fizzy drinks, mix this cranberry juice with sparkling water for a refreshing spritzer."],
+    variations: ["Add a splash of orange juice for a citrus twist.","Mix with other berry juices, like blueberry or raspberry, for a mixed berry juice."],
+    storage: 'Store the cranberry juice in an airtight container in the refrigerator. It is best consumed within 5 days for optimal flavor and freshness.',
+  },
+  {
+    id: '1767018541119.3562',
+    title: 'Cashew Milk Latte',
+    slug: 'cashew-milk-latte',
+    description: 'Indulge in a creamy, nutty cashew milk latte that elevates your coffee experience while staying completely plant-based. This delightful drink combines the richness of homemade cashew milk with the boldness of espresso for a perfect morning pick-me-up.',
+    prologue: 'At vegancooking.recipes, we believe in creating delicious, wholesome beverages that not only tantalize your taste buds but also nourish your body. This Cashew Milk Latte is a perfect example of how simple ingredients can come together to create a satisfying drink that is entirely vegan and whole-food-plant-based. With its creamy texture and delightful flavor, this latte is sure to become your new favorite morning ritual.',
+    image: '/recipe-images/cashew-milk-latte-1767018542325.webp',
+    prepTime: 10,
+    cookTime: 5,
+    totalTime: 15,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Raw cashews",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "soaked in water for at least 4 hours or overnight"
+        },
+        {
+          "name": "Water",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "for blending cashews"
+        },
+        {
+          "name": "Espresso or strong brewed coffee",
+          "amount": "2",
+          "unit": "shots",
+          "notes": "adjust according to taste"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "to sweeten, optional"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for flavor, optional"
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "for garnish, optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Drain and rinse the soaked cashews under cold water."
+        },
+        {
+          "step": 2,
+          "text": "In a blender, combine the soaked cashews and 3 cups of fresh water. Blend on high until completely smooth and creamy, about 1-2 minutes."
+        },
+        {
+          "step": 3,
+          "text": "Strain the blended cashew milk through a nut milk bag or fine mesh strainer into a bowl or pitcher to separate the milk from the solids. Squeeze well to extract as much liquid as possible."
+        },
+        {
+          "step": 4,
+          "text": "In a small saucepan, heat the strained cashew milk over medium heat until warm, but not boiling."
+        },
+        {
+          "step": 5,
+          "text": "Prepare the espresso or strong brewed coffee while the cashew milk is heating."
+        },
+        {
+          "step": 6,
+          "text": "Once the cashew milk is warm, stir in the maple syrup and vanilla extract, if using. Adjust sweetness to taste."
+        },
+        {
+          "step": 7,
+          "text": "Pour the hot espresso or coffee into two mugs, then gently pour the warmed cashew milk over the top."
+        },
+        {
+          "step": 8,
+          "text": "Sprinkle with cinnamon if desired and serve immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 170,
+        "protein": "5g",
+        "carbs": "15g",
+        "fat": "10g",
+        "fiber": "1g",
+        "sugar": "1g"
+      },
+    tags: ["beverage","vegan","latte","coffee","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Raw cashews are key to achieving the creamy texture of the milk. For a nut-free version, you can substitute with sunflower seeds, but the flavor will differ. If you prefer a sweeter latte, adjust the maple syrup to your liking.',
+    faqs: [
+        {
+          "question": "Can I make cashew milk in advance?",
+          "answer": "Yes, you can prepare cashew milk ahead of time. Store it in an airtight container in the refrigerator for up to 5 days."
+        },
+        {
+          "question": "Can I use store-bought cashew milk?",
+          "answer": "Yes, you can use store-bought cashew milk, but be sure to choose an unsweetened version for a healthier option."
+        }
+      ],
+    tips: ["For a frothy latte, you can use a milk frother to froth the warmed cashew milk before pouring it over the coffee.","Experiment with flavors by adding cocoa powder for a mocha or a dash of turmeric for a golden latte."],
+    variations: ["Add a tablespoon of cocoa powder to the cashew milk for a delicious mocha latte.","Substitute the maple syrup with agave nectar or date syrup for different sweetness options."],
+    storage: 'Store any leftover cashew milk in an airtight container in the refrigerator for up to 5 days. Shake well before using as separation may occur.',
+  },
+  {
+    id: '1767018606686.2778',
+    title: 'Affogato',
+    slug: 'affogato',
+    description: 'Indulge in a delightful vegan affogato that combines rich, bold espresso with creamy and smooth dairy-free ice cream for a perfect dessert experience.',
+    prologue: 'If you’re looking for a quick yet indulgent dessert that satisfies your coffee cravings, this vegan affogato is the perfect choice. It\'s easy to make and requires just a few simple ingredients, making it a great addition to your vegan repertoire. At vegancooking.recipes, we celebrate delicious plant-based treats that everyone can enjoy, and this affogato is no exception.',
+    image: '/recipe-images/affogato-1767018607895.webp',
+    prepTime: 5,
+    cookTime: 20,
+    totalTime: 25,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Espresso or strong brewed coffee",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Prepare using an espresso machine or coffee maker."
+        },
+        {
+          "name": "Dairy-free vanilla ice cream",
+          "amount": "2",
+          "unit": "scoops",
+          "notes": "Use a brand that is free from animal products."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Brew a fresh cup of espresso or strong coffee using your preferred method. If using a coffee maker, use a dark roast for the best flavor."
+        },
+        {
+          "step": 2,
+          "text": "While the coffee is brewing, scoop 2 generous scoops of dairy-free vanilla ice cream into two serving glasses or bowls."
+        },
+        {
+          "step": 3,
+          "text": "Once the coffee is ready, carefully pour it over the scoops of ice cream, allowing it to melt slightly."
+        },
+        {
+          "step": 4,
+          "text": "Serve immediately with a spoon, and enjoy the delightful combination of hot coffee and cold ice cream."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "3g",
+        "carbs": "35g",
+        "fat": "12g",
+        "fiber": "1g",
+        "sugar": "20g"
+      },
+    tags: ["vegan","dessert","coffee","quick","easy","beverage","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For the dairy-free vanilla ice cream, you can use coconut, almond, cashew, or oat-based options. Ensure that the ice cream is free from any animal-derived ingredients. You can also experiment with different flavors, such as chocolate or hazelnut.',
+    faqs: [
+        {
+          "question": "Can I use decaf coffee?",
+          "answer": "Yes, you can use decaf coffee if you prefer to avoid caffeine."
+        },
+        {
+          "question": "What can I substitute for vanilla ice cream?",
+          "answer": "You can use any dairy-free ice cream flavor you like, or even frozen banana puree for a healthier option."
+        }
+      ],
+    tips: ["For a stronger flavor, use more espresso or coffee.","Try adding a sprinkle of cocoa powder or cinnamon on top for an extra touch."],
+    variations: ["Add a splash of coffee liqueur for an adult version.","Top with chopped nuts or a drizzle of vegan chocolate sauce."],
+    storage: 'Affogato is best enjoyed immediately after preparation. However, leftover ice cream can be stored in the freezer for up to 2 weeks.',
+  },
+  {
+    id: '1767019135990.3755',
+    title: 'Almond Latte',
+    slug: 'almond-latte',
+    description: 'Indulge in this creamy and nutty Vegan Almond Latte, a delightful twist on your regular coffee that is both satisfying and nourishing.',
+    prologue: 'Discover the rich flavors of a Vegan Almond Latte, a perfect blend of espresso and almond milk that will elevate your morning routine. This recipe, featured on vegancooking.recipes, highlights the simplicity and joy of plant-based living. With wholesome ingredients and minimal preparation, you can enjoy a delicious coffee alternative that is both energizing and creamy, perfect for any time of day.',
+    image: '/recipe-images/almond-latte-1767019137128.webp',
+    prepTime: 5,
+    cookTime: 5,
+    totalTime: 10,
+    servings: 1,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Espresso or strong brewed coffee",
+          "amount": "1",
+          "unit": "shot",
+          "notes": "Use a quality espresso for the best flavor."
+        },
+        {
+          "name": "Unsweetened almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Choose a brand without additives for a cleaner taste."
+        },
+        {
+          "name": "Almond extract",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Use pure almond extract for the best flavor."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Adjust to taste; can be omitted for a no-sugar version."
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Optional, for added flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Prepare your espresso or strong brewed coffee using your preferred method."
+        },
+        {
+          "step": 2,
+          "text": "In a small saucepan, heat the unsweetened almond milk over medium heat until warm, but do not boil."
+        },
+        {
+          "step": 3,
+          "text": "Once warm, add the almond extract and maple syrup to the almond milk, stirring well to combine."
+        },
+        {
+          "step": 4,
+          "text": "Using a frother or whisk, froth the almond milk mixture until it reaches your desired creaminess."
+        },
+        {
+          "step": 5,
+          "text": "Pour the hot espresso into your favorite mug."
+        },
+        {
+          "step": 6,
+          "text": "Slowly pour the frothed almond milk over the espresso, creating a lovely latte effect."
+        },
+        {
+          "step": 7,
+          "text": "Sprinkle with cinnamon if desired, and serve immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 90,
+        "protein": "2g",
+        "carbs": "14g",
+        "fat": "3g",
+        "fiber": "1g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","beverage","coffee","almond","latte","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Using unsweetened almond milk is crucial for keeping this drink healthy and low in sugar. You can substitute with other plant-based milks like oat or soy if preferred, but this recipe is designed to highlight the flavor of almonds.',
+    faqs: [
+        {
+          "question": "Can I use sweetened almond milk?",
+          "answer": "Yes, but it will increase the sugar content. Adjust the maple syrup accordingly."
+        },
+        {
+          "question": "How can I make this iced?",
+          "answer": "Prepare the latte as instructed, then pour it over ice for a refreshing iced almond latte."
+        }
+      ],
+    tips: ["For a creamier texture, try warming the almond milk slightly longer before frothing.","Experiment with different plant-based milks to find your favorite combination."],
+    variations: ["Add a splash of vanilla extract for a Vanilla Almond Latte.","Incorporate cocoa powder for a delicious Mocha Almond Latte."],
+    storage: 'This drink is best enjoyed fresh. If you have leftover almond milk mixture, store it in a sealed container in the refrigerator for up to 3 days. Reheat before serving.',
+  },
+  {
+    id: '1767019500348.8472',
+    title: 'Hazelnut Latte',
+    slug: 'hazelnut-latte',
+    description: 'Indulge in a creamy and nutty Hazelnut Latte that perfectly balances rich espresso and flavorful hazelnut. This delightful vegan beverage is a warm hug in a cup, perfect for cozy mornings or an afternoon pick-me-up.',
+    prologue: 'Discover the joy of creating your own Hazelnut Latte at home with this simple and delicious recipe from vegancooking.recipes. This beverage is not only vegan but also embraces a whole-food, plant-based approach, ensuring you enjoy a guilt-free treat. With just a few ingredients, you can savor the nutty flavor and creamy texture that this latte offers, making it a perfect alternative to dairy-laden coffee drinks.',
+    image: '/recipe-images/hazelnut-latte-1767019501522.webp',
+    prepTime: 5,
+    cookTime: 5,
+    totalTime: 10,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Espresso or strong brewed coffee",
+          "amount": "4",
+          "unit": "oz",
+          "notes": "Use fresh, high-quality coffee for best flavor."
+        },
+        {
+          "name": "Unsweetened almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "You can use any plant-based milk of choice."
+        },
+        {
+          "name": "Hazelnut syrup",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Store-bought or homemade."
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Optional, for extra flavor."
+        },
+        {
+          "name": "Cocoa powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Optional, for a chocolatey twist."
+        },
+        {
+          "name": "Chopped hazelnuts",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For garnish, optional."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Brew the espresso or strong coffee using your preferred method."
+        },
+        {
+          "step": 2,
+          "text": "In a small saucepan, combine the almond milk and hazelnut syrup. Heat over medium heat until warm, but do not let it boil."
+        },
+        {
+          "step": 3,
+          "text": "If using cinnamon and cocoa powder, whisk them into the almond milk mixture until fully combined."
+        },
+        {
+          "step": 4,
+          "text": "Once the milk is heated, use a milk frother or whisk to froth the milk until it is creamy and slightly foamy."
+        },
+        {
+          "step": 5,
+          "text": "Pour the brewed espresso into two cups and top with the frothed hazelnut milk."
+        },
+        {
+          "step": 6,
+          "text": "Garnish with chopped hazelnuts if desired, and serve immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "3g",
+        "carbs": "15g",
+        "fat": "5g",
+        "fiber": "1g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","beverage","latte","hazelnut","coffee","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a richer flavor, try using homemade hazelnut syrup made by blending hazelnuts with a sweetener and water. If you want a sugar-free option, consider using a sugar substitute suitable for your diet.',
+    faqs: [
+        {
+          "question": "Can I make this latte cold?",
+          "answer": "Yes! Simply chill the almond milk and serve over ice instead of heating it."
+        },
+        {
+          "question": "What can I use instead of hazelnut syrup?",
+          "answer": "You can use maple syrup or agave syrup for a different flavor profile."
+        }
+      ],
+    tips: ["For extra frothiness, heat your almond milk in a frothing pitcher.","Experiment with different plant-based milks to find your favorite taste and texture."],
+    variations: ["Add a splash of vanilla extract for a vanilla hazelnut latte.","Substitute the almond milk with oat milk for a creamier texture."],
+    storage: 'This latte is best served fresh; however, you can store any leftover brewed coffee in the fridge for up to 2 days. Reheat and froth the almond milk before serving.',
+  },
+  {
+    id: '1767019564309.749',
+    title: 'Macchiato',
+    slug: 'macchiato',
+    description: 'Indulge in this rich and creamy vegan macchiato that is perfect for coffee lovers looking for a plant-based twist. With a blend of espresso and frothed plant milk, this beverage offers an exquisite balance of flavors.',
+    prologue: 'Discover the delightful world of vegan beverages with this easy-to-follow macchiato recipe from vegancooking.recipes. This creamy and robust drink combines the rich essence of coffee with the smooth texture of frothed plant milk, making it an ideal choice for any time of the day. Elevate your coffee experience while adhering to a whole-food-plant-based lifestyle. Perfect for impressing guests or treating yourself, this macchiato is sure to become a favorite!',
+    image: '/recipe-images/macchiato-1767019565472.webp',
+    prepTime: 5,
+    cookTime: 5,
+    totalTime: 10,
+    servings: 1,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Espresso coffee",
+          "amount": "1",
+          "unit": "shot",
+          "notes": "Brewed from high-quality coffee beans."
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Unsweetened almond milk is recommended."
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Optional for added flavor."
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "a pinch",
+          "unit": "pinch",
+          "notes": "For garnish and added flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Brew 1 shot of espresso using your preferred method (espresso machine, stovetop espresso maker, etc.)."
+        },
+        {
+          "step": 2,
+          "text": "While the espresso is brewing, heat the almond milk in a small saucepan over medium heat until it is hot but not boiling."
+        },
+        {
+          "step": 3,
+          "text": "Once hot, use a milk frother or a whisk to froth the almond milk until it is creamy and has a light foam."
+        },
+        {
+          "step": 4,
+          "text": "Add the vanilla extract to the frothed almond milk and stir gently."
+        },
+        {
+          "step": 5,
+          "text": "In a coffee cup, pour the brewed espresso."
+        },
+        {
+          "step": 6,
+          "text": "Carefully spoon the frothed almond milk over the espresso, allowing the foam to sit on top."
+        },
+        {
+          "step": 7,
+          "text": "Sprinkle a pinch of cinnamon on top for garnish."
+        },
+        {
+          "step": 8,
+          "text": "Serve immediately and enjoy your delicious vegan macchiato!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 50,
+        "protein": "1g",
+        "carbs": "5g",
+        "fat": "2g",
+        "fiber": "1g",
+        "sugar": "0g"
+      },
+    tags: ["vegan","beverage","coffee","macchiato","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute almond milk with oat milk or soy milk for a different flavor profile. Ensure that the milk you choose is unsweetened to keep the recipe whole-food-plant-based.',
+    faqs: [
+        {
+          "question": "Can I use decaf coffee for this recipe?",
+          "answer": "Yes, you can definitely use decaffeinated coffee beans for a caffeine-free version of this macchiato."
+        },
+        {
+          "question": "What if I don't have a milk frother?",
+          "answer": "You can froth the milk by shaking it in a mason jar or whisking it vigorously in a bowl."
+        }
+      ],
+    tips: ["For a stronger coffee flavor, use a darker roast espresso.","Try adding a splash of almond syrup for sweetness if desired."],
+    variations: ["Swap almond milk for coconut milk for a tropical twist.","Add a dash of cocoa powder for a mocha macchiato."],
+    storage: 'This macchiato is best enjoyed fresh. However, if you have leftover frothed milk, it can be stored in the refrigerator for up to 2 days. Reheat gently before using.',
+  },
+  {
+    id: '1767020025015.8513',
+    title: 'Vietnamese Iced Coffee',
+    slug: 'vietnamese-iced-coffee',
+    description: 'Experience the rich and bold flavors of Vietnamese Iced Coffee, a refreshing beverage that combines strong coffee with creamy coconut milk over ice.',
+    prologue: 'Vietnamese Iced Coffee, or Cà Phê Sữa Đá, is a delightful drink that has become popular worldwide for its unique combination of strong coffee and sweetened coconut milk. This vegan version maintains the traditional essence while ensuring it is entirely plant-based. Perfect for hot summer days or whenever you crave a refreshing caffeine boost, this recipe from vegancooking.recipes is simple and satisfying.',
+    image: '/recipe-images/vietnamese-iced-coffee-1767020026380.webp',
+    prepTime: 15,
+    cookTime: 5,
+    totalTime: 20,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "coarse ground coffee",
+          "amount": "4",
+          "unit": "tbsp",
+          "notes": "preferably Vietnamese Robusta coffee"
+        },
+        {
+          "name": "hot water",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "just off the boil"
+        },
+        {
+          "name": "coconut milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "full-fat for creaminess"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "adjust for sweetness"
+        },
+        {
+          "name": "ice cubes",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "for serving"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "optional for extra flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Boil water in a kettle or pot until just off the boil."
+        },
+        {
+          "step": 2,
+          "text": "Place the coarse ground coffee in a traditional Vietnamese drip filter (phin) or a pour-over coffee maker."
+        },
+        {
+          "step": 3,
+          "text": "Pour the hot water slowly over the coffee grounds, allowing it to drip through into a glass or bowl. This should take about 5 minutes."
+        },
+        {
+          "step": 4,
+          "text": "While the coffee is brewing, in a separate bowl, mix the coconut milk, maple syrup, and vanilla extract until well combined."
+        },
+        {
+          "step": 5,
+          "text": "Fill two glasses with ice cubes."
+        },
+        {
+          "step": 6,
+          "text": "Once the coffee has finished dripping, divide it evenly between the two glasses over the ice."
+        },
+        {
+          "step": 7,
+          "text": "Pour the coconut milk mixture over the coffee in each glass."
+        },
+        {
+          "step": 8,
+          "text": "Stir gently to combine and enjoy your refreshing vegan Vietnamese Iced Coffee!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 160,
+        "protein": "2g",
+        "carbs": "20g",
+        "fat": "8g",
+        "fiber": "1g",
+        "sugar": "8g"
+      },
+    tags: ["vegan","beverage","coffee","Vietnamese","iced coffee","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Using Vietnamese Robusta coffee gives the drink its signature strong flavor. You can substitute with any strong coffee of your choice, though the taste may vary. Full-fat coconut milk is recommended for creaminess; light coconut milk can be used for a lower-fat option, but the texture will be less rich.',
+    faqs: [
+        {
+          "question": "Can I use a different sweetener?",
+          "answer": "Yes, you can substitute maple syrup with agave nectar, coconut sugar, or any sweetener of your choice."
+        },
+        {
+          "question": "Is it possible to make this recipe without coconut milk?",
+          "answer": "Yes, you can use any plant-based milk like almond, soy, or oat milk, but the flavor and creaminess will differ."
+        }
+      ],
+    tips: ["For an extra kick, chill your coffee before serving over ice.","Experiment with different flavored syrups for a unique taste."],
+    variations: ["Add a splash of almond or hazelnut milk for a different flavor profile.","Infuse your coconut milk with spices like cinnamon or cardamom for added aroma."],
+    storage: 'It\'s best to enjoy Vietnamese Iced Coffee fresh. However, you can store brewed coffee in the refrigerator for up to 3 days. Mix the coconut milk and sweetener just before serving.',
+  },
+  {
+    id: '1767020083894.6086',
+    title: 'Juice',
+    slug: 'juice',
+    description: 'Freshly squeezed juice made with vibrant fruits and vegetables, perfect for a refreshing drink any time of the day.',
+    prologue: 'Juicing is an excellent way to incorporate more fruits and vegetables into your diet, and this whole-food-plant-based juice recipe is no exception. At vegancooking.recipes, we emphasize the importance of using fresh, organic ingredients for the best flavor and nutritional benefits. Enjoy a burst of natural sweetness and vibrant color with this easy-to-make juice that will invigorate your day.',
+    image: '/recipe-images/juice-1767020085119.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Carrots",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "peeled and chopped"
+        },
+        {
+          "name": "Green apples",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "cored and quartered"
+        },
+        {
+          "name": "Fresh ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "peeled"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "juiced"
+        },
+        {
+          "name": "Spinach",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "fresh"
+        },
+        {
+          "name": "Water",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for blending"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Begin by washing all the fruits and vegetables thoroughly under cold water."
+        },
+        {
+          "step": 2,
+          "text": "Peel the carrots and chop them into smaller chunks for easier juicing."
+        },
+        {
+          "step": 3,
+          "text": "Core and quarter the green apples, leaving the skin on for added nutrients."
+        },
+        {
+          "step": 4,
+          "text": "Peel a one-inch piece of fresh ginger."
+        },
+        {
+          "step": 5,
+          "text": "Juice the lemon and set it aside."
+        },
+        {
+          "step": 6,
+          "text": "In a high-speed blender, combine the chopped carrots, green apples, ginger, spinach, lemon juice, and water."
+        },
+        {
+          "step": 7,
+          "text": "Blend on high speed until smooth, about 30 seconds."
+        },
+        {
+          "step": 8,
+          "text": "Strain the juice through a fine mesh sieve or nut milk bag into a large bowl or pitcher."
+        },
+        {
+          "step": 9,
+          "text": "Use a spatula to press down on the pulp to extract as much juice as possible."
+        },
+        {
+          "step": 10,
+          "text": "Pour the fresh juice into glasses and serve immediately, garnished with a slice of lemon if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "2g",
+        "carbs": "30g",
+        "fat": "0g",
+        "fiber": "4g",
+        "sugar": "18g"
+      },
+    tags: ["juice","vegan","whole-food","refreshing","healthy","beverage","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Carrots add natural sweetness and are high in beta-carotene, while spinach provides iron and other vital nutrients. You can substitute green apples with any tart apple variety for a different flavor.',
+    faqs: [
+        {
+          "question": "Can I store the juice for later?",
+          "answer": "Fresh juice is best consumed immediately, but you can store it in an airtight container in the refrigerator for up to 24 hours. Shake well before drinking."
+        }
+      ],
+    tips: ["Use organic ingredients whenever possible for better flavor and nutrition.","Experiment with adding other vegetables like beets or cucumber for different tastes."],
+    variations: ["Add a handful of kale for an extra nutrient boost.","Mix in some pineapple for a tropical twist."],
+    storage: 'Store any leftover juice in an airtight container in the refrigerator for up to 24 hours. Always shake well before serving, as separation may occur.',
+  },
+  {
+    id: '1767020676186.03',
+    title: 'Spiced Cider',
+    slug: 'spiced-cider',
+    description: 'Warm your soul with this aromatic Spiced Cider, infused with classic fall spices and a touch of sweetness. Perfect for chilly evenings or festive gatherings!',
+    prologue: 'Discover the comforting flavors of autumn with this delightful Spiced Cider recipe from vegancooking.recipes. Perfect for warming up on cool days or serving at holiday gatherings, this vegan beverage combines fresh apple cider with a blend of spices that will tantalize your taste buds. Easy to make and entirely plant-based, this recipe is a must-try for anyone looking to embrace the flavors of the season.',
+    image: '/recipe-images/spiced-cider-1767020677556.webp',
+    prepTime: 10,
+    cookTime: 30,
+    totalTime: 40,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "fresh apple cider",
+          "amount": "6",
+          "unit": "cups",
+          "notes": "Use unfiltered for a more natural flavor"
+        },
+        {
+          "name": "cinnamon sticks",
+          "amount": "3",
+          "unit": "sticks",
+          "notes": "For infusing flavor"
+        },
+        {
+          "name": "whole cloves",
+          "amount": "5",
+          "unit": "cloves",
+          "notes": "Add depth to the cider"
+        },
+        {
+          "name": "whole allspice berries",
+          "amount": "5",
+          "unit": "berries",
+          "notes": "For a warm undertone"
+        },
+        {
+          "name": "star anise",
+          "amount": "2",
+          "unit": "stars",
+          "notes": "For a hint of licorice flavor"
+        },
+        {
+          "name": "orange",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Zested and sliced for garnish"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Adjust to taste for sweetness"
+        },
+        {
+          "name": "nutmeg",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Freshly grated for best flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, combine the fresh apple cider, cinnamon sticks, whole cloves, allspice berries, star anise, and nutmeg."
+        },
+        {
+          "step": 2,
+          "text": "Bring the mixture to a gentle boil over medium heat, stirring occasionally."
+        },
+        {
+          "step": 3,
+          "text": "Once boiling, reduce the heat to low and let it simmer for 20 minutes to allow the spices to infuse."
+        },
+        {
+          "step": 4,
+          "text": "After 20 minutes, taste the cider and add maple syrup to sweeten if desired."
+        },
+        {
+          "step": 5,
+          "text": "Strain the cider through a fine mesh sieve into a large pitcher or bowl to remove the spices."
+        },
+        {
+          "step": 6,
+          "text": "Serve warm, garnished with orange slices and additional cinnamon sticks if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 130,
+        "protein": "0g",
+        "carbs": "33g",
+        "fat": "0g",
+        "fiber": "0g",
+        "sugar": "24g"
+      },
+    tags: ["beverage","fall","vegan","easy","spiced cider","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Use fresh, high-quality apple cider for the best flavor. You can substitute maple syrup with agave nectar or brown sugar if desired. Adjust spices according to your preference; feel free to experiment with flavors!',
+    faqs: [
+        {
+          "question": "Can I make this cider in advance?",
+          "answer": "Yes, you can prepare the cider a day in advance and reheat it before serving. Just store it in the refrigerator, and when ready to serve, gently warm it on the stove."
+        },
+        {
+          "question": "Can I add alcohol to this cider?",
+          "answer": "Absolutely! For an adult version, consider adding a splash of rum or bourbon to each serving."
+        }
+      ],
+    tips: ["For a stronger spice flavor, steep the spices for longer, but be cautious not to overpower the cider.","Serve in mugs with a sprinkle of cinnamon on top for a delightful presentation."],
+    variations: ["Add a splash of cranberry juice for a tart twist.","Substitute some apple cider with pear juice for a different flavor profile."],
+    storage: 'Store any leftover spiced cider in an airtight container in the refrigerator for up to 3 days. Reheat on the stove before serving.',
+  },
+  {
+    id: '1767020814489.9001',
+    title: 'Coconut Water',
+    slug: 'coconut-water',
+    description: 'Refreshing and hydrating, this homemade coconut water is a perfect natural beverage packed with electrolytes and nutrients.',
+    prologue: 'Coconut water is a deliciously hydrating drink that is perfect for a hot day or post-workout refreshment. This simple recipe will teach you how to create your own coconut water at home, harnessing the natural sweetness and health benefits of young coconuts. Discover more vegan recipes at vegancooking.recipes!',
+    image: '/recipe-images/coconut-water-1767020815803.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Young green coconuts",
+          "amount": "2",
+          "unit": "coconuts",
+          "notes": "Choose fresh young coconuts for the sweetest water."
+        },
+        {
+          "name": "Filtered water",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "To dilute if desired."
+        },
+        {
+          "name": "Lime juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Optional, for added flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by selecting two young green coconuts. Ensure that they are fresh and have no cracks."
+        },
+        {
+          "step": 2,
+          "text": "Using a sharp knife or a coconut opener, carefully cut the top off each coconut to create an opening. Be cautious to avoid spilling the water."
+        },
+        {
+          "step": 3,
+          "text": "Position the coconut over a bowl or a glass to catch the coconut water as you pour it out."
+        },
+        {
+          "step": 4,
+          "text": "Once the water has been collected, you can choose to dilute it with one cup of filtered water if you prefer a milder flavor."
+        },
+        {
+          "step": 5,
+          "text": "If desired, add one tablespoon of lime juice to enhance the flavor of your coconut water."
+        },
+        {
+          "step": 6,
+          "text": "Stir the mixture gently to combine, then serve immediately over ice or store in the refrigerator."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 45,
+        "protein": "1g",
+        "carbs": "9g",
+        "fat": "0g",
+        "fiber": "1g",
+        "sugar": "6g"
+      },
+    tags: ["beverage","refreshing","hydration","natural","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Young green coconuts are key to obtaining fresh coconut water. If unavailable, look for bottled coconut water that contains no additives. Lime juice is optional but adds a zesty flavor that complements the natural sweetness.',
+    faqs: [
+        {
+          "question": "Can I use mature coconuts?",
+          "answer": "Mature coconuts have less water and more meat, so they are not ideal for making coconut water."
+        },
+        {
+          "question": "How long does homemade coconut water last?",
+          "answer": "It can be stored in the refrigerator for up to 2 days. Always check for freshness before consuming."
+        }
+      ],
+    tips: ["For an extra refreshing drink, chill the coconuts before opening them.","Use a straw to sip directly from the coconut for a fun and tropical experience."],
+    variations: ["Add fresh mint leaves for a minty coconut water twist.","Infuse with fruits like pineapple or berries for a fruity flavor."],
+    storage: 'Store any leftover coconut water in a sealed container in the refrigerator for up to 2 days. Shake well before serving as separation may occur.',
+  },
+  {
+    id: '1767021101372.9573',
+    title: 'Soy Milk Latte',
+    slug: 'soy-milk-latte',
+    description: 'Indulge in a creamy and satisfying soy milk latte, perfect for a morning boost or an afternoon pick-me-up. This vegan drink is easy to make and packed with flavor.',
+    prologue: 'If you\'re searching for a delicious and dairy-free alternative to traditional coffee beverages, look no further than this Soy Milk Latte recipe. Using whole food ingredients, this latte not only satisfies your caffeine cravings but also fits perfectly into a whole-food-plant-based lifestyle. Join us at vegancooking.recipes to discover how simple and rewarding vegan cooking can be!',
+    image: '/recipe-images/soy-milk-latte-1767021104152.webp',
+    prepTime: 5,
+    cookTime: 5,
+    totalTime: 10,
+    servings: 1,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "freshly brewed espresso",
+          "amount": "1",
+          "unit": "shot",
+          "notes": "or 1/2 cup strong brewed coffee"
+        },
+        {
+          "name": "unsweetened soy milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "preferably organic"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "optional for added flavor"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "optional, adjust to taste"
+        },
+        {
+          "name": "cinnamon",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "optional, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by brewing your espresso or strong coffee. If using a coffee maker, brew a strong cup of coffee to replace the espresso."
+        },
+        {
+          "step": 2,
+          "text": "While the coffee is brewing, heat the soy milk in a small saucepan over medium heat. Stir occasionally to prevent burning."
+        },
+        {
+          "step": 3,
+          "text": "Once the soy milk is hot but not boiling, remove it from the heat and use a frother or whisk to froth the milk until it reaches your desired foaminess."
+        },
+        {
+          "step": 4,
+          "text": "In a mug, combine the hot espresso or strong coffee with the vanilla extract and maple syrup, if using. Stir well."
+        },
+        {
+          "step": 5,
+          "text": "Slowly pour the frothed soy milk over the coffee mixture, holding back the foam with a spoon to create layers."
+        },
+        {
+          "step": 6,
+          "text": "Top with the remaining foam and sprinkle with cinnamon if desired. Serve immediately and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "7g",
+        "carbs": "16g",
+        "fat": "4g",
+        "fiber": "1g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","beverage","coffee","latte","soy milk","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Unsweetened soy milk is recommended to keep the drink wholesome and plant-based. You can substitute other plant milks like almond or oat milk, but note that this may alter the flavor and texture.',
+    faqs: [
+        {
+          "question": "Can I use sweetened soy milk?",
+          "answer": "Yes, you can use sweetened soy milk, but you may want to reduce or omit the maple syrup to avoid an overly sweet drink."
+        },
+        {
+          "question": "How can I make this soy milk latte cold?",
+          "answer": "To make an iced version, brew the espresso and let it cool. Combine it with chilled soy milk and ice, then froth the milk before pouring it over the coffee."
+        }
+      ],
+    tips: ["For a more robust flavor, try using a dark roast coffee or espresso.","Experiment with different plant-based milk options to find your preferred taste and texture."],
+    variations: ["Add a teaspoon of cocoa powder for a chocolate soy milk latte.","Incorporate a flavored syrup like hazelnut or caramel for a fun twist."],
+    storage: 'Soy milk lattes are best enjoyed fresh. If you have leftover steamed soy milk, store it in the refrigerator for up to 3 days, but be aware that it may separate upon reheating.',
+  },
+  {
+    id: '1767021193134.8557',
+    title: 'Orange Juice',
+    slug: 'orange-juice',
+    description: 'Freshly squeezed orange juice is a refreshing and nutritious beverage perfect for starting your day or enjoying any time. Its vibrant flavor and natural sweetness make it a delightful choice for everyone.',
+    prologue: 'Discover the vibrant taste of homemade orange juice, a simple yet satisfying beverage that embodies the essence of fresh, whole foods. This easy-to-make drink is not only vegan but also packed with vitamins and antioxidants, making it a healthy addition to your daily routine. Perfect for breakfast or as a refreshing pick-me-up, this recipe will guide you through the process of making the perfect glass of orange juice. For more delicious vegan recipes, visit vegancooking.recipes.',
+    image: '/recipe-images/orange-juice-1767021194359.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh oranges",
+          "amount": "4",
+          "unit": "large",
+          "notes": "Choose ripe, juicy oranges for the best flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Wash the oranges thoroughly under running water to remove any dirt or pesticides."
+        },
+        {
+          "step": 2,
+          "text": "Cut each orange in half crosswise using a sharp knife."
+        },
+        {
+          "step": 3,
+          "text": "Using a manual citrus juicer or an electric juicer, juice each half of the orange until all juice is extracted."
+        },
+        {
+          "step": 4,
+          "text": "Pour the freshly squeezed juice into a glass, straining out any seeds or pulp if desired."
+        },
+        {
+          "step": 5,
+          "text": "Taste the juice and adjust sweetness if necessary (optional: add a teaspoon of agave syrup for extra sweetness)."
+        },
+        {
+          "step": 6,
+          "text": "Serve immediately over ice or enjoy as is for a fresh, healthy drink."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 112,
+        "protein": "2g",
+        "carbs": "26g",
+        "fat": "0g",
+        "fiber": "1g",
+        "sugar": "20g"
+      },
+    tags: ["beverage","refreshing","breakfast","vegan","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Use navel oranges for a sweeter taste, or Valencia oranges for a slightly tart flavor. If you prefer a more complex flavor, consider adding a splash of lemon juice.',
+    faqs: [
+        {
+          "question": "Can I use store-bought orange juice?",
+          "answer": "While store-bought orange juice is convenient, freshly squeezed juice has a superior flavor and retains more nutrients."
+        },
+        {
+          "question": "How can I store leftover orange juice?",
+          "answer": "Fresh orange juice is best enjoyed immediately, but if you have leftovers, store it in an airtight container in the refrigerator for up to 2 days."
+        }
+      ],
+    tips: ["Use a reamer for better juicing efficiency if you don't have a juicer.","For a twist, mix in some fresh mint leaves before serving."],
+    variations: ["Add a splash of lime juice for a citrus twist.","Mix in a handful of spinach or kale for a green juice variation."],
+    storage: 'Fresh orange juice is best consumed immediately for optimal flavor and nutrient retention. If storing, keep it in a sealed container in the refrigerator and consume within 48 hours.',
+  },
 ];

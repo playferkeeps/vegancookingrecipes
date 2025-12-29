@@ -85,9 +85,11 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://www.gstatic.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         
         <link rel="icon" href="/img/vcr-favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/img/vcr-favicon.png" />
@@ -100,6 +102,19 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
         </RecaptchaProvider>
+        {/* Google Analytics - Load with lazyOnload strategy for optimal SEO (doesn't impact Core Web Vitals) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5PG8FMRN5R"
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5PG8FMRN5R');
+          `}
+        </Script>
         {/* AdSense Script - Load asynchronously to prevent render blocking */}
         <Script
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX'}`}

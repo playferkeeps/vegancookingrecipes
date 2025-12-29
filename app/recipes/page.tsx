@@ -1,4 +1,4 @@
-import { getAllRecipes } from '@/data/recipes';
+import { getAllRecipesAsync } from '@/data/recipes/helpers';
 import RecipeCard from '@/components/RecipeCard';
 import SearchBar from '@/components/SearchBar';
 
@@ -18,8 +18,8 @@ export const metadata = {
   },
 };
 
-export default function RecipesPage() {
-  const recipes = getAllRecipes();
+export default async function RecipesPage() {
+  const recipes = await getAllRecipesAsync();
 
   return (
     <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">

@@ -29,3 +29,4 @@ export const all250Recipes: Recipe[] = [
   // This is a placeholder - actual recipes will be in category files
 ];
 
+

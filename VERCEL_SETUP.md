@@ -5,6 +5,7 @@ This project is configured for optimal deployment on Vercel.
 ## Configuration Files
 
 ### `vercel.json`
+
 - Framework: Next.js (auto-detected)
 - Build command: `npm run build`
 - Install command: `npm install`
@@ -12,6 +13,7 @@ This project is configured for optimal deployment on Vercel.
 - Function timeout: 10 seconds (for API routes if needed)
 
 ### `next.config.js`
+
 - ✅ Uses `remotePatterns` instead of deprecated `domains` for images
 - ✅ Standalone output for optimized builds
 - ✅ SWC minification enabled
@@ -19,6 +21,7 @@ This project is configured for optimal deployment on Vercel.
 - ✅ React strict mode enabled
 
 ### `tsconfig.json`
+
 - ✅ Target: ES2017 (supports modern JavaScript features like `matchAll`)
 - ✅ Path aliases configured (`@/*`)
 - ✅ Next.js plugin enabled
@@ -28,6 +31,7 @@ This project is configured for optimal deployment on Vercel.
 Set these in your Vercel project settings (Settings → Environment Variables):
 
 ### Required for Production:
+
 ```bash
 # AdSense (if using)
 NEXT_PUBLIC_ADSENSE_PUBLISHER_ID=ca-pub-XXXXXXXXXX
@@ -41,6 +45,7 @@ REPLICATE_API_TOKEN=your_replicate_api_token_here
 ```
 
 ### Important Notes:
+
 - `NEXT_PUBLIC_*` variables are exposed to the browser
 - Non-public variables are only available server-side
 - Admin scripts (recipe generation) are not run during Vercel builds
@@ -48,6 +53,7 @@ REPLICATE_API_TOKEN=your_replicate_api_token_here
 ## Build Process
 
 Vercel will automatically:
+
 1. Install dependencies (`npm install`)
 2. Run the build (`npm run build`)
 3. Deploy the optimized output
@@ -55,6 +61,7 @@ Vercel will automatically:
 ## Static Generation
 
 All recipe pages are statically generated at build time using:
+
 - `generateStaticParams()` for dynamic routes
 - Pre-rendered pages for optimal performance
 - Automatic ISR (Incremental Static Regeneration) if configured
@@ -87,21 +94,25 @@ Before deploying to Vercel:
 ## Troubleshooting
 
 ### Build Fails
+
 - Check environment variables are set correctly
 - Verify TypeScript compilation passes locally
 - Check build logs in Vercel dashboard
 
 ### Images Not Loading
+
 - Verify image paths are correct
 - Check `next.config.js` remote patterns
 - Ensure images are in `public/` directory
 
 ### AdSense Not Working
+
 - Verify `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` is set
 - Check ad slot IDs are correct in components
 - Verify site is approved by AdSense
 
 ### Function Timeouts
+
 - API routes are limited to 10 seconds
 - For longer operations, use background jobs or external services
 - Recipe generation scripts should be run locally, not on Vercel
@@ -109,8 +120,8 @@ Before deploying to Vercel:
 ## Admin Scripts
 
 The following scripts are for local/admin use only and should NOT be run on Vercel:
+
 - `npm run generate-recipes` - Generate new recipes
 - `npm run generate-images-for-existing` - Generate images for recipes
 
 These scripts require API keys and should be run locally before committing changes.
-

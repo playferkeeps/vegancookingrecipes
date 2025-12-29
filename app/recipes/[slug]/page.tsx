@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { getRecipeBySlug, getAllRecipes } from '@/data/recipes/index';
+import { getRecipeBySlugAsync, getAllRecipesAsync } from '@/data/recipes/helpers';
 import JumpToRecipe from '@/components/JumpToRecipe';
 import SocialShare from '@/components/SocialShare';
 import Comments from '@/components/Comments';
@@ -22,7 +22,7 @@ interface PageProps {
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const recipe = getRecipeBySlug(slug);
+  const recipe = await getRecipeBySlugAsync(slug);
   
   if (!recipe) {
     return {
@@ -105,8 +105,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 // Generate static params for all recipes
 export async function generateStaticParams() {
-  const { getAllRecipes: getAllRecipesFunc } = await import('@/data/recipes/index');
-  const recipes = getAllRecipesFunc();
+  const recipes = await getAllRecipesAsync();
   return recipes.map((recipe) => ({
     slug: recipe.slug,
   }));
@@ -282,7 +281,7 @@ function generateStructuredData(recipe: Recipe) {
 
 export default async function RecipePage({ params }: PageProps) {
   const { slug } = await params;
-  const recipe = getRecipeBySlug(slug);
+  const recipe = await getRecipeBySlugAsync(slug);
 
   if (!recipe) {
     notFound();

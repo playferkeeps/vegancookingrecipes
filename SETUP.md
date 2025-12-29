@@ -8,11 +8,13 @@
 ## Quick Start
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Run the development server:**
+
    ```bash
    npm run dev
    ```
@@ -32,10 +34,13 @@ That's it! The site should now be running locally.
 ## Troubleshooting
 
 ### Port 3000 is already in use
+
 If port 3000 is taken, Next.js will automatically try the next available port (3001, 3002, etc.) and display it in the terminal.
 
 ### Dependencies not installing
+
 Make sure you have Node.js 18+ installed:
+
 ```bash
 node --version
 ```
@@ -43,6 +48,7 @@ node --version
 If you need to update Node.js, visit [nodejs.org](https://nodejs.org/)
 
 ### TypeScript errors
+
 The project uses TypeScript. If you see type errors, they're likely just warnings during development. The site should still run.
 
 ## Development Tips
@@ -52,4 +58,3 @@ The project uses TypeScript. If you see type errors, they're likely just warning
 - Recipe data is in `data/recipes.ts` - you can add/edit recipes there
 - Components are in the `components/` folder
 - Pages are in the `app/` folder
-

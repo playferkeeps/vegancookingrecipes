@@ -2368,4 +2368,876 @@ export const lunchRecipes: Recipe[] = [
     variations: ["Add more vegetables like snap peas, zucchini, or mushrooms for extra nutrition.","Swap out the soy sauce for tamari for a gluten-free option."],
     storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. Reheat on the stovetop with a splash of water or vegetable broth to keep the noodles moist.',
   },
+  {
+    id: '1767018758799.1533',
+    title: 'Caesar Salad',
+    slug: 'caesar-salad',
+    description: 'This vegan Caesar Salad features crisp romaine lettuce, crunchy croutons, and a creamy tahini dressing that will satisfy your cravings for classic Caesar without any animal products.',
+    prologue: 'Discover the delightful world of vegan cooking with this easy-to-make Caesar Salad recipe from vegancooking.recipes. Packed with nutrients and flavor, this dish is perfect for a light lunch or as a side at your next gathering. Enjoy the rich taste of a classic Caesar salad without compromising your dietary choices, all while keeping it whole-food plant-based.',
+    image: '/recipe-images/caesar-salad-1767018760099.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Romaine lettuce",
+          "amount": "1",
+          "unit": "head",
+          "notes": "washed and chopped into bite-sized pieces"
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "halved"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced"
+        },
+        {
+          "name": "Whole wheat bread",
+          "amount": "2",
+          "unit": "slices",
+          "notes": "for croutons, cubed"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for toasting croutons"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "for cheesy flavor"
+        },
+        {
+          "name": "Tahini",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "for creamy dressing"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for dressing"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for dressing"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for dressing"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "freshly cracked"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "for seasoning"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 375°F (190°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a mixing bowl, toss the cubed whole wheat bread with 1 tablespoon of olive oil and a pinch of salt."
+        },
+        {
+          "step": 3,
+          "text": "Spread the seasoned bread cubes on a baking sheet in a single layer and bake for about 10 minutes, or until golden and crispy, tossing halfway through."
+        },
+        {
+          "step": 4,
+          "text": "While the croutons are baking, prepare the dressing by whisking together the tahini, nutritional yeast, garlic powder, lemon juice, soy sauce, and the remaining tablespoon of olive oil in a small bowl. Adjust the consistency with water if necessary."
+        },
+        {
+          "step": 5,
+          "text": "In a large salad bowl, combine the chopped romaine lettuce, halved cherry tomatoes, and sliced cucumber."
+        },
+        {
+          "step": 6,
+          "text": "Once the croutons are ready, let them cool slightly before adding them to the salad bowl."
+        },
+        {
+          "step": 7,
+          "text": "Drizzle the tahini dressing over the salad and toss gently to combine. Season with black pepper and additional salt to taste."
+        },
+        {
+          "step": 8,
+          "text": "Serve immediately and enjoy your delicious vegan Caesar Salad!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "9g",
+        "carbs": "30g",
+        "fat": "12g",
+        "fiber": "6g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","salad","whole-food-plant-based","lunch","healthy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Romaine lettuce is the classic choice for Caesar salads due to its crisp texture. You can substitute tahini with cashew cream for a different flavor. Nutritional yeast provides a cheesy flavor and is a great source of B vitamins.',
+    faqs: [
+        {
+          "question": "Can I make this salad ahead of time?",
+          "answer": "Yes, you can prepare the dressing and cut the vegetables a few hours in advance, but it's best to toss the salad with dressing just before serving to keep the lettuce crisp."
+        },
+        {
+          "question": "Is nutritional yeast essential?",
+          "answer": "While nutritional yeast adds a cheesy flavor, you can omit it if you prefer a different taste, or substitute it with ground sunflower seeds."
+        }
+      ],
+    tips: ["For an extra crunch, add some toasted pumpkin seeds or walnuts.","You can add some plant-based protein like chickpeas or quinoa to make it a more filling meal."],
+    variations: ["Add avocado slices for creaminess.","Include grilled vegetables for a smoky flavor."],
+    storage: 'Store any leftover salad in an airtight container in the refrigerator for up to 2 days. Keep the dressing separate to maintain the crispness of the lettuce.',
+  },
+  {
+    id: '1767019723214.1675',
+    title: 'Panini',
+    slug: 'panini',
+    description: 'A deliciously warm and crispy vegan panini filled with fresh vegetables and flavorful spreads, perfect for a satisfying lunch.',
+    prologue: 'Discover the joy of creating your own vegan panini with this easy recipe that brings together wholesome ingredients and bold flavors. At vegancooking.recipes, we believe in crafting meals that not only nourish the body but also delight the palate. This panini is customizable, allowing you to use your favorite vegetables and spreads for a truly personalized experience.',
+    image: '/recipe-images/panini-1767019724536.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole grain ciabatta bread",
+          "amount": "2",
+          "unit": "pieces",
+          "notes": "Cut in half horizontally"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Thinly sliced"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Thinly sliced"
+        },
+        {
+          "name": "Spinach",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh, packed"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Mashed, for spread"
+        },
+        {
+          "name": "Hummus",
+          "amount": "4",
+          "unit": "tablespoons",
+          "notes": "Your favorite flavor"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "For grilling"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "pinch",
+          "notes": "Optional"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "pinch",
+          "notes": "Optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat a panini press or grill pan over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "While the grill is heating, prepare the vegetables by slicing the zucchini and red bell pepper."
+        },
+        {
+          "step": 3,
+          "text": "Take the ciabatta bread pieces and spread 2 tablespoons of hummus on the inside of each piece."
+        },
+        {
+          "step": 4,
+          "text": "On one side of the bread, layer the thinly sliced zucchini, red bell pepper, and fresh spinach."
+        },
+        {
+          "step": 5,
+          "text": "Spread the mashed avocado on the other side of the bread and sprinkle with salt and black pepper to taste."
+        },
+        {
+          "step": 6,
+          "text": "Close the sandwich, brush the outside with olive oil for added crispiness."
+        },
+        {
+          "step": 7,
+          "text": "Place the sandwich in the preheated panini press or grill pan."
+        },
+        {
+          "step": 8,
+          "text": "If using a grill pan, press down with a spatula and cook for about 5-7 minutes, or until the bread is golden and crispy."
+        },
+        {
+          "step": 9,
+          "text": "If using a panini press, grill according to the manufacturer's instructions until the bread is toasted and the vegetables are tender."
+        },
+        {
+          "step": 10,
+          "text": "Remove the panini from the heat, slice in half, and serve warm."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 450,
+        "protein": "12g",
+        "carbs": "60g",
+        "fat": "20g",
+        "fiber": "10g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","lunch","healthy","sandwich","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole grain ciabatta adds fiber and nutrients. Feel free to substitute with gluten-free bread or your preferred type. For extra flavor, consider adding nutritional yeast or vegan cheese.',
+    faqs: [
+        {
+          "question": "Can I use different vegetables?",
+          "answer": "Absolutely! You can customize your panini with any vegetables you like, such as mushrooms, eggplant, or sun-dried tomatoes."
+        },
+        {
+          "question": "How can I make this gluten-free?",
+          "answer": "Use gluten-free bread instead of ciabatta, and ensure all your spreads and ingredients are gluten-free."
+        }
+      ],
+    tips: ["For a smoky flavor, add a sprinkle of smoked paprika to the vegetables.","Pair your panini with a side salad for a complete meal."],
+    variations: ["Add sliced olives or artichokes for Mediterranean flair.","Incorporate vegan pesto for an herbaceous twist."],
+    storage: 'Best enjoyed fresh, but leftovers can be stored in an airtight container in the refrigerator for up to 2 days. Reheat in a panini press or skillet to regain crispiness.',
+  },
+  {
+    id: '1767020711442.579',
+    title: 'Greek Salad',
+    slug: 'greek-salad',
+    description: 'This vibrant and refreshing Greek Salad is packed with wholesome ingredients, making it the perfect light lunch option. Bursting with flavors from fresh vegetables, herbs, and a zesty dressing, it\'s both nutritious and satisfying.',
+    prologue: 'Discover the simplicity of vegan cooking with this delightful Greek Salad recipe from vegancooking.recipes. This dish celebrates the fresh flavors of the Mediterranean, utilizing whole, plant-based ingredients that are both nourishing and delicious. Perfect for a quick lunch or a side dish, this salad is easy to prepare and will please any palate.',
+    image: '/recipe-images/greek-salad-1767020712673.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "halved"
+        },
+        {
+          "name": "Red onion",
+          "amount": "0.5",
+          "unit": "medium",
+          "notes": "thinly sliced"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced (red or yellow preferred)"
+        },
+        {
+          "name": "Kalamata olives",
+          "amount": "0.5",
+          "unit": "cup",
+          "notes": "pitted and sliced"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "0.25",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "extra virgin"
+        },
+        {
+          "name": "Dried oregano",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "optional"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by washing all the fresh vegetables under cold water."
+        },
+        {
+          "step": 2,
+          "text": "Dice the cucumber into bite-sized pieces and place them in a large mixing bowl."
+        },
+        {
+          "step": 3,
+          "text": "Halve the cherry tomatoes and add them to the bowl."
+        },
+        {
+          "step": 4,
+          "text": "Thinly slice the red onion and add it to the mixing bowl."
+        },
+        {
+          "step": 5,
+          "text": "Dice the bell pepper and incorporate it into the salad."
+        },
+        {
+          "step": 6,
+          "text": "Add the sliced Kalamata olives and chopped parsley to the bowl."
+        },
+        {
+          "step": 7,
+          "text": "In a small bowl, whisk together the lemon juice, olive oil, dried oregano, salt, and black pepper."
+        },
+        {
+          "step": 8,
+          "text": "Pour the dressing over the salad ingredients and toss gently to combine."
+        },
+        {
+          "step": 9,
+          "text": "Taste and adjust seasoning if necessary."
+        },
+        {
+          "step": 10,
+          "text": "Serve immediately or let it sit for 10 minutes to allow flavors to meld."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "3g",
+        "carbs": "12g",
+        "fat": "10g",
+        "fiber": "4g",
+        "sugar": "2g"
+      },
+    tags: ["salad","vegan","lunch","Mediterranean","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Cucumbers add a refreshing crunch, while Kalamata olives provide a rich, briny flavor. Feel free to substitute any fresh herbs like dill or mint for parsley, or use avocado for added creaminess.',
+    faqs: [
+        {
+          "question": "Can I make this salad ahead of time?",
+          "answer": "Yes, you can prepare the ingredients ahead of time and mix them just before serving to keep the vegetables crisp."
+        },
+        {
+          "question": "What can I serve with Greek Salad?",
+          "answer": "This salad pairs well with grilled vegetables, pita bread, or as a side to any Mediterranean dish."
+        }
+      ],
+    tips: ["For added protein, consider adding chickpeas or quinoa to the salad.","Chill the salad for about 30 minutes in the refrigerator before serving for enhanced flavors."],
+    variations: ["Add avocado for a creamy texture.","Incorporate roasted red peppers for a smoky flavor."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 2 days. The salad may become slightly watery as the vegetables release moisture.',
+  },
+  {
+    id: '1767020878011.3894',
+    title: 'Noodle Bowl',
+    slug: 'noodle-bowl',
+    description: 'A vibrant and nourishing noodle bowl packed with fresh vegetables and a savory sauce, perfect for a wholesome lunch.',
+    prologue: 'Discover the joys of whole-food plant-based cooking with this delicious Noodle Bowl recipe. Perfectly balanced with flavors and textures, this dish is designed to please both vegans and non-vegans alike. At vegancooking.recipes, we celebrate the richness of plant-based ingredients that make healthy eating easy and enjoyable.',
+    image: '/recipe-images/noodle-bowl-1767020879269.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole grain rice noodles",
+          "amount": "4",
+          "unit": "oz",
+          "notes": "or any preferred noodle variety"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "julienned or spiralized"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "thinly sliced"
+        },
+        {
+          "name": "Green onions",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "sliced"
+        },
+        {
+          "name": "Snap peas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "trimmed"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "Sesame seeds",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for garnish"
+        },
+        {
+          "name": "Low-sodium soy sauce",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "or tamari for gluten-free"
+        },
+        {
+          "name": "Rice vinegar",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for a tangy flavor"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for sweetness"
+        },
+        {
+          "name": "Garlic",
+          "amount": "1",
+          "unit": "clove",
+          "notes": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "freshly grated"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Boil a pot of water and cook the rice noodles according to package instructions, usually about 6-8 minutes. Drain and rinse under cold water to stop cooking."
+        },
+        {
+          "step": 2,
+          "text": "While the noodles are cooking, prepare the vegetables: julienne the carrot, slice the red bell pepper and cucumber, and trim the snap peas."
+        },
+        {
+          "step": 3,
+          "text": "In a small bowl, whisk together the soy sauce, rice vinegar, maple syrup, minced garlic, and grated ginger to create the sauce."
+        },
+        {
+          "step": 4,
+          "text": "In a large mixing bowl, combine the cooked noodles, carrot, bell pepper, cucumber, snap peas, and green onions. Pour the sauce over the mixture and toss gently to combine."
+        },
+        {
+          "step": 5,
+          "text": "Divide the noodle mixture into two bowls. Garnish with chopped cilantro and sesame seeds before serving."
+        },
+        {
+          "step": 6,
+          "text": "Serve immediately, or chill in the refrigerator for a refreshing cold noodle salad."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "10g",
+        "carbs": "62g",
+        "fat": "6g",
+        "fiber": "6g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","whole-food-plant-based","lunch","noodle dish","healthy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to swap in any seasonal vegetables you have on hand. Zucchini, broccoli, or even leafy greens like spinach work well. For added protein, consider including tofu or edamame.',
+    faqs: [
+        {
+          "question": "Can I make this Noodle Bowl gluten-free?",
+          "answer": "Yes! Simply substitute the whole grain rice noodles with gluten-free noodles like rice or quinoa noodles."
+        }
+      ],
+    tips: ["For extra flavor, let the noodle bowl sit for a few minutes before serving to allow the sauce to soak in.","You can prepare the sauce in advance and store it in the refrigerator for up to a week."],
+    variations: ["Add sliced avocado for creaminess.","Include a protein like chickpeas or edamame for a heartier meal."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. To enjoy, simply reheat in a microwave or serve cold.',
+  },
+  {
+    id: '1767021165690.2424',
+    title: 'Reuben Sandwich',
+    slug: 'reuben-sandwich',
+    description: 'This vegan Reuben sandwich is a delicious twist on the classic, featuring savory marinated tempeh, tangy sauerkraut, and creamy vegan thousand island dressing, all layered between hearty rye bread.',
+    prologue: 'Discover the mouthwatering taste of a classic Reuben sandwich with a healthy vegan twist at vegancooking.recipes. This plant-based version offers all the flavors you love without any animal products, making it perfect for a satisfying lunch. Packed with protein-rich tempeh and zesty sauerkraut, this sandwich is both nutritious and delicious.',
+    image: '/recipe-images/reuben-sandwich-1767021166930.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 2,
+    difficulty: 'medium',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "tempeh",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "sliced thinly"
+        },
+        {
+          "name": "soy sauce",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for marinade"
+        },
+        {
+          "name": "smoked paprika",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "rye bread",
+          "amount": "4",
+          "unit": "slices",
+          "notes": "or pumpernickel bread"
+        },
+        {
+          "name": "sauerkraut",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "drained"
+        },
+        {
+          "name": "vegan mayonnaise",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for dressing"
+        },
+        {
+          "name": "ketchup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for dressing"
+        },
+        {
+          "name": "dill pickle relish",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for dressing"
+        },
+        {
+          "name": "mustard",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for dressing"
+        },
+        {
+          "name": "olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for grilling"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a bowl, whisk together the soy sauce, smoked paprika, and black pepper."
+        },
+        {
+          "step": 2,
+          "text": "Add the sliced tempeh to the marinade, ensuring each piece is coated. Let it marinate for at least 10 minutes."
+        },
+        {
+          "step": 3,
+          "text": "While the tempeh is marinating, prepare the vegan thousand island dressing by mixing the vegan mayonnaise, ketchup, dill pickle relish, and mustard in a small bowl. Set aside."
+        },
+        {
+          "step": 4,
+          "text": "Heat a skillet over medium heat and add the olive oil."
+        },
+        {
+          "step": 5,
+          "text": "Once the oil is hot, add the marinated tempeh slices to the skillet. Cook for about 4-5 minutes on each side until golden brown and crispy."
+        },
+        {
+          "step": 6,
+          "text": "Meanwhile, toast the rye bread slices in a toaster or on another skillet until lightly browned."
+        },
+        {
+          "step": 7,
+          "text": "To assemble the sandwich, spread a generous amount of the thousand island dressing on one side of each slice of toasted bread."
+        },
+        {
+          "step": 8,
+          "text": "Layer the tempeh slices on top of the dressing, followed by a scoop of sauerkraut. Top with another slice of bread."
+        },
+        {
+          "step": 9,
+          "text": "If desired, grill the assembled sandwich in the skillet for 2-3 minutes on each side until heated through and crispy."
+        },
+        {
+          "step": 10,
+          "text": "Remove from the skillet, slice in half, and enjoy your delicious vegan Reuben sandwich!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 390,
+        "protein": "22g",
+        "carbs": "45g",
+        "fat": "16g",
+        "fiber": "8g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","sandwich","lunch","whole-food-plant-based","Reuben"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Tempeh is a great source of protein and can be substituted with marinated tofu if preferred. For a gluten-free option, use gluten-free bread and ensure the soy sauce is gluten-free.',
+    faqs: [
+        {
+          "question": "Can I make this sandwich gluten-free?",
+          "answer": "Yes, simply substitute the rye bread with gluten-free bread and ensure that the soy sauce is gluten-free."
+        },
+        {
+          "question": "What can I use instead of tempeh?",
+          "answer": "You can use marinated and grilled tofu as a substitute for tempeh."
+        }
+      ],
+    tips: ["For extra flavor, add sliced avocado or fresh spinach to the sandwich.","Make sure to drain the sauerkraut well to avoid soggy bread."],
+    variations: ["Try adding vegan cheese for a creamier texture.","For a spicy kick, add sliced jalapeños to the sandwich."],
+    storage: 'Store any leftover assembled sandwiches in an airtight container in the refrigerator for up to 2 days. Reheat in a skillet or microwave before serving.',
+  },
+  {
+    id: '1767021499945.7285',
+    title: 'Udon Bowl',
+    slug: 'udon-bowl',
+    description: 'A delicious and nourishing Udon Bowl filled with fresh vegetables and a savory broth, perfect for a wholesome lunch.',
+    prologue: 'Dive into the world of vegan cuisine with this delightful Udon Bowl recipe that brings together chewy udon noodles and vibrant vegetables in a flavorful broth. Ideal for a satisfying lunch, this dish showcases the beauty of whole-food plant-based ingredients. Explore more amazing vegan recipes at vegancooking.recipes and transform your meals into wholesome experiences.',
+    image: '/recipe-images/udon-bowl-1767021502282.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Udon noodles",
+          "amount": "7",
+          "unit": "oz",
+          "notes": "Fresh or dried, cook according to package instructions."
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Low-sodium recommended."
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "Use tamari for gluten-free."
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For flavor; can substitute with olive oil."
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "Fresh, grated."
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "large",
+          "notes": "Julienned."
+        },
+        {
+          "name": "Broccoli florets",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh or frozen."
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Sliced (any color)."
+        },
+        {
+          "name": "Green onions",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "Chopped, for garnish."
+        },
+        {
+          "name": "Sesame seeds",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For garnish."
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Fresh."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Cook the udon noodles according to package instructions. Drain and set aside."
+        },
+        {
+          "step": 2,
+          "text": "In a large pot, heat the sesame oil over medium heat. Add the minced garlic and grated ginger; sauté for about 1 minute until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Pour in the vegetable broth and soy sauce, and bring to a simmer."
+        },
+        {
+          "step": 4,
+          "text": "Add the julienned carrot and broccoli florets to the broth. Cook for about 5 minutes until the vegetables are tender."
+        },
+        {
+          "step": 5,
+          "text": "Stir in the sliced bell pepper and fresh spinach, cooking for an additional 2-3 minutes until the spinach wilts."
+        },
+        {
+          "step": 6,
+          "text": "Divide the cooked udon noodles between two bowls. Ladle the vegetable broth and vegetables over the noodles."
+        },
+        {
+          "step": 7,
+          "text": "Garnish with chopped green onions and sesame seeds. Serve hot."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "14g",
+        "carbs": "55g",
+        "fat": "10g",
+        "fiber": "8g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","whole-food-plant-based","lunch","udon","noodles"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Udon noodles can be found in Asian markets or the international aisle of supermarkets. For a gluten-free option, use rice noodles. Adjust the vegetables based on seasonal availability or personal preference.',
+    faqs: [
+        {
+          "question": "Can I make this Udon Bowl gluten-free?",
+          "answer": "Yes, you can substitute udon noodles with rice noodles or another gluten-free noodle option."
+        },
+        {
+          "question": "How can I add more protein?",
+          "answer": "Consider adding tofu or tempeh; both can be sautéed until golden and added to the bowl."
+        }
+      ],
+    tips: ["For added flavor, consider marinating the tofu in soy sauce and sesame oil before adding it to the bowl.","Feel free to customize the vegetables based on what you have on hand; snap peas, bok choy, or mushrooms would also work well."],
+    variations: ["Add a splash of lime juice for a zesty twist.","Incorporate different greens such as kale or Swiss chard for added nutrition."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. To reheat, add a splash of water and heat gently on the stove to prevent the noodles from becoming too soft.',
+  },
 ];

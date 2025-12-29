@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, KeyboardEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { HiSearch, HiX } from 'react-icons/hi';
-import { getAllRecipes } from '@/data/recipes';
+// Client component - uses API route to fetch recipes
 import { Recipe } from '@/types/recipe';
 import SearchAutocomplete from './SearchAutocomplete';
 
@@ -26,9 +26,18 @@ export default function SearchBar({
   const router = useRouter();
 
   useEffect(() => {
-    // Load recipes on client side
-    const allRecipes = getAllRecipes();
-    setRecipes(allRecipes);
+    // Load recipes on client side via API
+    const loadRecipes = async () => {
+      try {
+        const response = await fetch('/api/recipes');
+        const data = await response.json();
+        setRecipes(data.recipes || []);
+      } catch (error) {
+        console.error('Error loading recipes:', error);
+        setRecipes([]);
+      }
+    };
+    loadRecipes();
   }, []);
 
   useEffect(() => {
@@ -109,7 +118,6 @@ export default function SearchBar({
             className="block w-full pl-10 sm:pl-12 pr-10 sm:pr-12 py-2.5 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 text-sm sm:text-base text-gray-900 placeholder-gray-500 bg-white min-h-[44px]"
             aria-label="Search recipes"
             aria-autocomplete="list"
-            aria-expanded={isFocused && query.trim().length >= 2}
             aria-controls="search-autocomplete"
           />
           {query && (

@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
-import { getRecipeBySlug } from '@/data/recipes';
+import { getRecipeBySlugAsync } from '@/data/recipes/helpers';
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const recipe = getRecipeBySlug(slug);
+  const recipe = await getRecipeBySlugAsync(slug);
 
   if (!recipe) {
     return NextResponse.json({ error: 'Recipe not found' }, { status: 404 });

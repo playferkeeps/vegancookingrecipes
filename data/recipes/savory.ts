@@ -2606,5 +2606,1531 @@ export const savoryRecipes: Recipe[] = [
     variations: ["Add cooked quinoa or lentils for added protein.","Top with roasted chickpeas for a crunchy texture."],
     storage: 'Store any leftovers in an airtight container in the refrigerator for up to 4 days. Reheat on the stove or in the microwave before serving.',
   },
+  {
+    id: '1767018648057.8186',
+    title: 'Eggplant Parmesan',
+    slug: 'eggplant-parmesan',
+    description: 'This Eggplant Parmesan is a deliciously satisfying vegan twist on a classic Italian dish, layered with rich marinara sauce, creamy cashew cheese, and crispy baked eggplant slices.',
+    prologue: 'Discover the ultimate comfort food with this vegan Eggplant Parmesan recipe that’s both wholesome and indulgent. Made with fresh ingredients and no animal products, this dish is perfect for anyone looking to enjoy a hearty meal without compromising their dietary choices. At vegancooking.recipes, we believe in creating delicious plant-based dishes that everyone can enjoy, so gather your ingredients and get ready for a culinary adventure!',
+    image: '/recipe-images/eggplant-parmesan-1767018649227.webp',
+    prepTime: 30,
+    cookTime: 45,
+    totalTime: 75,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Eggplant",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced into 1/4-inch rounds"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for drawing moisture out of the eggplant"
+        },
+        {
+          "name": "Whole wheat flour",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for dredging"
+        },
+        {
+          "name": "Unsweetened almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for batter"
+        },
+        {
+          "name": "Panko breadcrumbs",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "for coating"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for drizzling"
+        },
+        {
+          "name": "Marinara sauce",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "store-bought or homemade"
+        },
+        {
+          "name": "Cashews",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "soaked in water for at least 2 hours"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for cheesy flavor"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Basil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "fresh or dried for flavor"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Fresh basil leaves",
+          "amount": "for garnish",
+          "unit": "",
+          "notes": "optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 400°F (200°C)."
+        },
+        {
+          "step": 2,
+          "text": "Slice the eggplants into 1/4-inch rounds and sprinkle with salt. Let them sit for about 20 minutes to draw out moisture."
+        },
+        {
+          "step": 3,
+          "text": "Rinse the eggplant slices under cold water and pat them dry with a paper towel."
+        },
+        {
+          "step": 4,
+          "text": "Set up a dredging station: place the whole wheat flour in one bowl, almond milk in another, and panko breadcrumbs mixed with garlic powder and black pepper in a third."
+        },
+        {
+          "step": 5,
+          "text": "Dip each eggplant slice first into the flour, then the almond milk, and finally coat with panko breadcrumbs."
+        },
+        {
+          "step": 6,
+          "text": "Arrange the breaded eggplant slices on a baking sheet lined with parchment paper. Drizzle with olive oil."
+        },
+        {
+          "step": 7,
+          "text": "Bake in the preheated oven for 25 minutes, flipping halfway through, until golden brown and crispy."
+        },
+        {
+          "step": 8,
+          "text": "While the eggplant is baking, prepare the cashew cheese by blending soaked cashews, nutritional yeast, basil, and a pinch of salt in a high-speed blender until smooth."
+        },
+        {
+          "step": 9,
+          "text": "In a baking dish, spread a layer of marinara sauce on the bottom, followed by a layer of baked eggplant, a layer of cashew cheese, and repeat until all ingredients are used, finishing with marinara on top."
+        },
+        {
+          "step": 10,
+          "text": "Bake the assembled Eggplant Parmesan in the oven for an additional 15 minutes."
+        },
+        {
+          "step": 11,
+          "text": "Let it cool for a few minutes, then garnish with fresh basil leaves before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "12g",
+        "carbs": "50g",
+        "fat": "15g",
+        "fiber": "10g",
+        "sugar": "8g"
+      },
+    tags: ["vegan","Italian","comfort food","plant-based","savory","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Eggplants can be bitter, so salting them helps to remove excess moisture and bitterness. You can substitute cashews with sunflower seeds for a nut-free option.',
+    faqs: [
+        {
+          "question": "Can I make this recipe gluten-free?",
+          "answer": "Yes, you can use gluten-free flour and gluten-free breadcrumbs to make this Eggplant Parmesan gluten-free."
+        },
+        {
+          "question": "How can I make this dish ahead of time?",
+          "answer": "You can assemble the Eggplant Parmesan in advance and store it in the refrigerator for up to 2 days before baking."
+        }
+      ],
+    tips: ["For extra flavor, add Italian seasoning to the panko breadcrumbs.","Serve with a side salad or garlic bread for a complete meal."],
+    variations: ["Add layers of sautéed spinach or mushrooms for added nutrition.","Use zucchini or other vegetables in place of eggplant."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. To reheat, place in the oven at 350°F (175°C) until warmed through.',
+  },
+  {
+    id: '1767018907327.811',
+    title: 'Baked Beans',
+    slug: 'baked-beans',
+    description: 'Deliciously savory and hearty, these baked beans are perfect for a comforting meal or a summer barbecue. Naturally sweetened with maple syrup and packed with protein-rich beans, they are a wholesome addition to any table.',
+    prologue: 'Discover the delightful world of vegan cooking with this easy whole-food plant-based Baked Beans recipe from vegancooking.recipes. Made with nutritious ingredients, this dish is not only flavorful but also incredibly satisfying. Whether you\'re serving it as a side dish or a main course, these baked beans will impress everyone at your table.',
+    image: '/recipe-images/baked-beans-1767018908878.webp',
+    prepTime: 15,
+    cookTime: 90,
+    totalTime: 105,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Dried navy beans",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Soaked overnight and rinsed"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Low-sodium preferred"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For natural sweetness"
+        },
+        {
+          "name": "Tomato paste",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Adds depth of flavor"
+        },
+        {
+          "name": "Apple cider vinegar",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "For a tangy kick"
+        },
+        {
+          "name": "Smoked paprika",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For a smoky flavor"
+        },
+        {
+          "name": "Mustard powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Adds a tangy note"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Freshly cracked"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "To taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a large pot, cover the soaked navy beans with fresh water and bring to a boil. Cook for about 30 minutes until tender but not mushy. Drain and set aside."
+        },
+        {
+          "step": 3,
+          "text": "In the same pot, sauté the chopped onion in a splash of vegetable broth over medium heat until translucent, about 5-7 minutes."
+        },
+        {
+          "step": 4,
+          "text": "Add the minced garlic and sauté for another 2 minutes until fragrant."
+        },
+        {
+          "step": 5,
+          "text": "Stir in the tomato paste, maple syrup, apple cider vinegar, smoked paprika, mustard powder, black pepper, and salt. Mix well."
+        },
+        {
+          "step": 6,
+          "text": "Add the cooked navy beans back into the pot along with the vegetable broth. Stir to combine all ingredients."
+        },
+        {
+          "step": 7,
+          "text": "Transfer the mixture to a baking dish and cover with aluminum foil."
+        },
+        {
+          "step": 8,
+          "text": "Bake in the preheated oven for 60 minutes, removing the foil for the last 15 minutes to allow for a slight caramelization."
+        },
+        {
+          "step": 9,
+          "text": "Remove from the oven and let cool slightly before serving. Enjoy your delicious baked beans!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 220,
+        "protein": "12g",
+        "carbs": "36g",
+        "fat": "2g",
+        "fiber": "10g",
+        "sugar": "6g"
+      },
+    tags: ["savory","beans","vegan","whole-food-plant-based","comfort food"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Navy beans are ideal for this recipe, but you can substitute with pinto or kidney beans if desired. Ensure that beans are soaked overnight for optimal cooking.',
+    faqs: [
+        {
+          "question": "Can I use canned beans instead?",
+          "answer": "Yes, you can use canned beans for a quicker option. Use about 4 cups of canned navy beans, rinsed and drained, and adjust the cooking time accordingly."
+        }
+      ],
+    tips: ["For a spicier flavor, add a pinch of cayenne pepper.","Try adding in some chopped bell peppers for extra veggies."],
+    variations: ["Add chopped bell peppers for added sweetness and crunch.","Mix in cooked quinoa for added texture and protein."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 5 days. You can also freeze baked beans for up to 3 months. Reheat on the stovetop or in the microwave before serving.',
+  },
+  {
+    id: '1767019020288.824',
+    title: 'Green Bean Casserole',
+    slug: 'green-bean-casserole',
+    description: 'This delightful Vegan Green Bean Casserole is a creamy, savory dish packed with fresh green beans and topped with crispy onions, making it a perfect side for any occasion.',
+    prologue: 'Elevate your holiday table with this Vegan Green Bean Casserole that is not only delicious but also plant-based and wholesome. Packed with whole-food ingredients, this casserole is creamy, savory, and topped with crispy onions for that perfect crunch. Join the movement of delicious vegan cooking with vegancooking.recipes and discover how easy it is to create beautiful plant-based dishes.',
+    image: '/recipe-images/green-bean-casserole-1767015269029.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh green beans",
+          "amount": "1",
+          "unit": "pound",
+          "notes": "Trimmed and cut into 1-inch pieces"
+        },
+        {
+          "name": "Mushrooms",
+          "amount": "8",
+          "unit": "ounces",
+          "notes": "Sliced (preferably cremini or button)"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Low sodium preferred"
+        },
+        {
+          "name": "Coconut milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Full-fat for creaminess"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For a cheesy flavor"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Low sodium preferred"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "For thickening"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Freshly ground"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "none",
+          "notes": "Adjust according to preference"
+        },
+        {
+          "name": "Crispy fried onions",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Store-bought or homemade for topping"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a large pot, bring water to a boil and blanch the green beans for about 3-4 minutes until bright green and tender-crisp. Drain and set aside."
+        },
+        {
+          "step": 3,
+          "text": "In a large skillet, sauté the diced onion and sliced mushrooms over medium heat for about 5-7 minutes until the mushrooms are browned and the onions are translucent."
+        },
+        {
+          "step": 4,
+          "text": "Add the minced garlic and sauté for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 5,
+          "text": "In a bowl, whisk together the vegetable broth, coconut milk, nutritional yeast, soy sauce, cornstarch, black pepper, and salt until smooth."
+        },
+        {
+          "step": 6,
+          "text": "Pour the coconut milk mixture over the sautéed mushrooms and onions in the skillet, stirring continuously until the sauce thickens (about 3-5 minutes)."
+        },
+        {
+          "step": 7,
+          "text": "Add the blanched green beans to the skillet and mix well, ensuring the beans are coated in the sauce."
+        },
+        {
+          "step": 8,
+          "text": "Transfer the mixture to a 9x13-inch baking dish, spreading it evenly."
+        },
+        {
+          "step": 9,
+          "text": "Top the casserole with crispy fried onions."
+        },
+        {
+          "step": 10,
+          "text": "Bake in the preheated oven for 20 minutes until bubbly and golden on top."
+        },
+        {
+          "step": 11,
+          "text": "Let cool for a few minutes before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "5g",
+        "carbs": "25g",
+        "fat": "7g",
+        "fiber": "5g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","whole-food-plant-based","casserole","holiday","sides","savory"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a lower-fat version, you can use unsweetened almond milk instead of coconut milk. Make sure to check the ingredients of the crispy fried onions to ensure they are vegan.',
+    faqs: [
+        {
+          "question": "Can I use frozen green beans?",
+          "answer": "Yes, you can use frozen green beans. Just thaw them and drain any excess moisture before adding them to the casserole."
+        },
+        {
+          "question": "How can I make this gluten-free?",
+          "answer": "Use tamari instead of soy sauce and ensure the crispy onions are gluten-free."
+        }
+      ],
+    tips: ["For extra flavor, add some fresh thyme or rosemary to the sauce.","You can make the sauce a day in advance and store it in the fridge."],
+    variations: ["Add cooked quinoa or brown rice for a heartier dish.","Incorporate other vegetables like carrots or peas for added nutrition."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in the oven at 350°F (175°C) until warm.',
+  },
+  {
+    id: '1767020192901.7498',
+    title: 'Vegetable Lasagna',
+    slug: 'vegetable-lasagna',
+    description: 'This hearty Vegetable Lasagna is packed with a mix of flavorful vegetables and layers of rich tomato sauce, making it a perfect comfort food for any occasion.',
+    prologue: 'Explore the wonderful world of plant-based cooking with this delicious Vegetable Lasagna recipe from vegancooking.recipes. This dish is not only satisfying but also nourishing, featuring wholesome ingredients that everyone will love. Whether you\'re a seasoned vegan or just looking to incorporate more plant-based meals into your diet, this lasagna will impress your family and friends alike.',
+    image: '/recipe-images/vegetable-lasagna-1767020194301.webp',
+    prepTime: 30,
+    cookTime: 60,
+    totalTime: 90,
+    servings: 6,
+    difficulty: 'medium',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Lasagna noodles",
+          "amount": "9",
+          "unit": "sheets",
+          "notes": "Use whole grain or gluten-free if desired"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For sautéing vegetables"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Sliced"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced (any color)"
+        },
+        {
+          "name": "Mushrooms",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "Sliced"
+        },
+        {
+          "name": "Spinach",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "Fresh or frozen (thawed and drained)"
+        },
+        {
+          "name": "Crushed tomatoes",
+          "amount": "28",
+          "unit": "oz",
+          "notes": "Canned"
+        },
+        {
+          "name": "Dried oregano",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "Dried basil",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "For a cheesy flavor"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Unsweetened, for creaminess"
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 375°F (190°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet, heat olive oil over medium heat. Add diced onion and minced garlic, sauté until the onion becomes translucent, about 5 minutes."
+        },
+        {
+          "step": 3,
+          "text": "Add sliced zucchini, diced bell pepper, and sliced mushrooms to the skillet. Cook for another 5-7 minutes until the vegetables are tender."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the spinach, crushed tomatoes, oregano, basil, salt, and black pepper. Let the mixture simmer for about 10 minutes, allowing the flavors to meld."
+        },
+        {
+          "step": 5,
+          "text": "In a separate bowl, combine nutritional yeast and almond milk to create a cheesy mixture. Mix well until smooth."
+        },
+        {
+          "step": 6,
+          "text": "Spread a thin layer of the vegetable mixture in the bottom of a 9x13 inch baking dish. Place 3 lasagna noodles on top."
+        },
+        {
+          "step": 7,
+          "text": "Spread half of the remaining vegetable mixture over the noodles, followed by half of the cheesy mixture. Repeat the layers, finishing with a layer of noodles topped with the remaining vegetable mixture."
+        },
+        {
+          "step": 8,
+          "text": "Cover the baking dish with foil and bake for 30 minutes. Remove the foil and bake for an additional 15-20 minutes until the top is bubbly and golden."
+        },
+        {
+          "step": 9,
+          "text": "Allow the lasagna to cool for about 10 minutes before slicing. Garnish with fresh basil before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "12g",
+        "carbs": "45g",
+        "fat": "10g",
+        "fiber": "8g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","lasagna","savory","whole-food-plant-based","comfort food"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to swap out the vegetables based on your preference or seasonal availability. For a richer flavor, consider adding some sun-dried tomatoes or olives.',
+    faqs: [
+        {
+          "question": "Can I use store-bought pasta sauce instead of crushed tomatoes?",
+          "answer": "Yes, you can use store-bought pasta sauce, but check the ingredients to ensure it's vegan and low in added sugars."
+        }
+      ],
+    tips: ["Let the lasagna rest before serving to make slicing easier.","For an extra creamy layer, you can add a layer of vegan ricotta made from blended tofu, lemon juice, and nutritional yeast."],
+    variations: ["Add layers of roasted eggplant or butternut squash for more depth of flavor.","Substitute the spinach with kale or arugula for a different green option."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. You can also freeze portions for up to 3 months; thaw in the refrigerator before reheating.',
+  },
+  {
+    id: '1767020485646.235',
+    title: 'Chickpea Stew',
+    slug: 'chickpea-stew',
+    description: 'This hearty Chickpea Stew is packed with protein, flavorful spices, and wholesome vegetables, making it a comforting dish perfect for any time of year.',
+    prologue: 'Chickpea Stew is a delightful and nutritious meal that brings together the goodness of legumes and fresh vegetables in a rich, savory broth. This whole-food plant-based recipe is not only easy to make but also satisfies your taste buds while keeping your health in check. Whether you\'re a seasoned vegan or just starting to explore plant-based cooking, this Chickpea Stew from vegancooking.recipes is sure to become a staple in your kitchen.',
+    image: '/recipe-images/chickpea-stew-1767015632853.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Carrot",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Celery",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "diced"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Canned chickpeas",
+          "amount": "2",
+          "unit": "cans",
+          "notes": "drained and rinsed"
+        },
+        {
+          "name": "Diced tomatoes",
+          "amount": "1",
+          "unit": "can",
+          "notes": "with juices"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "low-sodium"
+        },
+        {
+          "name": "Ground cumin",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": ""
+        },
+        {
+          "name": "Paprika",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": ""
+        },
+        {
+          "name": "Turmeric",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": ""
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Fresh spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "chopped"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the olive oil over medium heat. Add the diced onion and sauté for about 5 minutes until translucent."
+        },
+        {
+          "step": 2,
+          "text": "Add the minced garlic, diced carrot, celery, and red bell pepper. Sauté for another 5-7 minutes until the vegetables are softened."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the ground cumin, paprika, turmeric, salt, and black pepper. Cook for an additional minute to toast the spices."
+        },
+        {
+          "step": 4,
+          "text": "Add the drained chickpeas and diced tomatoes (with their juices) to the pot. Stir well to combine."
+        },
+        {
+          "step": 5,
+          "text": "Pour in the vegetable broth and bring the mixture to a boil. Reduce the heat and let it simmer for about 15-20 minutes."
+        },
+        {
+          "step": 6,
+          "text": "Add the chopped spinach to the stew and cook for another 5 minutes until the spinach is wilted."
+        },
+        {
+          "step": 7,
+          "text": "Taste and adjust seasoning with more salt and pepper if needed. Serve hot, garnished with fresh parsley."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "16g",
+        "carbs": "50g",
+        "fat": "8g",
+        "fiber": "12g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","stew","chickpeas","whole-food","plant-based","savory","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Chickpeas are a great source of protein and fiber. You can substitute canned chickpeas with cooked dry chickpeas if preferred, just make sure to adjust the cooking time accordingly. Feel free to add any other vegetables you have on hand, such as zucchini or sweet potatoes.',
+    faqs: [
+        {
+          "question": "Can I make this Chickpea Stew in advance?",
+          "answer": "Yes, this stew can be made ahead of time and stored in the refrigerator for up to 3 days. The flavors will deepen as it sits."
+        },
+        {
+          "question": "How can I freeze leftovers?",
+          "answer": "You can freeze the stew in airtight containers for up to 3 months. Thaw in the refrigerator overnight before reheating."
+        }
+      ],
+    tips: ["Serve with crusty whole-grain bread for a complete meal.","Add a squeeze of lemon juice before serving for a fresh flavor boost."],
+    variations: ["Add diced sweet potatoes for extra sweetness and nutrients.","For a spicier kick, include diced jalapeños or red pepper flakes."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days or freeze for up to 3 months.',
+  },
+  {
+    id: '1767020521781.5898',
+    title: 'Stuffed Peppers',
+    slug: 'stuffed-peppers',
+    description: 'These vibrant stuffed peppers are filled with a savory quinoa and black bean mixture, making them a wholesome and satisfying meal. Perfect for a cozy dinner or meal prep!',
+    prologue: 'Discover the delightful world of plant-based cooking with this hearty recipe for Stuffed Peppers, featured on vegancooking.recipes. These colorful peppers are not only visually stunning but also packed with nutrition and flavor. Ideal for anyone looking to enjoy a wholesome, vegan meal, this recipe showcases how simple ingredients can come together to create a deliciously satisfying dish.',
+    image: '/recipe-images/stuffed-peppers-1767020523060.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "bell peppers",
+          "amount": "4",
+          "unit": "whole",
+          "notes": "Choose a variety of colors for a vibrant dish."
+        },
+        {
+          "name": "quinoa",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Rinse before cooking."
+        },
+        {
+          "name": "black beans",
+          "amount": "1",
+          "unit": "can",
+          "notes": "Drain and rinse."
+        },
+        {
+          "name": "corn",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh, frozen, or canned."
+        },
+        {
+          "name": "diced tomatoes",
+          "amount": "1",
+          "unit": "can",
+          "notes": "Use fire-roasted for extra flavor."
+        },
+        {
+          "name": "onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Chopped."
+        },
+        {
+          "name": "garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Ground."
+        },
+        {
+          "name": "chili powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Optional for heat."
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Freshly cracked."
+        },
+        {
+          "name": "fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped, for garnish."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 375°F (190°C)."
+        },
+        {
+          "step": 2,
+          "text": "Rinse the quinoa under cold water. In a medium saucepan, combine 1 cup of rinsed quinoa with 2 cups of water. Bring to a boil, then reduce to a simmer, cover, and cook for 15 minutes or until the water is absorbed. Fluff with a fork."
+        },
+        {
+          "step": 3,
+          "text": "While the quinoa is cooking, heat a large skillet over medium heat. Add 1 chopped onion and sauté for about 5 minutes until translucent."
+        },
+        {
+          "step": 4,
+          "text": "Add the minced garlic to the skillet and sauté for an additional minute until fragrant."
+        },
+        {
+          "step": 5,
+          "text": "Stir in the drained black beans, corn, diced tomatoes (with their juice), cooked quinoa, cumin, chili powder, salt, and pepper. Mix well and let it simmer for 5 minutes."
+        },
+        {
+          "step": 6,
+          "text": "While the filling is simmering, prepare the bell peppers. Cut the tops off and remove the seeds and membranes."
+        },
+        {
+          "step": 7,
+          "text": "Stuff each bell pepper with the quinoa mixture, packing it tightly. Place the stuffed peppers upright in a baking dish."
+        },
+        {
+          "step": 8,
+          "text": "Cover the baking dish with aluminum foil and bake in the preheated oven for 25 minutes."
+        },
+        {
+          "step": 9,
+          "text": "Remove the foil and bake for an additional 5-10 minutes, until the peppers are tender."
+        },
+        {
+          "step": 10,
+          "text": "Garnish with chopped fresh cilantro before serving. Enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "12g",
+        "carbs": "55g",
+        "fat": "5g",
+        "fiber": "12g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","gluten-free","healthy","savory","meal prep","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Quinoa can be substituted with brown rice or farro. Black beans can be replaced with lentils or chickpeas if preferred. For extra protein, consider adding diced tofu or tempeh to the mixture.',
+    faqs: [
+        {
+          "question": "Can I make these stuffed peppers ahead of time?",
+          "answer": "Yes! You can prepare the filling a day in advance and store it in the refrigerator. Just stuff the peppers and bake them when you're ready to eat."
+        },
+        {
+          "question": "What can I serve with stuffed peppers?",
+          "answer": "Stuffed peppers pair well with a side salad, guacamole, or a simple salsa for added flavor."
+        }
+      ],
+    tips: ["For added flavor, roast the bell peppers for 10 minutes before stuffing them.","Feel free to experiment with different vegetables in the filling, such as zucchini or spinach."],
+    variations: ["Try adding nutritional yeast for a cheesy flavor.","Use different grains like millet or bulgur for a unique twist."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 4 days. Reheat in the oven or microwave before serving.',
+  },
+  {
+    id: '1767020852390.2932',
+    title: 'Stuffed Zucchini',
+    slug: 'stuffed-zucchini',
+    description: 'Deliciously savory stuffed zucchini filled with a wholesome mixture of quinoa, vegetables, and spices.',
+    prologue: 'Stuffed zucchini is a delightful and nutritious dish that showcases the versatility of vegetables in vegan cooking. This recipe features tender zucchini filled with a flavorful quinoa and vegetable mix, making it a perfect main course or side dish for any meal. For more delicious and healthy vegan recipes, visit vegancooking.recipes.',
+    image: '/recipe-images/stuffed-zucchini-1767020853642.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Zucchini",
+          "amount": "4",
+          "unit": "medium",
+          "notes": "Choose firm zucchinis for best results."
+        },
+        {
+          "name": "Quinoa",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Rinse before cooking."
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For cooking the quinoa."
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Finely chopped."
+        },
+        {
+          "name": "Red onion",
+          "amount": "1/2",
+          "unit": "medium",
+          "notes": "Finely chopped."
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Halved."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "For sautéing."
+        },
+        {
+          "name": "Italian seasoning",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Or to taste."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Or to taste."
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "Or to taste."
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For cheesy flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 375°F (190°C)."
+        },
+        {
+          "step": 2,
+          "text": "Rinse the quinoa under cold water, then combine it with vegetable broth in a medium saucepan. Bring to a boil, then reduce heat to low, cover, and simmer for about 15 minutes or until the quinoa is cooked."
+        },
+        {
+          "step": 3,
+          "text": "While the quinoa is cooking, prepare the zucchini. Cut each zucchini in half lengthwise and scoop out the seeds with a spoon, creating a hollow shell for the filling."
+        },
+        {
+          "step": 4,
+          "text": "In a large skillet, heat olive oil over medium heat. Add the chopped red onion and bell pepper, sautéing for about 5 minutes until softened."
+        },
+        {
+          "step": 5,
+          "text": "Add the minced garlic and halved cherry tomatoes to the skillet. Cook for an additional 3-4 minutes, stirring occasionally."
+        },
+        {
+          "step": 6,
+          "text": "Once the quinoa is cooked, fluff it with a fork and add it to the skillet with the sautéed vegetables. Stir in Italian seasoning, salt, black pepper, and nutritional yeast. Mix until well combined."
+        },
+        {
+          "step": 7,
+          "text": "Spoon the quinoa and vegetable mixture into the hollowed zucchini halves, packing the filling gently."
+        },
+        {
+          "step": 8,
+          "text": "Place the stuffed zucchini halves in a baking dish and cover with aluminum foil. Bake in the preheated oven for 25 minutes."
+        },
+        {
+          "step": 9,
+          "text": "Remove the foil and bake for an additional 5-10 minutes, until the zucchini is tender and slightly golden."
+        },
+        {
+          "step": 10,
+          "text": "Remove from the oven and let cool for a few minutes before serving. Enjoy your delicious stuffed zucchini!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 280,
+        "protein": "10g",
+        "carbs": "46g",
+        "fat": "8g",
+        "fiber": "8g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","whole-food-plant-based","savory","healthy","zucchini"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Zucchini can be substituted with eggplant or bell peppers for different flavors. Quinoa can be replaced with brown rice or farro if preferred.',
+    faqs: [
+        {
+          "question": "Can I make the stuffing ahead of time?",
+          "answer": "Yes, you can prepare the quinoa and vegetable mixture a day in advance and store it in the refrigerator. Just stuff the zucchini and bake when ready."
+        }
+      ],
+    tips: ["For added flavor, try adding fresh herbs like basil or parsley to the stuffing.","If you prefer a bit of spice, add crushed red pepper flakes to the vegetable mixture."],
+    variations: ["Add black beans or chickpeas to the stuffing for extra protein.","Top the stuffed zucchini with a drizzle of tahini or a vegan cheese sauce before baking."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in the oven or microwave before serving.',
+  },
+  {
+    id: '1767020957877.5583',
+    title: 'White Bean Soup',
+    slug: 'white-bean-soup',
+    description: 'This creamy and comforting white bean soup is a nourishing meal packed with flavor and nutrients, perfect for any time of the year.',
+    prologue: 'Discover the delightful taste of our White Bean Soup, a wholesome and hearty dish that embodies the essence of plant-based cooking. This recipe, available on vegancooking.recipes, showcases the rich flavors of white beans paired with aromatic vegetables and herbs, delivering a satisfying experience in every spoonful. Ideal for both meal prep and cozy dinners, this soup is not only easy to make but also incredibly nutritious.',
+    image: '/recipe-images/white-bean-soup-1767020959370.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Dried white beans",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "soaked in water overnight or at least 6 hours"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "large",
+          "notes": "diced"
+        },
+        {
+          "name": "Celery",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "diced"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "low-sodium if preferred"
+        },
+        {
+          "name": "Bay leaves",
+          "amount": "2",
+          "unit": "leaves",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Thyme",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "dried or fresh"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "freshly ground"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Drain and rinse the soaked white beans. Place them in a large pot and cover with fresh water. Bring to a boil, then reduce heat and simmer until the beans are tender, about 30 minutes. Drain and set aside."
+        },
+        {
+          "step": 2,
+          "text": "In the same pot, heat the olive oil over medium heat. Add the diced onion, carrot, and celery. Sauté for about 5-7 minutes, or until the vegetables are softened and the onion is translucent."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the minced garlic and cook for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the cooked white beans, vegetable broth, bay leaves, thyme, salt, and pepper to the pot. Bring the mixture to a boil, then reduce the heat and let it simmer for about 15-20 minutes."
+        },
+        {
+          "step": 5,
+          "text": "Remove the bay leaves. For a creamier texture, use an immersion blender to blend some of the soup directly in the pot, or transfer a portion to a blender and blend until smooth. Return to the pot."
+        },
+        {
+          "step": 6,
+          "text": "Stir in the lemon juice and adjust seasoning if necessary. Serve hot, garnished with chopped parsley."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 200,
+        "protein": "10g",
+        "carbs": "35g",
+        "fat": "5g",
+        "fiber": "10g",
+        "sugar": "2g"
+      },
+    tags: ["savory","soup","vegan","whole-food-plant-based","healthy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Dried white beans can be substituted with canned white beans (2 cans, drained and rinsed) for a quicker version. Adjust the cooking time accordingly if using canned beans.',
+    faqs: [
+        {
+          "question": "Can I freeze this soup?",
+          "answer": "Yes, this white bean soup freezes well. Allow it to cool completely, then store in airtight containers for up to 3 months."
+        },
+        {
+          "question": "What can I serve with this soup?",
+          "answer": "Serve with crusty whole-grain bread or a fresh salad for a complete meal."
+        }
+      ],
+    tips: ["For added flavor, consider adding smoked paprika or a dash of cayenne pepper.","You can enhance the soup's creaminess by blending in a cup of cooked potatoes or a splash of coconut milk."],
+    variations: ["Add chopped kale or spinach for extra nutrients and color.","Incorporate other vegetables like zucchini or bell peppers for variation."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 5 days. Reheat on the stove or in the microwave before serving.',
+  },
+  {
+    id: '1767020994781.7834',
+    title: 'Split Pea Soup',
+    slug: 'split-pea-soup',
+    description: 'This hearty Split Pea Soup is a nourishing and flavorful dish packed with protein and fiber. Perfect for chilly days, it\'s made with simple ingredients and is entirely plant-based.',
+    prologue: 'Split Pea Soup is a wholesome and satisfying meal that showcases the incredible versatility of plant-based ingredients. This recipe, featured on vegancooking.recipes, is not only easy to prepare but also rich in nutrients. With its vibrant green color and comforting flavors, this soup is a wonderful addition to any vegan menu. Enjoy a bowl of this delicious soup that warms the soul and delights the taste buds.',
+    image: '/recipe-images/split-pea-soup-1767020996071.webp',
+    prepTime: 15,
+    cookTime: 60,
+    totalTime: 75,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "green split peas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "rinsed and drained"
+        },
+        {
+          "name": "carrots",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "celery",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "diced"
+        },
+        {
+          "name": "onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "vegetable broth",
+          "amount": "6",
+          "unit": "cups",
+          "notes": "low-sodium if preferred"
+        },
+        {
+          "name": "bay leaf",
+          "amount": "1",
+          "unit": "leaf",
+          "notes": "whole"
+        },
+        {
+          "name": "thyme",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "dried"
+        },
+        {
+          "name": "black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "freshly ground"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "adjust to taste"
+        },
+        {
+          "name": "olive oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "optional for sautéing"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat olive oil over medium heat (optional). Add diced onion, carrots, and celery, and sauté for about 5-7 minutes until the vegetables soften."
+        },
+        {
+          "step": 2,
+          "text": "Add minced garlic and sauté for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the rinsed split peas, vegetable broth, bay leaf, thyme, black pepper, and salt."
+        },
+        {
+          "step": 4,
+          "text": "Bring the mixture to a boil, then reduce the heat to low. Cover the pot and simmer for about 45-50 minutes, or until the split peas are tender."
+        },
+        {
+          "step": 5,
+          "text": "Remove the bay leaf and use an immersion blender to puree the soup to your desired consistency. If you prefer a chunkier soup, blend only half."
+        },
+        {
+          "step": 6,
+          "text": "Taste and adjust seasoning if necessary. Serve hot, garnished with fresh herbs or a drizzle of olive oil if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 210,
+        "protein": "12g",
+        "carbs": "38g",
+        "fat": "1g",
+        "fiber": "15g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","soup","healthy","whole-food-plant-based","comfort food","savory"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Green split peas are the star of this recipe, providing a creamy texture when cooked. If unavailable, yellow split peas can be used as a substitute. For a richer flavor, consider adding smoked paprika or liquid smoke.',
+    faqs: [
+        {
+          "question": "Can I freeze Split Pea Soup?",
+          "answer": "Yes, Split Pea Soup freezes well. Store it in airtight containers for up to 3 months. Thaw in the refrigerator before reheating."
+        },
+        {
+          "question": "How can I make this soup thicker?",
+          "answer": "To thicken the soup, simply blend a portion of it or add more split peas and cook until tender."
+        }
+      ],
+    tips: ["For added depth of flavor, sauté the vegetables longer until they caramelize slightly.","This soup pairs well with crusty whole grain bread."],
+    variations: ["Add diced potatoes for a heartier version.","Incorporate kale or spinach for added greens."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 5 days. Reheat on the stovetop or in the microwave before serving.',
+  },
+  {
+    id: '1767021070009.527',
+    title: 'Onion Gravy',
+    slug: 'onion-gravy',
+    description: 'This rich and savory onion gravy is the perfect complement to your favorite vegan dishes, from mashed potatoes to veggie burgers. Made with caramelized onions, it\'s a mouthwatering addition that enhances any meal.',
+    prologue: 'If you\'re looking for a versatile and flavorful sauce to elevate your vegan meals, look no further than this onion gravy recipe. Perfect for drizzling over mashed potatoes, lentils, or even veggie burgers, this easy-to-make gravy is entirely plant-based and packed with flavor. At vegancooking.recipes, we believe that every meal should be satisfying, and this gravy is a great way to achieve that deliciousness without any animal products.',
+    image: '/recipe-images/onion-gravy-1767021071323.webp',
+    prepTime: 10,
+    cookTime: 30,
+    totalTime: 40,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Yellow onion",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced thinly"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "low-sodium recommended"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "or tamari for gluten-free"
+        },
+        {
+          "name": "All-purpose flour",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for thickening"
+        },
+        {
+          "name": "Dried thyme",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "or fresh thyme if available"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "freshly ground"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "adjust as needed"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Heat the olive oil in a large skillet over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the sliced yellow onions and sauté for about 10-15 minutes, stirring occasionally, until they are caramelized and golden brown."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic to the skillet and sauté for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Sprinkle the all-purpose flour over the onions and garlic, stirring well to combine and cook for 1-2 minutes."
+        },
+        {
+          "step": 5,
+          "text": "Gradually pour in the vegetable broth while constantly stirring to prevent lumps from forming."
+        },
+        {
+          "step": 6,
+          "text": "Add the soy sauce, dried thyme, black pepper, and salt. Stir well and bring the mixture to a simmer."
+        },
+        {
+          "step": 7,
+          "text": "Let the gravy simmer for about 10-15 minutes, stirring occasionally, until it thickens to your desired consistency."
+        },
+        {
+          "step": 8,
+          "text": "Taste and adjust the seasoning with more salt or pepper if needed before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 80,
+        "protein": "2g",
+        "carbs": "10g",
+        "fat": "4g",
+        "fiber": "1g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","gravy","sauce","whole-food-plant-based","savory"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Yellow onions provide the best flavor for this gravy, but you can substitute with sweet onions if desired. For a gluten-free version, use gluten-free all-purpose flour and tamari instead of soy sauce.',
+    faqs: [
+        {
+          "question": "Can I make this gravy ahead of time?",
+          "answer": "Yes, you can prepare the gravy ahead of time and store it in the refrigerator for up to 5 days. Reheat gently on the stove before serving."
+        },
+        {
+          "question": "Can I freeze onion gravy?",
+          "answer": "Absolutely! Allow the gravy to cool completely, then transfer it to an airtight container or freezer bag. Freeze for up to 3 months."
+        }
+      ],
+    tips: ["For a richer flavor, consider adding a splash of balsamic vinegar or a teaspoon of maple syrup.","If you like a smoother gravy, you can blend it with an immersion blender after cooking."],
+    variations: ["Add sautéed mushrooms for a mushroom onion gravy variation.","Incorporate herbs like rosemary or sage for a different flavor profile."],
+    storage: 'Store any leftover gravy in an airtight container in the refrigerator for up to 5 days. Reheat on the stove or in the microwave, adding a splash of water or broth if it thickens too much.',
+  },
 ];
 

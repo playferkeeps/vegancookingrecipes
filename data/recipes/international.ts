@@ -3000,4 +3000,1756 @@ export const internationalRecipes: Recipe[] = [
     variations: ["Add tofu or chickpeas for extra protein.","Use a different curry paste, such as green or massaman, for a unique flavor profile."],
     storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. Reheat on the stovetop or in the microwave before serving.',
   },
+  {
+    id: '1767018506046.392',
+    title: 'Tzatziki',
+    slug: 'tzatziki',
+    description: 'This refreshing vegan tzatziki sauce is a perfect accompaniment for pita, salads, or as a dip for fresh veggies. Made with creamy plant-based yogurt and fresh herbs, it\'s both tangy and delicious!',
+    prologue: 'Discover a delicious and healthy twist on traditional tzatziki with this vegan recipe from vegancooking.recipes. Made using whole-food plant-based ingredients, this sauce is perfect for enhancing your meals with flavor and texture. Enjoy the refreshing taste of cucumber and dill in a creamy yogurt base, all while keeping it entirely plant-based and nutritious.',
+    image: '/recipe-images/tzatziki-1767018507127.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 8,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "peeled and grated"
+        },
+        {
+          "name": "Unsweetened plant-based yogurt",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "preferably coconut or almond yogurt"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Fresh dill",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "chopped"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "optional, for extra creaminess"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "freshly ground, to taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Begin by washing the cucumber thoroughly. Peel it and grate it using a box grater or a food processor."
+        },
+        {
+          "step": 2,
+          "text": "Place the grated cucumber in a clean kitchen towel or cheesecloth and squeeze out excess moisture. This will help prevent the tzatziki from becoming watery."
+        },
+        {
+          "step": 3,
+          "text": "In a mixing bowl, combine the strained cucumber, unsweetened plant-based yogurt, minced garlic, chopped fresh dill, and lemon juice."
+        },
+        {
+          "step": 4,
+          "text": "If using, drizzle in the olive oil to add creaminess to the tzatziki."
+        },
+        {
+          "step": 5,
+          "text": "Season the mixture with salt and black pepper to taste, mixing well to combine all ingredients."
+        },
+        {
+          "step": 6,
+          "text": "Cover the bowl and refrigerate the tzatziki for at least 30 minutes to allow the flavors to meld together."
+        },
+        {
+          "step": 7,
+          "text": "Serve chilled as a dip with pita bread, fresh vegetables, or as a dressing for salads."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 50,
+        "protein": "2g",
+        "carbs": "4g",
+        "fat": "3g",
+        "fiber": "1g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","dip","sauce","healthy","Mediterranean","international","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For the best flavor, use fresh herbs and high-quality plant-based yogurt. You can substitute the cucumber with zucchini for a different flavor, or add a pinch of cumin for an additional twist.',
+    faqs: [
+        {
+          "question": "Can I make tzatziki in advance?",
+          "answer": "Yes, tzatziki can be made a day ahead. Just make sure to store it in an airtight container in the refrigerator to keep it fresh."
+        },
+        {
+          "question": "What can I serve tzatziki with?",
+          "answer": "Tzatziki is great as a dip for pita bread, fresh vegetables, or as a sauce for wraps and salads."
+        }
+      ],
+    tips: ["Use a good quality plant-based yogurt for the best texture and flavor.","Always squeeze out excess moisture from the cucumber to avoid a watery tzatziki."],
+    variations: ["Add grated carrots for a slightly sweet twist.","Incorporate chopped mint for a refreshing flavor."],
+    storage: 'Store tzatziki in an airtight container in the refrigerator for up to 3 days. If it starts to separate, simply stir it before serving.',
+  },
+  {
+    id: '1767018838615.09',
+    title: 'Ceviche',
+    slug: 'ceviche',
+    description: 'This vibrant vegan ceviche captures the fresh flavors of traditional ceviche using marinated vegetables and fruits, offering a refreshing dish that\'s perfect for any occasion.',
+    prologue: 'Discover the refreshing and zesty world of vegan ceviche, a delightful dish that showcases the bright flavors of nature without any animal products. This recipe, inspired by the traditional ceviche, uses whole-food-plant-based ingredients to create a satisfying and nutritious meal. Perfect for a light lunch or an appetizer at gatherings, you can impress your friends and family with this innovative twist on a classic. Visit vegancooking.recipes for more delicious vegan recipes and cooking tips.',
+    image: '/recipe-images/ceviche-1767018840003.webp',
+    prepTime: 30,
+    cookTime: 20,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "cauliflower",
+          "amount": "1",
+          "unit": "medium head",
+          "notes": "finely chopped, to mimic the texture of fish"
+        },
+        {
+          "name": "red onion",
+          "amount": "1",
+          "unit": "small",
+          "notes": "finely diced"
+        },
+        {
+          "name": "cilantro",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        },
+        {
+          "name": "tomato",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "lime juice",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "jalapeño",
+          "amount": "1",
+          "unit": "small",
+          "notes": "finely chopped, adjust to taste for spiciness"
+        },
+        {
+          "name": "sea salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "optional, for added richness"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Begin by finely chopping the cauliflower into small, bite-sized pieces that resemble the texture of fish."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the chopped cauliflower, diced red onion, cilantro, diced tomatoes, diced avocado, and cucumber."
+        },
+        {
+          "step": 3,
+          "text": "Add the freshly squeezed lime juice, chopped jalapeño, sea salt, and black pepper to the bowl."
+        },
+        {
+          "step": 4,
+          "text": "Gently toss all ingredients together until well mixed, being careful not to mash the avocado."
+        },
+        {
+          "step": 5,
+          "text": "Cover the bowl with a lid or plastic wrap and let it marinate in the refrigerator for at least 15 minutes to allow the flavors to meld."
+        },
+        {
+          "step": 6,
+          "text": "Before serving, drizzle with olive oil if using, and give it one last gentle toss."
+        },
+        {
+          "step": 7,
+          "text": "Serve chilled, garnished with additional cilantro if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 140,
+        "protein": "4g",
+        "carbs": "20g",
+        "fat": "7g",
+        "fiber": "6g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","ceviche","appetizer","refreshing","whole-food-plant-based","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Cauliflower is used here for its texture. You can substitute with hearts of palm or artichoke for different flavors. Fresh lime juice is key for an authentic taste.',
+    faqs: [
+        {
+          "question": "Can I make this ceviche ahead of time?",
+          "answer": "Yes, you can prepare the ceviche a few hours in advance. It's best served within 24 hours to maintain the freshness of the vegetables."
+        },
+        {
+          "question": "What can I use instead of lime juice?",
+          "answer": "Lemon juice can be used as a substitute, though it will impart a different flavor."
+        }
+      ],
+    tips: ["For an extra kick, add more jalapeño or a dash of hot sauce.","Serve with tortilla chips or on lettuce leaves for a delightful crunch."],
+    variations: ["Add diced mango or pineapple for a sweet and tropical twist.","Incorporate black beans or chickpeas for added protein and texture."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 2 days. The flavors will continue to develop, but the vegetables may lose some crunch.',
+  },
+  {
+    id: '1767019173408.1729',
+    title: 'Banh Mi',
+    slug: 'banh-mi',
+    description: 'Experience the vibrant flavors of Vietnam with this delicious vegan Banh Mi, featuring marinated tofu, fresh vegetables, and a zesty sauce all nestled in a crispy baguette.',
+    prologue: 'Banh Mi is a classic Vietnamese sandwich that combines a crispy baguette with savory fillings and fresh vegetables. This vegan version replaces traditional meats with marinated tofu and a variety of colorful veggies, making it a wholesome and satisfying meal. Perfect for lunch or a light dinner, this recipe is not only easy to make but also packed with flavor and nutrition. Explore more plant-based recipes at vegancooking.recipes.',
+    image: '/recipe-images/banh-mi-1767019174834.webp',
+    prepTime: 30,
+    cookTime: 15,
+    totalTime: 45,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "pressed and sliced into 1/2 inch thick slabs"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "for marinating the tofu"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "adds sweetness to the marinade"
+        },
+        {
+          "name": "Rice vinegar",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for acidity in the marinade"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor in the marinade"
+        },
+        {
+          "name": "Ground black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Baguette",
+          "amount": "4",
+          "unit": "pieces",
+          "notes": "crusty Vietnamese-style or any whole grain baguette"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced thinly"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "julienned"
+        },
+        {
+          "name": "Daikon radish",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "julienned or sliced thinly"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "Jalapeño",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "thinly sliced, optional for heat"
+        },
+        {
+          "name": "Vegan mayonnaise",
+          "amount": "4",
+          "unit": "tbsp",
+          "notes": "for spreading on the baguette"
+        },
+        {
+          "name": "Sriracha",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "optional, for spice"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 400°F (200°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a bowl, combine soy sauce, maple syrup, rice vinegar, garlic powder, and black pepper to create the marinade."
+        },
+        {
+          "step": 3,
+          "text": "Add the pressed tofu slabs to the marinade and let them soak for at least 15 minutes, flipping halfway."
+        },
+        {
+          "step": 4,
+          "text": "While the tofu is marinating, prepare your vegetables: julienne the carrot and daikon radish, slice the cucumber, and chop the cilantro."
+        },
+        {
+          "step": 5,
+          "text": "Place the marinated tofu on a baking sheet lined with parchment paper and bake for 15 minutes, flipping once halfway through."
+        },
+        {
+          "step": 6,
+          "text": "While the tofu is baking, slice the baguettes in half lengthwise, being careful not to cut all the way through."
+        },
+        {
+          "step": 7,
+          "text": "Spread a tablespoon of vegan mayonnaise on the inside of each baguette."
+        },
+        {
+          "step": 8,
+          "text": "Once the tofu is done baking, assemble the Banh Mi by placing tofu slabs inside each baguette."
+        },
+        {
+          "step": 9,
+          "text": "Top with cucumber slices, carrot, daikon radish, jalapeño, and cilantro."
+        },
+        {
+          "step": 10,
+          "text": "Drizzle with Sriracha if desired, then close the baguette and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 400,
+        "protein": "20g",
+        "carbs": "50g",
+        "fat": "15g",
+        "fiber": "6g",
+        "sugar": "5g"
+      },
+    tags: ["Vietnamese","sandwich","tofu","vegan","whole-food-plant-based","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a gluten-free option, use gluten-free soy sauce and ensure the baguette is gluten-free. You can substitute the tofu with tempeh or seitan for different textures.',
+    faqs: [
+        {
+          "question": "Can I prepare the tofu in advance?",
+          "answer": "Yes, you can marinate the tofu a day ahead and store it in the refrigerator to save time."
+        },
+        {
+          "question": "What can I use instead of baguette?",
+          "answer": "You can use whole wheat or gluten-free wraps for a different approach."
+        }
+      ],
+    tips: ["For extra flavor, grill the tofu instead of baking it.","Feel free to add other vegetables like bell peppers or radishes based on your preference."],
+    variations: ["Try adding pickled vegetables for a tangy twist.","Replace tofu with marinated portobello mushrooms for a heartier option."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat the tofu before assembling the sandwich for best results.',
+  },
+  {
+    id: '1767019208204.199',
+    title: 'General Tso\'s Tofu',
+    slug: 'general-tso-s-tofu',
+    description: 'Savor the bold flavors of this General Tso\'s Tofu, a deliciously crispy, sweet, and spicy dish that\'s completely vegan and perfect for any meal.',
+    prologue: 'Explore the delightful world of plant-based cooking with this General Tso\'s Tofu recipe, a favorite among both vegans and non-vegans alike. This dish features marinated tofu that is coated in a flavorful sauce, delivering a satisfying crunch and a burst of flavor in every bite. Perfect for a weeknight dinner or meal prep, this recipe showcases how easy and delicious vegan cooking can be. Visit vegancooking.recipes for more innovative vegan meals.',
+    image: '/recipe-images/general-tso-s-tofu-1767019209644.webp',
+    prepTime: 20,
+    cookTime: 20,
+    totalTime: 40,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "pressed and cut into cubes"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for coating the tofu"
+        },
+        {
+          "name": "Vegetable oil",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "for frying"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "use low-sodium if preferred"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sweetness"
+        },
+        {
+          "name": "Rice vinegar",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "adds acidity"
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "freshly grated"
+        },
+        {
+          "name": "Red pepper flakes",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "adjust according to spice preference"
+        },
+        {
+          "name": "Green onions",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "sliced for garnish"
+        },
+        {
+          "name": "Sesame seeds",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Press the tofu for at least 15 minutes to remove excess moisture. Cut into 1-inch cubes."
+        },
+        {
+          "step": 2,
+          "text": "In a mixing bowl, coat the tofu cubes evenly with cornstarch."
+        },
+        {
+          "step": 3,
+          "text": "Heat vegetable oil in a non-stick skillet over medium-high heat."
+        },
+        {
+          "step": 4,
+          "text": "Once the oil is hot, carefully add the tofu cubes in a single layer. Cook until golden brown, about 3-4 minutes on each side. Remove from the skillet and set aside."
+        },
+        {
+          "step": 5,
+          "text": "In the same skillet, reduce the heat to medium and add the minced garlic and grated ginger. Sauté for about 1 minute until fragrant."
+        },
+        {
+          "step": 6,
+          "text": "Stir in the soy sauce, maple syrup, rice vinegar, sesame oil, and red pepper flakes. Let the sauce simmer for 2-3 minutes."
+        },
+        {
+          "step": 7,
+          "text": "Return the crispy tofu to the skillet and toss gently to coat the tofu in the sauce."
+        },
+        {
+          "step": 8,
+          "text": "Cook for an additional 2-3 minutes until everything is heated through."
+        },
+        {
+          "step": 9,
+          "text": "Serve hot, garnished with sliced green onions and sesame seeds. Enjoy your General Tso's Tofu with steamed rice or quinoa!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "17g",
+        "carbs": "38g",
+        "fat": "14g",
+        "fiber": "2g",
+        "sugar": "8g"
+      },
+    tags: ["vegan","tofu","Asian","dinner","whole-food-plant-based","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a gluten-free option, use tamari instead of soy sauce. You can substitute agave syrup for maple syrup if desired. If you prefer a less crispy tofu, you can skip the cornstarch coating, but this will alter the texture.',
+    faqs: [
+        {
+          "question": "Can I use other vegetables in this recipe?",
+          "answer": "Absolutely! You can add vegetables like bell peppers, broccoli, or snap peas to the dish for added nutrition and color."
+        },
+        {
+          "question": "How can I make this dish spicier?",
+          "answer": "Increase the amount of red pepper flakes or add a splash of sriracha to the sauce for extra heat."
+        }
+      ],
+    tips: ["Ensure your tofu is well-pressed for the best texture.","For an even crispier tofu, double coat with cornstarch by dipping in a light layer of water before coating again."],
+    variations: ["Substitute tempeh for tofu for a nuttier flavor and firmer texture.","Make a General Tso's Cauliflower by replacing tofu with cauliflower florets."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in a skillet over medium heat to crisp it up again.',
+  },
+  {
+    id: '1767019234152.9',
+    title: 'Arepas',
+    slug: 'arepas',
+    description: 'Deliciously crispy and fluffy cornmeal cakes, arepas are a versatile dish perfect for any meal. These vegan arepas can be stuffed with your favorite fillings for a satisfying experience.',
+    prologue: 'Arepas are a traditional Latin American dish made from cornmeal, and they are naturally vegan, making them a fantastic option for whole-food-plant-based diets. At vegancooking.recipes, we celebrate the versatility of arepas, offering you a recipe that not only satisfies hunger but also delights the palate. Whether enjoyed as a breakfast, lunch, or dinner option, these arepas can be personalized with various fillings to suit your taste preferences.',
+    image: '/recipe-images/arepas-1767019235504.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "pre-cooked cornmeal (masarepa)",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Use white or yellow cornmeal."
+        },
+        {
+          "name": "warm water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Adjust as needed for dough consistency."
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "To taste."
+        },
+        {
+          "name": "oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For frying; can use vegetable oil or avocado oil."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large mixing bowl, combine the pre-cooked cornmeal and salt."
+        },
+        {
+          "step": 2,
+          "text": "Gradually add the warm water to the cornmeal mixture, stirring with a wooden spoon or your hands until a dough forms."
+        },
+        {
+          "step": 3,
+          "text": "Knead the dough for about 2-3 minutes until it is smooth and pliable. If the dough is too sticky, add a little more cornmeal."
+        },
+        {
+          "step": 4,
+          "text": "Divide the dough into 8 equal portions and shape each portion into a ball. Flatten each ball into a disc about 1/2 inch thick."
+        },
+        {
+          "step": 5,
+          "text": "Heat a skillet or griddle over medium heat. Add a tablespoon of oil."
+        },
+        {
+          "step": 6,
+          "text": "Once the oil is hot, place the arepas in the skillet, cooking for about 5-7 minutes on each side until they develop a golden-brown crust."
+        },
+        {
+          "step": 7,
+          "text": "After both sides are cooked, you can finish cooking the arepas in a preheated oven at 350°F (175°C) for an additional 10 minutes for a fluffier interior."
+        },
+        {
+          "step": 8,
+          "text": "Remove from the oven, let cool slightly, and serve with your choice of fillings."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "3g",
+        "carbs": "30g",
+        "fat": "3g",
+        "fiber": "3g",
+        "sugar": "0g"
+      },
+    tags: ["Vegan","Gluten-Free","Whole Food Plant-Based","Latin American","international","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Pre-cooked cornmeal (masarepa) is essential for creating the right texture. If unavailable, you can use masa harina, but the texture may vary. Adjust the salt according to your preference.',
+    faqs: [
+        {
+          "question": "Can I make arepas ahead of time?",
+          "answer": "Yes, you can prepare the arepas and store them in the refrigerator for up to 3 days. Reheat in a skillet or oven before serving."
+        },
+        {
+          "question": "What can I fill arepas with?",
+          "answer": "Arepas can be filled with a variety of ingredients such as black beans, avocado, sautéed vegetables, or vegan cheese."
+        }
+      ],
+    tips: ["Make sure the water is warm, as it helps the dough come together better.","Experiment with different fillings to find your favorite combination."],
+    variations: ["Add spices like cumin or garlic powder to the dough for extra flavor.","Stuff arepas with quinoa or lentils for added protein."],
+    storage: 'Store leftover arepas in an airtight container in the refrigerator for up to 3 days. For longer storage, freeze them in a single layer, then transfer to a freezer bag for up to 2 months.',
+  },
+  {
+    id: '1767019407648.6882',
+    title: 'Empanadas',
+    slug: 'empanadas',
+    description: 'Deliciously flaky and savory, these vegan empanadas are filled with a hearty mix of vegetables and spices, perfect for a snack or main dish.',
+    prologue: 'Empanadas are a delightful treat found in many cultures, known for their flaky dough and flavorful fillings. This vegan version is made with whole-food plant-based ingredients that pack a punch of flavor while being completely free from animal products. Whether you enjoy them as an appetizer or a meal, these empanadas are sure to please everyone at the table. Discover more vegan recipes at vegancooking.recipes!',
+    image: '/recipe-images/empanadas-1767019409062.webp',
+    prepTime: 30,
+    cookTime: 25,
+    totalTime: 55,
+    servings: 12,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "plus extra for dusting"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for dough"
+        },
+        {
+          "name": "Warm water",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "adjust to desired dough consistency"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "for dough"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Black beans",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "cooked or canned, drained and rinsed"
+        },
+        {
+          "name": "Cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "ground"
+        },
+        {
+          "name": "Paprika",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "smoked or sweet"
+        },
+        {
+          "name": "Chili powder",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "optional for heat"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "freshly ground, to taste"
+        },
+        {
+          "name": "Lime juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, optional for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large bowl, mix together the whole wheat flour and salt."
+        },
+        {
+          "step": 2,
+          "text": "Add the olive oil and warm water gradually, mixing until a dough forms."
+        },
+        {
+          "step": 3,
+          "text": "Knead the dough on a floured surface for about 5 minutes until smooth. Cover with a kitchen towel and let it rest for 20 minutes."
+        },
+        {
+          "step": 4,
+          "text": "While the dough is resting, heat a tablespoon of olive oil in a skillet over medium heat. Add the diced onion and bell pepper, sautéing for about 5 minutes until soft."
+        },
+        {
+          "step": 5,
+          "text": "Add the minced garlic, zucchini, cumin, paprika, chili powder, and black pepper to the skillet. Cook for another 5 minutes, stirring occasionally."
+        },
+        {
+          "step": 6,
+          "text": "Mix in the black beans and lime juice, cooking for an additional 2 minutes. Remove from heat and let the filling cool."
+        },
+        {
+          "step": 7,
+          "text": "Preheat your oven to 375°F (190°C). Line a baking sheet with parchment paper."
+        },
+        {
+          "step": 8,
+          "text": "Divide the dough into 12 equal pieces. Roll each piece into a circle about 1/8 inch thick."
+        },
+        {
+          "step": 9,
+          "text": "Place a tablespoon of the filling in the center of each dough circle. Fold the dough over to create a half-moon shape and press the edges to seal. Use a fork to crimp the edges for a decorative touch."
+        },
+        {
+          "step": 10,
+          "text": "Place the empanadas on the prepared baking sheet and lightly brush with olive oil."
+        },
+        {
+          "step": 11,
+          "text": "Bake in the preheated oven for 20-25 minutes or until golden brown."
+        },
+        {
+          "step": 12,
+          "text": "Allow to cool slightly before serving. Garnish with chopped cilantro if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "6g",
+        "carbs": "30g",
+        "fat": "5g",
+        "fiber": "7g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","whole food plant-based","snack","international","empanadas","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute the whole wheat flour with gluten-free flour for a gluten-free option. Feel free to add other veggies like corn or carrots to the filling based on your preference.',
+    faqs: [
+        {
+          "question": "Can I freeze empanadas?",
+          "answer": "Yes, empanadas can be frozen before or after baking. To freeze before baking, assemble them, place on a baking sheet, and freeze until solid. Then transfer to a freezer bag. Bake from frozen, adding a few extra minutes to the cooking time."
+        }
+      ],
+    tips: ["Ensure your dough is not too sticky; add a little more flour if necessary.","Experiment with different fillings such as lentils or mushrooms for a twist."],
+    variations: ["Try using a spicy lentil filling for a different flavor profile.","Add a sweet potato filling for a hearty and sweet version."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in the oven at 350°F (175°C) until warmed through.',
+  },
+  {
+    id: '1767019863148.6794',
+    title: 'Minestrone',
+    slug: 'minestrone',
+    description: 'A hearty and nutritious Italian soup brimming with vegetables, beans, and pasta, perfect for any occasion.',
+    prologue: 'Minestrone is a classic Italian soup that combines seasonal vegetables, beans, and pasta in a savory broth. This vegan version is not only flavorful but also packed with nutrients, making it an ideal meal for anyone looking to enjoy whole-food plant-based cooking. At vegancooking.recipes, we believe in creating delicious dishes that everyone can enjoy, and this Minestrone is no exception.',
+    image: '/recipe-images/minestrone-1767015491811.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "extra virgin for best flavor"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Carrots",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Celery",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Green beans",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "trimmed and cut into 1-inch pieces"
+        },
+        {
+          "name": "Canned diced tomatoes",
+          "amount": "14.5",
+          "unit": "ounces",
+          "notes": "with juices"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "6",
+          "unit": "cups",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Cannellini beans",
+          "amount": "1",
+          "unit": "can",
+          "notes": "rinsed and drained"
+        },
+        {
+          "name": "Italian seasoning",
+          "amount": "2",
+          "unit": "teaspoons",
+          "notes": "or to taste"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "or to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "or to taste"
+        },
+        {
+          "name": "Whole grain pasta",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "such as ditalini or macaroni"
+        },
+        {
+          "name": "Fresh spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "washed and roughly chopped"
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the olive oil over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the diced onion, carrots, and celery. Sauté for about 5 minutes until the vegetables are softened."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the minced garlic and cook for an additional 1 minute until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the diced zucchini and green beans to the pot and stir to combine."
+        },
+        {
+          "step": 5,
+          "text": "Pour in the canned diced tomatoes with their juices and the vegetable broth."
+        },
+        {
+          "step": 6,
+          "text": "Bring the mixture to a boil, then reduce the heat to simmer."
+        },
+        {
+          "step": 7,
+          "text": "Add the cannellini beans, Italian seasoning, salt, and black pepper. Stir well."
+        },
+        {
+          "step": 8,
+          "text": "Simmer for about 15 minutes, allowing the flavors to meld."
+        },
+        {
+          "step": 9,
+          "text": "Stir in the whole grain pasta and cook for an additional 10 minutes, or until the pasta is tender."
+        },
+        {
+          "step": 10,
+          "text": "Finally, add the chopped spinach and cook for another 2-3 minutes until wilted."
+        },
+        {
+          "step": 11,
+          "text": "Serve hot, garnished with fresh basil."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 220,
+        "protein": "10g",
+        "carbs": "40g",
+        "fat": "5g",
+        "fiber": "9g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","whole-food-plant-based","soup","Italian","healthy","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute any seasonal vegetables you have on hand. Other beans like kidney or black beans can also be used instead of cannellini.',
+    faqs: [
+        {
+          "question": "Can I freeze Minestrone?",
+          "answer": "Yes, this soup freezes well. Allow it to cool completely, then transfer it to airtight containers and freeze for up to 3 months."
+        },
+        {
+          "question": "What can I serve with Minestrone?",
+          "answer": "Minestrone pairs well with crusty bread or a simple side salad."
+        }
+      ],
+    tips: ["For added flavor, try adding a splash of balsamic vinegar just before serving.","Feel free to adjust the seasoning according to your taste preferences."],
+    variations: ["Add different types of legumes, such as lentils or chickpeas.","Incorporate seasonal vegetables like kale or peas for variation."],
+    storage: 'Store leftover Minestrone in an airtight container in the refrigerator for up to 5 days. Reheat on the stove over low heat or in the microwave until warmed through.',
+  },
+  {
+    id: '1767020600554.0972',
+    title: 'Muhammara',
+    slug: 'muhammara',
+    description: 'Muhammara is a delicious and spicy roasted red pepper and walnut dip that hails from the Middle East. It\'s perfect for spreading on bread, serving with veggies, or as a flavorful accompaniment to your favorite dishes.',
+    prologue: 'Discover the rich flavors of Muhammara, a traditional Middle Eastern dip that combines roasted red peppers, walnuts, and aromatic spices into a velvety spread. This vegan-friendly recipe is not only easy to prepare but also packed with nutrients, making it a perfect addition to your whole-food-plant-based diet. Join the vegan cooking revolution at vegancooking.recipes and elevate your appetizer game with this healthy, flavorful dish!',
+    image: '/recipe-images/muhammara-1767020601942.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Red bell peppers",
+          "amount": "2",
+          "unit": "whole",
+          "notes": "Roasted until charred and soft"
+        },
+        {
+          "name": "Walnuts",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Lightly toasted for enhanced flavor"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Ground cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For a warm spice note"
+        },
+        {
+          "name": "Paprika",
+          "amount": "2",
+          "unit": "tsp",
+          "notes": "Smoked paprika adds depth"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Extra virgin for best flavor"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Freshly squeezed for brightness"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Freshly ground for best flavor"
+        },
+        {
+          "name": "Water",
+          "amount": "2-4",
+          "unit": "tbsp",
+          "notes": "To adjust consistency"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 425°F (220°C)."
+        },
+        {
+          "step": 2,
+          "text": "Place the red bell peppers on a baking sheet and roast them in the preheated oven for about 20-25 minutes, until the skin is blistered and charred."
+        },
+        {
+          "step": 3,
+          "text": "Once roasted, remove the peppers from the oven and place them in a bowl, covering it with plastic wrap for about 10 minutes to steam. This will help loosen the skin."
+        },
+        {
+          "step": 4,
+          "text": "While the peppers are steaming, toast the walnuts in a dry skillet over medium heat for 5 minutes, stirring frequently until fragrant. Be careful not to burn them."
+        },
+        {
+          "step": 5,
+          "text": "After steaming, peel the charred skin off the red peppers. Remove the stems and seeds, then roughly chop them."
+        },
+        {
+          "step": 6,
+          "text": "In a food processor, combine the roasted red peppers, toasted walnuts, minced garlic, ground cumin, paprika, olive oil, lemon juice, salt, and black pepper."
+        },
+        {
+          "step": 7,
+          "text": "Blend until smooth, adding water one tablespoon at a time to reach your desired consistency."
+        },
+        {
+          "step": 8,
+          "text": "Taste and adjust seasoning if necessary, adding more salt, lemon juice, or spices as desired."
+        },
+        {
+          "step": 9,
+          "text": "Transfer the Muhammara to a serving bowl and chill in the refrigerator for at least 30 minutes before serving to allow flavors to meld."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 200,
+        "protein": "5g",
+        "carbs": "9g",
+        "fat": "18g",
+        "fiber": "4g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","Middle Eastern","dip","appetizer","whole-food-plant-based","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute walnuts with pecans or sunflower seeds for a nut-free version. Adjust the spices according to your taste preference; adding cayenne can increase the heat.',
+    faqs: [
+        {
+          "question": "Can I make Muhammara ahead of time?",
+          "answer": "Yes, Muhammara can be made 1-2 days in advance. Store in an airtight container in the refrigerator."
+        },
+        {
+          "question": "What can I serve Muhammara with?",
+          "answer": "Serve Muhammara with fresh pita, vegetable sticks, or use it as a spread on sandwiches and wraps."
+        }
+      ],
+    tips: ["For a richer flavor, try roasting the walnuts along with the peppers.","If you prefer a smoother texture, blend the Muhammara longer or add more water."],
+    variations: ["Add a tablespoon of tahini for a creamier texture and nutty flavor.","Incorporate herbs like parsley or cilantro for additional freshness."],
+    storage: 'Store Muhammara in an airtight container in the refrigerator for up to one week. It can also be frozen for up to three months; thaw in the refrigerator before serving.',
+  },
+  {
+    id: '1767020919285.3918',
+    title: 'Dumplings',
+    slug: 'dumplings',
+    description: 'These delightful vegan dumplings are filled with a savory mixture of vegetables and spices, offering a burst of flavor in every bite. Perfect for steaming or pan-frying, they make a fantastic appetizer or main dish.',
+    prologue: 'Experience the joy of making your own dumplings with this easy, whole-food-plant-based recipe. Packed with fresh vegetables and wholesome ingredients, these dumplings are not only delicious but also nutritious. Perfect for a cozy dinner or a fun gathering with friends, this recipe from vegancooking.recipes will surely impress everyone at the table.',
+    image: '/recipe-images/dumplings-1767020920618.webp',
+    prepTime: 40,
+    cookTime: 20,
+    totalTime: 60,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "All-purpose flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Plus extra for dusting"
+        },
+        {
+          "name": "Warm water",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "Use warm water to help form the dough"
+        },
+        {
+          "name": "Cabbage",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Finely chopped, any variety"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Grated"
+        },
+        {
+          "name": "Green onion",
+          "amount": "3",
+          "unit": "stalks",
+          "notes": "Finely chopped"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "Fresh, grated"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Low-sodium if preferred"
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Freshly cracked"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large bowl, mix the all-purpose flour and salt. Gradually add the warm water while stirring with a fork until the dough starts to come together."
+        },
+        {
+          "step": 2,
+          "text": "Knead the dough on a lightly floured surface for about 5-10 minutes until smooth and elastic. Cover with a damp cloth and let it rest for at least 30 minutes."
+        },
+        {
+          "step": 3,
+          "text": "In a separate bowl, combine the cabbage, grated carrot, green onion, garlic, ginger, soy sauce, sesame oil, salt, and black pepper. Mix well to combine."
+        },
+        {
+          "step": 4,
+          "text": "After the dough has rested, divide it into small pieces (about 1 inch in size). Roll each piece into a thin circle, about 3 inches in diameter."
+        },
+        {
+          "step": 5,
+          "text": "Place about 1 tablespoon of the vegetable filling in the center of each dough circle. Fold the dough over to create a half-moon shape and pinch the edges to seal tightly."
+        },
+        {
+          "step": 6,
+          "text": "To cook the dumplings, you can either steam them in a bamboo steamer for about 10-12 minutes or pan-fry them in a non-stick skillet with a little water until the bottoms are golden brown and crispy."
+        },
+        {
+          "step": 7,
+          "text": "Serve the dumplings warm with your favorite dipping sauce, such as soy sauce or a spicy chili sauce."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "8g",
+        "carbs": "45g",
+        "fat": "6g",
+        "fiber": "3g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","dumplings","appetizer","whole-food-plant-based","Asian","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute the vegetables in the filling according to your preference. Mushrooms, spinach, or tofu can also be great additions. For a gluten-free option, use gluten-free flour.',
+    faqs: [
+        {
+          "question": "Can I freeze the dumplings?",
+          "answer": "Yes, you can freeze uncooked dumplings. Arrange them in a single layer on a baking sheet, freeze until solid, then transfer to a freezer bag. Cook from frozen by steaming for an additional 5 minutes."
+        }
+      ],
+    tips: ["Make sure to keep the dough covered while working to prevent it from drying out.","Adjust the filling spices to suit your taste preferences."],
+    variations: ["Add chopped mushrooms for an umami flavor.","Try a spicy kimchi filling for a kick."],
+    storage: 'Store any leftover cooked dumplings in an airtight container in the refrigerator for up to 3 days. Reheat in a pan or steamer before serving.',
+  },
+  {
+    id: '1767021368707.532',
+    title: 'Samosas',
+    slug: 'samosas',
+    description: 'Crispy, golden-brown pastries filled with spiced potatoes and peas, perfect as an appetizer or snack.',
+    prologue: 'Samosas are a beloved snack originating from the Indian subcontinent, cherished for their flaky pastry and savory fillings. In this vegan version, we use wholesome, plant-based ingredients to create a deliciously satisfying treat that everyone can enjoy. Perfect for parties or as a comforting snack, these samosas are sure to impress. Find more vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/samosas-1767021369910.webp',
+    prepTime: 30,
+    cookTime: 30,
+    totalTime: 60,
+    servings: 12,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "all-purpose flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Plus extra for dusting"
+        },
+        {
+          "name": "cumin seeds",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavoring the dough"
+        },
+        {
+          "name": "salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "water",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "For dough"
+        },
+        {
+          "name": "potatoes",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "Boiled and mashed"
+        },
+        {
+          "name": "green peas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh or frozen"
+        },
+        {
+          "name": "onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Finely chopped"
+        },
+        {
+          "name": "garlic cloves",
+          "amount": "2",
+          "unit": "minced",
+          "notes": "For added flavor"
+        },
+        {
+          "name": "fresh ginger",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Grated"
+        },
+        {
+          "name": "coriander powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For spice"
+        },
+        {
+          "name": "cumin powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For spice"
+        },
+        {
+          "name": "turmeric powder",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "For color and flavor"
+        },
+        {
+          "name": "red chili powder",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For cooking the filling"
+        },
+        {
+          "name": "lemon juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For freshness"
+        },
+        {
+          "name": "coriander leaves",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large bowl, combine the all-purpose flour, cumin seeds, and salt. Gradually add water and knead until a smooth and firm dough forms. Cover with a damp cloth and let it rest for 20 minutes."
+        },
+        {
+          "step": 2,
+          "text": "In a pan, heat the oil over medium heat. Add the chopped onions and sauté until they become translucent."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic and grated ginger to the pan, sautéing for another minute until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the boiled and mashed potatoes, green peas, coriander powder, cumin powder, turmeric powder, red chili powder, and lemon juice. Mix well and cook for 5 minutes. Remove from heat and let the filling cool."
+        },
+        {
+          "step": 5,
+          "text": "Divide the dough into 12 equal portions. Roll each portion into a ball and then flatten it into a disc about 6 inches in diameter."
+        },
+        {
+          "step": 6,
+          "text": "Cut each disc in half to create two semicircles. Take one semicircle, and form a cone by bringing the edges together and sealing them with a little water."
+        },
+        {
+          "step": 7,
+          "text": "Fill the cone with the potato and pea mixture, then seal the open edge by pressing it together with your fingers. Repeat for all dough pieces."
+        },
+        {
+          "step": 8,
+          "text": "Heat oil in a deep pan over medium heat. Fry the samosas in batches until golden brown and crispy, about 4-5 minutes per batch."
+        },
+        {
+          "step": 9,
+          "text": "Remove the samosas from the oil and drain on paper towels. Serve warm with your favorite dipping sauce."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "3g",
+        "carbs": "20g",
+        "fat": "4g",
+        "fiber": "3g",
+        "sugar": "1g"
+      },
+    tags: ["snack","appetizer","Indian","vegan","whole-food-plant-based","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute all-purpose flour with whole wheat flour for a healthier option. Feel free to add more vegetables like carrots or bell peppers to the filling for added nutrition.',
+    faqs: [
+        {
+          "question": "Can I bake the samosas instead of frying?",
+          "answer": "Yes, you can brush them with a little oil and bake them at 375°F (190°C) for about 25-30 minutes until golden brown."
+        }
+      ],
+    tips: ["Ensure the dough is well-kneaded for a flaky texture.","Let the filling cool before stuffing to prevent the dough from becoming too soft."],
+    variations: ["Add spices like garam masala or chat masala for an extra kick.","Try using lentils instead of potatoes for a different flavor and texture."],
+    storage: 'Store any leftover samosas in an airtight container in the refrigerator for up to 3 days. Reheat in an oven or air fryer to maintain crispiness.',
+  },
+  {
+    id: '1767021400445.753',
+    title: 'Drunken Noodles',
+    slug: 'drunken-noodles',
+    description: 'Savor the bold flavors of Drunken Noodles, a spicy and aromatic Thai-inspired dish made with flat rice noodles, vibrant vegetables, and a zesty sauce. This vegan version is packed with nutrition and perfect for any meal.',
+    prologue: 'Drunken Noodles, or Pad Kee Mao, is a beloved Thai street food that combines the rich flavors of soy sauce, garlic, and fresh vegetables into a deliciously satisfying dish. This vegan version, crafted for whole-food-plant-based diets, will tantalize your taste buds while keeping your meal wholesome and nourishing. Discover how to make this easy and flavorful dish at vegancooking.recipes, where we celebrate the joy of plant-based cooking.',
+    image: '/recipe-images/drunken-noodles-1767021401659.webp',
+    prepTime: 15,
+    cookTime: 15,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Flat rice noodles",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "Soaked in hot water for 10 minutes or until softened"
+        },
+        {
+          "name": "Oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Use vegetable oil or avocado oil for stir-frying"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Sliced"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Julienned"
+        },
+        {
+          "name": "Broccoli",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Cut into small florets"
+        },
+        {
+          "name": "Green onions",
+          "amount": "3",
+          "unit": "stalks",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "Low-sodium preferred"
+        },
+        {
+          "name": "Sriracha sauce",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Adjust for spice preference"
+        },
+        {
+          "name": "Fresh basil leaves",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Thai basil if available"
+        },
+        {
+          "name": "Lime",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Juiced"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Freshly ground"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Prepare the flat rice noodles by soaking them in hot water for 10 minutes or until softened, then drain and set aside."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet or wok, heat the vegetable oil over medium-high heat."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic and sauté for about 30 seconds until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the sliced red bell pepper, julienned carrot, and broccoli florets to the skillet. Stir-fry for about 4-5 minutes until the vegetables are tender but still crisp."
+        },
+        {
+          "step": 5,
+          "text": "Add the soaked rice noodles to the skillet, along with the soy sauce, Sriracha, freshly ground black pepper, and lime juice. Toss everything together until the noodles are well coated in the sauce."
+        },
+        {
+          "step": 6,
+          "text": "Stir in the chopped green onions and fresh basil leaves, cooking for an additional 1-2 minutes until the basil is wilted."
+        },
+        {
+          "step": 7,
+          "text": "Serve immediately, garnished with additional basil if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 330,
+        "protein": "9g",
+        "carbs": "55g",
+        "fat": "10g",
+        "fiber": "4g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","Thai","noodles","whole-food-plant-based","spicy","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Flat rice noodles can be found in Asian grocery stores. If unavailable, substitute with whole grain spaghetti or other noodles. Adjust the Sriracha sauce for desired heat level.',
+    faqs: [
+        {
+          "question": "Can I use other vegetables?",
+          "answer": "Absolutely! Feel free to use any vegetables you have on hand, such as bok choy, zucchini, or snap peas."
+        },
+        {
+          "question": "Is this recipe gluten-free?",
+          "answer": "To make it gluten-free, use gluten-free soy sauce or tamari."
+        }
+      ],
+    tips: ["Make sure not to overcook the noodles, as they will continue to cook in the skillet.","For a protein boost, add tofu or tempeh to the dish."],
+    variations: ["Add crushed peanuts for crunch.","Incorporate different herbs like cilantro or mint for a unique flavor."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in a skillet with a splash of water to prevent sticking.',
+  },
+  {
+    id: '1767021598726.3042',
+    title: 'Jeera Rice',
+    slug: 'jeera-rice',
+    description: 'Jeera Rice is a fragrant and flavorful Indian rice dish enhanced with aromatic cumin seeds, making it the perfect accompaniment to any curry or vegetable dish.',
+    prologue: 'Jeera Rice, also known as Cumin Rice, is a staple in Indian cuisine that elevates simple steamed rice to a whole new level. This veganized version is not only easy to prepare but also packed with flavor, making it ideal for vegans and non-vegans alike. Explore the delightful world of plant-based cooking with this quick and nutritious recipe from vegancooking.recipes.',
+    image: '/recipe-images/jeera-rice-1767021600156.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Basmati rice",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Rinsed under cold water until water runs clear"
+        },
+        {
+          "name": "Cumin seeds",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Lightly toasted for enhanced flavor"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Use vegetable broth for added flavor"
+        },
+        {
+          "name": "Oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Use any neutral oil, like sunflower or canola"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Chopped, for garnish (optional)"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "For a hint of acidity (optional)"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a fine mesh strainer, rinse 1 cup of basmati rice under cold water until the water runs clear to remove excess starch."
+        },
+        {
+          "step": 2,
+          "text": "In a medium saucepan, heat 1 tablespoon of oil over medium heat."
+        },
+        {
+          "step": 3,
+          "text": "Add 1 tablespoon of cumin seeds to the oil and sauté for about 30 seconds, or until fragrant, being careful not to burn them."
+        },
+        {
+          "step": 4,
+          "text": "Add the rinsed basmati rice to the pan and stir gently to coat the rice with the oil and cumin."
+        },
+        {
+          "step": 5,
+          "text": "Pour in 2 cups of water (or vegetable broth) and add 1 teaspoon of salt."
+        },
+        {
+          "step": 6,
+          "text": "Increase the heat to high and bring the mixture to a rolling boil."
+        },
+        {
+          "step": 7,
+          "text": "Once boiling, reduce the heat to low, cover the saucepan with a tight-fitting lid, and let it simmer for 15 minutes."
+        },
+        {
+          "step": 8,
+          "text": "After 15 minutes, remove the saucepan from heat and let it sit, covered, for another 5 minutes to allow the rice to steam."
+        },
+        {
+          "step": 9,
+          "text": "Fluff the rice gently with a fork, and if desired, stir in 1 tablespoon of lemon juice and garnish with chopped fresh cilantro before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 210,
+        "protein": "4g",
+        "carbs": "45g",
+        "fat": "3g",
+        "fiber": "2g",
+        "sugar": "0g"
+      },
+    tags: ["Indian","Rice","Vegan","Whole-Food Plant-Based","Gluten-Free","international","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Basmati rice is preferred for its fragrance and texture, but you can substitute with any long-grain rice. Cumin seeds are essential for the unique flavor of this dish. For a more robust flavor, consider adding whole spices like cardamom or bay leaves during cooking.',
+    faqs: [
+        {
+          "question": "Can I make Jeera Rice without oil?",
+          "answer": "Yes, you can omit the oil and toast the cumin seeds in a dry pan for a whole-food, oil-free version."
+        },
+        {
+          "question": "How can I add more vegetables to Jeera Rice?",
+          "answer": "You can mix in steamed peas, carrots, or bell peppers for added nutrition and color."
+        }
+      ],
+    tips: ["Always rinse basmati rice to achieve fluffy, non-sticky grains.","For an aromatic touch, consider adding a cinnamon stick or a few cloves during cooking."],
+    variations: ["Add saffron strands soaked in warm water for a fragrant Saffron Jeera Rice.","Incorporate cooked lentils or chickpeas for a protein-packed meal."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in a microwave or on the stovetop with a splash of water to prevent drying out.',
+  },
 ];

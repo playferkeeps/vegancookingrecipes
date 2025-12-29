@@ -3836,4 +3836,1430 @@ export const dinnerRecipes: Recipe[] = [
     variations: ["Swap the brown rice for quinoa or cauliflower rice for a different base.","Add in your favorite nuts like cashews or almonds for additional crunch."],
     storage: 'Store any leftover stir fry in an airtight container in the refrigerator for up to 4 days. Reheat in the microwave or on the stovetop until warmed through.',
   },
+  {
+    id: '1767018579185.0825',
+    title: 'Vegan Sausages',
+    slug: 'vegan-sausages',
+    description: 'These flavorful vegan sausages are made with wholesome ingredients, making them a delicious and healthy alternative to traditional sausages. Perfect for grilling or adding to your favorite dishes!',
+    prologue: 'Discover the joy of cooking with plant-based ingredients through this easy Vegan Sausages recipe. Packed with protein and flavor, these vegan sausages are not only nutritious but also versatile, making them an excellent addition to your dinner table. Whether you\'re a long-time vegan or just exploring vegan cooking, vegancooking.recipes provides you with simple yet delicious recipes that everyone will love.',
+    image: '/recipe-images/vegan-sausages-1767018580349.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Lentils (cooked)",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Cooked until tender, can use canned lentils"
+        },
+        {
+          "name": "Brown rice (cooked)",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Cooked according to package instructions"
+        },
+        {
+          "name": "Vital wheat gluten",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "This ingredient gives the sausages their meaty texture"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Adds a cheesy flavor"
+        },
+        {
+          "name": "Onion (finely chopped)",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Saute until translucent"
+        },
+        {
+          "name": "Garlic (minced)",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Adds depth of flavor"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For added umami"
+        },
+        {
+          "name": "Smoked paprika",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For a smoky flavor"
+        },
+        {
+          "name": "Dried oregano",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For seasoning"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For sautéing"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For moisture and flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a pan, heat the olive oil over medium heat. Add the chopped onion and sauté until it's translucent, about 5-7 minutes."
+        },
+        {
+          "step": 2,
+          "text": "Add the minced garlic to the pan and sauté for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "In a large mixing bowl, combine the cooked lentils, cooked brown rice, sautéed onion and garlic, vital wheat gluten, nutritional yeast, soy sauce, smoked paprika, oregano, and black pepper."
+        },
+        {
+          "step": 4,
+          "text": "Mix everything thoroughly until well combined. If the mixture feels too dry, add vegetable broth a little at a time until you reach a dough-like consistency."
+        },
+        {
+          "step": 5,
+          "text": "Divide the mixture into 4 equal parts and shape each part into a sausage form, about 5-6 inches long."
+        },
+        {
+          "step": 6,
+          "text": "Wrap each sausage tightly in aluminum foil, twisting the ends to seal."
+        },
+        {
+          "step": 7,
+          "text": "Place the wrapped sausages in a steamer basket over boiling water. Cover and steam for about 25 minutes."
+        },
+        {
+          "step": 8,
+          "text": "Once cooked, remove the sausages from the steamer and let them cool slightly before unwrapping."
+        },
+        {
+          "step": 9,
+          "text": "Serve the sausages as desired, or grill or pan-fry for a crispy exterior."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "12g",
+        "carbs": "24g",
+        "fat": "4g",
+        "fiber": "6g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","whole food","dinner","sausage","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Vital wheat gluten is essential for texture, so do not substitute with regular flour. You can use any variety of lentils, but brown or green lentils work best for this recipe.',
+    faqs: [
+        {
+          "question": "Can I freeze these vegan sausages?",
+          "answer": "Yes, you can freeze the uncooked or cooked sausages. Just wrap them tightly in plastic wrap or aluminum foil and place them in an airtight container."
+        }
+      ],
+    tips: ["For added flavor, consider adding herbs like thyme or basil to the mixture.","Experiment with different spices or hot sauce for a spicy kick."],
+    variations: ["Add chopped spinach or kale for extra nutrients.","Incorporate different spices like cumin or chili powder for a different flavor profile."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 5 days. Reheat in a skillet or microwave before serving.',
+  },
+  {
+    id: '1767018804548.7407',
+    title: 'Moussaka',
+    slug: 'moussaka',
+    description: 'This hearty vegan Moussaka is a delicious layered dish featuring tender eggplant, a savory lentil filling, and a creamy cashew béchamel sauce, perfect for a comforting dinner.',
+    prologue: 'Discover the rich flavors of traditional Greek cuisine with a plant-based twist in this vegan Moussaka recipe, exclusively on vegancooking.recipes. This dish layers roasted eggplant, seasoned lentils, and a nutty béchamel sauce, providing a satisfying meal that\'s both wholesome and indulgent. Perfect for dinner gatherings or meal prep, this recipe will impress even non-vegans with its depth and flavor.',
+    image: '/recipe-images/moussaka-1767018805917.webp',
+    prepTime: 30,
+    cookTime: 60,
+    totalTime: 90,
+    servings: 6,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Eggplant",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced into 1/4 inch rounds"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "4",
+          "unit": "tablespoons",
+          "notes": "for brushing and sautéing"
+        },
+        {
+          "name": "Yellow onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Celery",
+          "amount": "1",
+          "unit": "stalk",
+          "notes": "diced"
+        },
+        {
+          "name": "Canned lentils",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "drained and rinsed"
+        },
+        {
+          "name": "Tomato paste",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Diced tomatoes",
+          "amount": "1",
+          "unit": "can",
+          "notes": "14 oz, with juice"
+        },
+        {
+          "name": "Dried oregano",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "for depth"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Cashews",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "soaked in water for at least 2 hours"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for cheesy flavor"
+        },
+        {
+          "name": "Non-dairy milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "unsweetened preferred"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for brightness"
+        },
+        {
+          "name": "Nutmeg",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "optional, for béchamel"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat the oven to 400°F (200°C)."
+        },
+        {
+          "step": 2,
+          "text": "Slice the eggplants into 1/4 inch rounds and sprinkle with salt. Let them sit for 20 minutes to draw out moisture, then rinse and pat dry."
+        },
+        {
+          "step": 3,
+          "text": "Brush the eggplant slices lightly with olive oil on both sides and arrange them on a baking sheet. Roast in the oven for 25-30 minutes, flipping halfway through, until golden brown and tender."
+        },
+        {
+          "step": 4,
+          "text": "In a large skillet, heat 2 tablespoons of olive oil over medium heat. Add the diced onion, carrot, and celery, and sauté for about 5 minutes until softened."
+        },
+        {
+          "step": 5,
+          "text": "Add minced garlic and sauté for another minute until fragrant."
+        },
+        {
+          "step": 6,
+          "text": "Stir in the lentils, tomato paste, diced tomatoes (with juice), oregano, cinnamon, salt, and pepper. Let the mixture simmer on low for 15 minutes, stirring occasionally."
+        },
+        {
+          "step": 7,
+          "text": "While the lentil filling simmers, prepare the béchamel sauce. Drain and rinse the soaked cashews, then blend them with nutritional yeast, non-dairy milk, lemon juice, nutmeg, and a pinch of salt until smooth and creamy."
+        },
+        {
+          "step": 8,
+          "text": "Assemble the moussaka: In a baking dish, layer half of the roasted eggplant on the bottom, followed by the lentil mixture, then the remaining eggplant slices. Pour the béchamel sauce over the top, spreading it evenly."
+        },
+        {
+          "step": 9,
+          "text": "Bake in the preheated oven for 30-35 minutes until the top is golden and bubbling."
+        },
+        {
+          "step": 10,
+          "text": "Allow the moussaka to cool for 10 minutes before slicing. Garnish with fresh parsley and serve."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "15g",
+        "carbs": "45g",
+        "fat": "15g",
+        "fiber": "10g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","dinner","comfort food","Mediterranean","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Eggplant is key for texture; you can substitute zucchini if preferred. For a gluten-free option, ensure the nutritional yeast is gluten-free.',
+    faqs: [
+        {
+          "question": "Can I make this moussaka ahead of time?",
+          "answer": "Yes, you can prepare the layers a day in advance and bake it just before serving."
+        },
+        {
+          "question": "What can I serve with moussaka?",
+          "answer": "A simple green salad or some crusty whole grain bread complements this dish nicely."
+        }
+      ],
+    tips: ["For added flavor, consider adding some chopped olives to the lentil mix.","Letting the moussaka rest before serving helps the layers set and makes slicing easier."],
+    variations: ["Add spinach or kale to the lentil mix for extra nutrients.","Use a different nut, such as almonds or walnuts, in the béchamel for a unique flavor."],
+    storage: 'Store leftover moussaka in an airtight container in the refrigerator for up to 3 days. Reheat in the oven or microwave before serving.',
+  },
+  {
+    id: '1767019338336.7031',
+    title: 'Fajitas',
+    slug: 'fajitas',
+    description: 'Savor the vibrant flavors of these colorful vegetable fajitas, packed with wholesome ingredients and a zesty marinade. Perfect for a quick weeknight dinner or a lively gathering with friends.',
+    prologue: 'Discover how to make delicious vegan fajitas that are not only wholesome but also bursting with flavor. Using a variety of colorful vegetables and a savory marinade, these fajitas are a perfect addition to your dinner table. Follow this easy recipe from vegancooking.recipes to impress your family and friends with a plant-based twist on a classic Mexican dish.',
+    image: '/recipe-images/fajitas-1767019339543.webp',
+    prepTime: 15,
+    cookTime: 15,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Bell peppers (red, yellow, and green)",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced into strips"
+        },
+        {
+          "name": "Red onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced into strips"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced into strips"
+        },
+        {
+          "name": "Mushrooms",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "sliced (preferably portobello or cremini)"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Lime juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Smoked paprika",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Tortillas (whole wheat or corn)",
+          "amount": "8",
+          "unit": "small",
+          "notes": "for serving"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced, for serving"
+        },
+        {
+          "name": "Salsa",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for serving"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large mixing bowl, combine the sliced bell peppers, red onion, zucchini, and mushrooms."
+        },
+        {
+          "step": 2,
+          "text": "In a separate small bowl, whisk together the olive oil, lime juice, garlic powder, cumin, smoked paprika, salt, and black pepper."
+        },
+        {
+          "step": 3,
+          "text": "Pour the marinade over the vegetables and toss until they are evenly coated."
+        },
+        {
+          "step": 4,
+          "text": "Heat a large skillet over medium-high heat. Add the marinated vegetables and cook for 8-10 minutes, stirring occasionally, until they are tender and slightly charred."
+        },
+        {
+          "step": 5,
+          "text": "While the vegetables are cooking, warm the tortillas in a separate pan or in the oven."
+        },
+        {
+          "step": 6,
+          "text": "Once the vegetables are cooked, remove from heat and set aside."
+        },
+        {
+          "step": 7,
+          "text": "To serve, place a portion of the sautéed vegetables on each tortilla, and top with sliced avocado, fresh cilantro, and salsa."
+        },
+        {
+          "step": 8,
+          "text": "Fold the tortillas and enjoy your delicious vegan fajitas!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "5g",
+        "carbs": "40g",
+        "fat": "10g",
+        "fiber": "8g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","dinner","whole-food-plant-based","Mexican"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute any of the vegetables based on your preference or what you have available. For a spicier kick, you can add sliced jalapeños or a pinch of cayenne pepper to the marinade.',
+    faqs: [
+        {
+          "question": "Can I make these fajitas ahead of time?",
+          "answer": "Yes, you can prepare the vegetables and marinade ahead of time. Just store them separately in the fridge until you're ready to cook."
+        },
+        {
+          "question": "What can I use instead of tortillas?",
+          "answer": "You can serve the fajita filling over a bed of greens or use lettuce wraps for a low-carb option."
+        }
+      ],
+    tips: ["To get the best flavor, let the vegetables marinate for at least 30 minutes before cooking.","Use a cast-iron skillet for a better char and flavor."],
+    variations: ["Add beans or lentils for extra protein.","Try using different spices like chili powder or oregano for varied flavor profiles."],
+    storage: 'Store any leftover fajita filling in an airtight container in the refrigerator for up to 3 days. Reheat in a skillet or microwave before serving.',
+  },
+  {
+    id: '1767019534925.4673',
+    title: 'Ratatouille',
+    slug: 'ratatouille',
+    description: 'A colorful and hearty vegetable dish, Ratatouille is a perfect blend of fresh vegetables simmered to perfection, ideal for a wholesome dinner.',
+    prologue: 'Ratatouille is a classic Provençal dish that celebrates the vibrant flavors of summer vegetables. This vegan version is not only delicious but also packed with nutrients, making it a fantastic choice for anyone looking to enjoy a whole-food, plant-based meal. At vegancooking.recipes, we believe in bringing out the natural flavors of ingredients, and this Ratatouille does just that with its rich, aromatic profile. Perfect for a cozy dinner, it\'s a dish that will impress both family and guests alike.',
+    image: '/recipe-images/ratatouille-1767019536145.webp',
+    prepTime: 20,
+    cookTime: 40,
+    totalTime: 60,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "eggplant",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "cut into 1/2-inch cubes"
+        },
+        {
+          "name": "zucchini",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced into 1/4-inch rounds"
+        },
+        {
+          "name": "yellow bell pepper",
+          "amount": "1",
+          "unit": "large",
+          "notes": "chopped"
+        },
+        {
+          "name": "red bell pepper",
+          "amount": "1",
+          "unit": "large",
+          "notes": "chopped"
+        },
+        {
+          "name": "onion",
+          "amount": "1",
+          "unit": "large",
+          "notes": "diced"
+        },
+        {
+          "name": "garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "canned diced tomatoes",
+          "amount": "14.5",
+          "unit": "oz",
+          "notes": "with juices"
+        },
+        {
+          "name": "olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "dried oregano",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "or fresh if available"
+        },
+        {
+          "name": "dried thyme",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "or fresh if available"
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large skillet or Dutch oven, heat the olive oil over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the diced onion and sauté for about 5 minutes until translucent."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the minced garlic and cook for an additional minute until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the chopped yellow and red bell peppers to the skillet and sauté for 5 minutes."
+        },
+        {
+          "step": 5,
+          "text": "Next, add the cubed eggplant and continue to cook for another 5 minutes, stirring occasionally."
+        },
+        {
+          "step": 6,
+          "text": "Add the sliced zucchini, dried oregano, dried thyme, salt, and black pepper to the mixture."
+        },
+        {
+          "step": 7,
+          "text": "Pour in the canned diced tomatoes with their juices, stirring well to combine."
+        },
+        {
+          "step": 8,
+          "text": "Bring the mixture to a simmer, then reduce the heat to low, cover, and let it cook for 20-25 minutes, stirring occasionally."
+        },
+        {
+          "step": 9,
+          "text": "Once the vegetables are tender and the flavors have melded together, remove from heat."
+        },
+        {
+          "step": 10,
+          "text": "Serve hot, garnished with fresh chopped basil."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "4g",
+        "carbs": "20g",
+        "fat": "7g",
+        "fiber": "6g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","dinner","whole-food-plant-based","vegetable","Mediterranean"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Eggplant can be bitter; salting it for 30 minutes before use can help reduce bitterness. You can substitute fresh herbs for dried ones if desired.',
+    faqs: [
+        {
+          "question": "Can I make Ratatouille ahead of time?",
+          "answer": "Yes, Ratatouille can be made ahead and stored in the refrigerator for up to 3 days. The flavors deepen as it sits."
+        },
+        {
+          "question": "What can I serve with Ratatouille?",
+          "answer": "Ratatouille pairs well with crusty bread, quinoa, or served over pasta or rice."
+        }
+      ],
+    tips: ["For added depth of flavor, consider roasting the vegetables before adding them to the skillet.","Experiment with other vegetables like squash or mushrooms for a unique twist."],
+    variations: ["Add cooked lentils for extra protein and heartiness.","Serve over polenta for a different texture and flavor."],
+    storage: 'Store leftover Ratatouille in an airtight container in the refrigerator for up to 3 days. It can also be frozen for up to 2 months.',
+  },
+  {
+    id: '1767019644153.6152',
+    title: 'Lasagna Roll Ups',
+    slug: 'lasagna-roll-ups',
+    description: 'Delicious vegan lasagna roll-ups filled with a creamy tofu ricotta and fresh spinach, topped with marinara sauce and baked to perfection.',
+    prologue: 'If you\'re looking for a comforting and satisfying vegan dinner option, these Lasagna Roll Ups are perfect for you! Made with whole-food ingredients, they are packed with flavor and nutrients. At vegancooking.recipes, we believe that plant-based meals can be both hearty and delicious. Try this recipe to impress your family or guests with a delightful twist on traditional lasagna.',
+    image: '/recipe-images/lasagna-roll-ups-1767019645396.webp',
+    prepTime: 30,
+    cookTime: 45,
+    totalTime: 75,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Lasagna noodles",
+          "amount": "12",
+          "unit": "noodles",
+          "notes": "Use whole grain or gluten-free noodles if desired."
+        },
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "Drained and pressed."
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Gives a cheesy flavor."
+        },
+        {
+          "name": "Fresh spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Chopped."
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavor."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Marinara sauce",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Store-bought or homemade."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For sautéing."
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped, for garnish."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 375°F (190°C)."
+        },
+        {
+          "step": 2,
+          "text": "Cook the lasagna noodles according to package instructions until al dente. Drain and set aside."
+        },
+        {
+          "step": 3,
+          "text": "In a large mixing bowl, crumble the drained tofu and add nutritional yeast, garlic powder, salt, and pepper. Mix until well combined."
+        },
+        {
+          "step": 4,
+          "text": "In a skillet, heat olive oil over medium heat and sauté the chopped spinach until wilted, about 3-4 minutes."
+        },
+        {
+          "step": 5,
+          "text": "Fold the sautéed spinach into the tofu mixture until combined."
+        },
+        {
+          "step": 6,
+          "text": "Spread a thin layer of marinara sauce on the bottom of a baking dish."
+        },
+        {
+          "step": 7,
+          "text": "Lay out a cooked lasagna noodle and place about 2-3 tablespoons of the tofu-spinach mixture at one end."
+        },
+        {
+          "step": 8,
+          "text": "Roll the noodle tightly and place it seam-side down in the baking dish. Repeat with the remaining noodles."
+        },
+        {
+          "step": 9,
+          "text": "Once all noodles are in the dish, pour the remaining marinara sauce over the top."
+        },
+        {
+          "step": 10,
+          "text": "Cover the baking dish with aluminum foil and bake for 25 minutes."
+        },
+        {
+          "step": 11,
+          "text": "Remove the foil and bake for an additional 15 minutes, or until the sauce is bubbly."
+        },
+        {
+          "step": 12,
+          "text": "Allow to cool for 5 minutes before garnishing with fresh basil and serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "18g",
+        "carbs": "40g",
+        "fat": "12g",
+        "fiber": "5g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","dinner","lasagna","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Firm tofu is the main ingredient for the ricotta-like filling, providing protein and a creamy texture. Nutritional yeast adds a cheesy flavor without dairy. You can substitute spinach with other greens like kale or Swiss chard if desired.',
+    faqs: [
+        {
+          "question": "Can I make these ahead of time?",
+          "answer": "Yes, you can prepare the roll-ups and store them unbaked in the fridge for up to 24 hours. Just add an extra 10 minutes to the baking time if baking directly from the fridge."
+        }
+      ],
+    tips: ["Use a non-stick baking dish to avoid sticking.","Experiment with different vegetables in the filling, such as mushrooms or zucchini."],
+    variations: ["Add vegan cheese on top before baking for extra creaminess.","Use different sauces, like pesto or Alfredo, for a unique flavor."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in the oven or microwave before serving.',
+  },
+  {
+    id: '1767019957439.8882',
+    title: 'Pasta Primavera',
+    slug: 'pasta-primavera',
+    description: 'Enjoy a vibrant and colorful Pasta Primavera packed with fresh vegetables and a light garlic sauce, perfect for a wholesome dinner.',
+    prologue: 'This Pasta Primavera recipe is a delightful celebration of fresh, seasonal vegetables and whole-food ingredients. Perfect for a quick and nutritious dinner, it harnesses the natural flavors of veggies while keeping it entirely plant-based. At vegancooking.recipes, we believe in creating delicious meals that are both satisfying and healthy, and this dish is a perfect example of that philosophy.',
+    image: '/recipe-images/pasta-primavera-1767019958819.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat spaghetti",
+          "amount": "12",
+          "unit": "oz",
+          "notes": "or any pasta of choice"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced into half-moons"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced (red, yellow, or orange for color)"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "julienned or thinly sliced"
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "halved"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "extra virgin"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for a cheesy flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "for seasoning"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Bring a large pot of salted water to a boil. Cook the whole wheat spaghetti according to package instructions until al dente. Drain and set aside."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet, heat the olive oil over medium heat. Add the minced garlic and sauté for about 1 minute, until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Add the sliced zucchini, bell pepper, and carrot to the skillet. Sauté for about 5-7 minutes, stirring occasionally, until the vegetables are tender but still crisp."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the halved cherry tomatoes and vegetable broth. Cook for an additional 2-3 minutes until the tomatoes start to soften."
+        },
+        {
+          "step": 5,
+          "text": "Add the cooked spaghetti to the skillet, tossing to combine with the vegetables. Season with salt and black pepper to taste."
+        },
+        {
+          "step": 6,
+          "text": "Remove from heat and stir in the nutritional yeast for added flavor."
+        },
+        {
+          "step": 7,
+          "text": "Serve warm, garnished with fresh basil."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "12g",
+        "carbs": "60g",
+        "fat": "10g",
+        "fiber": "9g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","dinner","pasta","whole-food","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat spaghetti can be substituted with gluten-free pasta if needed. Feel free to use any seasonal vegetables you have on hand for added variety.',
+    faqs: [
+        {
+          "question": "Can I make this pasta primavera gluten-free?",
+          "answer": "Yes, simply use gluten-free pasta in place of whole wheat spaghetti."
+        },
+        {
+          "question": "What other vegetables can I add?",
+          "answer": "You can add vegetables like asparagus, broccoli, or spinach for more variety."
+        }
+      ],
+    tips: ["To save time, chop all the vegetables before you start cooking.","Add a splash of lemon juice for brightness."],
+    variations: ["Add cooked chickpeas for extra protein.","Use a different type of pasta, like penne or fusilli."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat on the stovetop or in the microwave, adding a splash of water or vegetable broth if needed.',
+  },
+  {
+    id: '1767020362479.9497',
+    title: 'Chow Mein',
+    slug: 'chow-mein',
+    description: 'Enjoy a hearty and flavorful vegan Chow Mein that\'s packed with vibrant vegetables and savory noodles, perfect for a quick dinner.',
+    prologue: 'Chow Mein is a classic Asian dish that brings together stir-fried noodles and a medley of colorful vegetables. This whole-food-plant-based version is not only delicious but also nutritious, making it a fantastic meal for anyone looking to enjoy vegan cooking. At vegancooking.recipes, we believe that cooking can be both simple and satisfying, so let\'s dive into this easy Chow Mein recipe!',
+    image: '/recipe-images/chow-mein-1767020364061.webp',
+    prepTime: 15,
+    cookTime: 15,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat Chow Mein noodles",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "Cook according to package instructions and drain."
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Julienned."
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Sliced (red, yellow, or green)."
+        },
+        {
+          "name": "Broccoli florets",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh or frozen."
+        },
+        {
+          "name": "Green onion",
+          "amount": "3",
+          "unit": "stalks",
+          "notes": "Chopped."
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "Minced."
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "Low-sodium preferred."
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For flavor."
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For moisture."
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Mixed with 2 tbsp water to create a slurry."
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "Adjust according to preference."
+        },
+        {
+          "name": "Pepper",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "Freshly ground."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by cooking the whole wheat Chow Mein noodles according to the package instructions. Once cooked, drain and set aside."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet or wok, heat sesame oil over medium-high heat."
+        },
+        {
+          "step": 3,
+          "text": "Add minced garlic and ginger to the skillet, stirring for about 30 seconds until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the julienned carrot and sliced bell pepper to the skillet. Stir-fry for 3-4 minutes until they start to soften."
+        },
+        {
+          "step": 5,
+          "text": "Next, add the broccoli florets and cook for an additional 2-3 minutes."
+        },
+        {
+          "step": 6,
+          "text": "Pour in the vegetable broth and soy sauce, stirring well to combine."
+        },
+        {
+          "step": 7,
+          "text": "Bring the mixture to a simmer and allow it to cook for 2 minutes."
+        },
+        {
+          "step": 8,
+          "text": "Add the cornstarch slurry to the skillet, stirring constantly until the sauce thickens, about 1 minute."
+        },
+        {
+          "step": 9,
+          "text": "Toss in the cooked noodles and chopped green onions, mixing well to ensure everything is coated in the sauce."
+        },
+        {
+          "step": 10,
+          "text": "Season with salt and pepper to taste. Serve hot and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 300,
+        "protein": "10g",
+        "carbs": "50g",
+        "fat": "8g",
+        "fiber": "7g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","dinner","whole-food-plant-based","stir-fry","Asian"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat Chow Mein noodles provide a healthier option compared to regular noodles. Feel free to substitute with rice noodles or gluten-free noodles if needed. Adjust the vegetables based on what you have available or prefer.',
+    faqs: [
+        {
+          "question": "Can I add protein to this Chow Mein?",
+          "answer": "Absolutely! You can add tofu, tempeh, or edamame for extra protein. Just stir-fry them along with the vegetables."
+        },
+        {
+          "question": "How can I make this recipe gluten-free?",
+          "answer": "Replace the soy sauce with a gluten-free soy sauce or tamari, and use gluten-free noodles."
+        }
+      ],
+    tips: ["Prep all your vegetables before starting to cook for a smoother cooking process.","For a spicier dish, add some red pepper flakes or Sriracha sauce during cooking."],
+    variations: ["Try adding bok choy or snow peas for additional crunch and flavor.","Substitute the vegetables with seasonal produce for a fresh twist."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in a skillet over low heat, adding a splash of vegetable broth or water to prevent sticking.',
+  },
+  {
+    id: '1767020648009.5498',
+    title: 'Seitan Ribs',
+    slug: 'seitan-ribs',
+    description: 'These tender, smoky seitan ribs are perfect for satisfying your barbecue cravings without any animal products. Enjoy them slathered in your favorite vegan barbecue sauce for a deliciously hearty meal.',
+    prologue: 'Discover the incredible flavor and texture of vegan cooking with these mouth-watering Seitan Ribs! Perfect for dinner, these plant-based ribs are made entirely from whole foods, making them a healthy and delicious alternative to traditional meat dishes. At vegancooking.recipes, we believe in nourishing your body with flavorful meals that are both satisfying and ethical. Dive into this delightful recipe and impress your family and friends with your culinary skills!',
+    image: '/recipe-images/seitan-ribs-1767020649382.webp',
+    prepTime: 30,
+    cookTime: 60,
+    totalTime: 90,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Vital wheat gluten",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "The main ingredient for the seitan base."
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "Use low-sodium broth for better flavor control."
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "For depth of flavor."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Adds moisture and richness."
+        },
+        {
+          "name": "Smoked paprika",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Provides a smoky flavor."
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Adds savory flavor."
+        },
+        {
+          "name": "Onion powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Enhances the overall taste."
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "For seasoning."
+        },
+        {
+          "name": "Liquid smoke",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For that classic barbecue flavor."
+        },
+        {
+          "name": "Vegan barbecue sauce",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Choose your favorite brand or homemade."
+        },
+        {
+          "name": "Water",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For simmering the seitan."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large mixing bowl, combine the vital wheat gluten, smoked paprika, garlic powder, onion powder, and black pepper."
+        },
+        {
+          "step": 2,
+          "text": "In a separate bowl, whisk together the vegetable broth, soy sauce, olive oil, and liquid smoke."
+        },
+        {
+          "step": 3,
+          "text": "Pour the wet ingredients into the dry ingredients and mix until a dough forms."
+        },
+        {
+          "step": 4,
+          "text": "Knead the dough for about 5 minutes until it becomes elastic."
+        },
+        {
+          "step": 5,
+          "text": "Shape the dough into a slab resembling ribs, about 1 inch thick."
+        },
+        {
+          "step": 6,
+          "text": "Wrap the seitan slab tightly in aluminum foil, creating a sealed packet."
+        },
+        {
+          "step": 7,
+          "text": "In a large pot, bring 1 cup of water to a boil. Place the packet of seitan into the pot and cover."
+        },
+        {
+          "step": 8,
+          "text": "Reduce heat to a simmer and steam for 30 minutes."
+        },
+        {
+          "step": 9,
+          "text": "Preheat your oven to 350°F (175°C). Unwrap the seitan and place it on a baking sheet."
+        },
+        {
+          "step": 10,
+          "text": "Brush generously with vegan barbecue sauce and bake for 20 minutes."
+        },
+        {
+          "step": 11,
+          "text": "Remove from the oven, flip the seitan ribs, and apply more barbecue sauce. Bake for another 15 minutes."
+        },
+        {
+          "step": 12,
+          "text": "Let cool slightly before slicing into individual ribs. Serve with additional barbecue sauce."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 220,
+        "protein": "30g",
+        "carbs": "20g",
+        "fat": "8g",
+        "fiber": "5g",
+        "sugar": "4g"
+      },
+    tags: ["dinner","vegan","seitan","barbecue","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Vital wheat gluten is essential for the texture of seitan. If you\'re gluten-sensitive, consider using a soy-based alternative like tempeh or mushrooms. Liquid smoke can vary in strength, so add to your taste preferences.',
+    faqs: [
+        {
+          "question": "Can I make seitan ribs ahead of time?",
+          "answer": "Yes, you can prepare the seitan ribs in advance and store them in the refrigerator for up to 3 days. Reheat in the oven before serving."
+        },
+        {
+          "question": "Is there a gluten-free alternative?",
+          "answer": "Yes, you can use tempeh or mushrooms as a substitute for seitan, but the texture and flavor will differ."
+        }
+      ],
+    tips: ["Experiment with different spices in the dough for unique flavors.","For a crispy exterior, broil the ribs for a few minutes after baking."],
+    variations: ["Try marinating the ribs in different sauces like teriyaki or a spicy chipotle barbecue sauce.","Add finely chopped vegetables or herbs to the seitan dough for added nutrition and flavor."],
+    storage: 'Store any leftover seitan ribs in an airtight container in the refrigerator for up to 4 days. Reheat in the oven or on the grill for best results.',
+  },
+  {
+    id: '1767021031143.21',
+    title: 'Cannelloni',
+    slug: 'cannelloni',
+    description: 'Deliciously stuffed cannelloni filled with a savory blend of spinach and tofu, topped with a rich tomato sauce. A perfect hearty dish for any vegan dinner.',
+    prologue: 'Cannelloni is a classic Italian dish that can easily be made vegan without sacrificing flavor or texture. This recipe features whole-food, plant-based ingredients that come together to create a mouthwatering meal. Perfect for dinner parties or a cozy night in, this cannelloni will impress even the most discerning diners. Discover more plant-based recipes at vegancooking.recipes.',
+    image: '/recipe-images/cannelloni-1767021032488.webp',
+    prepTime: 30,
+    cookTime: 40,
+    totalTime: 70,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Cannelloni tubes",
+          "amount": "12",
+          "unit": "pieces",
+          "notes": "Use dry cannelloni tubes."
+        },
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "Crumbled."
+        },
+        {
+          "name": "Fresh spinach",
+          "amount": "5",
+          "unit": "oz",
+          "notes": "Washed and chopped."
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "Adds a cheesy flavor."
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For sautéing."
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "To taste."
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste."
+        },
+        {
+          "name": "Marinara sauce",
+          "amount": "24",
+          "unit": "oz",
+          "notes": "Store-bought or homemade."
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped, for garnish."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 375°F (190°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a skillet, heat the olive oil over medium heat. Add the minced garlic and sauté for 1-2 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Add the chopped spinach to the skillet and cook for another 3-4 minutes until wilted. Remove from heat."
+        },
+        {
+          "step": 4,
+          "text": "In a large bowl, combine the crumbled tofu, sautéed spinach, nutritional yeast, salt, and black pepper. Mix well until all ingredients are evenly incorporated."
+        },
+        {
+          "step": 5,
+          "text": "Using a spoon, carefully fill each cannelloni tube with the tofu and spinach mixture. Place the filled cannelloni in a baking dish."
+        },
+        {
+          "step": 6,
+          "text": "Pour the marinara sauce evenly over the filled cannelloni, ensuring they are well-covered."
+        },
+        {
+          "step": 7,
+          "text": "Cover the baking dish with aluminum foil and bake in the preheated oven for 25 minutes."
+        },
+        {
+          "step": 8,
+          "text": "After 25 minutes, remove the foil and bake for an additional 15 minutes, or until the cannelloni are heated through and the sauce is bubbling."
+        },
+        {
+          "step": 9,
+          "text": "Remove from the oven and let sit for 5 minutes before serving. Garnish with chopped fresh basil."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "18g",
+        "carbs": "45g",
+        "fat": "12g",
+        "fiber": "6g",
+        "sugar": "6g"
+      },
+    tags: ["Vegan","Dinner","Italian","Whole-Food Plant-Based","dinner","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Firm tofu is preferred for a better texture. If you want a creamier filling, you can blend the tofu instead of crumbling it. Nutritional yeast can be substituted with vegan cheese if desired.',
+    faqs: [
+        {
+          "question": "Can I make cannelloni ahead of time?",
+          "answer": "Yes, you can prepare the cannelloni and store it in the refrigerator before baking. Just cover it tightly with foil."
+        },
+        {
+          "question": "What can I serve with cannelloni?",
+          "answer": "A simple side salad or steamed vegetables pair nicely with cannelloni for a complete meal."
+        }
+      ],
+    tips: ["Make sure to pack the filling tightly into the cannelloni tubes for the best texture.","You can add other vegetables to the filling, such as mushrooms or zucchini, for additional flavor."],
+    variations: ["Substitute the spinach with kale or another leafy green for a different flavor.","Add spices like red pepper flakes or Italian seasoning to the filling for an extra kick."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in the oven or microwave before serving.',
+  },
 ];

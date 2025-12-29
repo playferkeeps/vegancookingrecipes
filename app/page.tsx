@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllRecipes, getRecipesByCategory } from '@/data/recipes';
+import { getAllRecipesAsync, getRecipesByCategoryAsync } from '@/data/recipes/helpers';
 import RecipeCard from '@/components/RecipeCard';
 import AdBanner from '@/components/AdBanner';
 import AdInFeed from '@/components/AdInFeed';
@@ -108,14 +108,20 @@ function getRandomRecipes(recipes: Recipe[], count: number): Recipe[] {
   return shuffleArray(recipes).slice(0, count);
 }
 
-export default function Home() {
-  const allRecipes = getAllRecipes();
+export default async function Home() {
+  // Fetch all recipes (handles both sync and async)
+  const [allRecipes, bakingRecipesArray, savoryRecipesArray, internationalRecipesArray] = await Promise.all([
+    getAllRecipesAsync(),
+    getRecipesByCategoryAsync('baking'),
+    getRecipesByCategoryAsync('savory'),
+    getRecipesByCategoryAsync('international'),
+  ]);
   
   // Get random recipes for each section
   const featuredRecipes = getRandomRecipes(allRecipes, 6);
-  const bakingRecipes = getRandomRecipes(getRecipesByCategory('baking'), 3);
-  const savoryRecipes = getRandomRecipes(getRecipesByCategory('savory'), 3);
-  const internationalRecipes = getRandomRecipes(getRecipesByCategory('international'), 3);
+  const bakingRecipes = getRandomRecipes(bakingRecipesArray, 3);
+  const savoryRecipes = getRandomRecipes(savoryRecipesArray, 3);
+  const internationalRecipes = getRandomRecipes(internationalRecipesArray, 3);
 
   const organizationSchema = generateOrganizationSchema();
   const websiteSchema = generateWebSiteSchema();

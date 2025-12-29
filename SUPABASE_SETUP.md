@@ -130,10 +130,10 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...your_anon_key_here
 ### 10. Free Tier Limits
 
 Supabase free tier includes:
+
 - 500 MB database
 - 2 GB bandwidth
 - Unlimited API requests
 - Perfect for small to medium sites
 
 For a recipe site, this should be more than enough!
-

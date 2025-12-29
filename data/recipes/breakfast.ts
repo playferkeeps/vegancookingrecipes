@@ -2408,4 +2408,1284 @@ export const breakfastRecipes: Recipe[] = [
     variations: ["Add a handful of dried fruits like cranberries or raisins for a sweet twist.","Incorporate seeds such as sunflower or flaxseed for added texture and nutrition."],
     storage: 'Store the muffins in an airtight container at room temperature for up to 3 days. For longer storage, refrigerate them for up to a week or freeze for up to 3 months.',
   },
+  {
+    id: '1767018255185.2615',
+    title: 'Breakfast Cookies',
+    slug: 'breakfast-cookies',
+    description: 'Enjoy a delicious and nutritious start to your day with these wholesome vegan breakfast cookies, packed with oats, bananas, and nuts.',
+    prologue: 'These Breakfast Cookies are a fantastic way to kickstart your morning while keeping it healthy and plant-based. Perfect for busy individuals, these cookies are easy to make, full of flavor, and provide lasting energy. Whether you need a quick breakfast on the go or a snack to fuel your day, this recipe from vegancooking.recipes is just what you need!',
+    image: '/recipe-images/breakfast-cookies-1767015130532.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 12,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Rolled oats",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Use gluten-free oats if needed"
+        },
+        {
+          "name": "Ripe bananas",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "Mashed"
+        },
+        {
+          "name": "Almond butter",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Natural, unsweetened"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Adjust for sweetness preference"
+        },
+        {
+          "name": "Ground cinnamon",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For added flavor"
+        },
+        {
+          "name": "Baking powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Helps cookies rise"
+        },
+        {
+          "name": "Chopped walnuts",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Can substitute with other nuts or seeds"
+        },
+        {
+          "name": "Dried cranberries or raisins",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "For sweetness and chewiness"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Enhances flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and line a baking sheet with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, mash the ripe bananas using a fork until smooth."
+        },
+        {
+          "step": 3,
+          "text": "Add the almond butter, maple syrup, and vanilla extract to the mashed bananas, and mix until well combined."
+        },
+        {
+          "step": 4,
+          "text": "In a separate bowl, combine the rolled oats, ground cinnamon, and baking powder."
+        },
+        {
+          "step": 5,
+          "text": "Gradually add the dry mixture to the wet mixture, stirring until just combined."
+        },
+        {
+          "step": 6,
+          "text": "Fold in the chopped walnuts and dried cranberries or raisins."
+        },
+        {
+          "step": 7,
+          "text": "Using a spoon or cookie scoop, drop tablespoon-sized portions of the dough onto the prepared baking sheet, spacing them about 2 inches apart."
+        },
+        {
+          "step": 8,
+          "text": "Bake in the preheated oven for 15-20 minutes, or until the edges are lightly golden."
+        },
+        {
+          "step": 9,
+          "text": "Remove from the oven and let cool on the baking sheet for 5 minutes before transferring to a wire rack to cool completely."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "3g",
+        "carbs": "17g",
+        "fat": "5g",
+        "fiber": "2g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","breakfast","cookies","healthy","snack","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Rolled oats are the base of these cookies, providing fiber and texture. Almond butter adds healthy fats and protein, but you can substitute it with peanut butter or sunflower seed butter. For sweetness, adjust the maple syrup based on your taste preference. Dried fruits can be swapped with chocolate chips or fresh fruits.',
+    faqs: [
+        {
+          "question": "Can I use quick oats instead of rolled oats?",
+          "answer": "Yes, but the texture may be slightly different. Rolled oats provide a chewier texture."
+        },
+        {
+          "question": "How do I store these cookies?",
+          "answer": "Store in an airtight container at room temperature for up to 5 days, or freeze for longer storage."
+        }
+      ],
+    tips: ["For extra flavor, try adding a pinch of salt or a tablespoon of chia seeds.","Make sure your bananas are very ripe for the best natural sweetness."],
+    variations: ["Add a tablespoon of cocoa powder for a chocolatey version.","Substitute the walnuts with pecans or sunflower seeds for a nut-free option."],
+    storage: 'Store cookies in an airtight container at room temperature for up to 5 days. For longer storage, freeze cookies in a single layer, then transfer to a freezer-safe bag for up to 3 months. Thaw at room temperature before enjoying.',
+  },
+  {
+    id: '1767018719381.6538',
+    title: 'Overnight Oats',
+    slug: 'overnight-oats',
+    description: 'Start your day right with these creamy, delicious overnight oats packed with nutrients and flavor. Perfect for a quick and healthy breakfast, this recipe is customizable to suit your taste preferences.',
+    prologue: 'Overnight oats are a fantastic way to enjoy a quick, nutritious breakfast without any hassle. Made with whole-food, plant-based ingredients, this vegan recipe offers a delicious balance of flavors and textures. Whether you\'re in a rush or looking for a meal prep option, these oats can be prepared in just a few minutes the night before and enjoyed the next morning. Discover the magic of overnight oats on vegancooking.recipes and elevate your breakfast routine.',
+    image: '/recipe-images/overnight-oats-1767018720772.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Rolled oats",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Use gluten-free oats if necessary"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Unsweetened or sweetened, as per preference"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "These help thicken the oats"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Optional for sweetness"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For flavor"
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "For extra flavor"
+        },
+        {
+          "name": "Fresh fruits (e.g., berries, banana)",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Chopped or whole, based on preference"
+        },
+        {
+          "name": "Nuts or seeds (optional)",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Almonds, walnuts, or pumpkin seeds for crunch"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a mixing bowl, combine the rolled oats, almond milk, chia seeds, maple syrup, vanilla extract, and cinnamon."
+        },
+        {
+          "step": 2,
+          "text": "Stir well until all ingredients are thoroughly mixed."
+        },
+        {
+          "step": 3,
+          "text": "Divide the mixture into two jars or containers with lids."
+        },
+        {
+          "step": 4,
+          "text": "Top each jar with your choice of fresh fruits and nuts or seeds."
+        },
+        {
+          "step": 5,
+          "text": "Seal the jars and refrigerate overnight, or for at least 4 hours."
+        },
+        {
+          "step": 6,
+          "text": "In the morning, stir the oats, add more almond milk if desired for consistency, and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "10g",
+        "carbs": "54g",
+        "fat": "10g",
+        "fiber": "8g",
+        "sugar": "6g"
+      },
+    tags: ["breakfast","vegan","whole-food-plant-based","meal prep","healthy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Rolled oats are the best choice for overnight oats due to their texture. Chia seeds not only add fiber but also act as a thickening agent. You can substitute almond milk with any plant-based milk of your choice, such as soy or oat milk.',
+    faqs: [
+        {
+          "question": "Can I use quick oats instead of rolled oats?",
+          "answer": "Quick oats can be used, but they will result in a mushier texture. Rolled oats provide a better consistency for overnight oats."
+        },
+        {
+          "question": "How long can I store overnight oats?",
+          "answer": "Overnight oats can be stored in the refrigerator for up to 3 days, making them perfect for meal prep."
+        }
+      ],
+    tips: ["Experiment with different fruits and toppings to find your favorite combination.","Use a mason jar for easy storage and portability."],
+    variations: ["Add a tablespoon of nut butter for extra creaminess and flavor.","Incorporate cocoa powder for a chocolatey twist."],
+    storage: 'Store overnight oats in airtight containers in the refrigerator. They can last up to 3 days. If you plan to add toppings, consider keeping them separate until you\'re ready to eat to maintain freshness.',
+  },
+  {
+    id: '1767019105758.2734',
+    title: 'Scones',
+    slug: 'scones',
+    description: 'Delightfully fluffy and tender, these vegan scones are perfect for breakfast or an afternoon tea. With a hint of sweetness and a wonderful crumb, they pair beautifully with your favorite jam or vegan butter.',
+    prologue: 'Scones are a classic baked good that can be easily made vegan and still retain their buttery, flaky texture. At vegancooking.recipes, we believe in creating wholesome treats that everyone can enjoy, regardless of dietary preferences. This vegan scone recipe is made with whole food, plant-based ingredients that not only taste amazing but are also nutritious. Perfect for breakfast or brunch, these scones will surely impress your family and friends!',
+    image: '/recipe-images/scones-1767019107510.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 8,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "whole wheat flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Sifted for best results"
+        },
+        {
+          "name": "baking powder",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Ensure it is fresh for maximum rise"
+        },
+        {
+          "name": "baking soda",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Helps with leavening"
+        },
+        {
+          "name": "sea salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Enhances flavor"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Melted and slightly cooled"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Provides sweetness"
+        },
+        {
+          "name": "non-dairy milk",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "Unsweetened almond or soy milk works well"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavor enhancement"
+        },
+        {
+          "name": "dried fruit (e.g., cranberries or raisins)",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Optional, for added sweetness and texture"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 400°F (200°C) and line a baking sheet with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, whisk together the whole wheat flour, baking powder, baking soda, and sea salt until well combined."
+        },
+        {
+          "step": 3,
+          "text": "Pour in the melted coconut oil, maple syrup, non-dairy milk, and vanilla extract. Stir gently until the dough starts to come together."
+        },
+        {
+          "step": 4,
+          "text": "If using, fold in the dried fruit until evenly distributed."
+        },
+        {
+          "step": 5,
+          "text": "Turn the dough out onto a lightly floured surface and knead gently just until it holds together, being careful not to overwork the dough."
+        },
+        {
+          "step": 6,
+          "text": "Pat the dough into a circle about 1 inch thick and cut it into 8 wedges or use a round cutter to make individual scones."
+        },
+        {
+          "step": 7,
+          "text": "Place the scones on the prepared baking sheet, leaving space between each one."
+        },
+        {
+          "step": 8,
+          "text": "Bake in the preheated oven for 15-20 minutes or until the scones are golden brown and a toothpick inserted comes out clean."
+        },
+        {
+          "step": 9,
+          "text": "Remove from the oven and allow to cool slightly before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 160,
+        "protein": "3g",
+        "carbs": "25g",
+        "fat": "6g",
+        "fiber": "3g",
+        "sugar": "4g"
+      },
+    tags: ["breakfast","vegan","whole food","scones","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat flour adds nutrition and fiber, while coconut oil helps create a flaky texture. Maple syrup is a great natural sweetener, but can be replaced with agave or date syrup if desired.',
+    faqs: [
+        {
+          "question": "Can I freeze these scones?",
+          "answer": "Yes! You can freeze baked scones. Just let them cool completely, then wrap them tightly in plastic wrap and store in a freezer bag for up to 3 months."
+        },
+        {
+          "question": "What can I substitute for coconut oil?",
+          "answer": "You can use vegan butter or another neutral oil like canola or sunflower oil, but the texture may vary slightly."
+        }
+      ],
+    tips: ["For an extra touch, brush the tops with a bit of non-dairy milk before baking for a golden finish.","Experiment with different add-ins like nuts or chocolate chips for variety."],
+    variations: ["Add lemon zest for a citrus twist.","Substitute half of the whole wheat flour with almond flour for a lighter texture."],
+    storage: 'Store leftover scones in an airtight container at room temperature for up to 3 days, or refrigerate for up to a week. Reheat in a toaster oven or microwave before serving for best results.',
+  },
+  {
+    id: '1767019299185.294',
+    title: 'Breakfast Quesadilla',
+    slug: 'breakfast-quesadilla',
+    description: 'Start your day off right with this deliciously savory vegan breakfast quesadilla, filled with fresh vegetables and protein-packed tofu. It\'s easy to make and perfect for a quick morning meal.',
+    prologue: 'Looking for a quick and satisfying breakfast that is both healthy and flavorful? This vegan breakfast quesadilla is a perfect choice for those following a whole-food plant-based diet. Packed with nutritious ingredients, it\'s a delightful way to fuel your day. Discover more delicious vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/breakfast-quesadilla-1767019300366.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat tortillas",
+          "amount": "2",
+          "unit": "pieces",
+          "notes": "Choose gluten-free if necessary"
+        },
+        {
+          "name": "Firm tofu",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "Crumbled"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Chopped (any color)"
+        },
+        {
+          "name": "Red onion",
+          "amount": "1/2",
+          "unit": "medium",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Spinach",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh, chopped"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For cheesy flavor"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For cooking"
+        },
+        {
+          "name": "Cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Ground"
+        },
+        {
+          "name": "Paprika",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Smoked, for flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Sliced, for serving"
+        },
+        {
+          "name": "Salsa",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "For dipping or topping"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a skillet over medium heat, add olive oil and sauté the chopped red onion and bell pepper for about 3-4 minutes until softened."
+        },
+        {
+          "step": 2,
+          "text": "Add the crumbled tofu to the skillet along with cumin, paprika, salt, and black pepper. Cook for another 5 minutes, stirring occasionally."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the chopped spinach and nutritional yeast, cooking for an additional 1-2 minutes until the spinach is wilted."
+        },
+        {
+          "step": 4,
+          "text": "Place one tortilla in a clean skillet over medium heat. Spread half of the tofu and vegetable mixture evenly over the tortilla."
+        },
+        {
+          "step": 5,
+          "text": "Top with another tortilla and cook for 2-3 minutes on one side, until golden brown. Carefully flip and cook the other side for another 2-3 minutes."
+        },
+        {
+          "step": 6,
+          "text": "Remove from the skillet and repeat with the remaining tortillas and filling."
+        },
+        {
+          "step": 7,
+          "text": "Slice the quesadillas into wedges, serve warm with sliced avocado and salsa on the side."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 420,
+        "protein": "20g",
+        "carbs": "50g",
+        "fat": "15g",
+        "fiber": "10g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","breakfast","quesadilla","tofu","whole food plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute firm tofu with tempeh or seitan for a different texture. Feel free to add any other vegetables you have on hand, such as mushrooms or zucchini.',
+    faqs: [
+        {
+          "question": "Can I make this recipe gluten-free?",
+          "answer": "Yes, simply use gluten-free tortillas to accommodate gluten sensitivities."
+        },
+        {
+          "question": "How can I store leftovers?",
+          "answer": "Store any leftover quesadillas in an airtight container in the refrigerator for up to 3 days. Reheat in a skillet or microwave."
+        }
+      ],
+    tips: ["For extra flavor, add some hot sauce or your favorite spices to the tofu mixture.","Experiment with different vegetables based on your preferences and seasonal availability."],
+    variations: ["Add black beans for extra protein and fiber.","Use different types of cheese alternatives for a creamier texture."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. To reheat, place in a skillet over medium heat until warmed through.',
+  },
+  {
+    id: '1767020057730.5151',
+    title: 'Yogurt Bowl',
+    slug: 'yogurt-bowl',
+    description: 'Start your day with this delicious and nutritious Yogurt Bowl, packed with wholesome ingredients and vibrant flavors.',
+    prologue: 'Begin your morning with a delightful and healthy Yogurt Bowl, perfect for anyone seeking a whole-food, plant-based breakfast. This recipe features creamy vegan yogurt topped with fresh fruits, nuts, and seeds for a balanced meal. Discover more vegan recipes at vegancooking.recipes and elevate your breakfast routine with this easy-to-make dish.',
+    image: '/recipe-images/yogurt-bowl-1767020059040.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "unsweetened almond milk yogurt",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Use your favorite plant-based yogurt brand."
+        },
+        {
+          "name": "rolled oats",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Use gluten-free oats if necessary."
+        },
+        {
+          "name": "chia seeds",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Optional, for added fiber and omega-3s."
+        },
+        {
+          "name": "banana",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Sliced."
+        },
+        {
+          "name": "blueberries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh or frozen."
+        },
+        {
+          "name": "walnuts",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Chopped."
+        },
+        {
+          "name": "maple syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Optional, for sweetness."
+        },
+        {
+          "name": "cinnamon",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a mixing bowl, combine 1 cup of rolled oats and 2 tablespoons of chia seeds."
+        },
+        {
+          "step": 2,
+          "text": "Add 2 cups of unsweetened almond milk yogurt to the oats and chia mixture, stirring until well combined."
+        },
+        {
+          "step": 3,
+          "text": "Let the mixture sit for about 5 minutes to allow the chia seeds to absorb some liquid and the oats to soften."
+        },
+        {
+          "step": 4,
+          "text": "While waiting, prepare your toppings: slice the banana and measure out the blueberries and chopped walnuts."
+        },
+        {
+          "step": 5,
+          "text": "Once the oat mixture is ready, divide it evenly into two bowls."
+        },
+        {
+          "step": 6,
+          "text": "Top each bowl with the sliced banana, blueberries, and chopped walnuts."
+        },
+        {
+          "step": 7,
+          "text": "Drizzle with maple syrup and sprinkle with cinnamon, if desired."
+        },
+        {
+          "step": 8,
+          "text": "Serve immediately and enjoy your nutritious Yogurt Bowl!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 450,
+        "protein": "12g",
+        "carbs": "68g",
+        "fat": "20g",
+        "fiber": "10g",
+        "sugar": "10g"
+      },
+    tags: ["breakfast","vegan","whole-food","healthy","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute almond milk yogurt with coconut yogurt or soy yogurt depending on your preference. For added protein, consider incorporating hemp seeds or nut butter.',
+    faqs: [
+        {
+          "question": "Can I prepare this Yogurt Bowl the night before?",
+          "answer": "Yes, you can prepare the oat mixture the night before and store it in the refrigerator. Just add the toppings in the morning."
+        }
+      ],
+    tips: ["Experiment with different fruits and nuts based on what you have available.","For a creamier texture, blend the yogurt mixture before adding it to the oats."],
+    variations: ["Try adding shredded coconut or cacao nibs for a tropical or chocolatey twist.","Substitute the walnuts with almonds or pecans for a different nutty flavor."],
+    storage: 'Store any leftover Yogurt Bowl components separately in airtight containers in the refrigerator. Consume within 3 days for best freshness.',
+  },
+  {
+    id: '1767020290947.0361',
+    title: 'Smoothie Bowl',
+    slug: 'smoothie-bowl',
+    description: 'Start your day with a refreshing and nutrient-packed smoothie bowl, topped with vibrant fruits and crunchy seeds.',
+    prologue: 'Smoothie bowls are a delicious and visually appealing way to enjoy your breakfast while ensuring a whole-food, plant-based diet. Packed with vitamins, minerals, and antioxidants, this smoothie bowl is perfect for anyone looking to start their day on a healthy note. Visit vegancooking.recipes for more plant-based recipes that are easy to prepare and delightful to eat.',
+    image: '/recipe-images/smoothie-bowl-1767020293707.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Frozen bananas",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "peeled and chopped"
+        },
+        {
+          "name": "Frozen spinach",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "packed"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "or any plant-based milk"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for added fiber and omega-3s"
+        },
+        {
+          "name": "Nut butter",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "such as almond or peanut butter"
+        },
+        {
+          "name": "Fresh mixed berries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for topping"
+        },
+        {
+          "name": "Granola",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "for topping"
+        },
+        {
+          "name": "Sliced banana",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "for topping"
+        },
+        {
+          "name": "Coconut flakes",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for topping"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a blender, combine the frozen bananas, frozen spinach, and almond milk. Blend until smooth and creamy."
+        },
+        {
+          "step": 2,
+          "text": "Add the chia seeds and nut butter to the blender and pulse until fully incorporated."
+        },
+        {
+          "step": 3,
+          "text": "Pour the smoothie mixture into two bowls."
+        },
+        {
+          "step": 4,
+          "text": "Top each bowl with fresh mixed berries, sliced banana, granola, and coconut flakes."
+        },
+        {
+          "step": 5,
+          "text": "Serve immediately and enjoy your refreshing smoothie bowl!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "10g",
+        "carbs": "50g",
+        "fat": "15g",
+        "fiber": "12g",
+        "sugar": "20g"
+      },
+    tags: ["breakfast","smoothie","vegan","whole-food-plant-based","healthy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute frozen spinach with kale or any leafy green. For a sweeter smoothie bowl, add a tablespoon of maple syrup or agave nectar if desired.',
+    faqs: [
+        {
+          "question": "Can I use fresh fruits instead of frozen?",
+          "answer": "Yes, but using frozen fruits gives the smoothie a creamier texture. If using fresh fruit, you may need to add ice to achieve the desired consistency."
+        }
+      ],
+    tips: ["For a thicker smoothie bowl, reduce the amount of almond milk.","Experiment with different toppings like nuts, seeds, or other fruits to customize your bowl."],
+    variations: ["Add cacao powder for a chocolate-flavored smoothie bowl.","Incorporate protein powder for an extra protein boost."],
+    storage: 'Smoothie bowls are best enjoyed fresh, but you can store leftover smoothie mix in an airtight container in the refrigerator for up to 24 hours. Toppings should be added fresh.',
+  },
+  {
+    id: '1767020447457.0984',
+    title: 'Overnight Chia Oats',
+    slug: 'overnight-chia-oats',
+    description: 'Start your day with a nutritious and delicious bowl of Overnight Chia Oats, packed with fiber and healthy omega-3 fatty acids. This easy, no-cook breakfast is perfect for busy mornings.',
+    prologue: 'Overnight Chia Oats are a fantastic way to enjoy a wholesome breakfast without the hassle of morning prep. This vegan recipe combines nutrient-dense chia seeds with rolled oats, plant-based milk, and your favorite toppings, making it a versatile and satisfying meal. At vegancooking.recipes, we believe in creating delicious recipes that are not only healthy but also easy to make, so you can fuel your day with the best plant-based ingredients.',
+    image: '/recipe-images/overnight-chia-oats-1767020448695.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Rolled oats",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Use gluten-free oats if needed"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "These will thicken the mixture"
+        },
+        {
+          "name": "Unsweetened almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Can substitute with any plant-based milk"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Adjust sweetness to taste"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Optional for added flavor"
+        },
+        {
+          "name": "Fresh fruit (e.g., banana, berries)",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For topping, adjust according to preference"
+        },
+        {
+          "name": "Nuts or seeds (e.g., walnuts, pumpkin seeds)",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Optional for crunch and added nutrition"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a mixing bowl, combine the rolled oats and chia seeds."
+        },
+        {
+          "step": 2,
+          "text": "Pour in the almond milk, maple syrup, and vanilla extract. Stir well to combine."
+        },
+        {
+          "step": 3,
+          "text": "Cover the bowl or transfer the mixture to individual jars or containers."
+        },
+        {
+          "step": 4,
+          "text": "Refrigerate for at least 4 hours, preferably overnight, to allow the oats and chia seeds to soak up the liquid and thicken."
+        },
+        {
+          "step": 5,
+          "text": "In the morning, give the mixture a good stir. Add more almond milk if necessary to reach your desired consistency."
+        },
+        {
+          "step": 6,
+          "text": "Top with fresh fruit and nuts or seeds before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "10g",
+        "carbs": "54g",
+        "fat": "14g",
+        "fiber": "10g",
+        "sugar": "8g"
+      },
+    tags: ["breakfast","vegan","healthy","easy","meal prep","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Chia seeds are the key ingredient that gives this recipe its unique texture. You can substitute almond milk with any plant-based alternative, such as soy, oat, or coconut milk. Adjust the sweetness by varying the amount of maple syrup or adding other natural sweeteners like agave nectar.',
+    faqs: [
+        {
+          "question": "How long do Overnight Chia Oats last in the fridge?",
+          "answer": "They can last up to 5 days in the refrigerator, making them perfect for meal prep."
+        },
+        {
+          "question": "Can I use quick oats instead of rolled oats?",
+          "answer": "Yes, but the texture may be different. Rolled oats typically provide a heartier texture."
+        }
+      ],
+    tips: ["For a creamier texture, blend the almond milk with the oats and chia seeds before refrigerating.","Experiment with different plant-based milks and sweeteners to find your favorite combination."],
+    variations: ["Add cocoa powder for a chocolate version.","Mix in spices like cinnamon or nutmeg for extra flavor."],
+    storage: 'Store in an airtight container in the refrigerator. If you find it too thick in the morning, just stir in a splash of almond milk before serving.',
+  },
+  {
+    id: '1767021137700.2944',
+    title: 'Tofu Scramble',
+    slug: 'tofu-scramble',
+    description: 'A delicious and protein-packed vegan alternative to scrambled eggs, this Tofu Scramble is loaded with flavor and perfect for a hearty breakfast.',
+    prologue: 'Tofu Scramble is a fantastic breakfast option for those looking to enjoy a nutritious, plant-based meal. This versatile dish is not only easy to make but is also packed with protein and flavor, making it a favorite among vegans and non-vegans alike. Dive into the world of vegan cooking with this simple and satisfying recipe from vegancooking.recipes, and discover how you can transform tofu into a delightful breakfast treat.',
+    image: '/recipe-images/tofu-scramble-1767015197026.webp',
+    prepTime: 10,
+    cookTime: 15,
+    totalTime: 25,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "drained and crumbled"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Green onion",
+          "amount": "3",
+          "unit": "stalks",
+          "notes": "sliced"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "fresh, chopped"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for a cheesy flavor"
+        },
+        {
+          "name": "Turmeric powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for color and flavor"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "optional"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Begin by draining the firm tofu and pressing it to remove excess moisture. Crumble the tofu into small pieces using your hands or a fork."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet, heat 1 tablespoon of olive oil over medium heat."
+        },
+        {
+          "step": 3,
+          "text": "Add the diced red bell pepper to the skillet and sauté for about 3-4 minutes until slightly softened."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the sliced green onions and cook for an additional 1-2 minutes."
+        },
+        {
+          "step": 5,
+          "text": "Add the crumbled tofu to the skillet along with the nutritional yeast, turmeric, garlic powder, salt, and black pepper."
+        },
+        {
+          "step": 6,
+          "text": "Mix everything well and cook for about 5-7 minutes, stirring occasionally, until the tofu is heated through and slightly golden."
+        },
+        {
+          "step": 7,
+          "text": "Add the chopped spinach and cook for another 2-3 minutes until wilted."
+        },
+        {
+          "step": 8,
+          "text": "Taste and adjust seasoning if necessary. Remove from heat and serve hot."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "15g",
+        "carbs": "10g",
+        "fat": "10g",
+        "fiber": "3g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","breakfast","tofu","scramble","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Firm tofu is preferred for this recipe as it holds its shape better during cooking. You can replace nutritional yeast with vegan cheese for a different flavor profile.',
+    faqs: [
+        {
+          "question": "Can I use silken tofu instead of firm tofu?",
+          "answer": "Silken tofu can be used, but it will create a different texture and may be too soft for a scramble."
+        },
+        {
+          "question": "How can I make this dish spicy?",
+          "answer": "You can add a pinch of cayenne pepper or chopped jalapeños for some heat."
+        }
+      ],
+    tips: ["Make sure to press the tofu well to remove excess water for a better texture.","Feel free to add other vegetables like mushrooms, zucchini, or tomatoes for added flavor and nutrition."],
+    variations: ["Add cooked quinoa or brown rice for an extra filling meal.","Incorporate spices like cumin or smoked paprika for a different flavor profile."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in a skillet over medium heat before serving.',
+  },
+  {
+    id: '1767021225584.3333',
+    title: 'Avocado Toast',
+    slug: 'avocado-toast',
+    description: 'Creamy avocado toast topped with fresh ingredients makes for a nutritious and delicious breakfast that’s quick to prepare.',
+    prologue: 'Avocado toast is a trendy breakfast option that’s both satisfying and healthy. Packed with vitamins and healthy fats, this dish is a favorite among whole-food-plant-based eaters. At vegancooking.recipes, we celebrate simple, wholesome ingredients that come together to create a delectable meal. Whether you enjoy it plain or loaded with toppings, avocado toast is versatile and easy to customize.',
+    image: '/recipe-images/avocado-toast-1767021226891.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole grain bread",
+          "amount": "4",
+          "unit": "slices",
+          "notes": "Choose a hearty variety like sourdough or multigrain."
+        },
+        {
+          "name": "Ripe avocado",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "Make sure the avocados are soft but not overripe."
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Freshly squeezed for best flavor."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "Freshly ground preferred."
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Halved."
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped, for garnish."
+        },
+        {
+          "name": "Red pepper flakes",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "Optional, for added heat."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Toast the whole grain bread slices in a toaster or on a grill until golden brown and crispy."
+        },
+        {
+          "step": 2,
+          "text": "While the bread is toasting, cut the avocados in half, remove the pit, and scoop the flesh into a bowl."
+        },
+        {
+          "step": 3,
+          "text": "Add lemon juice, salt, and black pepper to the bowl with the avocado. Mash with a fork until you reach your desired consistency (smooth or chunky)."
+        },
+        {
+          "step": 4,
+          "text": "Once the bread is toasted, spread a generous amount of the mashed avocado on each slice."
+        },
+        {
+          "step": 5,
+          "text": "Top each avocado toast with halved cherry tomatoes and a sprinkle of fresh basil."
+        },
+        {
+          "step": 6,
+          "text": "Finish with a dash of red pepper flakes if desired, and serve immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "8g",
+        "carbs": "44g",
+        "fat": "16g",
+        "fiber": "12g",
+        "sugar": "2g"
+      },
+    tags: ["breakfast","vegan","whole-food-plant-based","healthy","easy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole grain bread offers more nutrients compared to white bread. You can substitute avocado with hummus for a different flavor profile. If fresh basil is unavailable, consider using arugula or spinach.',
+    faqs: [
+        {
+          "question": "Can I use frozen avocados?",
+          "answer": "While fresh avocados are best for this recipe, you can use thawed frozen avocados if necessary. Make sure they are well-drained."
+        },
+        {
+          "question": "What can I add for extra protein?",
+          "answer": "You can add chickpeas or a sprinkle of nutritional yeast for extra protein and flavor."
+        }
+      ],
+    tips: ["Use ripe avocados for the best flavor and texture.","Experiment with different toppings like radishes or sprouts for variety."],
+    variations: ["Add sliced radishes and cucumber for a refreshing crunch.","Top with a poached or fried vegan egg substitute for added protein."],
+    storage: 'Avocado toast is best enjoyed fresh. However, if you have leftover mashed avocado, store it in an airtight container in the refrigerator for up to 24 hours, adding a bit more lemon juice to prevent browning.',
+  },
+  {
+    id: '1767021464573.8923',
+    title: 'Breakfast Hash',
+    slug: 'breakfast-hash',
+    description: 'A hearty and savory breakfast hash loaded with colorful vegetables and protein-packed beans, perfect for starting your day off right.',
+    prologue: 'Start your morning with a delicious and nutritious Breakfast Hash that is entirely plant-based and bursting with flavor. This recipe is perfect for anyone seeking a wholesome, whole-food-plant-based breakfast option. Packed with colorful vegetables and hearty ingredients, this dish will fuel your day and keep you satisfied. Check out more fantastic recipes at vegancooking.recipes.',
+    image: '/recipe-images/breakfast-hash-1767021465963.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "sweet potatoes",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "peeled and diced into 1/2-inch cubes"
+        },
+        {
+          "name": "red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "green bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "yellow onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "black beans",
+          "amount": "1",
+          "unit": "can",
+          "notes": "rinsed and drained (15 oz)"
+        },
+        {
+          "name": "olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "ground cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "smoked paprika",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for seasoning"
+        },
+        {
+          "name": "salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "or to taste"
+        },
+        {
+          "name": "black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "or to taste"
+        },
+        {
+          "name": "fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish (optional)"
+        },
+        {
+          "name": "avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced, for topping (optional)"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large skillet, heat the olive oil over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the diced sweet potatoes to the skillet and cook for about 10-12 minutes, stirring occasionally, until they start to soften."
+        },
+        {
+          "step": 3,
+          "text": "Add the diced onion, red bell pepper, and green bell pepper to the skillet with the sweet potatoes. Cook for an additional 5-7 minutes, stirring frequently."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the minced garlic, ground cumin, smoked paprika, salt, and black pepper. Cook for another 2-3 minutes until fragrant."
+        },
+        {
+          "step": 5,
+          "text": "Add the rinsed black beans to the skillet and mix well. Cook for 3-5 minutes until the beans are heated through."
+        },
+        {
+          "step": 6,
+          "text": "Remove the skillet from heat and garnish with chopped cilantro and sliced avocado if desired."
+        },
+        {
+          "step": 7,
+          "text": "Serve hot and enjoy your delicious Breakfast Hash!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 290,
+        "protein": "10g",
+        "carbs": "45g",
+        "fat": "8g",
+        "fiber": "12g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","breakfast","healthy","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Sweet potatoes can be substituted with regular potatoes or butternut squash. For extra protein, consider adding quinoa or additional beans.',
+    faqs: [
+        {
+          "question": "Can I make this dish ahead of time?",
+          "answer": "Yes, you can prepare the hash in advance and store it in the refrigerator for up to 3 days. Simply reheat in a skillet before serving."
+        },
+        {
+          "question": "Is this recipe gluten-free?",
+          "answer": "Yes, all the ingredients used in this Breakfast Hash are gluten-free."
+        }
+      ],
+    tips: ["Feel free to add any seasonal vegetables you have on hand for variety.","To increase flavor, consider adding a splash of hot sauce or a squeeze of lime juice before serving."],
+    variations: ["Swap out black beans for kidney beans or chickpeas for a different flavor profile.","Add nutritional yeast for a cheesy flavor without the dairy."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat on the stovetop or in the microwave before serving.',
+  },
 ];

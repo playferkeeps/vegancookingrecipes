@@ -3624,4 +3624,1724 @@ export const dessertRecipes: Recipe[] = [
     variations: ["Add a tablespoon of peanut butter for a chocolate-peanut butter pudding.","Incorporate a tablespoon of chia seeds for added nutrition and texture."],
     storage: 'Store the pudding in an airtight container in the refrigerator for up to 5 days. Make sure to cover it well to avoid absorbing any other odors.',
   },
+  {
+    id: '1767018207505.012',
+    title: 'Creme Brulee',
+    slug: 'creme-brulee',
+    description: 'Indulge in this rich and creamy vegan creme brulee, featuring a luscious coconut milk base and a caramelized sugar topping that will satisfy your sweet tooth.',
+    prologue: 'Discover the perfect dessert to impress your guests with this vegan creme brulee recipe. Made with whole-food, plant-based ingredients, this delightful treat brings the classic French dessert to a new level of healthiness without sacrificing flavor. Visit vegancooking.recipes for more delicious vegan creations that cater to your sweet cravings.',
+    image: '/recipe-images/creme-brulee-1767018209491.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Coconut milk",
+          "amount": "1",
+          "unit": "can",
+          "notes": "Full-fat for creaminess"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Unsweetened"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For thickening"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Natural sweetener"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Pure vanilla extract"
+        },
+        {
+          "name": "Turmeric powder",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "For color (optional)"
+        },
+        {
+          "name": "Granulated sugar",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For caramelizing"
+        },
+        {
+          "name": "Sea salt",
+          "amount": "a pinch",
+          "unit": "",
+          "notes": "To enhance flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 325°F (160°C) and prepare a baking dish with hot water for a water bath."
+        },
+        {
+          "step": 2,
+          "text": "In a medium saucepan, combine the coconut milk, almond milk, cornstarch, maple syrup, vanilla extract, turmeric powder, and a pinch of sea salt."
+        },
+        {
+          "step": 3,
+          "text": "Whisk the mixture over medium heat until it thickens, about 5-7 minutes, stirring constantly."
+        },
+        {
+          "step": 4,
+          "text": "Once thickened, remove from heat and pour the mixture into four small ramekins."
+        },
+        {
+          "step": 5,
+          "text": "Place the ramekins into the prepared baking dish and fill the dish with hot water until it reaches halfway up the sides of the ramekins."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 25-30 minutes, or until the tops are set but still slightly wobbly."
+        },
+        {
+          "step": 7,
+          "text": "Remove the ramekins from the water bath and let them cool to room temperature before refrigerating for at least 2 hours."
+        },
+        {
+          "step": 8,
+          "text": "To prepare the brulee topping, sprinkle an even layer of granulated sugar over the chilled custards."
+        },
+        {
+          "step": 9,
+          "text": "Using a kitchen torch, carefully caramelize the sugar until it turns golden and crispy. Alternatively, broil it in the oven for 2-3 minutes, watching closely to avoid burning."
+        },
+        {
+          "step": 10,
+          "text": "Allow the sugar topping to cool and harden for a few minutes before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 200,
+        "protein": "3g",
+        "carbs": "30g",
+        "fat": "9g",
+        "fiber": "1g",
+        "sugar": "14g"
+      },
+    tags: ["dessert","vegan","creme brulee","plant-based","whole-food","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Coconut milk provides a rich, creamy texture essential for this dessert. If you\'re avoiding coconut, you can substitute with any non-dairy cream alternative, but the flavor and consistency may vary. Turmeric is optional but adds a nice color without altering the taste.',
+    faqs: [
+        {
+          "question": "Can I make this ahead of time?",
+          "answer": "Yes, the custards can be made a day in advance and kept in the refrigerator until you're ready to caramelize the sugar topping."
+        },
+        {
+          "question": "What can I use if I don't have a kitchen torch?",
+          "answer": "You can use the broiler in your oven, but be sure to watch closely to prevent burning."
+        }
+      ],
+    tips: ["Make sure to stir the mixture constantly to prevent lumps when cooking.","Let the sugar topping cool for a few minutes after caramelizing to ensure a perfect crack when you serve."],
+    variations: ["Add a splash of orange or lemon zest for a citrusy twist.","Incorporate a tablespoon of espresso or coffee for a mocha flavor."],
+    storage: 'Store any leftover creme brulee in the refrigerator for up to 3 days. Before serving leftovers, re-crisp the sugar topping using a kitchen torch or broiler.',
+  },
+  {
+    id: '1767018403072.781',
+    title: 'Trifle',
+    slug: 'trifle',
+    description: 'This delightful vegan trifle layers luscious dairy-free custard, fruit, and spongy cake for a show-stopping dessert that’s both beautiful and delicious.',
+    prologue: 'Discover the art of creating a stunning vegan trifle with our step-by-step recipe that emphasizes whole-food, plant-based ingredients. Perfect for gatherings or a special treat, this trifle showcases layers of rich vegan custard, fresh fruits, and sponge cake, all while keeping it completely animal product-free. At vegancooking.recipes, we believe desserts can be indulgent without compromising on health or ethics.',
+    image: '/recipe-images/trifle-1767018404269.webp',
+    prepTime: 30,
+    cookTime: 20,
+    totalTime: 50,
+    servings: 6,
+    difficulty: 'medium',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "whole grain sponge cake",
+          "amount": "1",
+          "unit": "loaf",
+          "notes": "Either homemade or store-bought, ensure it's vegan."
+        },
+        {
+          "name": "unsweetened almond milk",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For the custard."
+        },
+        {
+          "name": "cornstarch",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For thickening the custard."
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "Adjust sweetness as desired."
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For flavoring."
+        },
+        {
+          "name": "fresh strawberries",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Sliced."
+        },
+        {
+          "name": "fresh blueberries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For layering."
+        },
+        {
+          "name": "banana",
+          "amount": "1",
+          "unit": "large",
+          "notes": "Sliced."
+        },
+        {
+          "name": "coconut whipped cream",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For topping."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Prepare the sponge cake by either baking a whole grain sponge cake or using a store-bought vegan version. If baking, use a recipe that calls for whole grain flour, flaxseed meal as an egg substitute, and non-dairy milk."
+        },
+        {
+          "step": 2,
+          "text": "In a saucepan, combine the almond milk, cornstarch, maple syrup, and vanilla extract. Whisk together until smooth."
+        },
+        {
+          "step": 3,
+          "text": "Heat the mixture over medium heat, continuously stirring until it thickens and begins to bubble. This should take about 5-7 minutes."
+        },
+        {
+          "step": 4,
+          "text": "Once thickened, remove from heat and allow to cool slightly before using."
+        },
+        {
+          "step": 5,
+          "text": "Assemble the trifle in a large glass bowl or individual cups. Start with a layer of sponge cake at the bottom."
+        },
+        {
+          "step": 6,
+          "text": "Add a layer of the prepared vegan custard over the sponge cake, followed by a layer of mixed berries (strawberries, blueberries, and banana slices)."
+        },
+        {
+          "step": 7,
+          "text": "Repeat the layers until the bowl is filled, finishing with a layer of vegan custard on top."
+        },
+        {
+          "step": 8,
+          "text": "Top the trifle with coconut whipped cream and a few extra berries for decoration."
+        },
+        {
+          "step": 9,
+          "text": "Refrigerate the trifle for at least 2 hours before serving to allow the flavors to meld."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 280,
+        "protein": "4g",
+        "carbs": "45g",
+        "fat": "10g",
+        "fiber": "5g",
+        "sugar": "20g"
+      },
+    tags: ["dessert","vegan","trifle","plant-based","whole-food","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a gluten-free version, substitute the sponge cake with a gluten-free recipe or store-bought option. Other fruits such as mango or kiwi can be used for layering.',
+    faqs: [
+        {
+          "question": "Can I make this trifle ahead of time?",
+          "answer": "Yes, it can be made a day in advance. Just keep it refrigerated until you're ready to serve."
+        },
+        {
+          "question": "What can I substitute for the sponge cake?",
+          "answer": "You can use store-bought vegan cake, or a different kind of biscuit or cookie that is vegan-friendly."
+        }
+      ],
+    tips: ["Use seasonal fruits for the best flavor and freshness.","Make sure to allow the custard to cool slightly before layering to avoid melting the sponge."],
+    variations: ["For a chocolate version, use chocolate pudding instead of vanilla custard.","Add layers of granola for added crunch and texture."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. The texture may change as the sponge absorbs moisture.',
+  },
+  {
+    id: '1767018472120.9402',
+    title: 'Chocolate Mousse',
+    slug: 'chocolate-mousse',
+    description: 'Indulge in this creamy, rich vegan chocolate mousse made from whole-food ingredients that satisfy your sweet tooth without any guilt.',
+    prologue: 'Discover the decadent world of dessert with this vegan chocolate mousse recipe. Made with wholesome, plant-based ingredients, this mousse is not only delicious but also healthy. Perfect for any occasion, this dessert will impress vegans and non-vegans alike. For more amazing vegan recipes, visit vegancooking.recipes.',
+    image: '/recipe-images/chocolate-mousse-1767018473502.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Silken tofu",
+          "amount": "12",
+          "unit": "oz",
+          "notes": "drained and pressed"
+        },
+        {
+          "name": "Cacao powder",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "unsweetened"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "or to taste"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "pure"
+        },
+        {
+          "name": "Coconut cream",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "chilled, for a richer texture"
+        },
+        {
+          "name": "Dark chocolate chips",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "vegan"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "pinch",
+          "notes": "to enhance flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Melt the dark chocolate chips in a double boiler or microwave. If using a microwave, heat in 30-second bursts, stirring in between until smooth."
+        },
+        {
+          "step": 2,
+          "text": "In a blender or food processor, combine the silken tofu, cacao powder, maple syrup, vanilla extract, coconut cream, and salt."
+        },
+        {
+          "step": 3,
+          "text": "Blend the mixture on high until completely smooth and creamy."
+        },
+        {
+          "step": 4,
+          "text": "Add the melted chocolate to the blender and blend again until well incorporated."
+        },
+        {
+          "step": 5,
+          "text": "Taste the mousse and adjust sweetness if necessary by adding more maple syrup."
+        },
+        {
+          "step": 6,
+          "text": "Transfer the mousse into serving bowls or glasses and refrigerate for at least 1 hour to set."
+        },
+        {
+          "step": 7,
+          "text": "Serve chilled, garnished with fresh berries or a sprinkle of cacao powder."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "4g",
+        "carbs": "20g",
+        "fat": "9g",
+        "fiber": "3g",
+        "sugar": "8g"
+      },
+    tags: ["vegan","dessert","chocolate","mousse","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Silken tofu is key for the creamy texture; you can substitute it with other creamy plant-based ingredients, but the consistency may vary. Use unsweetened cacao powder for a richer chocolate flavor.',
+    faqs: [
+        {
+          "question": "Can I make this mousse nut-free?",
+          "answer": "Yes, this recipe is already nut-free. Ensure you use chocolate chips that do not contain nuts."
+        },
+        {
+          "question": "How long does this mousse last in the fridge?",
+          "answer": "The mousse can be stored in an airtight container in the fridge for up to 4 days."
+        }
+      ],
+    tips: ["For a unique flavor, add a tablespoon of espresso powder to enhance the chocolate taste.","Letting the mousse chill overnight can improve the flavor and texture."],
+    variations: ["Add a tablespoon of peanut butter to the mixture for a chocolate-peanut butter mousse.","Incorporate a pinch of cayenne pepper for a spicy twist!"],
+    storage: 'Store any leftover mousse in an airtight container in the refrigerator. It is best consumed within 4 days for optimal taste and texture.',
+  },
+  {
+    id: '1767018945359.465',
+    title: 'Vanilla Cake',
+    slug: 'vanilla-cake',
+    description: 'This light and fluffy vanilla cake is a delightful treat that will satisfy any sweet tooth. Perfect for celebrations, it’s completely vegan, made with wholesome ingredients.',
+    prologue: 'Discover the joy of baking with this easy and delicious vanilla cake recipe, perfect for any occasion. Made entirely from plant-based ingredients, this dessert is not only kind to animals but also packed with flavor. At vegancooking.recipes, we believe that vegan baking can be both satisfying and healthy. Try this vanilla cake for your next gathering and impress your friends and family with its delightful taste!',
+    image: '/recipe-images/vanilla-cake-1767018946611.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 8,
+    difficulty: 'easy',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "all-purpose flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Sifted"
+        },
+        {
+          "name": "granulated sugar",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Can substitute coconut sugar for a whole-food option"
+        },
+        {
+          "name": "baking powder",
+          "amount": "2",
+          "unit": "tsp",
+          "notes": "Ensure it's aluminum-free"
+        },
+        {
+          "name": "baking soda",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Fresh for best results"
+        },
+        {
+          "name": "salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Enhances flavor"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Acts as an egg replacer"
+        },
+        {
+          "name": "almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Or any other plant-based milk"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "2",
+          "unit": "tsp",
+          "notes": "Pure vanilla extract preferred"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "Melted and cooled"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C). Grease and flour an 8-inch round cake pan."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, sift together the all-purpose flour, granulated sugar, baking powder, baking soda, and salt."
+        },
+        {
+          "step": 3,
+          "text": "In a separate bowl, whisk together the unsweetened applesauce, almond milk, vanilla extract, and melted coconut oil until well combined."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and mix until just combined. Be careful not to overmix."
+        },
+        {
+          "step": 5,
+          "text": "Pour the batter evenly into the prepared cake pan."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 25-30 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 7,
+          "text": "Allow the cake to cool in the pan for 10 minutes, then turn it out onto a wire rack to cool completely."
+        },
+        {
+          "step": 8,
+          "text": "Once cooled, decorate with vegan frosting or enjoy plain!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 230,
+        "protein": "3g",
+        "carbs": "36g",
+        "fat": "10g",
+        "fiber": "1g",
+        "sugar": "15g"
+      },
+    tags: ["dessert","cake","vegan","vanilla","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a healthier option, you can substitute half of the all-purpose flour with whole wheat flour. If you prefer a gluten-free version, use a 1:1 gluten-free flour blend.',
+    faqs: [
+        {
+          "question": "Can I make this cake gluten-free?",
+          "answer": "Yes, simply substitute the all-purpose flour with a gluten-free flour blend."
+        },
+        {
+          "question": "How can I store leftovers?",
+          "answer": "Store the cake in an airtight container at room temperature for up to 3 days, or refrigerate for up to a week."
+        }
+      ],
+    tips: ["Make sure all your ingredients are at room temperature for the best results.","For added flavor, you can mix in lemon or orange zest to the batter."],
+    variations: ["Add dairy-free chocolate chips for a chocolate vanilla cake.","Top with fresh berries and a sprinkle of powdered sugar for a fruity twist."],
+    storage: 'Store the cake in an airtight container at room temperature for up to 3 days. For longer storage, refrigerate and consume within one week or freeze for up to three months.',
+  },
+  {
+    id: '1767018978995.5156',
+    title: 'Panna Cotta',
+    slug: 'panna-cotta',
+    description: 'This delightful vegan panna cotta is a creamy, luscious dessert that melts in your mouth, making it perfect for any occasion.',
+    prologue: 'Panna Cotta is a classic Italian dessert that traditionally includes dairy, but this vegan version will surprise you with its rich texture and flavor. Made with coconut milk and agar-agar, this plant-based treat is not only delicious but also simple to prepare. Whether you\'re hosting a dinner party or treating yourself, this recipe from vegancooking.recipes will be a hit!',
+    image: '/recipe-images/panna-cotta-1767018980439.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "canned coconut milk",
+          "amount": "1",
+          "unit": "can",
+          "notes": "Use full-fat for creaminess"
+        },
+        {
+          "name": "agar-agar powder",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "A vegetarian gelatin substitute"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Adjust sweetness to taste"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavor"
+        },
+        {
+          "name": "lemon juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Adds brightness"
+        },
+        {
+          "name": "water",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For dissolving agar-agar"
+        },
+        {
+          "name": "fresh berries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For topping, optional"
+        },
+        {
+          "name": "mint leaves",
+          "amount": "to garnish",
+          "unit": "",
+          "notes": "Optional, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a small saucepan, combine the agar-agar powder with 1 cup of water. Whisk well to dissolve."
+        },
+        {
+          "step": 2,
+          "text": "Bring the mixture to a boil over medium heat, stirring constantly. Once boiling, reduce the heat and simmer for 2 minutes."
+        },
+        {
+          "step": 3,
+          "text": "In a separate bowl, whisk together the canned coconut milk, maple syrup, vanilla extract, and lemon juice."
+        },
+        {
+          "step": 4,
+          "text": "Slowly pour the agar-agar mixture into the coconut milk mixture while whisking continuously until fully combined."
+        },
+        {
+          "step": 5,
+          "text": "Remove from heat and let the mixture cool slightly for about 5 minutes."
+        },
+        {
+          "step": 6,
+          "text": "Pour the mixture into four small cups or ramekins and refrigerate for at least 4 hours, or until set."
+        },
+        {
+          "step": 7,
+          "text": "Once set, gently run a knife around the edges of the panna cotta to loosen, then invert onto a plate."
+        },
+        {
+          "step": 8,
+          "text": "Serve topped with fresh berries and a sprig of mint, if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "2g",
+        "carbs": "30g",
+        "fat": "8g",
+        "fiber": "2g",
+        "sugar": "12g"
+      },
+    tags: ["dessert","vegan","gluten-free","plant-based","Italian","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Agar-agar can be substituted with carrageenan, but the texture may vary. Ensure to use full-fat coconut milk for the best creamy consistency.',
+    faqs: [
+        {
+          "question": "Can I make this in advance?",
+          "answer": "Yes, panna cotta can be made up to 2 days in advance and stored in the refrigerator."
+        },
+        {
+          "question": "What can I use instead of maple syrup?",
+          "answer": "You can use agave syrup or any other liquid sweetener as a substitute."
+        }
+      ],
+    tips: ["Be sure to whisk the agar-agar well to prevent clumping.","Use fresh, seasonal fruits for topping to enhance flavor and presentation."],
+    variations: ["Replace coconut milk with almond milk for a lighter version.","Add cocoa powder to the coconut milk mixture for a chocolate panna cotta."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days.',
+  },
+  {
+    id: '1767019076193.5732',
+    title: 'Strawberry Mousse',
+    slug: 'strawberry-mousse',
+    description: 'A light and airy vegan strawberry mousse that is both refreshing and indulgent, perfect for satisfying your sweet tooth without any animal products.',
+    prologue: 'Discover the delightful world of vegan desserts with this easy and delicious Strawberry Mousse recipe. Made from whole-food ingredients, this mousse is not only a treat for your taste buds but also a healthy option that aligns with a plant-based lifestyle. Ideal for any occasion, this dessert is sure to impress everyone at the table. For more innovative vegan recipes, visit vegancooking.recipes.',
+    image: '/recipe-images/strawberry-mousse-1767019077521.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh strawberries",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "hulled and sliced"
+        },
+        {
+          "name": "Coconut cream",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "chilled and thick part of the coconut milk"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for sweetness"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Agar-agar powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for setting the mousse"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "optional, for flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a blender, combine the hulled and sliced strawberries and blend until smooth."
+        },
+        {
+          "step": 2,
+          "text": "In a small saucepan, add the agar-agar powder and 1/4 cup of water. Stir and bring to a gentle boil over medium heat, allowing it to simmer for about 2 minutes until fully dissolved."
+        },
+        {
+          "step": 3,
+          "text": "In a mixing bowl, add the chilled coconut cream, maple syrup, lemon juice, and vanilla extract. Whip together using a hand mixer until light and fluffy."
+        },
+        {
+          "step": 4,
+          "text": "Gradually add the strawberry puree to the whipped coconut cream, mixing gently until well combined."
+        },
+        {
+          "step": 5,
+          "text": "Stir in the dissolved agar-agar mixture to the strawberry-coconut cream blend, ensuring it's fully incorporated."
+        },
+        {
+          "step": 6,
+          "text": "Pour the mousse into serving cups or bowls and refrigerate for at least 2 hours to set."
+        },
+        {
+          "step": 7,
+          "text": "Once set, garnish with fresh strawberries or a dollop of coconut cream before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "2g",
+        "carbs": "22g",
+        "fat": "10g",
+        "fiber": "2g",
+        "sugar": "12g"
+      },
+    tags: ["dessert","vegan","strawberry","mousse","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Fresh strawberries are key for flavor; frozen can be used in a pinch but may affect texture. Coconut cream can be substituted with silken tofu for a lower-fat version. Ensure the coconut milk is chilled overnight for the best results.',
+    faqs: [
+        {
+          "question": "Can I use other fruits?",
+          "answer": "Yes, you can substitute strawberries with other berries like blueberries or raspberries for different flavors."
+        },
+        {
+          "question": "How long does the mousse keep?",
+          "answer": "The mousse can be stored in the refrigerator for up to 3 days."
+        }
+      ],
+    tips: ["For a richer flavor, consider adding a pinch of salt to enhance sweetness.","Whipping the coconut cream thoroughly will give the mousse a lighter texture."],
+    variations: ["Add a tablespoon of cocoa powder to create a chocolate-strawberry mousse.","Incorporate a layer of granola or crushed nuts for added texture."],
+    storage: 'Store the mousse in an airtight container in the refrigerator for up to 3 days. Do not freeze, as it may alter the texture.',
+  },
+  {
+    id: '1767019438005.6892',
+    title: 'Nice Cream',
+    slug: 'nice-cream',
+    description: 'Indulge in this creamy, dreamy Nice Cream made from frozen bananas, perfect for a refreshing dessert that’s both delicious and healthy.',
+    prologue: 'Nice Cream is a fantastic, guilt-free dessert that you can whip up easily at home. Made entirely from whole food plant-based ingredients, this recipe is perfect for anyone looking to satisfy their sweet tooth without compromising their dietary choices. At vegancooking.recipes, we believe in creating simple yet delightful dishes that everyone can enjoy. With just a few ingredients, you can create a creamy treat that’s not only vegan but also incredibly nutritious.',
+    image: '/recipe-images/nice-cream-1767019439185.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "ripe bananas",
+          "amount": "3",
+          "unit": "medium",
+          "notes": "peeled and sliced, preferably frozen overnight"
+        },
+        {
+          "name": "unsweetened almond milk",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "may substitute with any plant-based milk"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "optional, for enhanced flavor"
+        },
+        {
+          "name": "cocoa powder",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "optional, for chocolate nice cream"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "optional, for added sweetness"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Ensure your bananas are fully frozen. This will give the Nice Cream its creamy texture."
+        },
+        {
+          "step": 2,
+          "text": "In a blender or food processor, combine the frozen banana slices with the unsweetened almond milk."
+        },
+        {
+          "step": 3,
+          "text": "Add the vanilla extract, cocoa powder (if using), and maple syrup (if using), to the blender."
+        },
+        {
+          "step": 4,
+          "text": "Blend all the ingredients together on high speed until smooth and creamy, scraping down the sides as needed."
+        },
+        {
+          "step": 5,
+          "text": "Once the mixture reaches a soft-serve consistency, taste and adjust sweetness or flavor as desired."
+        },
+        {
+          "step": 6,
+          "text": "Serve immediately for a soft-serve texture, or transfer to a container and freeze for 1-2 hours for a firmer nice cream."
+        },
+        {
+          "step": 7,
+          "text": "Scoop into bowls and enjoy! Optionally, top with fresh fruit, nuts, or a drizzle of maple syrup."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "2g",
+        "carbs": "45g",
+        "fat": "1g",
+        "fiber": "4g",
+        "sugar": "20g"
+      },
+    tags: ["dessert","vegan","nice cream","healthy","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Using ripe bananas ensures natural sweetness. You can experiment with other frozen fruits like strawberries or mangoes for different flavors. Unsweetened almond milk is preferred for a low-calorie option, but any plant-based milk will work.',
+    faqs: [
+        {
+          "question": "Can I use fresh bananas instead of frozen?",
+          "answer": "Fresh bananas won't provide the same creamy texture, so it's best to freeze them overnight before making Nice Cream."
+        },
+        {
+          "question": "How do I store leftovers?",
+          "answer": "Store any leftovers in an airtight container in the freezer for up to a week. Let it soften for a few minutes at room temperature before serving again."
+        }
+      ],
+    tips: ["Make sure your bananas are fully ripe for the best sweetness.","You can blend in any other frozen fruit to create your own unique flavors."],
+    variations: ["Add a tablespoon of peanut butter for a nutty flavor.","Incorporate a handful of spinach for a green nice cream that’s still delicious."],
+    storage: 'Store Nice Cream in an airtight container in the freezer for up to a week. If it becomes too hard, let it sit at room temperature for a few minutes before scooping.',
+  },
+  {
+    id: '1767019472383.1157',
+    title: 'Turkish Delight',
+    slug: 'turkish-delight',
+    description: 'Indulge in the delicate, sweet, and chewy texture of homemade vegan Turkish Delight, infused with natural flavors and colors.',
+    prologue: 'Turkish Delight, or Lokum, is a classic sweet treat that has captivated taste buds for centuries. This vegan version is made using wholesome plant-based ingredients, ensuring a delightful and guilt-free experience. At vegancooking.recipes, we believe in creating desserts that not only taste amazing but also align with a whole-food, plant-based lifestyle. Dive into this recipe and learn how to make your own luscious Turkish Delight at home!',
+    image: '/recipe-images/turkish-delight-1767019473585.webp',
+    prepTime: 15,
+    cookTime: 45,
+    totalTime: 60,
+    servings: 24,
+    difficulty: 'medium',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Agar-agar powder",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "A vegetarian gelatin substitute"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Divided into two portions"
+        },
+        {
+          "name": "Granulated sugar",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "Use organic for a whole-food approach"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Freshly squeezed"
+        },
+        {
+          "name": "Rose water",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Can substitute with orange blossom water or vanilla extract"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For dusting and to avoid sticking"
+        },
+        {
+          "name": "Powdered sugar",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "For dusting"
+        },
+        {
+          "name": "Natural food coloring",
+          "amount": "to taste",
+          "unit": "drops",
+          "notes": "Optional, for vibrant colors"
+        },
+        {
+          "name": "Chopped nuts (pistachios or walnuts)",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Optional, for added texture and flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a medium saucepan, combine 1 cup of water and the agar-agar powder. Stir well and let it sit for about 5 minutes to hydrate."
+        },
+        {
+          "step": 2,
+          "text": "Add the remaining 1 cup of water, granulated sugar, and lemon juice to the saucepan. Place it over medium heat and stir continuously until the sugar dissolves and the mixture comes to a gentle boil."
+        },
+        {
+          "step": 3,
+          "text": "Once boiling, reduce the heat to low and let it simmer for about 10-15 minutes, stirring frequently, until it thickens slightly."
+        },
+        {
+          "step": 4,
+          "text": "Remove the saucepan from heat. Stir in the rose water and any natural food coloring you desire."
+        },
+        {
+          "step": 5,
+          "text": "If using, fold in the chopped nuts at this stage."
+        },
+        {
+          "step": 6,
+          "text": "Prepare an 8x8 inch square pan by lining it with parchment paper and lightly dusting it with a mixture of cornstarch and powdered sugar."
+        },
+        {
+          "step": 7,
+          "text": "Pour the Turkish Delight mixture into the prepared pan, spreading it evenly. Allow it to cool at room temperature for about 2-3 hours, or until fully set."
+        },
+        {
+          "step": 8,
+          "text": "Once set, dust a clean surface with the cornstarch and powdered sugar mixture. Invert the pan onto the surface and remove the parchment paper."
+        },
+        {
+          "step": 9,
+          "text": "Cut the Turkish Delight into small squares and dust each piece with the cornstarch and powdered sugar mixture to prevent sticking. Store in an airtight container."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 70,
+        "protein": "0.5g",
+        "carbs": "17g",
+        "fat": "0g",
+        "fiber": "0g",
+        "sugar": "12g"
+      },
+    tags: ["dessert","vegan","Turkish Delight","sweet treat","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Agar-agar is a great plant-based alternative to gelatin and is crucial for the chewy texture of Turkish Delight. You can substitute rose water with orange blossom water for a different flavor profile. Ensure to use organic cane sugar to adhere to whole-food standards.',
+    faqs: [
+        {
+          "question": "Can I use something other than agar-agar?",
+          "answer": "Agar-agar is recommended for its gelling properties, but you could also experiment with pectin, though results may vary."
+        },
+        {
+          "question": "How long does Turkish Delight last?",
+          "answer": "When stored in an airtight container, Turkish Delight can last up to 2 weeks."
+        }
+      ],
+    tips: ["Make sure to dust the Turkish Delight well with cornstarch and powdered sugar to avoid sticking.","Experiment with different flavors and colors by adding extracts or natural food colorings."],
+    variations: ["Add a teaspoon of matcha powder for a green tea flavor.","Incorporate diced dried fruits like apricots or figs for a fruity twist."],
+    storage: 'Store the Turkish Delight in an airtight container at room temperature, ensuring to separate layers with parchment paper to prevent sticking. Avoid refrigeration as it can alter the texture.',
+  },
+  {
+    id: '1767019682340.7441',
+    title: 'Key Lime Pie',
+    slug: 'key-lime-pie',
+    description: 'This creamy, tangy vegan Key Lime Pie is a delightful dessert that captures the refreshing essence of traditional key lime pie while being entirely plant-based.',
+    prologue: 'If you\'re looking for a refreshing dessert that is both delicious and entirely vegan, this Key Lime Pie is your answer. Made with whole food ingredients, it’s a guilt-free treat perfect for any occasion. Visit vegancooking.recipes for more innovative vegan recipes that will excite your taste buds and nourish your body.',
+    image: '/recipe-images/key-lime-pie-1767019683556.webp',
+    prepTime: 20,
+    cookTime: 20,
+    totalTime: 40,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "raw cashews",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "soaked in water for at least 4 hours"
+        },
+        {
+          "name": "coconut cream",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "chilled and solid part from a can of coconut milk"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "or agave syrup for sweetness"
+        },
+        {
+          "name": "key lime juice",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "freshly squeezed for best flavor"
+        },
+        {
+          "name": "lime zest",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "zest from fresh limes"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for enhanced flavor"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "melted, for creaminess"
+        },
+        {
+          "name": "dates",
+          "amount": "10",
+          "unit": "pieces",
+          "notes": "pitted, for crust"
+        },
+        {
+          "name": "almond flour",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for crust"
+        },
+        {
+          "name": "salt",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to balance sweetness"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Prepare the crust: In a food processor, combine the pitted dates and almond flour. Pulse until the mixture resembles wet sand and sticks together."
+        },
+        {
+          "step": 2,
+          "text": "Press the crust mixture firmly into the bottom and up the sides of a 9-inch pie pan. Set aside."
+        },
+        {
+          "step": 3,
+          "text": "In a blender, add the soaked cashews, coconut cream, maple syrup, key lime juice, lime zest, vanilla extract, and melted coconut oil."
+        },
+        {
+          "step": 4,
+          "text": "Blend on high until the mixture is completely smooth and creamy. Scrape down the sides as necessary."
+        },
+        {
+          "step": 5,
+          "text": "Pour the creamy filling into the prepared crust, smoothing the top with a spatula."
+        },
+        {
+          "step": 6,
+          "text": "Refrigerate the pie for at least 4 hours, or until set. For best results, let it chill overnight."
+        },
+        {
+          "step": 7,
+          "text": "Before serving, garnish with additional lime zest or sliced limes if desired. Slice and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 360,
+        "protein": "6g",
+        "carbs": "40g",
+        "fat": "22g",
+        "fiber": "6g",
+        "sugar": "15g"
+      },
+    tags: ["dessert","vegan","key lime","plant-based","no-bake","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Cashews are crucial for the creaminess of the filling; if you\'re allergic, you can try silken tofu as a substitute. Make sure the coconut cream is well chilled to achieve the right texture.',
+    faqs: [
+        {
+          "question": "Can I use regular limes instead of key limes?",
+          "answer": "Yes, regular limes can be used, but the flavor will be slightly different. Key limes are more tart and aromatic."
+        },
+        {
+          "question": "How long can I store the pie?",
+          "answer": "The pie can be stored in the refrigerator for up to 5 days. Make sure to cover it to maintain freshness."
+        }
+      ],
+    tips: ["For a sweeter pie, adjust the maple syrup to taste.","Serve with a dollop of coconut whipped cream for added creaminess."],
+    variations: ["Add a layer of fresh fruit on top before serving for added flavor and texture.","Incorporate a swirl of berry puree into the filling for a colorful twist."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 5 days. For longer storage, consider freezing the pie; just make sure to wrap it tightly to prevent freezer burn.',
+  },
+  {
+    id: '1767019761489.7612',
+    title: 'Strawberry Pie',
+    slug: 'strawberry-pie',
+    description: 'Delight in a luscious strawberry pie made entirely from whole food plant-based ingredients, featuring a flaky crust and a fresh strawberry filling.',
+    prologue: 'This delightful Strawberry Pie is the perfect dessert for any occasion, showcasing the natural sweetness of fresh strawberries while adhering to a whole-food, plant-based lifestyle. With a simple crust made from wholesome ingredients and a vibrant filling that celebrates summer flavors, this pie is sure to impress your family and friends. Discover this and more delicious vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/strawberry-pie-1767019762899.webp',
+    prepTime: 30,
+    cookTime: 45,
+    totalTime: 75,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "whole wheat flour",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "For the crust"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "Melted, for the crust"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For the crust"
+        },
+        {
+          "name": "water",
+          "amount": "4-6",
+          "unit": "tbsp",
+          "notes": "Cold, as needed for dough"
+        },
+        {
+          "name": "fresh strawberries",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Sliced, for filling"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "For sweetening filling"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For thickening filling"
+        },
+        {
+          "name": "lemon juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For flavoring filling"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavoring filling"
+        },
+        {
+          "name": "salt",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "For enhancing flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the whole wheat flour and salt."
+        },
+        {
+          "step": 3,
+          "text": "Add the melted coconut oil and maple syrup to the flour, mixing until crumbly."
+        },
+        {
+          "step": 4,
+          "text": "Gradually add cold water, one tablespoon at a time, mixing until the dough holds together."
+        },
+        {
+          "step": 5,
+          "text": "On a lightly floured surface, roll out the dough to fit a 9-inch pie pan."
+        },
+        {
+          "step": 6,
+          "text": "Transfer the dough to the pie pan, pressing it into the bottom and sides, and trim any excess."
+        },
+        {
+          "step": 7,
+          "text": "Prick the bottom of the crust with a fork to prevent bubbling and bake for 10-12 minutes or until lightly golden."
+        },
+        {
+          "step": 8,
+          "text": "Meanwhile, prepare the filling by combining sliced strawberries, maple syrup, cornstarch, lemon juice, vanilla extract, and salt in a mixing bowl."
+        },
+        {
+          "step": 9,
+          "text": "Gently toss the ingredients until the strawberries are evenly coated."
+        },
+        {
+          "step": 10,
+          "text": "Once the crust is done, remove it from the oven and let it cool slightly."
+        },
+        {
+          "step": 11,
+          "text": "Pour the strawberry filling into the baked crust, spreading it evenly."
+        },
+        {
+          "step": 12,
+          "text": "Bake the pie for an additional 25-30 minutes, or until the filling is bubbly and the strawberries are soft."
+        },
+        {
+          "step": 13,
+          "text": "Remove from the oven and let it cool at room temperature for at least 1 hour before slicing."
+        },
+        {
+          "step": 14,
+          "text": "Serve as is or with a dollop of coconut whipped cream for an extra treat!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "3g",
+        "carbs": "30g",
+        "fat": "7g",
+        "fiber": "2g",
+        "sugar": "10g"
+      },
+    tags: ["dessert","vegan","pie","strawberry","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute whole wheat flour with a gluten-free blend if needed. Coconut oil adds a delicious flavor but can be replaced with a vegan butter alternative if preferred.',
+    faqs: [
+        {
+          "question": "Can I use frozen strawberries?",
+          "answer": "Yes, you can use frozen strawberries, but ensure they are thawed and excess moisture is drained before using."
+        },
+        {
+          "question": "How can I make this pie gluten-free?",
+          "answer": "Substitute the whole wheat flour with a gluten-free flour blend and ensure that all ingredients are certified gluten-free."
+        }
+      ],
+    tips: ["For extra flavor, consider adding a pinch of cinnamon to the filling.","Let the pie cool completely to allow the filling to set for cleaner slices."],
+    variations: ["Add a layer of vegan cream cheese to the crust before adding the strawberries for a creamy texture.","Mix in some chopped basil with the strawberries for a unique twist."],
+    storage: 'Store leftover pie in an airtight container in the refrigerator for up to 3 days. For longer storage, freeze slices wrapped in plastic wrap and then foil for up to 2 months.',
+  },
+  {
+    id: '1767019992145.413',
+    title: 'Strawberry Bars',
+    slug: 'strawberry-bars',
+    description: 'Deliciously sweet and tangy, these vegan strawberry bars are a perfect dessert for any occasion, packed with wholesome ingredients and bursting with fresh strawberry flavor.',
+    prologue: 'These Strawberry Bars are a delightful treat that combines the natural sweetness of strawberries with a wholesome, whole-food-plant-based crust. Perfect for a light dessert or snack, they are easy to prepare and require no baking. For more exciting vegan recipes, visit vegancooking.recipes.',
+    image: '/recipe-images/strawberry-bars-1767019993429.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 12,
+    difficulty: 'easy',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh strawberries",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "hulled and sliced"
+        },
+        {
+          "name": "Rolled oats",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "gluten-free if needed"
+        },
+        {
+          "name": "Almond flour",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "or any other nut flour"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "for sweetness"
+        },
+        {
+          "name": "Coconut oil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "melted"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Baking powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for leavening"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "to enhance sweetness"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "mixed with 6 tablespoons of water to make chia gel"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for brightness"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and line an 8x8 inch baking dish with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a medium bowl, mix the chia seeds with water and let it sit for about 5 minutes to form a gel."
+        },
+        {
+          "step": 3,
+          "text": "In a large mixing bowl, combine the rolled oats, almond flour, baking powder, and salt."
+        },
+        {
+          "step": 4,
+          "text": "Add the maple syrup, melted coconut oil, vanilla extract, and chia gel to the dry ingredients, and mix well until combined."
+        },
+        {
+          "step": 5,
+          "text": "Press about two-thirds of the mixture into the bottom of the prepared baking dish to form the crust."
+        },
+        {
+          "step": 6,
+          "text": "In another bowl, toss the sliced strawberries with lemon juice and distribute them evenly over the crust."
+        },
+        {
+          "step": 7,
+          "text": "Crumble the remaining oat mixture over the strawberry layer."
+        },
+        {
+          "step": 8,
+          "text": "Bake in the preheated oven for 25-30 minutes, or until the top is golden brown."
+        },
+        {
+          "step": 9,
+          "text": "Allow to cool completely in the baking dish before lifting out using the parchment paper and cutting into bars."
+        },
+        {
+          "step": 10,
+          "text": "Enjoy your strawberry bars fresh or store them for later!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "3g",
+        "carbs": "25g",
+        "fat": "6g",
+        "fiber": "3g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","dessert","strawberry","bars","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Fresh strawberries can be substituted with frozen ones, but make sure to thaw and drain excess water. Maple syrup can be swapped with agave nectar for a different flavor profile.',
+    faqs: [
+        {
+          "question": "Can I make these bars gluten-free?",
+          "answer": "Yes! Use certified gluten-free rolled oats and ensure that your almond flour is also gluten-free."
+        },
+        {
+          "question": "How can I make these bars sweeter?",
+          "answer": "Feel free to increase the amount of maple syrup to suit your taste, or add a touch of stevia."
+        }
+      ],
+    tips: ["Let the bars cool completely before cutting to maintain their shape.","Experiment with other fruits like blueberries or raspberries for different flavors."],
+    variations: ["Add a layer of vegan chocolate chips for a richer taste.","Incorporate nuts or seeds into the crust for added texture."],
+    storage: 'Store the strawberry bars in an airtight container in the refrigerator for up to 5 days. For longer storage, they can be frozen for up to 3 months.',
+  },
+  {
+    id: '1767020559573.7175',
+    title: 'Tapioca Pudding',
+    slug: 'tapioca-pudding',
+    description: 'Indulge in this creamy and delightful vegan tapioca pudding that\'s both satisfying and healthy. This dessert is perfect for a cozy night in or a sweet treat any time of the day.',
+    prologue: 'Tapioca pudding is a classic dessert that has been enjoyed for generations. With its unique texture and subtle sweetness, this vegan version made with whole-food ingredients is both delicious and nutritious. For those following a plant-based lifestyle, this recipe provides a guilt-free indulgence that is easy to prepare and full of flavor. Discover more such recipes at vegancooking.recipes.',
+    image: '/recipe-images/tapioca-pudding-1767020562635.webp',
+    prepTime: 10,
+    cookTime: 30,
+    totalTime: 40,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Tapioca pearls",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "small or medium-sized pearls"
+        },
+        {
+          "name": "Coconut milk",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "full-fat for creaminess"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "adjust sweetness to taste"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "pure vanilla extract recommended"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to enhance flavor"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "optional, for thicker consistency"
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "optional, for flavor enhancement"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Rinse the tapioca pearls under cold water using a fine mesh strainer to remove excess starch."
+        },
+        {
+          "step": 2,
+          "text": "In a medium saucepan, combine the rinsed tapioca pearls, coconut milk, and salt. Stir to combine."
+        },
+        {
+          "step": 3,
+          "text": "Place the saucepan over medium heat and bring the mixture to a gentle simmer, stirring frequently to prevent sticking."
+        },
+        {
+          "step": 4,
+          "text": "Once it reaches a simmer, reduce the heat to low and continue to cook for about 25 minutes, stirring occasionally until the tapioca pearls become translucent and the mixture thickens."
+        },
+        {
+          "step": 5,
+          "text": "In a small bowl, mix the maple syrup, vanilla extract, and cornstarch (if using) together until smooth."
+        },
+        {
+          "step": 6,
+          "text": "Add this mixture to the pudding once the tapioca has thickened. Stir well to combine and cook for an additional 2-3 minutes."
+        },
+        {
+          "step": 7,
+          "text": "Remove from heat and let cool slightly before transferring to serving bowls."
+        },
+        {
+          "step": 8,
+          "text": "Chill in the refrigerator for at least 30 minutes before serving. Optionally, sprinkle with cinnamon before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 210,
+        "protein": "2g",
+        "carbs": "32g",
+        "fat": "9g",
+        "fiber": "1g",
+        "sugar": "5g"
+      },
+    tags: ["dessert","vegan","whole-food-plant-based","pudding","gluten-free"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Tapioca pearls are the star of this recipe. Ensure you use small or medium pearls for optimal texture. Coconut milk provides a rich and creamy base, but you can substitute it with almond milk or oat milk for a lighter version.',
+    faqs: [
+        {
+          "question": "Can I use a different sweetener?",
+          "answer": "Yes, you can substitute maple syrup with agave nectar or date syrup based on your preference."
+        },
+        {
+          "question": "How do I store leftovers?",
+          "answer": "Store any leftovers in an airtight container in the refrigerator for up to 3 days."
+        }
+      ],
+    tips: ["For added flavor, consider adding a pinch of nutmeg or some shredded coconut.","Be sure to stir frequently while cooking to prevent the tapioca from clumping."],
+    variations: ["Add fresh fruits like mango or berries for a fruity twist.","Incorporate chocolate by mixing in cocoa powder or vegan chocolate chips."],
+    storage: 'Store in airtight containers in the refrigerator for up to 3 days. If you find the pudding thickens too much after refrigerating, stir in a little plant-based milk to loosen it up before serving.',
+  },
+  {
+    id: '1767021296657.9202',
+    title: 'Carrot Cake',
+    slug: 'carrot-cake',
+    description: 'This moist and flavorful vegan carrot cake is packed with wholesome ingredients and topped with a creamy cashew frosting, making it a delightful dessert for any occasion.',
+    prologue: 'If you\'re looking for a delicious, wholesome dessert that\'s completely plant-based, this Carrot Cake recipe is a must-try. With the perfect balance of spices and sweetness, this cake is not only satisfying but also nutritious. At vegancooking.recipes, we believe that indulgence doesn\'t have to compromise your health; this recipe is a great example of how you can enjoy dessert while sticking to a whole-food, plant-based diet.',
+    image: '/recipe-images/carrot-cake-1767015864603.webp',
+    prepTime: 20,
+    cookTime: 40,
+    totalTime: 60,
+    servings: 10,
+    difficulty: 'medium',
+    category: ["dessert"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "You can substitute with gluten-free flour if needed."
+        },
+        {
+          "name": "Baking powder",
+          "amount": "2",
+          "unit": "tsp",
+          "notes": "Ensure it's fresh for best results."
+        },
+        {
+          "name": "Baking soda",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Helps the cake rise."
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Add more if you like a spicier cake."
+        },
+        {
+          "name": "Nutmeg",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Freshly grated nutmeg works best."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Enhances the flavors."
+        },
+        {
+          "name": "Brown sugar",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "You can use coconut sugar for a lower glycemic index."
+        },
+        {
+          "name": "Unsweetened applesauce",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Acts as a binder and adds moisture."
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Any plant milk will work."
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For added flavor."
+        },
+        {
+          "name": "Shredded carrots",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "About 4 medium-sized carrots."
+        },
+        {
+          "name": "Chopped walnuts",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Optional, for added crunch."
+        },
+        {
+          "name": "Raisins",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Optional, for added sweetness."
+        },
+        {
+          "name": "Raw cashews",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Soaked in water for at least 4 hours for frosting."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For sweetening the frosting."
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Adds a tangy flavor to the frosting."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and grease two 9-inch round cake pans."
+        },
+        {
+          "step": 2,
+          "text": "In a large bowl, sift together the whole wheat flour, baking powder, baking soda, cinnamon, nutmeg, and salt."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, mix the brown sugar, applesauce, almond milk, and vanilla extract until well combined."
+        },
+        {
+          "step": 4,
+          "text": "Gradually add the wet ingredients to the dry ingredients, stirring until just combined."
+        },
+        {
+          "step": 5,
+          "text": "Fold in the shredded carrots, walnuts, and raisins (if using) until evenly distributed."
+        },
+        {
+          "step": 6,
+          "text": "Divide the batter evenly between the prepared pans and smooth the tops."
+        },
+        {
+          "step": 7,
+          "text": "Bake in the preheated oven for 30-40 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 8,
+          "text": "Let the cakes cool in the pans for 10 minutes, then transfer to a wire rack to cool completely."
+        },
+        {
+          "step": 9,
+          "text": "While the cakes are cooling, prepare the frosting by draining and rinsing the soaked cashews."
+        },
+        {
+          "step": 10,
+          "text": "In a blender, combine the cashews, maple syrup, lemon juice, and a pinch of salt. Blend until smooth and creamy, adding a little water if needed to reach your desired consistency."
+        },
+        {
+          "step": 11,
+          "text": "Once the cakes are completely cool, spread a layer of frosting on top of one cake layer, then place the second layer on top and frost the top and sides of the cake."
+        },
+        {
+          "step": 12,
+          "text": "Decorate with additional walnuts or shredded coconut if desired, then slice and serve."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "4g",
+        "carbs": "38g",
+        "fat": "10g",
+        "fiber": "3g",
+        "sugar": "12g"
+      },
+    tags: ["dessert","vegan","carrot cake","whole-food plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat flour provides a hearty base for this cake, but feel free to use gluten-free alternatives if necessary. The applesauce replaces eggs, adding moisture without any animal products. For a nut-free version, you can omit the walnuts and use sunflower seeds instead.',
+    faqs: [
+        {
+          "question": "Can I use other sweeteners?",
+          "answer": "Yes, you can substitute brown sugar with coconut sugar or maple sugar. The sweetness level may vary."
+        },
+        {
+          "question": "How can I make this cake gluten-free?",
+          "answer": "You can replace the whole wheat flour with a gluten-free flour blend, ensuring it has a binding agent like xanthan gum."
+        }
+      ],
+    tips: ["Make sure your carrots are finely shredded for even distribution and texture.","Allow the cake to cool completely before frosting to prevent the frosting from melting."],
+    variations: ["Add pineapple for extra moisture and sweetness.","Incorporate spices like ginger or allspice for a unique flavor twist."],
+    storage: 'Store leftover cake in an airtight container in the refrigerator for up to 5 days. The cake can also be frozen for up to 3 months; wrap it tightly in plastic wrap and foil before freezing.',
+  },
 ];

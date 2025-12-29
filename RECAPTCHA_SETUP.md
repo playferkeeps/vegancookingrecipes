@@ -56,4 +56,3 @@ To test the reCAPTCHA flow:
 - **"reCAPTCHA not loaded"**: Make sure `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` is set correctly
 - **Verification not working**: Check browser console for errors
 - **Always showing verification**: Check that your domain is added to the reCAPTCHA site settings
-

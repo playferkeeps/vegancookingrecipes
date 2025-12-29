@@ -1,56 +1,116 @@
+/**
+ * Recipe data access layer
+ * Uses Supabase when available, falls back to static files for 100% functionality parity
+ * 
+ * IMPORTANT: For backward compatibility, these functions work both sync and async:
+ * - If Supabase is configured, they return Promises
+ * - If not, they return values directly (synchronous)
+ * 
+ * In Next.js App Router, always use await when calling these functions.
+ */
+
 import { Recipe } from '@/types/recipe';
-// Import original recipes from a separate file to avoid circular dependency
-import { originalRecipes } from './originalRecipesData';
-import { bakingRecipes } from './baking';
-import { savoryRecipes } from './savory';
-import { internationalRecipes } from './international';
-import { breakfastRecipes } from './breakfast';
-import { lunchRecipes } from './lunch';
-import { dinnerRecipes } from './dinner';
-import { dessertRecipes } from './dessert';
-import { snackRecipes } from './snack';
-import { beverageRecipes } from './beverage';
+import * as staticRecipes from './static';
 
-// Combine all recipes: Only include recipes with accurate, detailed ingredients and instructions
-// The 250 generated recipes were removed as they contained placeholder data
-// New recipes should be added individually with proper ingredients and instructions
-export const allRecipes: Recipe[] = [
-  ...originalRecipes, // Original 8 recipes (IDs 1-8) - these have accurate, detailed recipes
-  // ...all250Recipes, // REMOVED: These contained placeholder ingredients/instructions
-  ...bakingRecipes,
-  ...savoryRecipes,
-  ...internationalRecipes,
-  ...breakfastRecipes,
-  ...lunchRecipes,
-  ...dinnerRecipes,
-  ...dessertRecipes,
-  ...snackRecipes,
-  ...beverageRecipes,
-];
+// Check if Supabase is configured
+// Only use Supabase server-side to avoid Prisma client-side issues
+// Also check if DATABASE_URL is actually set (not just empty string)
+// Skip Supabase during build phase if SKIP_DB_CHECK is set (when tables don't exist)
+// During build, we want to use static files to avoid Prisma errors
+const isBuildPhase = process.env.NEXT_PHASE === 'phase-production-build' || 
+                     process.env.NEXT_PHASE === 'phase-development-build';
+const USE_SUPABASE = typeof window === 'undefined' && 
+                     !isBuildPhase &&
+                     process.env.DATABASE_URL && 
+                     process.env.DATABASE_URL.trim() !== '' &&
+                     process.env.NEXT_PUBLIC_SUPABASE_URL &&
+                     process.env.SKIP_DB_CHECK !== 'true';
 
-// Helper functions to query recipes
-export function getRecipesByCategory(category: string): Recipe[] {
-  return allRecipes.filter(recipe => recipe.category.includes(category as any));
+// Lazy load Supabase functions only on server-side
+let supabaseRecipes: any = null;
+function getSupabaseRecipes() {
+  if (typeof window !== 'undefined') {
+    return null; // Never use Supabase on client
+  }
+  if (!supabaseRecipes) {
+    supabaseRecipes = require('./supabase');
+  }
+  return supabaseRecipes;
 }
 
-export function getRecipesByVeganType(veganType: string): Recipe[] {
-  return allRecipes.filter(recipe => recipe.veganType.includes(veganType as any));
+/**
+ * Get all recipes
+ * Returns Promise<Recipe[]> if Supabase is configured, Recipe[] otherwise
+ */
+export function getAllRecipes(): Promise<Recipe[]> | Recipe[] {
+  if (USE_SUPABASE) {
+    const supabase = getSupabaseRecipes();
+    if (supabase) {
+      return supabase.getAllRecipesFromDB();
+    }
+  }
+  return staticRecipes.getAllRecipes();
 }
 
-export function getRecipeBySlug(slug: string): Recipe | undefined {
-  return allRecipes.find(recipe => recipe.slug === slug);
+/**
+ * Get recipe by slug
+ * Returns Promise<Recipe | undefined> if Supabase is configured, Recipe | undefined otherwise
+ */
+export function getRecipeBySlug(slug: string): Promise<Recipe | undefined> | Recipe | undefined {
+  if (USE_SUPABASE) {
+    const supabase = getSupabaseRecipes();
+    if (supabase) {
+      return supabase.getRecipeBySlugFromDB(slug);
+    }
+  }
+  return staticRecipes.getRecipeBySlug(slug);
 }
 
-export function getAllRecipes(): Recipe[] {
-  return allRecipes;
+/**
+ * Get recipes by category
+ * Returns Promise<Recipe[]> if Supabase is configured, Recipe[] otherwise
+ */
+export function getRecipesByCategory(category: string): Promise<Recipe[]> | Recipe[] {
+  if (USE_SUPABASE) {
+    const supabase = getSupabaseRecipes();
+    if (supabase) {
+      return supabase.getRecipesByCategoryFromDB(category);
+    }
+  }
+  return staticRecipes.getRecipesByCategory(category);
 }
 
-export function getRecipesByTag(tag: string): Recipe[] {
-  return allRecipes.filter(recipe => recipe.tags.includes(tag.toLowerCase()));
+/**
+ * Get recipes by vegan type
+ * Returns Promise<Recipe[]> if Supabase is configured, Recipe[] otherwise
+ */
+export function getRecipesByVeganType(veganType: string): Promise<Recipe[]> | Recipe[] {
+  if (USE_SUPABASE) {
+    const supabase = getSupabaseRecipes();
+    if (supabase) {
+      return supabase.getRecipesByVeganTypeFromDB(veganType);
+    }
+  }
+  return staticRecipes.getRecipesByVeganType(veganType);
 }
 
-// Export individual category arrays for specific use cases
+/**
+ * Get recipes by tag
+ * Returns Promise<Recipe[]> if Supabase is configured, Recipe[] otherwise
+ */
+export function getRecipesByTag(tag: string): Promise<Recipe[]> | Recipe[] {
+  if (USE_SUPABASE) {
+    const supabase = getSupabaseRecipes();
+    if (supabase) {
+      return supabase.getRecipesByTagFromDB(tag);
+    }
+  }
+  return staticRecipes.getRecipesByTag(tag);
+}
+
+// Re-export static functions for backward compatibility
 export {
+  allRecipes,
   bakingRecipes,
   savoryRecipes,
   internationalRecipes,
@@ -60,5 +120,4 @@ export {
   dessertRecipes,
   snackRecipes,
   beverageRecipes,
-};
-
+} from './static';

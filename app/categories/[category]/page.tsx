@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getRecipesByCategory, getAllRecipes } from '@/data/recipes';
+import { getRecipesByCategoryAsync, getAllRecipesAsync } from '@/data/recipes/helpers';
 import { RecipeCategory } from '@/types/recipe';
 import RecipeCard from '@/components/RecipeCard';
 
@@ -12,7 +12,7 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
   const { category: categoryParam } = await params;
   const category = categoryParam as RecipeCategory;
-  const recipes = getRecipesByCategory(category);
+  const recipes = await getRecipesByCategoryAsync(category);
   
   if (recipes.length === 0) {
     return {
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  const recipes = getAllRecipes();
+  const recipes = await getAllRecipesAsync();
   const categories = new Set<RecipeCategory>();
   
   recipes.forEach((recipe) => {
@@ -56,7 +56,7 @@ export async function generateStaticParams() {
 export default async function CategoryPage({ params }: PageProps) {
   const { category: categoryParam } = await params;
   const category = categoryParam as RecipeCategory;
-  const recipes = getRecipesByCategory(category);
+  const recipes = await getRecipesByCategoryAsync(category);
 
   if (recipes.length === 0) {
     notFound();

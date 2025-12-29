@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useCallback, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { getAllRecipes } from '@/data/recipes';
 import { searchRecipes } from '@/lib/search';
 import RecipeCard from '@/components/RecipeCard';
 import SearchBar from '@/components/SearchBar';
@@ -18,22 +17,23 @@ function SearchResults() {
   const [searchQuery, setSearchQuery] = useState(query);
 
   useEffect(() => {
-    // Load all recipes on client side
-    const recipes = getAllRecipes();
-    setAllRecipes(recipes);
-    setIsLoading(false);
+    // Load all recipes on client side via API
+    const loadRecipes = async () => {
+      try {
+        const response = await fetch('/api/recipes');
+        const data = await response.json();
+        setAllRecipes(data.recipes || []);
+      } catch (error) {
+        console.error('Error loading recipes:', error);
+        setAllRecipes([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadRecipes();
   }, []);
 
-  useEffect(() => {
-    if (query) {
-      setSearchQuery(query);
-      performSearch(query);
-    } else {
-      setRecipes([]);
-    }
-  }, [query]);
-
-  const performSearch = (searchTerm: string) => {
+  const performSearch = useCallback((searchTerm: string) => {
     if (!searchTerm.trim()) {
       setRecipes([]);
       return;
@@ -45,7 +45,16 @@ function SearchResults() {
     });
 
     setRecipes(results);
-  };
+  }, [allRecipes]);
+
+  useEffect(() => {
+    if (query) {
+      setSearchQuery(query);
+      performSearch(query);
+    } else {
+      setRecipes([]);
+    }
+  }, [query, performSearch]);
 
   const handleSearch = (newQuery: string) => {
     setSearchQuery(newQuery);
@@ -93,11 +102,11 @@ function SearchResults() {
             {recipes.length > 0 ? (
               <>
                 Found <span className="font-semibold">{recipes.length}</span>{' '}
-                {recipes.length === 1 ? 'recipe' : 'recipes'} for "{searchQuery}"
+                {recipes.length === 1 ? 'recipe' : 'recipes'} for &quot;{searchQuery}&quot;
               </>
             ) : (
               <>
-                No recipes found for "{searchQuery}". Try different keywords or check your spelling.
+                No recipes found for &quot;{searchQuery}&quot;. Try different keywords or check your spelling.
               </>
             )}
           </p>
@@ -111,7 +120,7 @@ function SearchResults() {
           </p>
           <div className="text-sm text-gray-500 space-y-2">
             <p>💡 <strong>Tip:</strong> Search by recipe name, ingredients, tags, or category</p>
-            <p>Example searches: "chocolate", "banana bread", "pasta", "gluten-free"</p>
+            <p>Example searches: &quot;chocolate&quot;, &quot;banana bread&quot;, &quot;pasta&quot;, &quot;gluten-free&quot;</p>
           </div>
         </div>
       )}

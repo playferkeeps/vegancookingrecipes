@@ -2150,5 +2150,2023 @@ export const bakingRecipes: Recipe[] = [
     variations: ["Add chocolate chips for a sweet twist.","Incorporate dried cranberries or raisins for added texture and sweetness."],
     storage: 'Store the cooled pumpkin bread in an airtight container at room temperature for up to 3 days. For longer storage, slice and freeze it in a freezer-safe bag for up to 3 months.',
   },
+  {
+    id: '1767018289399.6968',
+    title: 'Pecan Pie',
+    slug: 'pecan-pie',
+    description: 'Indulge in this rich and nutty vegan pecan pie that delivers the perfect balance of sweetness and crunch, making it an irresistible dessert for any occasion.',
+    prologue: 'Discover the joy of baking with this vegan pecan pie recipe that showcases the deliciousness of whole-food-plant-based ingredients. Perfectly sweetened with natural sweeteners and packed with wholesome nuts, this pie is a guilt-free treat. Explore more vegan recipes at vegancooking.recipes and elevate your dessert game with this classic favorite.',
+    image: '/recipe-images/pecan-pie-1767018292156.webp',
+    prepTime: 20,
+    cookTime: 60,
+    totalTime: 80,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat flour",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for the pie crust"
+        },
+        {
+          "name": "Coconut oil",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "melted"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "for sweetness"
+        },
+        {
+          "name": "Brown sugar",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "packed"
+        },
+        {
+          "name": "Ground flaxseed",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "mixed with 6 tbsp water for flax egg"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "or any plant-based milk"
+        },
+        {
+          "name": "Pecans",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "chopped, plus extra for topping"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to enhance flavors"
+        },
+        {
+          "name": "Ground cinnamon",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "optional for added warmth"
+        },
+        {
+          "name": "Nutmeg",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "optional for added flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a mixing bowl, combine the whole wheat flour and salt. Stir in the melted coconut oil until crumbly."
+        },
+        {
+          "step": 3,
+          "text": "Add 3-4 tablespoons of cold water gradually until the dough comes together. Form into a ball, wrap in plastic wrap, and refrigerate for 10 minutes."
+        },
+        {
+          "step": 4,
+          "text": "In a separate bowl, prepare the flax egg by mixing the ground flaxseed with 6 tablespoons of water. Let it sit for about 5 minutes to thicken."
+        },
+        {
+          "step": 5,
+          "text": "After the dough has chilled, roll it out on a lightly floured surface and fit it into a 9-inch pie pan. Trim any excess dough."
+        },
+        {
+          "step": 6,
+          "text": "To make the filling, in a large bowl, combine the maple syrup, brown sugar, vanilla extract, almond milk, and prepared flax egg. Whisk until smooth."
+        },
+        {
+          "step": 7,
+          "text": "Fold in the chopped pecans, ground cinnamon, and nutmeg (if using)."
+        },
+        {
+          "step": 8,
+          "text": "Pour the filling into the prepared pie crust and arrange additional pecans on top."
+        },
+        {
+          "step": 9,
+          "text": "Bake in the preheated oven for 50-60 minutes, or until the filling is set and the crust is golden brown."
+        },
+        {
+          "step": 10,
+          "text": "Remove from the oven and let it cool for at least 2 hours before slicing. Serve at room temperature or chilled."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "4g",
+        "carbs": "35g",
+        "fat": "12g",
+        "fiber": "3g",
+        "sugar": "8g"
+      },
+    tags: ["vegan","dessert","pie","whole-food-plant-based","gluten-free option available","baking"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a gluten-free option, substitute the whole wheat flour with a gluten-free flour blend. Ensure that the pecans are fresh for maximum flavor and crunch.',
+    faqs: [
+        {
+          "question": "Can I make this pie ahead of time?",
+          "answer": "Yes, this pecan pie can be made a day in advance. Store it in the refrigerator and allow it to come to room temperature before serving."
+        },
+        {
+          "question": "Is there a substitute for coconut oil?",
+          "answer": "You can use vegan butter or any neutral-flavored oil in place of coconut oil."
+        }
+      ],
+    tips: ["For a deeper flavor, toast the pecans in a dry skillet for a few minutes before adding them to the filling.","If you like a firmer pie, you can add a tablespoon of cornstarch to the filling mixture."],
+    variations: ["Add dark chocolate chips for a chocolate pecan pie twist.","Substitute maple syrup with agave syrup for a different sweetness profile."],
+    storage: 'Store leftover pecan pie in an airtight container in the refrigerator for up to 5 days. You can also freeze slices wrapped tightly for up to 2 months.',
+  },
+  {
+    id: '1767018330038.9429',
+    title: 'Cinnamon Bread',
+    slug: 'cinnamon-bread',
+    description: 'This delicious vegan cinnamon bread is moist, fluffy, and bursting with sweet cinnamon flavor. Perfect for breakfast or as a delightful snack!',
+    prologue: 'Welcome to vegancooking.recipes, where we bring you delightful plant-based recipes that are both wholesome and satisfying. This vegan cinnamon bread is made with whole-food ingredients, making it a nutritious option for anyone looking to enjoy a sweet treat without compromising their dietary choices. With its warm, comforting flavors and easy preparation, this recipe is sure to become a favorite in your kitchen.',
+    image: '/recipe-images/cinnamon-bread-1767018331334.webp',
+    prepTime: 20,
+    cookTime: 50,
+    totalTime: 70,
+    servings: 10,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "whole wheat flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "can substitute with all-purpose flour for a lighter texture"
+        },
+        {
+          "name": "baking powder",
+          "amount": "2",
+          "unit": "tsp",
+          "notes": "ensure it's aluminum-free for health benefits"
+        },
+        {
+          "name": "cinnamon",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "use Ceylon cinnamon for a milder flavor"
+        },
+        {
+          "name": "nutmeg",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "freshly grated if possible"
+        },
+        {
+          "name": "salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "optional, to enhance flavor"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "can substitute with agave syrup"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "acts as a binder and adds moisture"
+        },
+        {
+          "name": "plant-based milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "almond or oat milk works well"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "pure vanilla extract is preferred"
+        },
+        {
+          "name": "chopped walnuts",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "optional, for added crunch"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C). Grease a 9x5-inch loaf pan or line it with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the whole wheat flour, baking powder, cinnamon, nutmeg, and salt. Whisk until well combined."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, mix together the maple syrup, unsweetened applesauce, plant-based milk, and vanilla extract until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and stir until just combined. Be careful not to overmix; a few lumps are okay."
+        },
+        {
+          "step": 5,
+          "text": "If using, fold in the chopped walnuts gently into the batter."
+        },
+        {
+          "step": 6,
+          "text": "Pour the batter into the prepared loaf pan and smooth the top with a spatula."
+        },
+        {
+          "step": 7,
+          "text": "Bake in the preheated oven for 45-50 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 8,
+          "text": "Once baked, remove the cinnamon bread from the oven and let it cool in the pan for about 10 minutes before transferring it to a wire rack to cool completely."
+        },
+        {
+          "step": 9,
+          "text": "Slice and serve plain or with a spread of your choice!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "4g",
+        "carbs": "30g",
+        "fat": "6g",
+        "fiber": "4g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","baking","bread","whole food plant based","cinnamon","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat flour adds fiber and nutrients compared to white flour. Feel free to adjust the sweetness by using less maple syrup or substituting with another sweetener. The applesauce is crucial for moisture and acts as an egg replacer.',
+    faqs: [
+        {
+          "question": "Can I make this gluten-free?",
+          "answer": "Yes, you can substitute the whole wheat flour with a gluten-free all-purpose flour blend, but the texture may vary."
+        },
+        {
+          "question": "How do I store leftovers?",
+          "answer": "Store the cinnamon bread in an airtight container at room temperature for up to 3 days or in the refrigerator for up to a week."
+        }
+      ],
+    tips: ["For an extra cinnamon flavor, sprinkle a mixture of cinnamon and sugar on top before baking.","If you want a glaze, mix powdered sugar with a little plant-based milk and drizzle over the cooled bread."],
+    variations: ["Add dried fruits like raisins or cranberries for added sweetness and texture.","Try using different spices like cardamom or cloves for a unique flavor twist."],
+    storage: 'Store leftover cinnamon bread in an airtight container at room temperature for up to 3 days or refrigerate for up to a week. You can also freeze slices for up to 3 months; just thaw before serving.',
+  },
+  {
+    id: '1767018437793.2236',
+    title: 'Blueberry Muffins',
+    slug: 'blueberry-muffins',
+    description: 'Deliciously moist and fluffy blueberry muffins, perfect for breakfast or a sweet snack.',
+    prologue: 'Discover the joy of baking with these wholesome Blueberry Muffins, made entirely with plant-based ingredients. Ideal for anyone following a whole-food-plant-based diet, these muffins are not only tasty but also packed with nutrients. Visit vegancooking.recipes for more delicious vegan recipes that will delight your taste buds and nourish your body.',
+    image: '/recipe-images/blueberry-muffins-1767015839466.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 12,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "whole wheat flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "for a healthier option"
+        },
+        {
+          "name": "baking powder",
+          "amount": "2",
+          "unit": "teaspoons",
+          "notes": "ensure it's aluminum-free"
+        },
+        {
+          "name": "baking soda",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "helps muffins rise"
+        },
+        {
+          "name": "salt",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "to enhance flavor"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "acts as a sweetener and moisture"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "replaces eggs and adds moisture"
+        },
+        {
+          "name": "unsweetened almond milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "use any plant-based milk"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "for flavor"
+        },
+        {
+          "name": "fresh blueberries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "can substitute with frozen if fresh are unavailable"
+        },
+        {
+          "name": "lemon zest",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "optional, adds brightness"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and line a muffin tin with paper liners or lightly grease it."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the whole wheat flour, baking powder, baking soda, and salt. Whisk together until well combined."
+        },
+        {
+          "step": 3,
+          "text": "In a separate bowl, mix together the maple syrup, applesauce, almond milk, and vanilla extract until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and stir gently until just combined. Be careful not to overmix."
+        },
+        {
+          "step": 5,
+          "text": "Fold in the fresh blueberries and lemon zest, if using."
+        },
+        {
+          "step": 6,
+          "text": "Divide the batter evenly among the muffin cups, filling each about 2/3 full."
+        },
+        {
+          "step": 7,
+          "text": "Bake in the preheated oven for 22-25 minutes, or until a toothpick inserted into the center of a muffin comes out clean."
+        },
+        {
+          "step": 8,
+          "text": "Let the muffins cool in the pan for 5 minutes before transferring them to a wire rack to cool completely."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "3g",
+        "carbs": "29g",
+        "fat": "2g",
+        "fiber": "3g",
+        "sugar": "7g"
+      },
+    tags: ["vegan","baking","breakfast","snack","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can use spelt flour or oat flour as alternatives to whole wheat flour. For sweetening, agave syrup or date syrup can be used in place of maple syrup. Fresh or frozen blueberries can be used interchangeably, but if using frozen, do not thaw to prevent excess moisture.',
+    faqs: [
+        {
+          "question": "Can I make these muffins gluten-free?",
+          "answer": "Yes, you can substitute the whole wheat flour with a gluten-free flour blend. Make sure to add a binder like xanthan gum if your blend does not contain one."
+        }
+      ],
+    tips: ["For extra moist muffins, do not overmix the batter.","Store leftover muffins in an airtight container at room temperature for up to 3 days."],
+    variations: ["Add chopped nuts such as walnuts or pecans for added crunch.","Substitute blueberries with raspberries or chopped strawberries for a different flavor."],
+    storage: 'Store the muffins in an airtight container at room temperature for up to 3 days, or freeze for up to 3 months. To freeze, wrap each muffin tightly in plastic wrap and place in a freezer-safe bag.',
+  },
+  {
+    id: '1767019605908.4944',
+    title: 'English Muffins',
+    slug: 'english-muffins',
+    description: 'Deliciously soft and perfectly toasted, these vegan English muffins are a delightful breakfast option that pairs beautifully with your favorite spreads or toppings.',
+    prologue: 'Discover the joy of homemade vegan English muffins with this easy recipe from vegancooking.recipes. Made without any animal products, these whole-food-plant-based muffins are not only nutritious but also incredibly satisfying. Perfect for breakfast or brunch, they can be topped with avocado, nut butter, or your favorite jam for a delightful treat.',
+    image: '/recipe-images/english-muffins-1767019607374.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 6,
+    difficulty: 'medium',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "all-purpose flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "You can also use whole wheat flour for a healthier option."
+        },
+        {
+          "name": "active dry yeast",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Make sure it's fresh for best results."
+        },
+        {
+          "name": "warm water",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "Temperature should be around 110°F (43°C)."
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "To feed the yeast."
+        },
+        {
+          "name": "salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Enhances flavor."
+        },
+        {
+          "name": "baking powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For additional leavening."
+        },
+        {
+          "name": "olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Adds moisture and flavor."
+        },
+        {
+          "name": "cornmeal",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For dusting the baking surface."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a small bowl, combine the warm water, maple syrup, and active dry yeast. Let it sit for about 5-10 minutes until frothy."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, whisk together the flour, salt, and baking powder."
+        },
+        {
+          "step": 3,
+          "text": "Make a well in the center of the dry ingredients, then add the frothy yeast mixture and olive oil."
+        },
+        {
+          "step": 4,
+          "text": "Mix until a dough forms. If the dough is too sticky, add a little more flour, a tablespoon at a time."
+        },
+        {
+          "step": 5,
+          "text": "Knead the dough on a lightly floured surface for about 5-7 minutes until smooth and elastic."
+        },
+        {
+          "step": 6,
+          "text": "Place the dough in a lightly oiled bowl, cover with a clean kitchen towel, and let it rise in a warm place for about 1 hour or until doubled in size."
+        },
+        {
+          "step": 7,
+          "text": "Once risen, punch down the dough and turn it out onto a floured surface. Roll it out to about 1-inch thickness."
+        },
+        {
+          "step": 8,
+          "text": "Use a biscuit cutter or a glass to cut out muffins from the dough. Place them on a baking sheet dusted with cornmeal."
+        },
+        {
+          "step": 9,
+          "text": "Cover the muffins with a towel and let them rise for another 30 minutes."
+        },
+        {
+          "step": 10,
+          "text": "Preheat your oven to 350°F (175°C). Bake the muffins for 20-25 minutes, or until golden brown."
+        },
+        {
+          "step": 11,
+          "text": "Remove from the oven and let cool on a wire rack before splitting and toasting."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "5g",
+        "carbs": "30g",
+        "fat": "2g",
+        "fiber": "1g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","breakfast","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a gluten-free version, substitute all-purpose flour with a gluten-free all-purpose blend. Be sure to use a gluten-free baking powder.',
+    faqs: [
+        {
+          "question": "Can I make these in advance?",
+          "answer": "Yes, you can prepare the dough the night before, let it rise in the fridge, and bake them fresh in the morning."
+        },
+        {
+          "question": "What can I use instead of maple syrup?",
+          "answer": "Agave syrup or coconut sugar can be used as a substitute for sweetness."
+        }
+      ],
+    tips: ["For a more authentic flavor, add a pinch of nutmeg or cinnamon to the dough.","These muffins freeze well; simply toast them from frozen."],
+    variations: ["Add dried herbs like rosemary or thyme for a savory twist.","Incorporate seeds such as chia or flax for added texture and nutrition."],
+    storage: 'Store the muffins in an airtight container at room temperature for up to 3 days, or freeze for up to 3 months.',
+  },
+  {
+    id: '1767019791753.6672',
+    title: 'Peanut Butter Cookies',
+    slug: 'peanut-butter-cookies',
+    description: 'Deliciously rich and chewy, these vegan peanut butter cookies are perfect for satisfying your sweet tooth while keeping it wholesome and plant-based.',
+    prologue: 'Discover the joy of baking with these Peanut Butter Cookies, crafted to be completely vegan and whole-food-plant-based. With just a few simple ingredients, these cookies are not only easy to make but are also packed with flavor and nutrition. Visit vegancooking.recipes for more delightful and healthy vegan recipes that will inspire your culinary adventures.',
+    image: '/recipe-images/peanut-butter-cookies-1767019793017.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 24,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Natural peanut butter",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Make sure it's unsweetened and creamy."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Acts as a natural sweetener."
+        },
+        {
+          "name": "Whole wheat flour",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Can substitute with almond flour for a gluten-free option."
+        },
+        {
+          "name": "Baking soda",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Helps cookies rise."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Enhances flavor."
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For added flavor."
+        },
+        {
+          "name": "Plant-based milk",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Use almond or soy milk."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and line a baking sheet with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the natural peanut butter and maple syrup. Stir until smooth and well combined."
+        },
+        {
+          "step": 3,
+          "text": "Add the whole wheat flour, baking soda, salt, vanilla extract, and plant-based milk to the mixture. Stir until a dough forms."
+        },
+        {
+          "step": 4,
+          "text": "Using a tablespoon, scoop out dough and roll into balls. Place them on the prepared baking sheet, spacing them about 2 inches apart."
+        },
+        {
+          "step": 5,
+          "text": "Flatten each ball slightly with a fork, creating a crisscross pattern on top."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 10 minutes, or until the edges are lightly golden."
+        },
+        {
+          "step": 7,
+          "text": "Remove from the oven and let the cookies cool on the baking sheet for 5 minutes before transferring them to a wire rack to cool completely."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 100,
+        "protein": "3g",
+        "carbs": "12g",
+        "fat": "5g",
+        "fiber": "1g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","cookies","baking","dessert","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Natural peanut butter is key for a wholesome cookie. If you have a nut allergy, try sunflower seed butter instead. Maple syrup provides sweetness without refined sugars, but agave syrup can be an alternative.',
+    faqs: [
+        {
+          "question": "Can I use a different type of flour?",
+          "answer": "Yes, you can substitute whole wheat flour with almond flour or oat flour, but the texture may vary slightly."
+        },
+        {
+          "question": "How can I make these cookies gluten-free?",
+          "answer": "Use almond flour or a gluten-free all-purpose flour blend in place of whole wheat flour."
+        }
+      ],
+    tips: ["For a richer flavor, consider adding dark chocolate chips or chopped nuts to the dough.","Make sure your peanut butter is at room temperature for easier mixing."],
+    variations: ["Add 1/2 cup of dairy-free chocolate chips for a chocolatey twist.","Incorporate 1/4 cup of shredded coconut for added texture and flavor."],
+    storage: 'Store the cookies in an airtight container at room temperature for up to 5 days, or freeze for up to 3 months. To freeze, place the cookies in a single layer on a baking sheet, freeze until solid, then transfer to a freezer bag.',
+  },
+  {
+    id: '1767019826932.8643',
+    title: 'Sweet Potato Pie',
+    slug: 'sweet-potato-pie',
+    description: 'This rich and creamy Sweet Potato Pie is a delightful vegan twist on a classic dessert, perfect for any occasion.',
+    prologue: 'Discover the warm flavors of fall with this delectable Sweet Potato Pie, a completely vegan dessert that will impress everyone at your table. Made with wholesome ingredients and a buttery crust, this pie is both satisfying and nutritious. Ideal for holidays or a cozy family gathering, this recipe from vegancooking.recipes will have you going back for seconds!',
+    image: '/recipe-images/sweet-potato-pie-1767019828294.webp',
+    prepTime: 20,
+    cookTime: 60,
+    totalTime: 80,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "sweet potatoes",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "mashed, about 2 medium-sized sweet potatoes"
+        },
+        {
+          "name": "coconut milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "full-fat for creaminess"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "or agave syrup"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "melted"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "pure vanilla extract"
+        },
+        {
+          "name": "ground cinnamon",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "ground nutmeg",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "ground ginger",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "salt",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to enhance sweetness"
+        },
+        {
+          "name": "vegan pie crust",
+          "amount": "1",
+          "unit": "crust",
+          "notes": "store-bought or homemade"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "Peel and cube the sweet potatoes, then boil them in a pot of water for about 15-20 minutes or until tender."
+        },
+        {
+          "step": 3,
+          "text": "Drain the sweet potatoes and mash them in a large mixing bowl until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Add coconut milk, maple syrup, melted coconut oil, vanilla extract, cinnamon, nutmeg, ginger, and salt to the mashed sweet potatoes. Mix until well combined."
+        },
+        {
+          "step": 5,
+          "text": "Pour the sweet potato mixture into the prepared vegan pie crust, smoothing the top with a spatula."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 45-50 minutes, or until the filling is set and a toothpick inserted in the center comes out clean."
+        },
+        {
+          "step": 7,
+          "text": "Remove the pie from the oven and let it cool at room temperature for at least 30 minutes before slicing."
+        },
+        {
+          "step": 8,
+          "text": "Serve chilled or at room temperature, optionally topped with coconut whipped cream."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 210,
+        "protein": "3g",
+        "carbs": "30g",
+        "fat": "10g",
+        "fiber": "4g",
+        "sugar": "8g"
+      },
+    tags: ["dessert","vegan","pie","sweet potato","plant-based","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Sweet potatoes can be substituted with pumpkin for a different flavor. Use a gluten-free pie crust if necessary.',
+    faqs: [
+        {
+          "question": "Can I make this pie ahead of time?",
+          "answer": "Yes, this pie can be made a day ahead and stored in the refrigerator. Just let it cool completely before wrapping it."
+        },
+        {
+          "question": "What can I use as a sweetener instead of maple syrup?",
+          "answer": "You can use agave syrup, brown sugar, or coconut sugar as alternatives."
+        }
+      ],
+    tips: ["To enhance the flavor, try adding a tablespoon of almond butter or peanut butter to the filling.","For a decorative touch, sprinkle some chopped pecans on top before baking."],
+    variations: ["Add a tablespoon of peanut butter for a nutty flavor.","Top with a layer of vegan marshmallows for a toasted pie."],
+    storage: 'Store any leftover pie in an airtight container in the refrigerator for up to 4 days. It can also be frozen for up to 2 months; just thaw in the refrigerator before serving.',
+  },
+  {
+    id: '1767019925111.081',
+    title: 'Blondies',
+    slug: 'blondies',
+    description: 'These decadent vegan blondies are rich, chewy, and packed with flavor, making them an irresistible treat for any occasion.',
+    prologue: 'Indulge in the delightful world of vegan baking with these scrumptious blondies that are completely plant-based and made with whole foods. Perfect for satisfying your sweet tooth, these blondies offer a chewy texture and a rich flavor profile thanks to wholesome ingredients. Visit vegancooking.recipes for more delicious vegan dessert ideas that everyone will love.',
+    image: '/recipe-images/blondies-1767019926599.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 16,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Almond flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For a chewy texture; can substitute with whole wheat flour."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "Use pure maple syrup for best flavor."
+        },
+        {
+          "name": "Nut butter (almond or cashew)",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Smooth nut butter works best."
+        },
+        {
+          "name": "Unsweetened applesauce",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Acts as an egg replacer."
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For enhanced flavor."
+        },
+        {
+          "name": "Baking soda",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Leavening agent."
+        },
+        {
+          "name": "Sea salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To enhance flavor."
+        },
+        {
+          "name": "Vegan chocolate chips",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Optional, for added sweetness and texture."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and line an 8x8 inch baking pan with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the almond flour, baking soda, and sea salt. Stir well to combine."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, mix together the maple syrup, nut butter, unsweetened applesauce, and vanilla extract until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and stir until just combined. Do not overmix."
+        },
+        {
+          "step": 5,
+          "text": "Fold in the vegan chocolate chips if using."
+        },
+        {
+          "step": 6,
+          "text": "Spread the batter evenly into the prepared baking pan."
+        },
+        {
+          "step": 7,
+          "text": "Bake in the preheated oven for 25 minutes or until the edges are lightly golden and a toothpick inserted in the center comes out clean."
+        },
+        {
+          "step": 8,
+          "text": "Remove from the oven and let cool in the pan for 10 minutes before transferring to a wire rack to cool completely."
+        },
+        {
+          "step": 9,
+          "text": "Once cooled, cut into 16 squares and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "4g",
+        "carbs": "25g",
+        "fat": "8g",
+        "fiber": "2g",
+        "sugar": "10g"
+      },
+    tags: ["vegan","dessert","blondies","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Almond flour gives these blondies a unique texture and flavor; if you need a nut-free option, you can use oat flour instead. Maple syrup adds natural sweetness, but agave syrup or date syrup can also be used.',
+    faqs: [
+        {
+          "question": "Can I use a different type of flour?",
+          "answer": "Yes, you can substitute almond flour with whole wheat flour or a gluten-free blend, but the texture may vary."
+        },
+        {
+          "question": "How should I store these blondies?",
+          "answer": "Store them in an airtight container at room temperature for up to 5 days or refrigerate for up to a week."
+        }
+      ],
+    tips: ["For extra flavor, add a pinch of cinnamon or nutmeg to the batter.","Let the blondies cool completely for the best texture before cutting."],
+    variations: ["Add chopped nuts such as walnuts or pecans for added crunch.","Mix in dried fruit like cranberries or raisins for a chewy texture."],
+    storage: 'Store in an airtight container at room temperature for up to 5 days. For longer storage, keep them in the refrigerator for up to a week or freeze for up to 3 months.',
+  },
+  {
+    id: '1767020113385.4001',
+    title: 'Garlic Bread',
+    slug: 'garlic-bread',
+    description: 'Deliciously crispy and aromatic, this garlic bread is the perfect accompaniment to any meal or a delightful snack on its own.',
+    prologue: 'Looking for a simple yet mouthwatering vegan garlic bread recipe? Look no further! This whole-food-plant-based garlic bread is made with wholesome ingredients, ensuring you indulge without the guilt. Perfect for serving alongside pasta dishes or as an appetizer, this recipe is a must-try for every vegan cooking enthusiast at vegancooking.recipes.',
+    image: '/recipe-images/garlic-bread-1767020114668.webp',
+    prepTime: 10,
+    cookTime: 15,
+    totalTime: 25,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole grain bread",
+          "amount": "4",
+          "unit": "slices",
+          "notes": "Preferably sourdough or any whole grain variety"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "Extra virgin for best flavor"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Chopped, can substitute with dried parsley"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Optional, for a cheesy flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Freshly ground for best results"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 400°F (200°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a mixing bowl, combine minced garlic, olive oil, chopped parsley, nutritional yeast, salt, and black pepper."
+        },
+        {
+          "step": 3,
+          "text": "Stir the mixture until well combined, creating a garlic oil spread."
+        },
+        {
+          "step": 4,
+          "text": "Spread the garlic mixture evenly on one side of each slice of whole grain bread."
+        },
+        {
+          "step": 5,
+          "text": "Place the slices of bread on a baking sheet, garlic side up."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 10-15 minutes, or until the edges are golden and crispy."
+        },
+        {
+          "step": 7,
+          "text": "Remove from the oven and let cool slightly before serving."
+        },
+        {
+          "step": 8,
+          "text": "Slice and serve warm, optionally garnishing with additional fresh parsley."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "6g",
+        "carbs": "30g",
+        "fat": "6g",
+        "fiber": "4g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","garlic bread","snack","appetizer","whole food","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole grain bread is recommended for added fiber and nutrients. You can substitute olive oil with avocado oil for a different flavor profile. Nutritional yeast gives a cheesy taste but can be omitted if desired.',
+    faqs: [
+        {
+          "question": "Can I make this garlic bread gluten-free?",
+          "answer": "Yes, use gluten-free bread as a substitute for whole grain bread."
+        },
+        {
+          "question": "How do I store leftover garlic bread?",
+          "answer": "Store any leftover garlic bread in an airtight container in the refrigerator for up to 3 days. To reheat, pop it in the toaster or oven."
+        }
+      ],
+    tips: ["For a more intense garlic flavor, let the garlic sit in the olive oil for 30 minutes before mixing in the other ingredients.","Experiment with adding other herbs like thyme or oregano for a flavor twist."],
+    variations: ["Add red pepper flakes for a spicy kick.","Try spreading a layer of vegan pesto on the bread before adding the garlic mixture."],
+    storage: 'Store leftover garlic bread in an airtight container in the refrigerator for up to 3 days. To reheat, place it in a toaster oven or regular oven at 350°F (175°C) until warmed through.',
+  },
+  {
+    id: '1767020151226.185',
+    title: 'Bagels',
+    slug: 'bagels',
+    description: 'Deliciously chewy and perfectly baked, these vegan bagels are made with wholesome ingredients and are sure to please everyone at the breakfast table.',
+    prologue: 'If you’re looking for a delightful way to start your day, these whole-food, plant-based bagels are the perfect choice. Made without any animal products, they are not only healthier but also incredibly satisfying. Follow this easy recipe from vegancooking.recipes to create your own batch of fresh bagels right at home.',
+    image: '/recipe-images/bagels-1767020152565.webp',
+    prepTime: 30,
+    cookTime: 25,
+    totalTime: 55,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "All-purpose flour",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "You can substitute with whole wheat flour for a denser bagel."
+        },
+        {
+          "name": "Warm water",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "Temperature should be around 110°F (43°C)."
+        },
+        {
+          "name": "Active dry yeast",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Check the expiration date for effectiveness."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Acts as a sweetener and helps activate the yeast."
+        },
+        {
+          "name": "Salt",
+          "amount": "1.5",
+          "unit": "tsp",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Baking soda",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For boiling the bagels."
+        },
+        {
+          "name": "Sesame seeds",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For topping, optional."
+        },
+        {
+          "name": "Poppy seeds",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For topping, optional."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large mixing bowl, combine warm water and maple syrup. Sprinkle the active dry yeast over the water and let it sit for about 5-10 minutes until frothy."
+        },
+        {
+          "step": 2,
+          "text": "Add the salt and gradually mix in the all-purpose flour, one cup at a time, until a dough forms."
+        },
+        {
+          "step": 3,
+          "text": "Knead the dough on a floured surface for about 8-10 minutes until it is smooth and elastic."
+        },
+        {
+          "step": 4,
+          "text": "Place the kneaded dough in a lightly greased bowl, cover with a damp cloth, and let it rise in a warm place for about 1 hour or until doubled in size."
+        },
+        {
+          "step": 5,
+          "text": "Preheat your oven to 425°F (220°C) and line a baking sheet with parchment paper."
+        },
+        {
+          "step": 6,
+          "text": "Once the dough has risen, punch it down and divide it into 8 equal pieces. Roll each piece into a ball, then poke a hole through the center with your thumb. Gently stretch to form a bagel shape."
+        },
+        {
+          "step": 7,
+          "text": "In a large pot, bring water to a boil and add baking soda. Boil each bagel for about 1 minute on each side, then transfer to the prepared baking sheet."
+        },
+        {
+          "step": 8,
+          "text": "If desired, sprinkle sesame seeds or poppy seeds on top of the bagels before placing them in the oven."
+        },
+        {
+          "step": 9,
+          "text": "Bake in the preheated oven for 20-25 minutes or until golden brown. Let them cool on a wire rack before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 210,
+        "protein": "7g",
+        "carbs": "42g",
+        "fat": "1g",
+        "fiber": "2g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","baking","breakfast","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a gluten-free option, use a gluten-free all-purpose flour blend. Adjust the water as needed since gluten-free flours absorb more or less moisture.',
+    faqs: [
+        {
+          "question": "Can I freeze these bagels?",
+          "answer": "Yes, once completely cooled, you can freeze the bagels in an airtight container for up to 3 months."
+        },
+        {
+          "question": "What toppings can I use?",
+          "answer": "Feel free to use everything bagel seasoning, garlic powder, or even nutritional yeast for added flavor."
+        }
+      ],
+    tips: ["Ensure your water is warm, not hot, to properly activate the yeast.","For an extra chewy texture, let the boiled bagels rest for a few minutes before baking."],
+    variations: ["Add dried herbs like rosemary or thyme into the dough for a savory flavor.","Incorporate diced olives or sun-dried tomatoes into the dough for a Mediterranean twist."],
+    storage: 'Store the bagels in an airtight container at room temperature for up to 3 days or refrigerate for up to a week. Reheat in the oven or toaster before serving.',
+  },
+  {
+    id: '1767020228221.549',
+    title: 'Vanilla Cupcakes',
+    slug: 'vanilla-cupcakes',
+    description: 'Delight in these light and fluffy vegan vanilla cupcakes, perfect for any occasion and topped with a simple vegan frosting.',
+    prologue: 'If you\'re searching for the perfect vegan dessert, look no further than these delightful vanilla cupcakes. Made with wholesome, plant-based ingredients, they are light, fluffy, and full of flavor. Ideal for birthdays, celebrations, or just a sweet treat, these cupcakes are sure to impress both vegans and non-vegans alike. Visit vegancooking.recipes for more delicious vegan recipes and cooking tips!',
+    image: '/recipe-images/vanilla-cupcakes-1767020229738.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 12,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "all-purpose flour",
+          "amount": "1 ½",
+          "unit": "cups",
+          "notes": "Sifted"
+        },
+        {
+          "name": "baking powder",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Ensure it's fresh"
+        },
+        {
+          "name": "baking soda",
+          "amount": "½",
+          "unit": "tsp",
+          "notes": "Fresh"
+        },
+        {
+          "name": "salt",
+          "amount": "¼",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "½",
+          "unit": "cup",
+          "notes": "Acts as an egg substitute"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "¾",
+          "unit": "cup",
+          "notes": "For natural sweetness"
+        },
+        {
+          "name": "unsweetened plant milk",
+          "amount": "½",
+          "unit": "cup",
+          "notes": "Almond, soy, or oat milk are good choices"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Use pure vanilla for best flavor"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "⅓",
+          "unit": "cup",
+          "notes": "Melted"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and line a cupcake tray with 12 cupcake liners."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, whisk together the sifted all-purpose flour, baking powder, baking soda, and salt until well combined."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, combine the applesauce, maple syrup, plant milk, vanilla extract, and melted coconut oil. Mix until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and stir gently until just combined. Be careful not to overmix; a few lumps are okay."
+        },
+        {
+          "step": 5,
+          "text": "Spoon the batter evenly into the prepared cupcake liners, filling each about 2/3 full."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 18-20 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 7,
+          "text": "Once baked, remove from the oven and let the cupcakes cool in the pan for 5 minutes, then transfer them to a wire rack to cool completely."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "2g",
+        "carbs": "25g",
+        "fat": "6g",
+        "fiber": "1g",
+        "sugar": "10g"
+      },
+    tags: ["vegan","dessert","cupcakes","plant-based","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'All-purpose flour can be replaced with a gluten-free blend if needed. Maple syrup can be substituted with agave syrup for a similar sweetness.',
+    faqs: [
+        {
+          "question": "Can I use gluten-free flour?",
+          "answer": "Yes, you can substitute all-purpose flour with a gluten-free flour blend."
+        },
+        {
+          "question": "How do I store leftover cupcakes?",
+          "answer": "Store in an airtight container at room temperature for up to 3 days or in the fridge for up to a week."
+        }
+      ],
+    tips: ["For an extra hint of flavor, add a teaspoon of almond extract.","You can top these cupcakes with vegan buttercream frosting for added sweetness."],
+    variations: ["Add lemon zest for a citrus twist.","Incorporate chocolate chips or nuts into the batter for added texture."],
+    storage: 'Store the cupcakes in an airtight container at room temperature for up to 3 days. For longer storage, refrigerate for up to a week or freeze for up to 3 months.',
+  },
+  {
+    id: '1767020751526.4534',
+    title: 'Donuts',
+    slug: 'donuts',
+    description: 'Deliciously fluffy and perfectly sweet, these vegan donuts make for a delightful treat that everyone will love.',
+    prologue: 'Welcome to vegancooking.recipes, where we empower you to indulge in delightful plant-based treats! These whole-food plant-based donuts are not just delicious; they are also healthy and easy to make. With simple ingredients and minimal preparation, you can create a batch that will satisfy your sweet tooth and impress your friends and family.',
+    image: '/recipe-images/donuts-1767020753032.webp',
+    prepTime: 20,
+    cookTime: 15,
+    totalTime: 35,
+    servings: 12,
+    difficulty: 'medium',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "whole wheat flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Sifted"
+        },
+        {
+          "name": "baking powder",
+          "amount": "2",
+          "unit": "teaspoons",
+          "notes": "Ensure it's fresh"
+        },
+        {
+          "name": "baking soda",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Enhances rise"
+        },
+        {
+          "name": "cinnamon",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For flavor"
+        },
+        {
+          "name": "salt",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Balances sweetness"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Natural sweetener"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Acts as a binder"
+        },
+        {
+          "name": "almond milk",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Or any plant milk"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For aroma"
+        },
+        {
+          "name": "nutmeg",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "Optional, for extra flavor"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Melted, for moisture"
+        },
+        {
+          "name": "powdered sugar",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For glazing"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and lightly grease a donut pan with non-stick spray or coconut oil."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, whisk together the whole wheat flour, baking powder, baking soda, cinnamon, nutmeg (if using), and salt until well combined."
+        },
+        {
+          "step": 3,
+          "text": "In a separate bowl, mix together the maple syrup, unsweetened applesauce, almond milk, melted coconut oil, and vanilla extract until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and stir gently until just combined. Be careful not to overmix."
+        },
+        {
+          "step": 5,
+          "text": "Transfer the batter to a piping bag or a zip-top bag with the corner cut off. Fill each donut cavity about 2/3 full."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 12-15 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 7,
+          "text": "Remove from the oven and allow the donuts to cool in the pan for 5 minutes before transferring them to a wire rack to cool completely."
+        },
+        {
+          "step": 8,
+          "text": "Once cooled, drizzle or dip the donuts in a glaze made from powdered sugar and a little almond milk to achieve your desired consistency."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "2g",
+        "carbs": "22g",
+        "fat": "3g",
+        "fiber": "2g",
+        "sugar": "5g"
+      },
+    tags: ["vegan","baked","donuts","whole-food","plant-based","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat flour can be substituted with spelt flour for a different flavor. For a gluten-free version, use a gluten-free all-purpose flour blend. You can also swap maple syrup for agave syrup if desired.',
+    faqs: [
+        {
+          "question": "Can I make these donuts gluten-free?",
+          "answer": "Yes, simply substitute the whole wheat flour with a gluten-free all-purpose flour blend."
+        },
+        {
+          "question": "How can I store leftover donuts?",
+          "answer": "Store the donuts in an airtight container at room temperature for up to 3 days, or refrigerate them for up to a week."
+        }
+      ],
+    tips: ["Make sure not to overmix the batter to keep the donuts fluffy.","Experiment with different glazes like chocolate or a citrus glaze for variety."],
+    variations: ["Add chocolate chips to the batter for a chocolatey twist.","Top with shredded coconut or chopped nuts for added texture."],
+    storage: 'Store in an airtight container at room temperature for up to 3 days, or refrigerate for up to 1 week. You can also freeze the donuts for up to 2 months; just thaw before serving.',
+  },
+  {
+    id: '1767021258799.9495',
+    title: 'Pumpkin Pie',
+    slug: 'pumpkin-pie',
+    description: 'This delicious vegan pumpkin pie is rich, creamy, and bursting with the flavors of fall. Made with wholesome ingredients, it’s the perfect dessert for any occasion.',
+    prologue: 'Pumpkin pie is a classic dessert often associated with celebrations and family gatherings. This vegan version, made with whole food plant-based ingredients, ensures that everyone can enjoy a slice of this seasonal favorite without compromising on flavor or nutrition. At vegancooking.recipes, we believe in creating dishes that are not only delicious but also healthy and satisfying. Dive into this simple recipe that will impress your guests and satisfy your taste buds!',
+    image: '/recipe-images/pumpkin-pie-1767021260421.webp',
+    prepTime: 20,
+    cookTime: 60,
+    totalTime: 80,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Pumpkin puree",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Use canned or homemade pumpkin puree."
+        },
+        {
+          "name": "Coconut milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Full-fat coconut milk for creaminess."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "Adjust sweetness according to taste."
+        },
+        {
+          "name": "Ground cinnamon",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For warm spice flavor."
+        },
+        {
+          "name": "Ground nutmeg",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Enhances the fall flavor."
+        },
+        {
+          "name": "Ground ginger",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adds a zesty kick."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "To balance the sweetness."
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "For thickening."
+        },
+        {
+          "name": "Vegan pie crust",
+          "amount": "1",
+          "unit": "prepared crust",
+          "notes": "Store-bought or homemade."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine pumpkin puree, coconut milk, maple syrup, ground cinnamon, ground nutmeg, ground ginger, salt, and cornstarch."
+        },
+        {
+          "step": 3,
+          "text": "Whisk the mixture until smooth and all ingredients are well incorporated."
+        },
+        {
+          "step": 4,
+          "text": "Pour the pumpkin filling into the prepared vegan pie crust, spreading it evenly."
+        },
+        {
+          "step": 5,
+          "text": "Bake in the preheated oven for 50-60 minutes, or until the filling is set and a toothpick inserted comes out clean."
+        },
+        {
+          "step": 6,
+          "text": "Remove the pie from the oven and let it cool on a wire rack for at least 2 hours before slicing."
+        },
+        {
+          "step": 7,
+          "text": "Serve with your favorite vegan whipped cream or enjoy plain!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 210,
+        "protein": "3g",
+        "carbs": "30g",
+        "fat": "9g",
+        "fiber": "3g",
+        "sugar": "8g"
+      },
+    tags: ["dessert","pumpkin","vegan","pie","fall","baking","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Pumpkin puree can be substituted with butternut squash puree if desired. You can adjust the spices according to your preference. For a gluten-free option, use a gluten-free pie crust.',
+    faqs: [
+        {
+          "question": "Can I use fresh pumpkin instead of canned?",
+          "answer": "Yes, you can roast and puree fresh pumpkin. Just make sure to use a variety that's suitable for pies, such as Sugar Pie or Pie Pumpkin."
+        },
+        {
+          "question": "How can I make this pie sweeter?",
+          "answer": "You can add more maple syrup or a sweetener of your choice, but remember to adjust the other ingredients to maintain the consistency."
+        }
+      ],
+    tips: ["Let the pie cool completely to set properly before slicing.","For a decorative touch, sprinkle a little cinnamon on top before serving."],
+    variations: ["Add a layer of vegan chocolate ganache for a decadent twist.","Incorporate a layer of spiced pecan topping for added texture."],
+    storage: 'Store the pie covered in the refrigerator for up to 5 days. You can also freeze the pie before baking for up to 3 months.',
+  },
+  {
+    id: '1767021332685.6948',
+    title: 'Apple Pie',
+    slug: 'apple-pie',
+    description: 'A classic vegan apple pie that boasts a flaky crust and a sweet, cinnamon-spiced apple filling, perfect for any occasion.',
+    prologue: 'This vegan apple pie is a delightful dessert that captures the essence of traditional baking while embracing a whole-food-plant-based lifestyle. With a perfectly flaky crust and a luscious filling made from fresh, juicy apples, this pie is sure to impress your family and friends. At vegancooking.recipes, we believe in creating deliciously wholesome dishes that everyone can enjoy, and this apple pie is no exception. Let\'s dive into the recipe that will make your kitchen smell like autumn!',
+    image: '/recipe-images/apple-pie-1767021333887.webp',
+    prepTime: 30,
+    cookTime: 60,
+    totalTime: 90,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "all-purpose flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "plus extra for dusting"
+        },
+        {
+          "name": "coconut oil",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "solid, not melted"
+        },
+        {
+          "name": "cold water",
+          "amount": "4-6",
+          "unit": "tbsp",
+          "notes": "ice-cold"
+        },
+        {
+          "name": "salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "for the crust"
+        },
+        {
+          "name": "sugar",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for the crust"
+        },
+        {
+          "name": "apples",
+          "amount": "6",
+          "unit": "medium",
+          "notes": "peeled, cored, and sliced (Granny Smith or Honeycrisp work well)"
+        },
+        {
+          "name": "brown sugar",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "for the filling"
+        },
+        {
+          "name": "ground cinnamon",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "nutmeg",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "freshly grated if possible"
+        },
+        {
+          "name": "lemon juice",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "cornstarch",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "to thicken the filling"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large bowl, mix together the all-purpose flour, salt, and sugar."
+        },
+        {
+          "step": 2,
+          "text": "Add the solid coconut oil and use a pastry cutter or your fingers to blend it into the flour until the mixture resembles coarse crumbs."
+        },
+        {
+          "step": 3,
+          "text": "Gradually add cold water, one tablespoon at a time, mixing until the dough comes together. You may not need all the water."
+        },
+        {
+          "step": 4,
+          "text": "Divide the dough into two equal parts, shape them into discs, wrap in plastic wrap, and refrigerate for at least 30 minutes."
+        },
+        {
+          "step": 5,
+          "text": "Preheat your oven to 425°F (220°C)."
+        },
+        {
+          "step": 6,
+          "text": "While the dough is chilling, prepare the filling by combining the sliced apples, brown sugar, ground cinnamon, nutmeg, lemon juice, cornstarch, and vanilla extract in a large bowl. Toss until the apples are well coated."
+        },
+        {
+          "step": 7,
+          "text": "Roll out one disc of chilled dough on a floured surface to fit your pie dish. Transfer the dough to the pie dish and trim the edges."
+        },
+        {
+          "step": 8,
+          "text": "Pour the apple filling into the crust and spread it evenly."
+        },
+        {
+          "step": 9,
+          "text": "Roll out the second disc of dough and place it over the filling. Trim the edges and crimp them to seal. Cut slits in the top crust to allow steam to escape."
+        },
+        {
+          "step": 10,
+          "text": "Bake the pie in the preheated oven for 45-50 minutes, or until the crust is golden and the filling is bubbling."
+        },
+        {
+          "step": 11,
+          "text": "Remove from the oven and let the pie cool for at least 30 minutes before slicing. Serve warm or at room temperature."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 280,
+        "protein": "2g",
+        "carbs": "45g",
+        "fat": "12g",
+        "fiber": "3g",
+        "sugar": "20g"
+      },
+    tags: ["vegan","dessert","baking","apple pie","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a gluten-free version, substitute all-purpose flour with a gluten-free flour blend. Coconut oil can be replaced with vegan butter, but ensure it is solid for the crust.',
+    faqs: [
+        {
+          "question": "Can I use different types of apples?",
+          "answer": "Yes, you can mix different varieties of apples for a more complex flavor. Tart apples like Granny Smith work well with sweeter varieties."
+        },
+        {
+          "question": "How do I prevent the crust from getting soggy?",
+          "answer": "Pre-baking the crust for about 10 minutes before adding the filling can help prevent sogginess."
+        }
+      ],
+    tips: ["Chill your dough thoroughly for a flaky crust.","Serve with vegan ice cream for an extra treat!"],
+    variations: ["Add a tablespoon of maple syrup to the filling for additional sweetness.","Incorporate dried cranberries or raisins for a fruity twist."],
+    storage: 'Store leftover apple pie in an airtight container in the refrigerator for up to 3 days. It can also be frozen for up to 2 months; thaw in the refrigerator before serving.',
+  },
+  {
+    id: '1767021566196.6677',
+    title: 'Zucchini Bread',
+    slug: 'zucchini-bread',
+    description: 'This moist and flavorful zucchini bread is a perfect treat for breakfast or a snack. Packed with whole food ingredients, it\'s a wholesome choice for any time of day.',
+    prologue: 'Discover the delightful world of vegan baking with this easy Whole Food Plant-Based Zucchini Bread recipe. Created for those who love healthy, delicious, and easy-to-make treats, this bread is a fantastic way to use up fresh zucchini while enjoying a guilt-free indulgence. Check out more vegan recipes at vegancooking.recipes to elevate your plant-based cooking game!',
+    image: '/recipe-images/zucchini-bread-1767015911437.webp',
+    prepTime: 15,
+    cookTime: 50,
+    totalTime: 65,
+    servings: 8,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "zucchini",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "shredded, about 2 medium zucchinis"
+        },
+        {
+          "name": "whole wheat flour",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "can substitute with spelt flour"
+        },
+        {
+          "name": "baking powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for leavening"
+        },
+        {
+          "name": "baking soda",
+          "amount": "0.5",
+          "unit": "tsp",
+          "notes": "for leavening"
+        },
+        {
+          "name": "salt",
+          "amount": "0.5",
+          "unit": "tsp",
+          "notes": "to enhance flavor"
+        },
+        {
+          "name": "cinnamon",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for warmth and flavor"
+        },
+        {
+          "name": "nutmeg",
+          "amount": "0.25",
+          "unit": "tsp",
+          "notes": "optional, for added spice"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "for natural sweetness"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "acts as an egg replacer"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "walnuts",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "chopped, optional for texture"
+        },
+        {
+          "name": "raisins",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "optional, for sweetness"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and grease a 9x5 inch loaf pan or line it with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the whole wheat flour, baking powder, baking soda, salt, cinnamon, and nutmeg. Whisk together until well mixed."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, mix the shredded zucchini, maple syrup, applesauce, and vanilla extract until fully combined."
+        },
+        {
+          "step": 4,
+          "text": "Add the wet ingredients to the dry ingredients and stir gently until just combined. Do not overmix."
+        },
+        {
+          "step": 5,
+          "text": "Fold in the chopped walnuts and raisins if using."
+        },
+        {
+          "step": 6,
+          "text": "Pour the batter into the prepared loaf pan and smooth the top with a spatula."
+        },
+        {
+          "step": 7,
+          "text": "Bake in the preheated oven for 45-50 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 8,
+          "text": "Allow the bread to cool in the pan for about 10 minutes before transferring it to a wire rack to cool completely."
+        },
+        {
+          "step": 9,
+          "text": "Slice and enjoy your delicious zucchini bread!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "4g",
+        "carbs": "30g",
+        "fat": "7g",
+        "fiber": "3g",
+        "sugar": "8g"
+      },
+    tags: ["vegan","baking","snack","breakfast","healthy","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Zucchini adds moisture and nutrients to the bread, while whole wheat flour provides fiber. You can substitute maple syrup with agave nectar or coconut sugar for different sweetness levels.',
+    faqs: [
+        {
+          "question": "Can I use other flours?",
+          "answer": "Yes, you can substitute whole wheat flour with spelt flour or gluten-free flour blends, though the texture may differ."
+        },
+        {
+          "question": "How do I store leftover zucchini bread?",
+          "answer": "Store in an airtight container at room temperature for up to 3 days or refrigerate for up to a week. It can also be frozen for up to 3 months."
+        }
+      ],
+    tips: ["For extra flavor, consider adding a tablespoon of ground flaxseed or chia seeds to the batter.","Make sure to squeeze out excess moisture from the shredded zucchini using a clean kitchen towel for a less dense bread."],
+    variations: ["Add chocolate chips for a sweet twist.","Substitute half of the zucchini with grated carrots for a carrot-zucchini bread."],
+    storage: 'Store the zucchini bread in an airtight container at room temperature for up to 3 days. For longer storage, wrap it tightly in plastic wrap and freeze for up to 3 months.',
+  },
+  {
+    id: '1767021634376.8562',
+    title: 'Cornbread',
+    slug: 'cornbread',
+    description: 'This delightful cornbread is golden, fluffy, and packed with wholesome ingredients, making it the perfect side dish for any meal.',
+    prologue: 'Discover the joy of baking with this delicious vegan cornbread recipe that uses whole-food plant-based ingredients. Perfect for family gatherings or cozy dinners, this cornbread is easy to make and pairs wonderfully with soups and stews. Visit vegancooking.recipes for more plant-based recipes that inspire healthy eating.',
+    image: '/recipe-images/cornbread-1767021635647.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 9,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Cornmeal",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Use medium or fine cornmeal for better texture."
+        },
+        {
+          "name": "Whole wheat flour",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "You can substitute with gluten-free flour if needed."
+        },
+        {
+          "name": "Baking powder",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Ensure it's fresh for best results."
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Any unsweetened plant milk can be used."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "This adds a touch of sweetness."
+        },
+        {
+          "name": "Apple cider vinegar",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "This helps to activate the baking powder."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Can substitute with melted coconut oil."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat the oven to 400°F (200°C). Grease a 9-inch square baking pan or line it with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the cornmeal, whole wheat flour, baking powder, and salt. Whisk together until well mixed."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, whisk together the almond milk, maple syrup, apple cider vinegar, and olive oil."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and stir gently until just combined. Do not overmix; a few lumps are fine."
+        },
+        {
+          "step": 5,
+          "text": "Pour the batter into the prepared baking pan and spread it evenly."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 20-25 minutes or until a toothpick inserted in the center comes out clean."
+        },
+        {
+          "step": 7,
+          "text": "Remove from the oven and let cool in the pan for about 10 minutes before transferring to a wire rack to cool completely."
+        },
+        {
+          "step": 8,
+          "text": "Slice and serve warm, or store in an airtight container."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "4g",
+        "carbs": "25g",
+        "fat": "5g",
+        "fiber": "3g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","baking","cornbread","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Cornmeal is the star of this recipe, providing a natural sweetness and texture. Whole wheat flour enhances the health benefits and adds to the fiber content. If you\'re gluten-free, substitute the whole wheat flour with a gluten-free blend, and adjust the baking powder as needed.',
+    faqs: [
+        {
+          "question": "Can I make this cornbread gluten-free?",
+          "answer": "Yes! Substitute the whole wheat flour with a gluten-free flour blend."
+        },
+        {
+          "question": "How can I make this cornbread sweeter?",
+          "answer": "You can increase the maple syrup to 1/3 cup for a sweeter cornbread."
+        }
+      ],
+    tips: ["For a savory twist, add chopped jalapeños or corn kernels to the batter.","Serve with vegan butter or a spread of your choice for added flavor."],
+    variations: ["Add fresh herbs like rosemary or thyme for a fragrant touch.","Mix in some vegan cheese for added creaminess."],
+    storage: 'Store leftover cornbread in an airtight container at room temperature for up to 2 days or in the refrigerator for up to a week. For longer storage, freeze it in slices, wrapped tightly in plastic wrap, and then placed in a freezer bag for up to 3 months.',
+  },
 ];
 

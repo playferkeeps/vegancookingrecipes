@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Recipe } from '@/types/recipe';
-import { getAllRecipes } from '@/data/recipes';
+import { getAllRecipesAsync } from '@/data/recipes/helpers';
 
 interface RelatedRecipesProps {
   currentRecipeId: string;
@@ -9,22 +9,22 @@ interface RelatedRecipesProps {
   category: string[];
 }
 
-export default function RelatedRecipes({
+export default async function RelatedRecipes({
   currentRecipeId,
   relatedRecipeIds,
   category,
 }: RelatedRecipesProps) {
+  const allRecipes = await getAllRecipesAsync();
   let recipesToShow: Recipe[] = [];
 
   // If specific related recipes are provided, use those
   if (relatedRecipeIds && relatedRecipeIds.length > 0) {
     recipesToShow = relatedRecipeIds
-      .map((id) => getAllRecipes().find((r) => r.id === id))
+      .map((id) => allRecipes.find((r) => r.id === id))
       .filter((r): r is Recipe => r !== undefined)
       .slice(0, 3);
   } else {
     // Otherwise, show recipes from the same category
-    const allRecipes = getAllRecipes();
     recipesToShow = allRecipes
       .filter(
         (recipe) =>

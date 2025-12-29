@@ -18,3 +18,4 @@ export default function AdBanner({ className = '' }: AdBannerProps) {
   );
 }
 
+

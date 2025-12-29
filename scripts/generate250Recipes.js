@@ -44,3 +44,4 @@ const recipeTemplates = {
 console.log('Recipe generation script - this would create 250 recipes');
 console.log('For now, creating category files with existing recipes...');
 
+
