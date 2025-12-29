@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { HiMenu, HiX } from 'react-icons/hi';
+import SearchBar from './SearchBar';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,6 +29,9 @@ export default function Header() {
           </Link>
           
           {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-4 lg:gap-6 flex-1 max-w-2xl mx-4">
+            <SearchBar className="flex-1" />
+          </div>
           <ul className="hidden md:flex gap-4 lg:gap-6 items-center">
             <li>
               <Link 
@@ -73,6 +77,9 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+            <div className="mb-4">
+              <SearchBar className="w-full" />
+            </div>
             <ul className="flex flex-col gap-2">
               <li>
                 <Link 
