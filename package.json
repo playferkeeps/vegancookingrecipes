@@ -7,8 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
     "generate-recipes": "tsx scripts/generate-recipes.ts",
-    "generate-images-for-existing": "tsx scripts/generate-images-for-existing-recipes.ts"
+    "generate-images-for-existing": "tsx scripts/generate-images-for-existing-recipes.ts",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix --max-warnings=0"
+    ],
+    "*.{json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.89.0",
@@ -29,7 +40,10 @@
     "dotenv": "^17.2.3",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "postcss": "^8.4.32",
+    "prettier": "^3.7.4",
     "tailwindcss": "^3.4.0",
     "tsx": "^4.21.0",
     "typescript": "^5.3.3"

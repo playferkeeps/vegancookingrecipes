@@ -2,7 +2,7 @@
  * Search utilities using Fuse.js for fuzzy search
  */
 
-import Fuse from 'fuse.js';
+import Fuse, { IFuseOptions } from 'fuse.js';
 import { Recipe } from '@/types/recipe';
 
 /**
@@ -45,7 +45,7 @@ export function prepareRecipeForSearch(recipe: Recipe) {
 export function createSearchIndex(recipes: Recipe[]): Fuse<Recipe> {
   const preparedRecipes = recipes.map(prepareRecipeForSearch);
 
-  const fuseOptions: Fuse.IFuseOptions<Recipe> = {
+  const fuseOptions: IFuseOptions<Recipe> = {
     keys: [
       {
         name: 'title',
