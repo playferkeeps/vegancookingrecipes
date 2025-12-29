@@ -13,17 +13,13 @@ import { Recipe } from '@/types/recipe';
 import * as staticRecipes from './static';
 
 // Check if Supabase is configured
-// Only use Supabase server-side to avoid Prisma client-side issues
-// Also check if DATABASE_URL is actually set (not just empty string)
-// Skip Supabase during build phase if SKIP_DB_CHECK is set (when tables don't exist)
-// During build, we want to use static files to avoid Prisma errors
+// Use Supabase JS client (HTTP/REST) - no connection pooling issues!
+// Works in both client and server components
 const isBuildPhase = process.env.NEXT_PHASE === 'phase-production-build' || 
                      process.env.NEXT_PHASE === 'phase-development-build';
-const USE_SUPABASE = typeof window === 'undefined' && 
-                     !isBuildPhase &&
-                     process.env.DATABASE_URL && 
-                     process.env.DATABASE_URL.trim() !== '' &&
+const USE_SUPABASE = !isBuildPhase &&
                      process.env.NEXT_PUBLIC_SUPABASE_URL &&
+                     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
                      process.env.SKIP_DB_CHECK !== 'true';
 
 // Lazy load Supabase functions only on server-side
