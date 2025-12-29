@@ -6,6 +6,9 @@
 
 import { Recipe } from '@/types/recipe';
 
+// Placeholder image - actual recipe images should be added when photos are available
+const PLACEHOLDER_IMAGE = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzljYTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIENvbWluZyBTb29uPC90ZXh0Pjwvc3ZnPg==';
+
 export const originalRecipes: Recipe[] = [
   {
     id: '1',
@@ -13,7 +16,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'vegan-chocolate-chip-cookies',
     description: 'Classic chocolate chip cookies made completely vegan with plant-based ingredients. Soft, chewy, and absolutely delicious!',
     prologue: 'Looking for the perfect vegan chocolate chip cookie recipe? You\'ve come to the right place! These plant-based cookies are a classic favorite that everyone will love, whether you follow a vegan diet or not. Made with simple, wholesome ingredients like vegan butter and plant-based milk, these cookies deliver that same irresistible chewy texture and rich chocolate flavor you remember from traditional recipes. Perfect for baking enthusiasts, families with dietary restrictions, or anyone wanting to reduce their consumption of animal products, this vegan cookie recipe proves that you don\'t need eggs or dairy to create amazing baked goods. At vegancooking.recipes, we specialize in creating delicious vegan recipes that don\'t compromise on taste or texture.',
-    image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800',
+    image: '/recipe-images/vegan-chocolate-chip-cookies-1766972693507.webp',
     prepTime: 15,
     cookTime: 12,
     totalTime: 27,
@@ -80,7 +83,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'vegan-pad-thai',
     description: 'Authentic Thai flavors in this plant-based Pad Thai with rice noodles, tofu, and a tangy tamarind sauce.',
     prologue: 'Experience the vibrant flavors of Thailand with this authentic vegan Pad Thai recipe from vegancooking.recipes. This beloved street food classic gets a plant-based makeover without losing any of its signature sweet, sour, and savory complexity. Our vegan Pad Thai features protein-rich tofu, fresh vegetables, and rice noodles all tossed in a perfectly balanced tamarind-based sauce. Whether you\'re exploring vegan Thai cuisine, looking for a satisfying plant-based dinner option, or simply craving that perfect balance of flavors, this recipe delivers. Pad Thai is one of the most popular Thai dishes worldwide, and our vegan version makes it accessible to everyone, regardless of dietary preferences. The combination of tamarind paste, soy sauce, and fresh lime creates that authentic tangy flavor profile that makes Pad Thai so irresistible.',
-    image: 'https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800',
+    image: '/recipe-images/vegan-pad-thai-1766973386766.webp',
     prepTime: 20,
     cookTime: 15,
     totalTime: 35,
@@ -149,7 +152,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'vegan-banana-bread',
     description: 'Moist and flavorful banana bread that\'s completely vegan. Perfect for breakfast or as a snack!',
     prologue: 'There\'s nothing quite like the comforting aroma of freshly baked banana bread filling your kitchen. This vegan banana bread recipe from vegancooking.recipes takes that classic comfort food and makes it completely plant-based, using ripe bananas for natural sweetness and moisture. Perfect for using up those overripe bananas on your counter, this recipe is a staple in any vegan baking repertoire. Whether you enjoy it for breakfast, as an afternoon snack, or as a healthy dessert option, this banana bread delivers that same tender crumb and rich banana flavor you love. The recipe uses simple, pantry-friendly ingredients like coconut oil and maple syrup, making it accessible for anyone starting their vegan cooking journey. Banana bread is one of those recipes that everyone should have in their collection, and this vegan version proves that plant-based baking can be just as delicious and satisfying as traditional recipes.',
-    image: 'https://images.unsplash.com/photo-1587132137056-bfbf0166836f?w=800',
+    image: '/recipe-images/vegan-banana-bread-1766973526213.webp',
     prepTime: 10,
     cookTime: 60,
     totalTime: 70,
@@ -190,7 +193,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'vegan-chickpea-curry',
     description: 'Hearty and flavorful Indian-inspired curry with chickpeas, tomatoes, and aromatic spices. Perfect served over rice.',
     prologue: 'Discover the rich, aromatic world of Indian cuisine with this vegan chickpea curry recipe from vegancooking.recipes. Chickpea curry, also known as chana masala, is a beloved dish in Indian cooking that showcases how plant-based ingredients can create incredibly satisfying and flavorful meals. This recipe combines protein-packed chickpeas with a fragrant blend of spices including curry powder, turmeric, cumin, and coriander, all simmered in creamy coconut milk. Perfect for anyone exploring vegan Indian recipes, this curry is both nutritious and deeply satisfying. Chickpeas are an excellent source of plant-based protein and fiber, making this dish ideal for those following a whole-food plant-based diet. Whether you\'re new to vegan cooking or a seasoned plant-based chef, this curry recipe demonstrates how simple ingredients can transform into something truly special. Serve it over basmati rice or with warm naan bread for a complete meal that will become a regular in your vegan recipe rotation.',
-    image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800',
+    image: '/recipe-images/vegan-chickpea-curry-1766973541775.webp',
     prepTime: 15,
     cookTime: 25,
     totalTime: 40,
@@ -235,7 +238,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'vegan-avocado-toast',
     description: 'Simple yet delicious avocado toast with a variety of toppings. Perfect for a quick and healthy breakfast.',
     prologue: 'Avocado toast has become a breakfast and brunch favorite for good reason—it\'s simple, nutritious, and absolutely delicious. This vegan avocado toast recipe from vegancooking.recipes takes the classic combination and elevates it with fresh, vibrant toppings. Naturally vegan and perfect for those following a plant-based lifestyle, avocado toast is packed with healthy fats, fiber, and essential nutrients. Whether you\'re looking for a quick weekday breakfast, a weekend brunch option, or a satisfying snack, this recipe delivers. The creamy texture of ripe avocados pairs perfectly with the crunch of toasted sourdough bread, while the addition of cherry tomatoes, microgreens, and a sprinkle of red pepper flakes adds color, flavor, and nutrition. This recipe is ideal for anyone new to vegan cooking, as it requires minimal ingredients and comes together in just minutes. At vegancooking.recipes, we believe that the best vegan recipes are often the simplest ones, and this avocado toast is a perfect example of how plant-based eating can be both easy and incredibly satisfying.',
-    image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=800',
+    image: '/recipe-images/vegan-avocado-toast-1766973553953.webp',
     prepTime: 5,
     cookTime: 5,
     totalTime: 10,
@@ -271,7 +274,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'green-smoothie-bowl',
     description: 'Nutritious and delicious green smoothie bowl packed with fruits and vegetables. Perfect for a healthy breakfast or snack.',
     prologue: 'Start your day with a burst of nutrition and vibrant color with this green smoothie bowl recipe from vegancooking.recipes. Smoothie bowls have become a popular breakfast and snack option for health-conscious individuals, and this plant-based version is packed with vitamins, minerals, and antioxidants. Made with fresh spinach, frozen fruits, and plant-based milk, this recipe is naturally vegan, gluten-free, and perfect for those following a raw vegan or whole-food plant-based diet. The combination of leafy greens and sweet fruits creates a delicious balance that makes getting your daily serving of vegetables enjoyable. Topped with nutrient-dense chia seeds, fresh berries, and crunchy granola, this smoothie bowl is as beautiful as it is nutritious. Whether you\'re looking for a quick breakfast option, a post-workout meal, or a healthy snack, this green smoothie bowl delivers. At vegancooking.recipes, we believe that healthy vegan recipes should be both delicious and visually appealing, and this smoothie bowl is a perfect example of that philosophy.',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800',
+    image: '/recipe-images/green-smoothie-bowl-1766973566148.webp',
     prepTime: 10,
     cookTime: 0,
     totalTime: 10,
@@ -304,7 +307,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'vegan-lasagna',
     description: 'Hearty and comforting vegan lasagna with cashew ricotta, marinara sauce, and plenty of vegetables. A crowd-pleasing dinner option.',
     prologue: 'Lasagna is the ultimate comfort food, and this vegan lasagna recipe from vegancooking.recipes proves that you don\'t need dairy or meat to create a rich, satisfying, and absolutely delicious version of this Italian classic. This plant-based lasagna features a creamy cashew ricotta that rivals traditional ricotta cheese, layered with marinara sauce, fresh vegetables, and vegan mozzarella. Perfect for family dinners, meal prep, or special occasions, this recipe demonstrates how vegan cooking can be both hearty and elegant. The combination of sautéed mushrooms, zucchini, and spinach provides texture and flavor, while the cashew-based ricotta adds that creamy, cheesy element that makes lasagna so beloved. Whether you\'re cooking for vegans, vegetarians, or omnivores, this recipe is sure to impress. At vegancooking.recipes, we specialize in creating vegan versions of classic comfort foods that don\'t compromise on taste or satisfaction. This lasagna is a perfect example of how plant-based ingredients can create dishes that are both nutritious and indulgent.',
-    image: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=800',
+    image: '/recipe-images/vegan-lasagna-1766973581727.webp',
     prepTime: 30,
     cookTime: 45,
     totalTime: 75,
@@ -347,7 +350,7 @@ export const originalRecipes: Recipe[] = [
     slug: 'vegan-sushi-rolls',
     description: 'Beautiful and delicious vegan sushi rolls with avocado, cucumber, and pickled vegetables. Perfect for lunch or a light dinner.',
     prologue: 'Master the art of making sushi at home with this vegan sushi rolls recipe from vegancooking.recipes. Sushi is one of the most elegant and satisfying dishes in Japanese cuisine, and this plant-based version showcases how fresh vegetables can create rolls that are both beautiful and delicious. While making sushi at home may seem intimidating, this recipe breaks down the process into simple, manageable steps. The combination of creamy avocado, crisp cucumber, and sweet carrots creates a perfect balance of textures and flavors that rivals traditional sushi. Whether you\'re exploring vegan Japanese cuisine, looking for a fun cooking project, or wanting to impress guests with homemade sushi, this recipe is perfect. Sushi rice, seasoned with rice vinegar, provides the perfect sticky base, while nori sheets add that distinctive umami flavor. At vegancooking.recipes, we believe that vegan cooking should be both accessible and exciting, and making your own sushi rolls is a perfect example of that. Serve with soy sauce, wasabi, and pickled ginger for an authentic sushi experience that\'s completely plant-based.',
-    image: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800',
+    image: '/recipe-images/vegan-sushi-rolls-1766973593928.webp',
     prepTime: 45,
     cookTime: 20,
     totalTime: 65,

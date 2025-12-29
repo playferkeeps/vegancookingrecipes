@@ -4,13 +4,14 @@ import { RecipeCategory } from '@/types/recipe';
 import RecipeCard from '@/components/RecipeCard';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const category = params.category as RecipeCategory;
+  const { category: categoryParam } = await params;
+  const category = categoryParam as RecipeCategory;
   const recipes = getRecipesByCategory(category);
   
   if (recipes.length === 0) {
@@ -52,8 +53,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function CategoryPage({ params }: PageProps) {
-  const category = params.category as RecipeCategory;
+export default async function CategoryPage({ params }: PageProps) {
+  const { category: categoryParam } = await params;
+  const category = categoryParam as RecipeCategory;
   const recipes = getRecipesByCategory(category);
 
   if (recipes.length === 0) {

@@ -11,14 +11,15 @@ import RelatedRecipes from '@/components/RelatedRecipes';
 import { Recipe } from '@/types/recipe';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PageProps) {
-  const recipe = getRecipeBySlug(params.slug);
+  const { slug } = await params;
+  const recipe = getRecipeBySlug(slug);
   
   if (!recipe) {
     return {
@@ -130,8 +131,9 @@ function generateStructuredData(recipe: Recipe) {
   };
 }
 
-export default function RecipePage({ params }: PageProps) {
-  const recipe = getRecipeBySlug(params.slug);
+export default async function RecipePage({ params }: PageProps) {
+  const { slug } = await params;
+  const recipe = getRecipeBySlug(slug);
 
   if (!recipe) {
     notFound();

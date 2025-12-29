@@ -68,6 +68,107 @@ const recipeDetails: Record<string, {
   // Add more detailed templates as needed
 };
 
+// Helper to calculate realistic cook times based on recipe type
+function calculateRealisticTimes(
+  title: string,
+  category: RecipeCategory[],
+  instructions: Array<{ step: number; text: string }>,
+  difficulty: 'easy' | 'medium' | 'hard'
+): { prepTime: number; cookTime: number } {
+  const lowerTitle = title.toLowerCase();
+  const primaryCategory = category[0];
+  const instructionCount = instructions.length;
+  
+  // Base times by category
+  let basePrep = 10;
+  let baseCook = 15;
+  
+  // Adjust based on category
+  if (primaryCategory === 'baking') {
+    basePrep = 20;
+    // Baking times vary significantly
+    if (lowerTitle.includes('bread') || lowerTitle.includes('loaf') || lowerTitle.includes('cake')) {
+      baseCook = 45; // Breads and cakes take longer
+    } else if (lowerTitle.includes('cookie') || lowerTitle.includes('muffin') || lowerTitle.includes('scone')) {
+      baseCook = 15; // Cookies and muffins are quicker
+    } else if (lowerTitle.includes('roll') || lowerTitle.includes('croissant') || lowerTitle.includes('bagel')) {
+      baseCook = 25; // Yeast-based items
+    } else {
+      baseCook = 30; // Default for other baking
+    }
+  } else if (primaryCategory === 'beverage') {
+    basePrep = 5;
+    baseCook = 0; // Most beverages don't require cooking
+    if (lowerTitle.includes('tea') || lowerTitle.includes('coffee') || lowerTitle.includes('hot')) {
+      baseCook = 5; // Hot beverages need heating
+    }
+  } else if (primaryCategory === 'breakfast') {
+    basePrep = 10;
+    if (lowerTitle.includes('toast') || lowerTitle.includes('smoothie') || lowerTitle.includes('bowl')) {
+      baseCook = 5;
+    } else if (lowerTitle.includes('pancake') || lowerTitle.includes('waffle') || lowerTitle.includes('french toast')) {
+      baseCook = 15;
+    } else if (lowerTitle.includes('overnight') || lowerTitle.includes('oats') || lowerTitle.includes('pudding')) {
+      baseCook = 0; // No cooking, just prep
+    } else {
+      baseCook = 20;
+    }
+  } else if (primaryCategory === 'snack') {
+    basePrep = 10;
+    baseCook = 10; // Most snacks are quick
+    if (lowerTitle.includes('bar') || lowerTitle.includes('ball') || lowerTitle.includes('trail')) {
+      baseCook = 0; // No-bake snacks
+    }
+  } else if (primaryCategory === 'dessert') {
+    basePrep = 20;
+    if (lowerTitle.includes('ice cream') || lowerTitle.includes('sorbet') || lowerTitle.includes('smoothie')) {
+      baseCook = 0; // Frozen desserts
+    } else if (lowerTitle.includes('cake') || lowerTitle.includes('pie') || lowerTitle.includes('tart')) {
+      baseCook = 40;
+    } else {
+      baseCook = 20;
+    }
+  } else if (primaryCategory === 'lunch' || primaryCategory === 'dinner') {
+    basePrep = 15;
+    if (lowerTitle.includes('soup') || lowerTitle.includes('stew') || lowerTitle.includes('curry')) {
+      baseCook = 30; // Simmering dishes
+    } else if (lowerTitle.includes('pasta') || lowerTitle.includes('noodles') || lowerTitle.includes('rice')) {
+      baseCook = 20;
+    } else if (lowerTitle.includes('lasagna') || lowerTitle.includes('casserole') || lowerTitle.includes('bake')) {
+      baseCook = 45; // Baked dishes
+    } else if (lowerTitle.includes('stir fry') || lowerTitle.includes('tacos') || lowerTitle.includes('wrap')) {
+      baseCook = 15; // Quick cooking
+    } else {
+      baseCook = 25;
+    }
+  } else {
+    // Default for savory, ethnic
+    basePrep = 15;
+    baseCook = 25;
+  }
+  
+  // Adjust based on difficulty
+  if (difficulty === 'hard') {
+    basePrep += 10;
+    baseCook += 10;
+  } else if (difficulty === 'easy') {
+    basePrep = Math.max(5, basePrep - 5);
+    baseCook = Math.max(5, baseCook - 5);
+  }
+  
+  // Adjust based on number of instructions (more steps = more prep)
+  if (instructionCount > 8) {
+    basePrep += 10;
+  } else if (instructionCount > 5) {
+    basePrep += 5;
+  }
+  
+  return {
+    prepTime: Math.round(basePrep),
+    cookTime: Math.round(baseCook),
+  };
+}
+
 // Helper to create enhanced recipe
 function createEnhancedRecipe(
   title: string,
@@ -87,12 +188,15 @@ function createEnhancedRecipe(
       { step: 2, text: 'Follow cooking instructions for best results.' },
       { step: 3, text: 'Serve hot and enjoy your delicious vegan meal!' },
     ],
-    prepTime: 15,
-    cookTime: 20,
     servings: 4,
     difficulty: 'easy' as const,
     nutritionInfo: { calories: 200, protein: '5g', carbs: '30g', fat: '8g' },
   };
+  
+  // Calculate realistic times if not provided in details
+  const times = details.prepTime && details.cookTime 
+    ? { prepTime: details.prepTime, cookTime: details.cookTime }
+    : calculateRealisticTimes(title, category, details.instructions, details.difficulty);
   
   const description = `Delicious vegan ${title.toLowerCase()} recipe from vegancooking.recipes. Made with plant-based ingredients, perfect for ${category[0]} lovers.`;
   
@@ -100,8 +204,8 @@ function createEnhancedRecipe(
     title: `Vegan ${title}`,
     description,
     prologue: createPrologue(title, category[0]),
-    prepTime: details.prepTime,
-    cookTime: details.cookTime,
+    prepTime: times.prepTime,
+    cookTime: times.cookTime,
     servings: details.servings,
     difficulty: details.difficulty,
     category,

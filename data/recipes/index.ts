@@ -1,5 +1,4 @@
 import { Recipe } from '@/types/recipe';
-import { all250Recipes } from './all250Recipes';
 // Import original recipes from a separate file to avoid circular dependency
 import { originalRecipes } from './originalRecipesData';
 import { bakingRecipes } from './baking';
@@ -12,12 +11,12 @@ import { dessertRecipes } from './dessert';
 import { snackRecipes } from './snack';
 import { beverageRecipes } from './beverage';
 
-// Combine all recipes: existing 8 + generated 250 = 258 total
-// For now, using the generated 250 recipes
-// Existing recipes can be added back when migrated
+// Combine all recipes: Only include recipes with accurate, detailed ingredients and instructions
+// The 250 generated recipes were removed as they contained placeholder data
+// New recipes should be added individually with proper ingredients and instructions
 export const allRecipes: Recipe[] = [
-  ...originalRecipes, // Original 8 recipes (IDs 1-8)
-  ...all250Recipes, // 250 new recipes (IDs 9-258)
+  ...originalRecipes, // Original 8 recipes (IDs 1-8) - these have accurate, detailed recipes
+  // ...all250Recipes, // REMOVED: These contained placeholder ingredients/instructions
   ...bakingRecipes,
   ...savoryRecipes,
   ...ethnicRecipes,
