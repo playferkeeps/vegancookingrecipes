@@ -9,6 +9,10 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vegancooking.recipes'),
+  icons: {
+    icon: '/img/vcr-favicon.png',
+    apple: '/img/vcr-favicon.png',
+  },
   title: {
     default: 'Vegan Cooking Recipes - Delicious Plant-Based Meals | vegancooking.recipes',
     template: '%s | vegancooking.recipes',
@@ -63,6 +67,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/img/vcr-favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/img/vcr-favicon.png" />
         <link rel="canonical" href="https://vegancooking.recipes" />
         <meta name="application-name" content="vegancooking.recipes" />
         <meta name="apple-mobile-web-app-title" content="vegancooking.recipes" />

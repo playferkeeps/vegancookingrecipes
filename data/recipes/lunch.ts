@@ -1646,4 +1646,726 @@ export const lunchRecipes: Recipe[] = [
     variations: ["Add avocado for creaminess and healthy fats.","Incorporate roasted vegetables like sweet potatoes or zucchini for added flavor."],
     storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Stir well before serving again to redistribute the dressing.',
   },
+  {
+    id: '1767011889800.4592',
+    title: 'Vegan Whole-Food Plant-Based Flatbread',
+    slug: 'vegan-whole-food-plant-based-flatbread',
+    description: 'This delightful vegan flatbread is made with whole grain flour and minimal ingredients, perfect for wraps or as a side to your favorite dip.',
+    prologue: 'Discover the joy of making your own flatbread with this simple vegan recipe from vegancooking.recipes. Packed with whole grains and free from animal products, this flatbread is not only delicious but also a healthy addition to your lunch routine. Perfect for wraps, dips, or just on its own, this recipe is easy to follow and requires minimal ingredients.',
+    image: '/recipe-images/vegan-whole-food-plant-based-flatbread-1767011891172.webp',
+    prepTime: 15,
+    cookTime: 10,
+    totalTime: 25,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "You can substitute with spelt flour for a different flavor."
+        },
+        {
+          "name": "Water",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "Adjust as needed for consistency."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Optional, for added flavor."
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Baking powder",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Helps the flatbread puff up."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large mixing bowl, combine the whole wheat flour, baking powder, and salt."
+        },
+        {
+          "step": 2,
+          "text": "Create a well in the center of the dry ingredients and add the water and olive oil."
+        },
+        {
+          "step": 3,
+          "text": "Mix with a wooden spoon or your hands until the dough starts to come together."
+        },
+        {
+          "step": 4,
+          "text": "Knead the dough on a lightly floured surface for about 5 minutes until smooth and elastic."
+        },
+        {
+          "step": 5,
+          "text": "Divide the dough into 6 equal portions and shape each into a ball."
+        },
+        {
+          "step": 6,
+          "text": "Roll out each ball into a flat, round shape about 1/4 inch thick."
+        },
+        {
+          "step": 7,
+          "text": "Heat a non-stick skillet over medium-high heat."
+        },
+        {
+          "step": 8,
+          "text": "Cook each flatbread for about 2-3 minutes on each side, or until golden brown and slightly puffed."
+        },
+        {
+          "step": 9,
+          "text": "Remove from the skillet and keep warm in a clean kitchen towel while you cook the remaining flatbreads."
+        },
+        {
+          "step": 10,
+          "text": "Serve warm with your favorite dips or use as a wrap for lunch!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "4g",
+        "carbs": "24g",
+        "fat": "2g",
+        "fiber": "4g",
+        "sugar": "0g"
+      },
+    tags: ["vegan","flatbread","whole-food","plant-based","lunch","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat flour not only adds flavor but also provides more nutrients compared to white flour. For gluten-free options, substitute with a gluten-free flour blend, though results may vary.',
+    faqs: [
+        {
+          "question": "Can I make this flatbread gluten-free?",
+          "answer": "Yes, you can use a gluten-free flour blend, but the texture may differ."
+        },
+        {
+          "question": "How can I store leftover flatbread?",
+          "answer": "Store in an airtight container in the fridge for up to 3 days or freeze for up to a month."
+        }
+      ],
+    tips: ["Make sure your skillet is hot enough to achieve a nice golden color.","Experiment with adding herbs or spices to the dough for added flavor."],
+    variations: ["Add chopped herbs like rosemary or thyme to the dough.","Incorporate seeds like sesame or flaxseed for extra nutrition."],
+    storage: 'Store any leftovers in an airtight container at room temperature for 1-2 days. For longer storage, wrap in plastic wrap and freeze. Reheat in a skillet or microwave before serving.',
+  },
+  {
+    id: '1767012124588.5193',
+    title: 'Vegan Quinoa Salad',
+    slug: 'vegan-quinoa-salad',
+    description: 'This vibrant quinoa salad is packed with nutrients and flavor, making it the perfect lunch option for anyone seeking a wholesome, plant-based meal.',
+    prologue: 'Discover the ultimate vegan quinoa salad, a deliciously nutritious dish that combines protein-rich quinoa with fresh vegetables and a zesty dressing. Ideal for meal prep, this salad is not only easy to make but also bursting with flavor. Perfect for a healthy lunch, it showcases the best of whole-food plant-based cooking, ensuring you get your daily dose of vitamins and minerals. Explore more delicious vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/vegan-quinoa-salad-1767012126018.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Quinoa",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Rinsed thoroughly to remove bitterness"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For cooking quinoa"
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Halved"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Red onion",
+          "amount": "1/4",
+          "unit": "medium",
+          "notes": "Finely chopped"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "Freshly squeezed for dressing"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Extra virgin for best flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Freshly ground"
+        },
+        {
+          "name": "Cumin",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "For added flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a medium saucepan, combine 1 cup of rinsed quinoa and 2 cups of water. Bring to a boil over high heat."
+        },
+        {
+          "step": 2,
+          "text": "Once boiling, reduce the heat to low, cover, and let simmer for about 15 minutes, or until the quinoa is fluffy and water is absorbed."
+        },
+        {
+          "step": 3,
+          "text": "Remove the saucepan from heat and let it sit covered for an additional 5 minutes. Then, fluff the quinoa with a fork."
+        },
+        {
+          "step": 4,
+          "text": "While the quinoa cooks, prepare the vegetables: chop the cherry tomatoes, cucumber, red bell pepper, and red onion, and finely chop the parsley."
+        },
+        {
+          "step": 5,
+          "text": "In a large bowl, combine the cooked quinoa, cherry tomatoes, cucumber, red bell pepper, red onion, and parsley."
+        },
+        {
+          "step": 6,
+          "text": "In a small bowl, whisk together the lemon juice, olive oil, salt, black pepper, and cumin."
+        },
+        {
+          "step": 7,
+          "text": "Pour the dressing over the salad and toss gently to combine all ingredients evenly."
+        },
+        {
+          "step": 8,
+          "text": "Taste and adjust seasoning if needed. Serve immediately or chill in the refrigerator for 30 minutes to enhance flavors."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 220,
+        "protein": "8g",
+        "carbs": "38g",
+        "fat": "7g",
+        "fiber": "6g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","salad","quinoa","lunch","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Quinoa is a great source of complete protein and can be substituted with other grains like farro or bulgur. For a gluten-free option, ensure that the grains are certified gluten-free. Fresh herbs can be swapped according to your preference, and you can add nuts or seeds for extra crunch.',
+    faqs: [
+        {
+          "question": "Can I make this salad ahead of time?",
+          "answer": "Yes, this quinoa salad can be made ahead and stored in the refrigerator for up to 3 days. Just keep the dressing separate and add it right before serving."
+        }
+      ],
+    tips: ["For added flavor, toast the quinoa in a dry skillet before cooking.","Feel free to add other vegetables like avocado, corn, or spinach for more variety."],
+    variations: ["Add black beans and corn for a southwestern twist.","Incorporate roasted sweet potatoes for a heartier salad."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. To refresh the salad, add a splash of lemon juice or olive oil before serving.',
+  },
+  {
+    id: '1767012272483.0442',
+    title: 'Vegan Buddha Bowl',
+    slug: 'vegan-buddha-bowl',
+    description: 'A vibrant and nutritious Buddha bowl packed with whole grains, fresh vegetables, and a creamy tahini dressing.',
+    prologue: 'Discover the joy of plant-based eating with this wholesome Vegan Buddha Bowl, a perfect blend of flavors and textures that will keep you satisfied. Ideal for lunch, this bowl is filled with nutrient-dense ingredients that nourish your body and delight your taste buds. Explore more delicious vegan recipes at vegancooking.recipes and elevate your plant-based cooking skills!',
+    image: '/recipe-images/vegan-buddha-bowl-1767012273661.webp',
+    prepTime: 20,
+    cookTime: 25,
+    totalTime: 45,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Quinoa",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Rinsed and drained"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For cooking quinoa"
+        },
+        {
+          "name": "Chickpeas",
+          "amount": "1",
+          "unit": "can",
+          "notes": "Drained and rinsed"
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Halved"
+        },
+        {
+          "name": "Cucumber",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1",
+          "unit": "large",
+          "notes": "Sliced"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Fresh, packed"
+        },
+        {
+          "name": "Tahini",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "For dressing"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Freshly squeezed"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For dressing"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": ""
+        },
+        {
+          "name": "Black pepper",
+          "amount": "to taste",
+          "unit": "",
+          "notes": ""
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "For sautéing spinach"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a medium saucepan, combine the rinsed quinoa and vegetable broth. Bring to a boil over medium-high heat."
+        },
+        {
+          "step": 2,
+          "text": "Once boiling, reduce the heat to low, cover, and let simmer for about 15 minutes or until the quinoa is fluffy and the liquid is absorbed. Remove from heat and let it sit covered for 5 minutes."
+        },
+        {
+          "step": 3,
+          "text": "While the quinoa is cooking, heat olive oil in a skillet over medium heat. Add the spinach and sauté for 2-3 minutes until wilted. Remove from heat."
+        },
+        {
+          "step": 4,
+          "text": "In a small bowl, whisk together tahini, lemon juice, garlic powder, salt, and black pepper until smooth. If it's too thick, add a small amount of water to reach desired consistency."
+        },
+        {
+          "step": 5,
+          "text": "In serving bowls, layer the cooked quinoa, sautéed spinach, chickpeas, cherry tomatoes, cucumber, and avocado."
+        },
+        {
+          "step": 6,
+          "text": "Drizzle the tahini dressing over the top of each bowl. Serve immediately and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 550,
+        "protein": "18g",
+        "carbs": "75g",
+        "fat": "25g",
+        "fiber": "15g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","bowl","whole food","plant-based","lunch","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Quinoa can be replaced with brown rice or farro for a different flavor. Use any fresh vegetables you have on hand to customize your bowl.',
+    faqs: [
+        {
+          "question": "Can I meal prep this bowl?",
+          "answer": "Yes! You can prepare the quinoa, chickpeas, and dressing in advance. Store each component separately in airtight containers in the refrigerator for up to 4 days."
+        },
+        {
+          "question": "Is this recipe gluten-free?",
+          "answer": "Yes, this recipe is gluten-free as quinoa and chickpeas are naturally gluten-free."
+        }
+      ],
+    tips: ["Make sure to rinse the quinoa well to remove its natural coating, which can make it taste bitter.","Feel free to add other toppings like nuts, seeds, or your favorite vegan cheese for extra flavor and texture."],
+    variations: ["Add roasted sweet potatoes or beets for an extra layer of flavor.","Substitute tahini dressing with a peanut sauce for a different taste."],
+    storage: 'Store leftovers in airtight containers in the refrigerator for up to 4 days. Reheat the quinoa and chickpeas before serving, and add fresh vegetables just before eating.',
+  },
+  {
+    id: '1767013234669.2546',
+    title: 'Vegan Whole-Food Plant-Based Burrito',
+    slug: 'vegan-whole-food-plant-based-burrito',
+    description: 'A hearty and flavorful vegan burrito packed with wholesome ingredients, perfect for a nutritious lunch on the go!',
+    prologue: 'This vegan whole-food plant-based burrito is a delightful blend of brown rice, black beans, and an array of fresh vegetables, wrapped in a soft tortilla. It\'s easy to make and is bursting with flavor, making it a perfect choice for lunch or a quick meal. At vegancooking.recipes, we believe in creating meals that are not only delicious but also nourishing, and this burrito embodies that philosophy.',
+    image: '/recipe-images/vegan-whole-food-plant-based-burritos-1766981046913.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Brown rice",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Rinsed and drained"
+        },
+        {
+          "name": "Water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For cooking the rice"
+        },
+        {
+          "name": "Canned black beans",
+          "amount": "1",
+          "unit": "15 oz can",
+          "notes": "Rinsed and drained"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Corn kernels",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Fresh or frozen"
+        },
+        {
+          "name": "Red onion",
+          "amount": "1/2",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Ground cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavor"
+        },
+        {
+          "name": "Chili powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For spice"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Whole wheat tortillas",
+          "amount": "4",
+          "unit": "large",
+          "notes": "For wrapping"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped, for garnish"
+        },
+        {
+          "name": "Lime",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Cut into wedges for serving"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a medium saucepan, combine the rinsed brown rice and 2 cups of water. Bring to a boil, then reduce heat to low, cover, and let simmer for about 20-25 minutes or until the rice is tender and water is absorbed."
+        },
+        {
+          "step": 2,
+          "text": "While the rice is cooking, heat a large skillet over medium heat. Add the diced red onion and minced garlic, sautéing for about 3-4 minutes until the onion is translucent."
+        },
+        {
+          "step": 3,
+          "text": "Add the diced red bell pepper, zucchini, and corn to the skillet. Stir well and cook for an additional 5-7 minutes until the vegetables are tender."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the rinsed black beans, ground cumin, chili powder, salt, and black pepper. Cook for another 3-4 minutes until everything is heated through."
+        },
+        {
+          "step": 5,
+          "text": "Once the rice is cooked, fluff it with a fork and add it to the skillet with the vegetable mixture. Stir to combine all ingredients thoroughly."
+        },
+        {
+          "step": 6,
+          "text": "Warm the whole wheat tortillas in a dry skillet for about 30 seconds on each side, or until pliable."
+        },
+        {
+          "step": 7,
+          "text": "To assemble the burritos, place a generous portion of the rice and bean mixture in the center of each tortilla. Fold in the sides and then roll from the bottom to the top, creating a tightly wrapped burrito."
+        },
+        {
+          "step": 8,
+          "text": "Serve the burritos warm, garnished with fresh cilantro and lime wedges on the side."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 410,
+        "protein": "15g",
+        "carbs": "68g",
+        "fat": "7g",
+        "fiber": "15g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","burrito","whole-food","lunch","plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a spicier burrito, consider adding jalapeños or a dash of hot sauce. You can also substitute quinoa for brown rice for a different texture and flavor.',
+    faqs: [
+        {
+          "question": "Can I make these burritos ahead of time?",
+          "answer": "Yes! You can prepare the filling and store it in the fridge for up to 3 days. Just warm it up before assembling the burritos."
+        },
+        {
+          "question": "How can I store leftover burritos?",
+          "answer": "Wrap them tightly in foil or plastic wrap and store in the refrigerator for up to 4 days. You can also freeze them for up to 3 months."
+        }
+      ],
+    tips: ["For a creamier texture, add 1/4 avocado to each burrito before rolling.","To make the burrito spicier, add diced jalapeños or a sprinkle of cayenne pepper to the filling."],
+    variations: ["Swap black beans for pinto beans or chickpeas for a different flavor profile.","Add sautéed spinach or kale for a nutrient boost."],
+    storage: 'Store assembled burritos in an airtight container in the refrigerator for up to 4 days. For longer storage, wrap burritos tightly in aluminum foil and freeze for up to 3 months. Reheat in the oven or microwave before serving.',
+  },
+  {
+    id: '1767013423407.4036',
+    title: 'Vegan Whole-Food Plant-Based Noodles',
+    slug: 'vegan-whole-food-plant-based-noodles',
+    description: 'Savor the rich flavors of these wholesome vegan noodles, packed with fresh vegetables and a delicious homemade sauce.',
+    prologue: 'Experience a delightful fusion of textures and tastes with our Vegan Whole-Food Plant-Based Noodles. Made with simple, clean ingredients, this dish is not only nourishing but also bursting with flavor. Perfect for a fulfilling lunch, these noodles are an easy way to incorporate more veggies into your diet. Visit vegancooking.recipes for more delicious and healthy vegan recipes.',
+    image: '/recipe-images/vegan-whole-food-plant-based-noodles-1767013424983.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["lunch"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat spaghetti",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "Can substitute with gluten-free pasta if desired"
+        },
+        {
+          "name": "Broccoli florets",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Fresh or frozen"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Thinly sliced"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "large",
+          "notes": "Julienned or grated"
+        },
+        {
+          "name": "Green onion",
+          "amount": "3",
+          "unit": "stalks",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "Fresh, grated"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "Low-sodium preferred"
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Can substitute with olive oil"
+        },
+        {
+          "name": "Rice vinegar",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For added tanginess"
+        },
+        {
+          "name": "Sesame seeds",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "For garnish"
+        },
+        {
+          "name": "Red pepper flakes",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Optional for heat"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Bring a large pot of salted water to a boil. Add the whole wheat spaghetti and cook according to package instructions until al dente, usually about 8-10 minutes."
+        },
+        {
+          "step": 2,
+          "text": "While the pasta cooks, heat a large skillet over medium heat. Add the sesame oil."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic and grated ginger to the skillet and sauté for about 1 minute until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the broccoli florets, sliced red bell pepper, and julienned carrot to the skillet. Sauté for 5-6 minutes until the vegetables are tender but still crisp."
+        },
+        {
+          "step": 5,
+          "text": "Once the pasta is cooked, drain it and add it directly to the skillet with the sautéed vegetables."
+        },
+        {
+          "step": 6,
+          "text": "In a small bowl, whisk together the soy sauce and rice vinegar. Pour this mixture over the pasta and vegetables in the skillet."
+        },
+        {
+          "step": 7,
+          "text": "Toss everything together gently to ensure the noodles and veggies are well coated in the sauce."
+        },
+        {
+          "step": 8,
+          "text": "Remove from heat and stir in the chopped green onions and red pepper flakes, if using."
+        },
+        {
+          "step": 9,
+          "text": "Serve hot, garnished with sesame seeds on top."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "12g",
+        "carbs": "60g",
+        "fat": "8g",
+        "fiber": "8g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","whole-food","plant-based","noodles","lunch","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat spaghetti is a great source of fiber and complex carbohydrates. You can replace it with gluten-free noodles if you have dietary restrictions. Feel free to use any seasonal vegetables you have on hand for added variety.',
+    faqs: [
+        {
+          "question": "Can I make this recipe gluten-free?",
+          "answer": "Yes, simply substitute the whole wheat spaghetti with a gluten-free pasta of your choice."
+        },
+        {
+          "question": "How can I make this dish spicier?",
+          "answer": "You can add more red pepper flakes or a splash of sriracha sauce to increase the heat."
+        }
+      ],
+    tips: ["Prep all your vegetables before starting to cook to make the process smoother.","For added protein, consider adding tofu or chickpeas to the dish."],
+    variations: ["Add more vegetables like snap peas, zucchini, or mushrooms for extra nutrition.","Swap out the soy sauce for tamari for a gluten-free option."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. Reheat on the stovetop with a splash of water or vegetable broth to keep the noodles moist.',
+  },
 ];

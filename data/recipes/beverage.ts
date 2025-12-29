@@ -976,4 +976,866 @@ export const beverageRecipes: Recipe[] = [
     variations: ["Add a splash of your favorite fruit juice for a fruity twist.","Incorporate spices like cinnamon or turmeric for added health benefits."],
     storage: 'Store any leftover tea in a sealed container in the refrigerator for up to 3 days. Reheat gently on the stove before serving or enjoy chilled.',
   },
+  {
+    id: '1767010695001.1008',
+    title: 'Vegan Fruit Smoothie',
+    slug: 'vegan-fruit-smoothie',
+    description: 'A refreshing and nutrient-packed vegan fruit smoothie, perfect for breakfast or a snack!',
+    prologue: 'This Vegan Fruit Smoothie is a delightful way to start your day or refuel after a workout. Packed with whole fruits and nutrient-dense ingredients, this smoothie is not only delicious but also supports your health goals. At vegancooking.recipes, we believe in celebrating the vibrant flavors of plant-based foods! Enjoy this easy recipe that’s both satisfying and energizing.',
+    image: '/recipe-images/vegan-fruit-smoothie-1767010697557.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Banana",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "peeled and sliced"
+        },
+        {
+          "name": "Frozen mixed berries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "strawberries, blueberries, raspberries, etc."
+        },
+        {
+          "name": "Spinach",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "fresh or frozen"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "unsweetened"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "optional for added fiber and omega-3"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "optional for sweetness"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Gather all the ingredients and ensure your banana is ripe for optimal sweetness."
+        },
+        {
+          "step": 2,
+          "text": "In a blender, add the sliced banana, frozen mixed berries, and spinach."
+        },
+        {
+          "step": 3,
+          "text": "Pour in the almond milk to help the blending process."
+        },
+        {
+          "step": 4,
+          "text": "Add the chia seeds and maple syrup if using."
+        },
+        {
+          "step": 5,
+          "text": "Blend on high speed until the mixture is smooth and creamy, about 30-60 seconds."
+        },
+        {
+          "step": 6,
+          "text": "If the smoothie is too thick, add a bit more almond milk until you reach your desired consistency."
+        },
+        {
+          "step": 7,
+          "text": "Taste and adjust sweetness if necessary by adding more maple syrup."
+        },
+        {
+          "step": 8,
+          "text": "Pour the smoothie into glasses and serve immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 200,
+        "protein": "5g",
+        "carbs": "40g",
+        "fat": "6g",
+        "fiber": "8g",
+        "sugar": "15g"
+      },
+    tags: ["smoothie","vegan","healthy","breakfast","snack","beverage","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute almond milk with any plant-based milk like soy or oat milk. Fresh fruits can be used instead of frozen, but you may want to add ice to achieve a chilled consistency.',
+    faqs: [
+        {
+          "question": "Can I use fresh fruit instead of frozen?",
+          "answer": "Yes, you can use fresh fruit, but you may want to add ice to achieve a frosty texture."
+        },
+        {
+          "question": "What can I add for protein?",
+          "answer": "You can add a scoop of vegan protein powder or a tablespoon of nut butter for extra protein."
+        }
+      ],
+    tips: ["Use overripe bananas for a naturally sweeter smoothie.","Experiment with different fruits or add-ins like nut butter or protein powder."],
+    variations: ["Tropical Smoothie: Add 1/2 cup of frozen mango and 1/2 cup of coconut water.","Green Smoothie: Substitute kale for spinach and add 1/2 avocado."],
+    storage: 'This smoothie is best enjoyed fresh. However, if you need to store it, keep it in an airtight container in the refrigerator for up to 24 hours. Stir or shake well before drinking.',
+  },
+  {
+    id: '1767011270832.6675',
+    title: 'Vegan Iced Tea',
+    slug: 'vegan-iced-tea',
+    description: 'Refreshingly cool and naturally brewed, this vegan iced tea is a perfect thirst-quencher for any occasion.',
+    prologue: 'This Vegan Iced Tea recipe is simple and delightful, making it a must-try for tea lovers and health enthusiasts alike. With its whole-food-plant-based approach, this iced tea is not only refreshing but also completely free from animal products. Perfect for hot summer days or any time you need a cooling beverage, vegancooking.recipes brings you this easy-to-follow recipe that elevates your hydration game.',
+    image: '/recipe-images/vegan-iced-tea-1767011272106.webp',
+    prepTime: 10,
+    cookTime: 15,
+    totalTime: 25,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Filtered water for better taste"
+        },
+        {
+          "name": "Loose black tea or green tea",
+          "amount": "4",
+          "unit": "teaspoons",
+          "notes": "Choose your favorite variety"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Adjust sweetness to taste"
+        },
+        {
+          "name": "Fresh lemon juice",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Optional for added flavor"
+        },
+        {
+          "name": "Ice cubes",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For serving"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a medium saucepan, bring 4 cups of filtered water to a boil over medium-high heat."
+        },
+        {
+          "step": 2,
+          "text": "Once boiling, remove the saucepan from heat and add 4 teaspoons of loose tea."
+        },
+        {
+          "step": 3,
+          "text": "Cover the saucepan and let the tea steep for 10-15 minutes, depending on how strong you like it."
+        },
+        {
+          "step": 4,
+          "text": "After steeping, strain the tea into a pitcher to remove the tea leaves."
+        },
+        {
+          "step": 5,
+          "text": "Stir in 2 tablespoons of maple syrup and 2 tablespoons of fresh lemon juice, adjusting sweetness and acidity to your preference."
+        },
+        {
+          "step": 6,
+          "text": "Let the tea cool to room temperature, then refrigerate for at least 1 hour."
+        },
+        {
+          "step": 7,
+          "text": "To serve, fill glasses with ice cubes and pour the chilled tea over the ice."
+        },
+        {
+          "step": 8,
+          "text": "Garnish with lemon slices or fresh mint if desired, and enjoy!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 40,
+        "protein": "0g",
+        "carbs": "10g",
+        "fat": "0g",
+        "fiber": "0g",
+        "sugar": "8g"
+      },
+    tags: ["beverage","iced tea","vegan","refreshing","summer drink","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Using high-quality loose leaf tea enhances the flavor of your iced tea. If you prefer, you can substitute maple syrup with agave nectar or stevia for a lower-calorie option.',
+    faqs: [
+        {
+          "question": "Can I use tea bags instead of loose tea?",
+          "answer": "Yes, you can use 2 tea bags in place of loose tea. Steeping time may vary based on the tea type."
+        },
+        {
+          "question": "How can I make flavored iced tea?",
+          "answer": "You can add fresh fruits, herbs, or spices during the steeping process for additional flavors."
+        }
+      ],
+    tips: ["For a more pronounced flavor, try cold brewing your tea by steeping it in cold water for several hours in the refrigerator.","Adjust the sweetness by adding more or less maple syrup according to your taste preference."],
+    variations: ["Try adding fresh mint leaves during the steeping process for a minty iced tea.","Infuse your iced tea with fruits like peach slices or berries for a fruity twist."],
+    storage: 'Store any leftover iced tea in an airtight container in the refrigerator for up to 3 days. If it becomes too strong, you can dilute it with additional water or ice.',
+  },
+  {
+    id: '1767011509076.8086',
+    title: 'Vegan Limeade',
+    slug: 'vegan-limeade',
+    description: 'Refreshingly tangy and naturally sweetened, this Vegan Limeade is the perfect thirst-quencher for warm days.',
+    prologue: 'Discover the vibrant flavors of summer with this easy Vegan Limeade recipe, perfect for poolside sipping or backyard gatherings. Made with whole food ingredients, this refreshing drink is not only delicious but also free from animal products, making it ideal for anyone seeking a plant-based lifestyle. For more delightful vegan recipes, visit vegancooking.recipes.',
+    image: '/recipe-images/vegan-limeade-1767011510242.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh limes",
+          "amount": "6",
+          "unit": "count",
+          "notes": "juiced"
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "filtered or spring water"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "or adjust to taste"
+        },
+        {
+          "name": "Ice cubes",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "for serving"
+        },
+        {
+          "name": "Fresh mint leaves",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for garnish, optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Wash the limes thoroughly under running water to remove any dirt or residues."
+        },
+        {
+          "step": 2,
+          "text": "Cut the limes in half and juice them using a citrus juicer or a manual juicer. You should have about 1 cup of lime juice."
+        },
+        {
+          "step": 3,
+          "text": "In a large pitcher, combine the freshly squeezed lime juice with 4 cups of water."
+        },
+        {
+          "step": 4,
+          "text": "Add 1/3 cup of maple syrup to the pitcher. Stir well until the syrup is fully dissolved."
+        },
+        {
+          "step": 5,
+          "text": "Taste the limeade and adjust the sweetness by adding more maple syrup if desired."
+        },
+        {
+          "step": 6,
+          "text": "Refrigerate the limeade for at least 30 minutes to chill."
+        },
+        {
+          "step": 7,
+          "text": "To serve, fill glasses with ice cubes, pour the chilled limeade over the ice, and garnish with fresh mint leaves if using."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 70,
+        "protein": "0g",
+        "carbs": "17g",
+        "fat": "0g",
+        "fiber": "0g",
+        "sugar": "14g"
+      },
+    tags: ["beverage","refreshing","limeade","vegan","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Fresh limes are key to achieving the best flavor. You can substitute maple syrup with agave syrup or another natural sweetener, but keep in mind that it may slightly alter the taste.',
+    faqs: [
+        {
+          "question": "Can I use bottled lime juice?",
+          "answer": "While bottled lime juice can be used in a pinch, fresh lime juice provides a much brighter and more authentic flavor."
+        },
+        {
+          "question": "How can I make this limeade less sweet?",
+          "answer": "Simply reduce the amount of maple syrup or increase the water content for a more tart flavor."
+        }
+      ],
+    tips: ["For an extra refreshing twist, add slices of cucumber or strawberries to the limeade.","If you prefer a sparkling version, substitute half of the water with sparkling water."],
+    variations: ["Add a splash of coconut water for a tropical vibe.","Mix in some muddled berries for a berry-infused limeade."],
+    storage: 'Store any leftover limeade in an airtight container in the refrigerator for up to 3 days. Stir well before serving again as the ingredients may settle.',
+  },
+  {
+    id: '1767011599793.1821',
+    title: 'Vegan Chocolate Banana Milkshake',
+    slug: 'vegan-chocolate-banana-milkshake',
+    description: 'Indulge in this creamy and rich vegan chocolate banana milkshake, perfect for a refreshing treat or dessert.',
+    prologue: 'This Vegan Chocolate Banana Milkshake is a delightful blend of flavors that will satisfy your sweet tooth while keeping it healthy. Made with whole-food plant-based ingredients, this milkshake is not only delicious but also packed with nutrients. Whether you\'re looking for a quick snack or a decadent dessert, this recipe from vegancooking.recipes will surely become a favorite.',
+    image: '/recipe-images/vegan-chocolate-banana-milkshake-1767011601179.webp',
+    prepTime: 5,
+    cookTime: 20,
+    totalTime: 25,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "ripe bananas",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "peeled and sliced"
+        },
+        {
+          "name": "unsweetened almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "or any other plant-based milk"
+        },
+        {
+          "name": "raw cacao powder",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "or cocoa powder for a sweeter taste"
+        },
+        {
+          "name": "maple syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "adjust for sweetness preference"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "optional for added flavor"
+        },
+        {
+          "name": "ice cubes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for a chilled milkshake"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a blender, add the sliced ripe bananas."
+        },
+        {
+          "step": 2,
+          "text": "Pour in the unsweetened almond milk."
+        },
+        {
+          "step": 3,
+          "text": "Add the raw cacao powder, maple syrup, and vanilla extract."
+        },
+        {
+          "step": 4,
+          "text": "Finally, add the ice cubes."
+        },
+        {
+          "step": 5,
+          "text": "Blend on high until smooth and creamy, stopping to scrape down the sides if necessary."
+        },
+        {
+          "step": 6,
+          "text": "Taste the milkshake and adjust sweetness if needed by adding more maple syrup."
+        },
+        {
+          "step": 7,
+          "text": "Pour the milkshake into two tall glasses and serve immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 220,
+        "protein": "3g",
+        "carbs": "42g",
+        "fat": "4g",
+        "fiber": "5g",
+        "sugar": "18g"
+      },
+    tags: ["vegan","milkshake","dessert","chocolate","banana","beverage","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute almond milk with oat milk or soy milk based on your preference. For a creamier texture, try adding a tablespoon of nut butter or a handful of soaked cashews.',
+    faqs: [
+        {
+          "question": "Can I use frozen bananas?",
+          "answer": "Absolutely! Frozen bananas will give your milkshake a thicker texture and make it even more refreshing."
+        },
+        {
+          "question": "Is this milkshake gluten-free?",
+          "answer": "Yes, all the ingredients in this recipe are gluten-free, making it suitable for those with gluten sensitivities."
+        }
+      ],
+    tips: ["For an extra chocolatey flavor, consider adding a tablespoon of chocolate syrup on top before serving.","If you prefer a thicker consistency, reduce the amount of almond milk or add more ice."],
+    variations: ["Try adding a scoop of your favorite plant-based protein powder for an extra protein boost.","Substitute the raw cacao powder with carob powder for a different flavor profile."],
+    storage: 'This milkshake is best enjoyed fresh. However, if you have leftovers, you can store them in an airtight container in the refrigerator for up to 24 hours. Stir well before consuming as separation may occur.',
+  },
+  {
+    id: '1767012240906.6963',
+    title: 'Vegan Protein Smoothie',
+    slug: 'vegan-protein-smoothie',
+    description: 'This delicious vegan protein smoothie is packed with nutrients and is perfect for a quick breakfast or post-workout snack.',
+    prologue: 'Looking for a nutritious and energizing vegan protein smoothie? This whole-food, plant-based recipe combines the goodness of leafy greens, fruits, and plant-based protein to create a satisfying beverage that fuels your day. Perfect for those on a vegan journey, this smoothie is not only delicious but also easy to make. Check out vegancooking.recipes for more healthy vegan recipes.',
+    image: '/recipe-images/vegan-protein-smoothie-1767012242258.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Banana",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "peeled and chopped"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "fresh, packed"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "unsweetened"
+        },
+        {
+          "name": "Pea protein powder",
+          "amount": "2",
+          "unit": "scoops",
+          "notes": "or any other plant-based protein powder"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "optional for added fiber"
+        },
+        {
+          "name": "Frozen mixed berries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "or any berries of your choice"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "optional for sweetness"
+        },
+        {
+          "name": "Ice cubes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "for a chilled smoothie"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a high-speed blender, add the chopped banana, fresh spinach, and almond milk. Blend on high until smooth."
+        },
+        {
+          "step": 2,
+          "text": "Next, add the pea protein powder, chia seeds, frozen mixed berries, and maple syrup (if using) to the blender."
+        },
+        {
+          "step": 3,
+          "text": "Add the ice cubes to the blender and blend again until all ingredients are well combined and smooth."
+        },
+        {
+          "step": 4,
+          "text": "Taste the smoothie and adjust sweetness with more maple syrup if desired."
+        },
+        {
+          "step": 5,
+          "text": "Pour the smoothie into two glasses and enjoy immediately for the best flavor and texture."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 240,
+        "protein": "20g",
+        "carbs": "40g",
+        "fat": "6g",
+        "fiber": "10g",
+        "sugar": "12g"
+      },
+    tags: ["smoothie","vegan","breakfast","healthy","protein","beverage","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Bananas add natural sweetness and creaminess, while spinach provides essential nutrients without altering the flavor. You can substitute almond milk with any other plant-based milk like oat, soy, or coconut milk. Chia seeds are optional but they boost the fiber content and provide omega-3 fatty acids.',
+    faqs: [
+        {
+          "question": "Can I use fresh berries instead of frozen?",
+          "answer": "Yes, you can use fresh berries, but you may want to add more ice to achieve a chilled smoothie."
+        },
+        {
+          "question": "How can I make this smoothie sweeter?",
+          "answer": "You can add more maple syrup, a date, or a splash of agave syrup to enhance the sweetness."
+        }
+      ],
+    tips: ["Use ripe bananas for the best sweetness and creaminess.","If you're not a fan of spinach, you can substitute it with kale or another leafy green."],
+    variations: ["Add a tablespoon of almond butter or peanut butter for extra creaminess and flavor.","Replace frozen mixed berries with frozen mango or pineapple for a tropical twist."],
+    storage: 'This smoothie is best enjoyed fresh, but if you have leftovers, store them in an airtight container in the refrigerator for up to 24 hours. Shake or stir before drinking as separation may occur.',
+  },
+  {
+    id: '1767012464523.5146',
+    title: 'Vegan Lemonade',
+    slug: 'vegan-lemonade',
+    description: 'Refreshingly tangy and perfectly sweetened, this homemade lemonade is a must-have for any warm day.',
+    prologue: 'Nothing beats the classic taste of lemonade, especially when it\'s made fresh at home! This vegan lemonade recipe is entirely plant-based, using whole food ingredients to create a deliciously refreshing beverage. Perfect for parties, picnics, or just a relaxing afternoon, it\'s sure to quench your thirst. Visit vegancooking.recipes for more delightful vegan recipes!',
+    image: '/recipe-images/vegan-lemonade-1767012466049.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh lemons",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "About 4-6 lemons, juiced"
+        },
+        {
+          "name": "Water",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Filtered or spring water"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Or adjust to taste"
+        },
+        {
+          "name": "Ice cubes",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "For serving"
+        },
+        {
+          "name": "Mint leaves",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Optional, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by washing the lemons thoroughly under running water."
+        },
+        {
+          "step": 2,
+          "text": "Cut the lemons in half and use a juicer or reamer to extract the juice. You should have about 1 cup of fresh lemon juice."
+        },
+        {
+          "step": 3,
+          "text": "In a large pitcher, combine the freshly squeezed lemon juice and maple syrup. Stir well until the syrup is fully dissolved."
+        },
+        {
+          "step": 4,
+          "text": "Add 4 cups of cold water to the pitcher and stir until well combined. Adjust the sweetness by adding more maple syrup if desired."
+        },
+        {
+          "step": 5,
+          "text": "To serve, fill glasses with ice cubes and pour the lemonade over the ice. Garnish with fresh mint leaves if using."
+        },
+        {
+          "step": 6,
+          "text": "Enjoy your refreshing vegan lemonade!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 60,
+        "protein": "0g",
+        "carbs": "15g",
+        "fat": "0g",
+        "fiber": "0g",
+        "sugar": "12g"
+      },
+    tags: ["beverage","summer drink","refreshing","easy","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Fresh lemons are key to achieving the right tartness in your lemonade. Maple syrup is a great natural sweetener, but you can substitute with agave syrup or another liquid sweetener if preferred.',
+    faqs: [
+        {
+          "question": "Can I use bottled lemon juice?",
+          "answer": "While you can use bottled lemon juice, fresh lemon juice provides a much brighter and more vibrant flavor."
+        },
+        {
+          "question": "How can I make this lemonade less sweet?",
+          "answer": "Simply reduce the amount of maple syrup or add more water to dilute the sweetness."
+        }
+      ],
+    tips: ["For a sparkling version, use sparkling water instead of still water.","Add a few slices of lemon to the pitcher for a decorative touch."],
+    variations: ["Add fresh fruit slices, such as strawberries or raspberries, for a fruity twist.","Infuse with herbs like basil or rosemary for a unique flavor profile."],
+    storage: 'Store any leftover lemonade in the refrigerator in an airtight container for up to 3 days. Stir well before serving again as ingredients may separate.',
+  },
+  {
+    id: '1767012860346.0022',
+    title: 'Vegan Tropical Punch',
+    slug: 'vegan-tropical-punch',
+    description: 'A refreshing and vibrant tropical punch that combines the flavors of pineapple, mango, and coconut for a delightful drink perfect for any occasion.',
+    prologue: 'Looking for a refreshing and delicious beverage to quench your thirst? This Vegan Tropical Punch is a perfect choice for parties, picnics, or just a sunny afternoon at home. Packed with wholesome, natural ingredients, it\'s a delightful blend of tropical fruits that everyone will love. Explore more amazing vegan recipes at vegancooking.recipes to elevate your plant-based cooking game.',
+    image: '/recipe-images/vegan-tropical-punch-1767012861530.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Fresh pineapple",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "cut into chunks"
+        },
+        {
+          "name": "Fresh mango",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "peeled and diced"
+        },
+        {
+          "name": "Coconut water",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "unsweetened"
+        },
+        {
+          "name": "Fresh lime juice",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Agave syrup",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "optional, adjust to taste"
+        },
+        {
+          "name": "Sparkling water",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "for fizziness"
+        },
+        {
+          "name": "Fresh mint leaves",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for garnish"
+        },
+        {
+          "name": "Ice cubes",
+          "amount": "as needed",
+          "unit": "none",
+          "notes": "for serving"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Begin by preparing the fresh pineapple and mango. Cut the pineapple into chunks and peel and dice the mango."
+        },
+        {
+          "step": 2,
+          "text": "In a large blender, combine the pineapple chunks and diced mango."
+        },
+        {
+          "step": 3,
+          "text": "Add the coconut water, freshly squeezed lime juice, and agave syrup (if using) to the blender."
+        },
+        {
+          "step": 4,
+          "text": "Blend the mixture on high speed until smooth and well combined."
+        },
+        {
+          "step": 5,
+          "text": "Strain the blended mixture through a fine mesh sieve into a large pitcher to remove any pulp, pressing down with a spatula to extract as much juice as possible."
+        },
+        {
+          "step": 6,
+          "text": "Once strained, add the sparkling water to the pitcher and gently stir to combine."
+        },
+        {
+          "step": 7,
+          "text": "Serve the punch over ice cubes in glasses and garnish with fresh mint leaves."
+        },
+        {
+          "step": 8,
+          "text": "Enjoy your refreshing Vegan Tropical Punch!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "1g",
+        "carbs": "30g",
+        "fat": "0g",
+        "fiber": "3g",
+        "sugar": "20g"
+      },
+    tags: ["beverage","punch","tropical","vegan","refreshing","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a sweeter punch, adjust the amount of agave syrup to your desired taste. You can also use other tropical fruits like papaya or passion fruit for a unique twist.',
+    faqs: [
+        {
+          "question": "Can I make this punch ahead of time?",
+          "answer": "Yes, you can prepare the punch and store it in the refrigerator for up to 24 hours. Just add the sparkling water right before serving to keep it fizzy."
+        }
+      ],
+    tips: ["Use frozen fruits for a chilled punch without adding ice.","Experiment with different fruit juices like orange or guava for variations."],
+    variations: ["Add a splash of rum or vodka for an adult version.","Make it a green punch by adding spinach or kale to the blend."],
+    storage: 'Store any leftover punch in an airtight container in the refrigerator for up to 2 days. If the punch starts to lose its fizz, consider adding more sparkling water before serving.',
+  },
+  {
+    id: '1767013043308.566',
+    title: 'Vegan Cappuccino',
+    slug: 'vegan-cappuccino',
+    description: 'Indulge in this rich and creamy vegan cappuccino that offers the perfect balance of espresso and frothy plant-based milk, making it a delightful treat for coffee lovers.',
+    prologue: 'Looking for a delicious vegan alternative to the classic cappuccino? This whole-food-plant-based recipe from vegancooking.recipes will satisfy your coffee cravings without any animal products. With simple ingredients and easy steps, you can whip up a creamy, frothy cappuccino that’s perfect for any time of day. Enjoy the rich flavors while knowing you’re sticking to your plant-based lifestyle!',
+    image: '/recipe-images/vegan-cappuccino-1767013045575.webp',
+    prepTime: 5,
+    cookTime: 5,
+    totalTime: 10,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["beverage"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Espresso coffee",
+          "amount": "2",
+          "unit": "shots",
+          "notes": "Use your favorite espresso blend"
+        },
+        {
+          "name": "Unsweetened almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Or any unsweetened plant-based milk of your choice"
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "For a warm flavor; optional"
+        },
+        {
+          "name": "Cocoa powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Optional, for a mocha twist"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Optional, adjust sweetness to taste"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "Optional, for added flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Brew two shots of espresso using your espresso machine or a stovetop espresso maker."
+        },
+        {
+          "step": 2,
+          "text": "In a small saucepan, heat the almond milk over medium heat until it begins to steam, but do not let it boil."
+        },
+        {
+          "step": 3,
+          "text": "Once the milk is heated, use a milk frother or a whisk to froth the milk until it becomes creamy and foamy."
+        },
+        {
+          "step": 4,
+          "text": "If using, add cinnamon, cocoa powder, maple syrup, and vanilla extract to the frothed milk; stir until well combined."
+        },
+        {
+          "step": 5,
+          "text": "Pour the brewed espresso into two cups, and gently spoon the frothed milk over the espresso."
+        },
+        {
+          "step": 6,
+          "text": "Dust with additional cinnamon or cocoa powder on top if desired, and serve immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 70,
+        "protein": "2g",
+        "carbs": "12g",
+        "fat": "2g",
+        "fiber": "1g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","coffee","beverage","plant-based","caffeine","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Choose unsweetened plant milk to maintain the whole-food-plant-based integrity of the recipe. Almond milk is recommended for its creaminess, but oat or soy milk can also be great alternatives. Always opt for high-quality espresso for the best flavor.',
+    faqs: [
+        {
+          "question": "Can I use instant coffee instead of espresso?",
+          "answer": "Yes, you can use instant coffee mixed with hot water, but the flavor will differ from traditional espresso."
+        },
+        {
+          "question": "How can I make this cappuccino stronger?",
+          "answer": "You can either add an extra shot of espresso or reduce the amount of almond milk used."
+        }
+      ],
+    tips: ["For a thicker foam, use a barista blend of plant milk, which is designed for frothing.","Experiment with different flavorings like hazelnut or caramel syrup for variety."],
+    variations: ["Add a splash of peppermint extract for a seasonal twist.","Top with whipped coconut cream for an indulgent treat."],
+    storage: 'Cappuccinos are best enjoyed fresh. However, brewed espresso can be stored in the fridge for up to 3 days. Reheat gently before serving.',
+  },
 ];

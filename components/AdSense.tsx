@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface AdSenseProps {
   adSlot: string;
@@ -17,7 +17,11 @@ export default function AdSense({
   style,
   className = '',
 }: AdSenseProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
   useEffect(() => {
+    setIsMounted(true);
+    
     try {
       if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
         ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
@@ -29,6 +33,21 @@ export default function AdSense({
 
   // Replace with your AdSense publisher ID
   const PUBLISHER_ID = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX';
+
+  // Don't render on server to avoid hydration mismatch
+  if (!isMounted) {
+    return (
+      <div
+        className={className}
+        style={{
+          display: 'block',
+          minHeight: style?.minHeight || '100px',
+          ...style,
+        }}
+        suppressHydrationWarning
+      />
+    );
+  }
 
   return (
     <ins

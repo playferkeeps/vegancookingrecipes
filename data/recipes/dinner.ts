@@ -2844,4 +2844,996 @@ export const dinnerRecipes: Recipe[] = [
     variations: ["Add a cup of kale or spinach for added greens.","For a spicy kick, add a teaspoon of red pepper flakes."],
     storage: 'Store leftover stew in an airtight container in the refrigerator for up to 3 days. To freeze, let it cool completely and transfer to freezer-safe containers. Thaw in the refrigerator before reheating.',
   },
+  {
+    id: '1767010827702.3916',
+    title: 'Vegan Whole-Food-Plant-Based Tacos',
+    slug: 'vegan-whole-food-plant-based-tacos',
+    description: 'Delicious, hearty, and completely plant-based tacos packed with flavor and nutrition, perfect for a satisfying dinner.',
+    prologue: 'Discover the joy of vegan cooking with these mouthwatering whole-food-plant-based tacos from vegancooking.recipes. These tacos are not only delicious but also nutritious, featuring wholesome ingredients that are good for your body and the planet. Whether you\'re a long-time vegan or just exploring plant-based options, these tacos are sure to please everyone at the dinner table.',
+    image: '/recipe-images/vegan-whole-food-plant-based-tacos-1767010828935.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Corn tortillas",
+          "amount": "8",
+          "unit": "tortillas",
+          "notes": "Use whole grain or gluten-free if preferred."
+        },
+        {
+          "name": "Black beans",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Canned, drained, and rinsed."
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced."
+        },
+        {
+          "name": "Red onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced."
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "Cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Ground."
+        },
+        {
+          "name": "Chili powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Lime",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Juiced."
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Chopped."
+        },
+        {
+          "name": "Avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Sliced."
+        },
+        {
+          "name": "Tomato",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced."
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Fresh, for garnish."
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "N/A",
+          "notes": "Adjust based on preference."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large skillet over medium heat, add the diced red onion and red bell pepper. Sauté for about 5 minutes until softened."
+        },
+        {
+          "step": 2,
+          "text": "Add minced garlic, cumin, chili powder, and salt to the skillet. Stir and cook for an additional 2 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the black beans and lime juice. Cook for another 5 minutes, stirring occasionally until heated through."
+        },
+        {
+          "step": 4,
+          "text": "While the filling is cooking, warm the corn tortillas in a separate skillet over low heat for about 30 seconds on each side."
+        },
+        {
+          "step": 5,
+          "text": "Assemble the tacos by placing a generous amount of the black bean mixture in each tortilla."
+        },
+        {
+          "step": 6,
+          "text": "Top with diced tomatoes, sliced avocado, chopped cilantro, and fresh spinach."
+        },
+        {
+          "step": 7,
+          "text": "Serve immediately and enjoy your delicious vegan tacos!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "14g",
+        "carbs": "50g",
+        "fat": "9g",
+        "fiber": "14g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","tacos","whole-food-plant-based","dinner","healthy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Corn tortillas can be substituted with lettuce wraps for a lower-carb option. Black beans can be replaced with pinto beans or lentils. Fresh cilantro adds a nice flavor, but can be omitted if you don\'t enjoy it.',
+    faqs: [
+        {
+          "question": "Can I use other beans in this recipe?",
+          "answer": "Yes, you can substitute black beans with pinto beans, kidney beans, or any beans of your choice."
+        },
+        {
+          "question": "How can I make these tacos spicier?",
+          "answer": "Add diced jalapeños or a dash of hot sauce to the filling for an extra kick."
+        }
+      ],
+    tips: ["For added flavor, consider toasting the tortillas in a dry skillet before filling them.","Make sure to drain and rinse canned beans to reduce sodium content."],
+    variations: ["Try adding grilled corn for a sweet crunch.","Incorporate sliced olives or pickled jalapeños for an extra tangy flavor."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat the filling on the stove before assembling the tacos again.',
+  },
+  {
+    id: '1767011303430.9412',
+    title: 'Vegan Grilled Vegetable Skewers',
+    slug: 'vegan-grilled-vegetable-skewers',
+    description: 'These vibrant and flavorful vegan grilled vegetable skewers are perfect for a summer dinner, packed with seasonal veggies and marinated for extra taste.',
+    prologue: 'Looking for a delicious and healthy dinner option? These Vegan Grilled Vegetable Skewers are not only easy to make but also bursting with flavor, making them a fantastic choice for any plant-based meal. Perfect for outdoor grilling or a cozy indoor dinner, this recipe highlights the best of seasonal vegetables and is sure to impress. Check out more at vegancooking.recipes for similar recipes!',
+    image: '/recipe-images/vegan-grilled-vegetable-skewers-1767011304777.webp',
+    prepTime: 20,
+    cookTime: 15,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "cut into 1-inch pieces"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "large",
+          "notes": "cut into 1-inch pieces (any color)"
+        },
+        {
+          "name": "Red onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "cut into wedges"
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "whole"
+        },
+        {
+          "name": "Mushrooms",
+          "amount": "8",
+          "unit": "oz",
+          "notes": "whole or halved if large"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for marinating"
+        },
+        {
+          "name": "Balsamic vinegar",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for marinating"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Dried oregano",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Wooden skewers",
+          "amount": "8",
+          "unit": "pieces",
+          "notes": "soaked in water for 30 minutes"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Soak the wooden skewers in water for at least 30 minutes to prevent burning on the grill."
+        },
+        {
+          "step": 2,
+          "text": "In a large bowl, combine the olive oil, balsamic vinegar, garlic powder, dried oregano, salt, and black pepper."
+        },
+        {
+          "step": 3,
+          "text": "Add the zucchini, bell pepper, red onion, cherry tomatoes, and mushrooms to the bowl. Toss until all vegetables are well coated in the marinade."
+        },
+        {
+          "step": 4,
+          "text": "Let the vegetables marinate for at least 10-15 minutes to enhance the flavors."
+        },
+        {
+          "step": 5,
+          "text": "Preheat your grill to medium-high heat (about 400°F or 200°C)."
+        },
+        {
+          "step": 6,
+          "text": "Thread the marinated vegetables onto the soaked skewers, alternating the types of vegetables for a colorful presentation."
+        },
+        {
+          "step": 7,
+          "text": "Place the skewers on the grill and cook for about 10-15 minutes, turning occasionally, until the vegetables are tender and slightly charred."
+        },
+        {
+          "step": 8,
+          "text": "Remove the skewers from the grill and let them cool for a couple of minutes before serving."
+        },
+        {
+          "step": 9,
+          "text": "Serve warm, garnished with fresh herbs if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "3g",
+        "carbs": "8g",
+        "fat": "8g",
+        "fiber": "3g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","dinner","grilled","skewers","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute any of the vegetables with your favorites. Try adding eggplant or bell peppers of different colors for variation. Make sure to cut the vegetables into uniform sizes for even cooking.',
+    faqs: [
+        {
+          "question": "Can I use frozen vegetables?",
+          "answer": "While fresh vegetables are preferred for grilling, you can use thawed frozen vegetables; just ensure they are well-drained."
+        },
+        {
+          "question": "What can I serve with these skewers?",
+          "answer": "These skewers pair wonderfully with quinoa, a fresh salad, or whole-grain pita bread."
+        }
+      ],
+    tips: ["For extra flavor, add fresh herbs like rosemary or thyme to the marinade.","If you want a smoky flavor, consider adding a dash of smoked paprika to the marinade."],
+    variations: ["Add cubed tofu or tempeh for added protein.","Marinade the vegetables in a spicy sauce for a kick."],
+    storage: 'Store any leftover skewers in an airtight container in the refrigerator for up to 3 days. Reheat on the grill or in the oven before serving.',
+  },
+  {
+    id: '1767011955758.606',
+    title: 'Vegan Whole-Food Plant-Based Sliders',
+    slug: 'vegan-whole-food-plant-based-sliders',
+    description: 'Delicious and hearty vegan sliders made with a blend of wholesome ingredients, perfect for dinner or gatherings.',
+    prologue: 'Discover the delightful world of vegan cooking with these whole-food plant-based sliders. Packed with nutritious ingredients and bursting with flavor, these sliders are sure to impress everyone at the dinner table. Explore more plant-based recipes at vegancooking.recipes and elevate your culinary skills with wholesome, delicious meals.',
+    image: '/recipe-images/vegan-whole-food-plant-based-sliders-1767011957141.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 6,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Canned black beans",
+          "amount": "1",
+          "unit": "15 oz can",
+          "notes": "drained and rinsed"
+        },
+        {
+          "name": "Cooked quinoa",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "can use leftover quinoa"
+        },
+        {
+          "name": "Oats",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "rolled or quick oats"
+        },
+        {
+          "name": "Chopped bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "any color"
+        },
+        {
+          "name": "Chopped onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "yellow or red"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "or 2 cloves fresh garlic, minced"
+        },
+        {
+          "name": "Cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "ground"
+        },
+        {
+          "name": "Paprika",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "smoked or sweet"
+        },
+        {
+          "name": "Salt",
+          "amount": "½",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "¼",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Whole grain slider buns",
+          "amount": "6",
+          "unit": "buns",
+          "notes": "preferably without added sugars"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced for topping"
+        },
+        {
+          "name": "Tomato",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced for topping"
+        },
+        {
+          "name": "Lettuce leaves",
+          "amount": "6",
+          "unit": "leaves",
+          "notes": "for topping"
+        },
+        {
+          "name": "Mustard or vegan mayo",
+          "amount": "to taste",
+          "unit": "optional",
+          "notes": "for spreading"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 375°F (190°C) and line a baking sheet with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, mash the drained black beans with a fork or potato masher until mostly smooth, leaving some chunks for texture."
+        },
+        {
+          "step": 3,
+          "text": "Add the cooked quinoa, oats, chopped bell pepper, chopped onion, garlic powder, cumin, paprika, salt, and black pepper to the bowl. Mix well until all ingredients are combined."
+        },
+        {
+          "step": 4,
+          "text": "Form the mixture into 6 equal-sized patties, about 1 inch thick."
+        },
+        {
+          "step": 5,
+          "text": "Place the patties on the prepared baking sheet and bake for 20-25 minutes, flipping halfway through, until they are firm and slightly crispy."
+        },
+        {
+          "step": 6,
+          "text": "While the patties are baking, prepare your slider toppings by slicing the avocado and tomato, and wash the lettuce leaves."
+        },
+        {
+          "step": 7,
+          "text": "Once the patties are done baking, assemble your sliders by placing a patty on each bun. Top with avocado, tomato, lettuce, and your choice of mustard or vegan mayo."
+        },
+        {
+          "step": 8,
+          "text": "Serve immediately and enjoy your delicious vegan sliders!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "11g",
+        "carbs": "40g",
+        "fat": "6g",
+        "fiber": "10g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","sliders","whole-food","plant-based","dinner","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Black beans can be substituted with chickpeas or lentils. Cooked quinoa can be replaced with brown rice or other whole grains. Ensure buns are whole grain and sugar-free for a whole-food approach.',
+    faqs: [
+        {
+          "question": "Can I freeze these sliders?",
+          "answer": "Yes, you can freeze the uncooked patties. Just place them on a baking sheet to freeze individually, then transfer to an airtight container. Bake from frozen, adding a few extra minutes to the cooking time."
+        },
+        {
+          "question": "What can I serve with these sliders?",
+          "answer": "These sliders pair well with a side of sweet potato fries, a fresh salad, or vegetable sticks with hummus."
+        }
+      ],
+    tips: ["Use leftover grains to save time in preparation.","Feel free to customize the toppings based on your preference."],
+    variations: ["Add shredded carrots or zucchini to the patty mixture for extra nutrients.","Use different spices like chili powder or Italian herbs for varied flavor."],
+    storage: 'Store any leftover sliders in an airtight container in the refrigerator for up to 3 days. Reheat in the oven or on a skillet to maintain their texture.',
+  },
+  {
+    id: '1767012023728.2976',
+    title: 'Vegan Hearty Vegetable Soup',
+    slug: 'vegan-hearty-vegetable-soup',
+    description: 'A warm and comforting bowl of hearty vegetable soup that\'s packed with flavor and nutrients, perfect for a cozy dinner.',
+    prologue: 'This Vegan Hearty Vegetable Soup is a wholesome dish that warms the soul and satisfies the appetite. Made with an array of colorful vegetables and aromatic herbs, this soup is not only delicious but also incredibly nutritious. Enjoy this comforting meal as part of your whole-food, plant-based diet, perfect for dinner any night of the week. Explore more such recipes at vegancooking.recipes.',
+    image: '/recipe-images/vegan-hearty-vegetable-soup-1767012025496.webp',
+    prepTime: 15,
+    cookTime: 45,
+    totalTime: 60,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for sautéing vegetables"
+        },
+        {
+          "name": "Yellow onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Carrots",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced"
+        },
+        {
+          "name": "Celery",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Green bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Canned diced tomatoes",
+          "amount": "14.5",
+          "unit": "ounces",
+          "notes": "with juices"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "6",
+          "unit": "cups",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Chickpeas",
+          "amount": "1",
+          "unit": "can",
+          "notes": "rinsed and drained"
+        },
+        {
+          "name": "Fresh spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "chopped"
+        },
+        {
+          "name": "Bay leaf",
+          "amount": "1",
+          "unit": "",
+          "notes": ""
+        },
+        {
+          "name": "Dried thyme",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": ""
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "or to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "½",
+          "unit": "teaspoon",
+          "notes": "or to taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the olive oil over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the diced onion, carrots, and celery to the pot. Sauté for about 5 minutes until the vegetables start to soften."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic, diced zucchini, and green bell pepper. Cook for an additional 3-4 minutes until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the canned diced tomatoes (with their juices), vegetable broth, chickpeas, bay leaf, and dried thyme."
+        },
+        {
+          "step": 5,
+          "text": "Bring the mixture to a boil, then reduce the heat to low. Cover and let it simmer for about 30 minutes."
+        },
+        {
+          "step": 6,
+          "text": "After 30 minutes, add the chopped spinach and season with salt and black pepper."
+        },
+        {
+          "step": 7,
+          "text": "Let the soup simmer for another 5 minutes until the spinach is wilted."
+        },
+        {
+          "step": 8,
+          "text": "Remove the bay leaf before serving. Taste and adjust seasonings if necessary."
+        },
+        {
+          "step": 9,
+          "text": "Ladle the soup into bowls and serve hot."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "7g",
+        "carbs": "30g",
+        "fat": "5g",
+        "fiber": "8g",
+        "sugar": "4g"
+      },
+    tags: ["soup","vegan","whole-food plant-based","dinner","vegetarian","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute chickpeas with another bean like kidney beans or black beans. Feel free to add any seasonal vegetables you have on hand, such as squash or kale.',
+    faqs: [
+        {
+          "question": "Can I make this soup in advance?",
+          "answer": "Yes, this soup can be made in advance and stored in the refrigerator for up to 5 days. The flavors will deepen over time."
+        },
+        {
+          "question": "Can I freeze the soup?",
+          "answer": "Absolutely! This soup freezes well. Just make sure to cool it completely before transferring it to an airtight container."
+        }
+      ],
+    tips: ["For added flavor, try adding a splash of lemon juice before serving.","Serve with whole grain bread for a complete meal."],
+    variations: ["Add quinoa or brown rice for a more filling soup.","Try adding different herbs such as basil or oregano for a unique flavor profile."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 5 days. For longer storage, freeze in individual portions for up to 3 months.',
+  },
+  {
+    id: '1767012309259.1213',
+    title: 'Vegan Paella',
+    slug: 'vegan-paella',
+    description: 'This hearty Vegan Paella is a vibrant, one-pan dish bursting with flavors of saffron, fresh vegetables, and rich spices, perfect for a delightful dinner experience.',
+    prologue: 'Discover the delightful world of vegan cooking with this wholesome Vegan Paella. Packed with nutritious ingredients and bursting with flavor, this dish showcases the beauty of plant-based cuisine. At vegancooking.recipes, we believe in creating meals that are not only delicious but also nourishing. This paella is a fantastic way to impress your family or friends while staying true to a whole-food, plant-based lifestyle.',
+    image: '/recipe-images/vegan-paella-1767012310671.webp',
+    prepTime: 20,
+    cookTime: 40,
+    totalTime: 60,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Saffron threads",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "soaked in 2 tablespoons hot water"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for cooking"
+        },
+        {
+          "name": "Yellow onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "large",
+          "notes": "diced"
+        },
+        {
+          "name": "Green beans",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "trimmed and cut into 1-inch pieces"
+        },
+        {
+          "name": "Tomatoes",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced or 1 can (14 oz) of diced tomatoes"
+        },
+        {
+          "name": "Paprika",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "smoked for best flavor"
+        },
+        {
+          "name": "Cumin",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "ground"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Arborio rice",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "or any other short-grain rice"
+        },
+        {
+          "name": "Chickpeas",
+          "amount": "1",
+          "unit": "can",
+          "notes": "drained and rinsed"
+        },
+        {
+          "name": "Frozen peas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "thawed"
+        },
+        {
+          "name": "Lemon",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "cut into wedges for serving"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped for garnish"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a small bowl, soak the saffron threads in 2 tablespoons of hot water and set aside."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet or paella pan, heat the olive oil over medium heat. Add the diced onion and sauté until translucent, about 5 minutes."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic and diced red bell pepper, and sauté for an additional 3-4 minutes until the peppers soften."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the green beans and cook for another 2 minutes."
+        },
+        {
+          "step": 5,
+          "text": "Add the diced tomatoes, smoked paprika, cumin, salt, and black pepper. Cook for 3-4 minutes until the tomatoes start breaking down."
+        },
+        {
+          "step": 6,
+          "text": "Pour in the vegetable broth and bring to a boil."
+        },
+        {
+          "step": 7,
+          "text": "Stir in the rice and soaked saffron with its water. Reduce the heat to low and cover the skillet. Simmer for about 15 minutes."
+        },
+        {
+          "step": 8,
+          "text": "After 15 minutes, add the chickpeas and thawed peas. Stir gently to combine."
+        },
+        {
+          "step": 9,
+          "text": "Cover again and cook for an additional 5-10 minutes, or until the rice is tender and has absorbed most of the liquid."
+        },
+        {
+          "step": 10,
+          "text": "Remove from heat and let it sit, covered, for 5 minutes before serving."
+        },
+        {
+          "step": 11,
+          "text": "Garnish with fresh parsley and lemon wedges. Serve hot."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "12g",
+        "carbs": "60g",
+        "fat": "10g",
+        "fiber": "10g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","whole-food-plant-based","dinner","paella","gluten-free"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Saffron is key for authentic flavor but can be expensive. For a budget-friendly option, use turmeric for color and a different flavor profile. Arborio rice is traditional, but short-grain brown rice can also work if you adjust the cooking time.',
+    faqs: [
+        {
+          "question": "Can I make this paella ahead of time?",
+          "answer": "Yes, you can prepare the paella a few hours in advance. Reheat on the stove with a splash of vegetable broth to bring back moisture."
+        },
+        {
+          "question": "Is this paella gluten-free?",
+          "answer": "Yes, this recipe is naturally gluten-free as long as you ensure your vegetable broth is gluten-free."
+        }
+      ],
+    tips: ["Use a wide, shallow pan for even cooking and to achieve a slight crust on the bottom, known as socarrat.","Feel free to swap in your favorite vegetables based on seasonality or availability."],
+    variations: ["Add artichoke hearts for an additional layer of flavor.","Incorporate some smoked tofu for added protein and a smoky flavor."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 3 days. To reheat, add a splash of water or broth and warm on the stovetop.',
+  },
+  {
+    id: '1767012407192.7556',
+    title: 'Vegan Whole-Food Plant-Based Stir Fry',
+    slug: 'vegan-whole-food-plant-based-stir-fry',
+    description: 'This vibrant stir fry is packed with colorful vegetables and wholesome ingredients, making it a perfect quick dinner option that is both nutritious and satisfying.',
+    prologue: 'Searching for a quick and healthy dinner option? This Vegan Whole-Food Plant-Based Stir Fry is not only easy to make, but it is also bursting with flavor and nutrition. Featuring a medley of fresh vegetables and a delicious sauce, this recipe is perfect for anyone looking to enhance their cooking skills while enjoying a wholesome meal. Discover more exciting recipes at vegancooking.recipes.',
+    image: '/recipe-images/vegan-whole-food-plant-based-stir-fry-1767012408553.webp',
+    prepTime: 15,
+    cookTime: 15,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["dinner"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Brown rice",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "cooked, for serving"
+        },
+        {
+          "name": "Broccoli florets",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "fresh or frozen"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced; any color"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "large",
+          "notes": "julienned or sliced"
+        },
+        {
+          "name": "Snow peas",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "trimmed"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced or diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "fresh, grated or minced"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "3",
+          "unit": "tablespoons",
+          "notes": "or tamari for gluten-free"
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Cornstarch",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for thickening"
+        },
+        {
+          "name": "Water",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "for sauce"
+        },
+        {
+          "name": "Green onions",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "sliced, for garnish"
+        },
+        {
+          "name": "Sesame seeds",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Cook the brown rice according to package instructions, then set aside."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet or wok, heat the sesame oil over medium-high heat."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic and ginger to the skillet and stir-fry for about 30 seconds until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the broccoli florets, bell pepper, carrot, snow peas, and zucchini to the skillet."
+        },
+        {
+          "step": 5,
+          "text": "Stir-fry the vegetables for 5-7 minutes until they are tender-crisp."
+        },
+        {
+          "step": 6,
+          "text": "In a small bowl, mix the soy sauce, cornstarch, and water until smooth, then pour the mixture over the stir-fried vegetables."
+        },
+        {
+          "step": 7,
+          "text": "Continue to cook for an additional 2-3 minutes, stirring frequently, until the sauce thickens and coats the veggies."
+        },
+        {
+          "step": 8,
+          "text": "Remove the stir fry from heat and serve it over the cooked brown rice."
+        },
+        {
+          "step": 9,
+          "text": "Garnish with sliced green onions and sesame seeds before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "10g",
+        "carbs": "62g",
+        "fat": "7g",
+        "fiber": "8g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","stir fry","whole-food","plant-based","dinner","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute any of the vegetables with your favorites or whatever you have on hand. For instance, bok choy, eggplant, or mushrooms can be great additions. Use tamari instead of soy sauce for a gluten-free option.',
+    faqs: [
+        {
+          "question": "Can I use frozen vegetables?",
+          "answer": "Yes, frozen vegetables work well in this recipe. Just make sure to thaw them slightly before cooking to avoid excess moisture."
+        },
+        {
+          "question": "How can I add protein to this stir fry?",
+          "answer": "To add protein, consider incorporating tofu, tempeh, or edamame. You can sauté these ingredients alongside the vegetables."
+        }
+      ],
+    tips: ["Make sure to chop all your vegetables before starting to cook to ensure a smooth cooking process.","You can adjust the sauce ingredients to taste, adding more soy sauce or a splash of vinegar for extra flavor."],
+    variations: ["Swap the brown rice for quinoa or cauliflower rice for a different base.","Add in your favorite nuts like cashews or almonds for additional crunch."],
+    storage: 'Store any leftover stir fry in an airtight container in the refrigerator for up to 4 days. Reheat in the microwave or on the stovetop until warmed through.',
+  },
 ];

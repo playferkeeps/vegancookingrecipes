@@ -1738,4 +1738,674 @@ export const breakfastRecipes: Recipe[] = [
     variations: ["Try adding cocoa powder and banana for chocolate banana oats.","Use pumpkin puree and pumpkin spice for a fall-inspired flavor."],
     storage: 'Store overnight oats in an airtight container in the refrigerator. They can be kept for up to 5 days, making them perfect for meal prep.',
   },
+  {
+    id: '1767012515558.116',
+    title: 'Vegan Chia Pudding',
+    slug: 'vegan-chia-pudding',
+    description: 'A creamy, nutritious chia pudding that makes for a perfect breakfast or snack, packed with omega-3 fatty acids and fiber.',
+    prologue: 'Chia pudding is a versatile and nutritious breakfast option that’s entirely plant-based and easy to prepare. With just a few simple ingredients, you can create a delicious and satisfying meal that can be customized to your taste. This recipe from vegancooking.recipes focuses on whole food plant-based ingredients, ensuring you get the best nutrition without any animal products.',
+    image: '/recipe-images/vegan-chia-pudding-1767012516787.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Chia seeds",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Use organic chia seeds for the best quality."
+        },
+        {
+          "name": "Unsweetened almond milk",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "You can substitute with any plant-based milk."
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Adjust to taste; can also use agave syrup."
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Use pure vanilla extract for the best flavor."
+        },
+        {
+          "name": "Fresh fruits (e.g., berries, banana)",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "For topping; choose your favorites."
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Optional, for added flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a medium bowl, combine the chia seeds and almond milk."
+        },
+        {
+          "step": 2,
+          "text": "Add the maple syrup and vanilla extract to the mixture."
+        },
+        {
+          "step": 3,
+          "text": "Whisk the mixture thoroughly for about 1-2 minutes until the chia seeds are well distributed."
+        },
+        {
+          "step": 4,
+          "text": "Let the mixture sit for 5 minutes, then whisk again to break up any clumps of chia seeds."
+        },
+        {
+          "step": 5,
+          "text": "Cover the bowl with plastic wrap or transfer the mixture to individual containers."
+        },
+        {
+          "step": 6,
+          "text": "Refrigerate for at least 2 hours or overnight to allow the chia seeds to absorb the liquid and thicken into a pudding."
+        },
+        {
+          "step": 7,
+          "text": "Once set, give the pudding a good stir, then serve topped with fresh fruits and a sprinkle of cinnamon if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 300,
+        "protein": "10g",
+        "carbs": "45g",
+        "fat": "14g",
+        "fiber": "15g",
+        "sugar": "8g"
+      },
+    tags: ["breakfast","vegan","whole-food-plant-based","healthy","gluten-free"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Chia seeds are the star of this recipe, providing a good source of omega-3 fatty acids and fiber. If you prefer a sweeter pudding, adjust the amount of maple syrup to your liking. For a creamier texture, consider blending the almond milk with soaked cashews before adding the chia seeds.',
+    faqs: [
+        {
+          "question": "Can I use different types of milk?",
+          "answer": "Yes, you can use any plant-based milk such as coconut milk, soy milk, or oat milk. Just ensure it's unsweetened for a healthier option."
+        },
+        {
+          "question": "How long can I store chia pudding?",
+          "answer": "Chia pudding can be stored in an airtight container in the refrigerator for up to 5 days."
+        }
+      ],
+    tips: ["For a thicker pudding, increase the amount of chia seeds to 2/3 cup.","Experiment with different flavorings by adding cocoa powder or fruit purees."],
+    variations: ["Add cocoa powder for a chocolate chia pudding.","Mix in nut butter for a creamier texture and extra protein."],
+    storage: 'Store any leftover chia pudding in an airtight container in the refrigerator. It will keep well for about 5 days. You may need to stir in a little more almond milk before serving if it thickens too much.',
+  },
+  {
+    id: '1767012627333.2402',
+    title: 'Vegan Breakfast Burrito',
+    slug: 'vegan-breakfast-burrito',
+    description: 'Start your day right with this hearty and satisfying vegan breakfast burrito, packed with flavorful ingredients and wholesome nutrition.',
+    prologue: 'Are you looking for a delicious and nutritious breakfast option that fits a whole-food plant-based lifestyle? Look no further! This Vegan Breakfast Burrito is not only easy to prepare but also bursting with flavors and textures that will keep you energized throughout the morning. Perfect for meal prep or a quick breakfast on the go, this recipe is a must-try from vegancooking.recipes.',
+    image: '/recipe-images/vegan-breakfast-burrito-1767012628530.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Whole wheat tortillas",
+          "amount": "4",
+          "unit": "pieces",
+          "notes": "8-inch size preferred"
+        },
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "drained and crumbled"
+        },
+        {
+          "name": "Black beans",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "canned or cooked, rinsed and drained"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Green onion",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "sliced"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "fresh or frozen, chopped"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "adds a cheesy flavor"
+        },
+        {
+          "name": "Turmeric powder",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "for color and health benefits"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Avocado",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced for topping"
+        },
+        {
+          "name": "Salsa",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "for serving"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Heat the olive oil in a large skillet over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the diced red bell pepper and sauté for 3-4 minutes until softened."
+        },
+        {
+          "step": 3,
+          "text": "Add the crumbled tofu to the skillet, along with the turmeric, black pepper, and nutritional yeast."
+        },
+        {
+          "step": 4,
+          "text": "Cook for an additional 5-7 minutes, stirring occasionally, until the tofu is heated through and slightly golden."
+        },
+        {
+          "step": 5,
+          "text": "Stir in the black beans and chopped spinach, cooking until the spinach wilts, about 2-3 minutes."
+        },
+        {
+          "step": 6,
+          "text": "Remove the skillet from heat and stir in the sliced green onions."
+        },
+        {
+          "step": 7,
+          "text": "Warm the whole wheat tortillas in a separate pan or microwave for a few seconds until pliable."
+        },
+        {
+          "step": 8,
+          "text": "Divide the tofu mixture evenly among the tortillas, placing it in the center."
+        },
+        {
+          "step": 9,
+          "text": "Top with sliced avocado and any additional toppings you prefer."
+        },
+        {
+          "step": 10,
+          "text": "Fold the sides of the tortillas in, then roll them up from the bottom to form burritos."
+        },
+        {
+          "step": 11,
+          "text": "Serve with salsa on the side and enjoy your Vegan Breakfast Burritos!"
+        }
+      ],
+    nutritionInfo: {
+        "calories": 350,
+        "protein": "18g",
+        "carbs": "45g",
+        "fat": "12g",
+        "fiber": "10g",
+        "sugar": "2g"
+      },
+    tags: ["breakfast","vegan","burrito","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute firm tofu with scrambled chickpeas for a different texture. You can also use other vegetables like zucchini or mushrooms based on your preference.',
+    faqs: [
+        {
+          "question": "Can I make these burritos ahead of time?",
+          "answer": "Yes! You can prepare the filling in advance and store it in the refrigerator for up to 3 days. Just warm it up before assembling the burritos."
+        },
+        {
+          "question": "Are these burritos gluten-free?",
+          "answer": "To make these burritos gluten-free, use gluten-free tortillas instead of whole wheat."
+        }
+      ],
+    tips: ["For extra flavor, add spices like cumin or smoked paprika to the tofu mixture.","You can also add avocado or guacamole inside the burrito for creaminess."],
+    variations: ["Swap out the black beans for pinto beans or lentils.","Add some vegan cheese or hot sauce for an extra kick."],
+    storage: 'Store any leftover burritos in an airtight container in the refrigerator for up to 4 days. To reheat, microwave for 1-2 minutes or heat in a skillet until warmed through.',
+  },
+  {
+    id: '1767012805701.2139',
+    title: 'Vegan Tofu Scramble',
+    slug: 'vegan-tofu-scramble',
+    description: 'A hearty and protein-packed tofu scramble bursting with flavor, perfect for a satisfying breakfast.',
+    prologue: 'This delicious Vegan Tofu Scramble is a versatile and nutritious way to start your day. Packed with protein and flavor, it serves as a fantastic alternative to traditional scrambled eggs. Ideal for breakfast or brunch, this recipe is simple to make and can be customized to your taste. Explore more great vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/vegan-tofu-scramble-1767012807096.webp',
+    prepTime: 10,
+    cookTime: 15,
+    totalTime: 25,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Firm tofu",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "Drained and crumbled"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For sautéing"
+        },
+        {
+          "name": "Red bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Turmeric powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For color and flavor"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "3",
+          "unit": "tbsp",
+          "notes": "For cheesy flavor"
+        },
+        {
+          "name": "Black salt (kala namak)",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "For an eggy flavor"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "tsp",
+          "notes": "To taste"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "Fresh, chopped"
+        },
+        {
+          "name": "Cherry tomatoes",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Halved"
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "Chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Start by pressing the firm tofu for about 10 minutes to remove excess moisture. Once pressed, crumble the tofu into bite-sized pieces."
+        },
+        {
+          "step": 2,
+          "text": "In a large skillet, heat the olive oil over medium heat. Add the chopped onion and red bell pepper, sautéing for about 5 minutes until softened."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic to the skillet and sauté for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the crumbled tofu, turmeric powder, nutritional yeast, black salt, and black pepper. Cook for about 5-7 minutes, stirring occasionally."
+        },
+        {
+          "step": 5,
+          "text": "Add the chopped spinach and halved cherry tomatoes to the skillet. Cook for another 2-3 minutes until the spinach is wilted and the tomatoes are slightly softened."
+        },
+        {
+          "step": 6,
+          "text": "Remove from heat and garnish with fresh parsley before serving."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 200,
+        "protein": "18g",
+        "carbs": "10g",
+        "fat": "12g",
+        "fiber": "5g",
+        "sugar": "3g"
+      },
+    tags: ["breakfast","vegan","tofu","high-protein","simple","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'For a different flavor profile, you can use smoked paprika instead of turmeric. You can also substitute the spinach with kale or any leafy green of your choice.',
+    faqs: [
+        {
+          "question": "Can I use soft tofu instead of firm tofu?",
+          "answer": "Soft tofu has a different texture and may not hold up well in this scramble. Firm or extra-firm tofu is recommended."
+        },
+        {
+          "question": "How can I store leftovers?",
+          "answer": "Store any leftover tofu scramble in an airtight container in the refrigerator for up to 3 days. Reheat gently in a skillet."
+        }
+      ],
+    tips: ["For added flavor, consider adding a splash of soy sauce or tamari during cooking.","Serve the scramble with whole-grain toast or in a wrap for a complete meal."],
+    variations: ["Add diced mushrooms for an earthy flavor.","Incorporate other vegetables like zucchini or kale for more nutrition."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat on the stovetop over low heat until warmed through.',
+  },
+  {
+    id: '1767012990396.203',
+    title: 'Vegan Granola',
+    slug: 'vegan-granola',
+    description: 'This crunchy, wholesome vegan granola is perfect for breakfast or a snack, packed with nutrients and flavor.',
+    prologue: 'Discover the joy of homemade granola with this easy vegan recipe! Perfectly sweetened and loaded with healthy fats, this granola is not only delicious but also a great way to fuel your day. Ideal for topping your smoothie bowl or enjoying with plant-based milk, this recipe from vegancooking.recipes will make breakfast exciting and nutritious.',
+    image: '/recipe-images/vegan-granola-1767012991621.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 8,
+    difficulty: 'easy',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Rolled oats",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "Use gluten-free oats if needed"
+        },
+        {
+          "name": "Raw almonds",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Chopped or whole"
+        },
+        {
+          "name": "Pumpkin seeds",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Optional: substitute with sunflower seeds"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1/3",
+          "unit": "cup",
+          "notes": "Can substitute with agave syrup"
+        },
+        {
+          "name": "Coconut oil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Melted; can substitute with almond or peanut butter"
+        },
+        {
+          "name": "Vanilla extract",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "Pure vanilla extract recommended"
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "Adjust according to taste"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "Enhances flavor"
+        },
+        {
+          "name": "Dried fruit (raisins or cranberries)",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "Optional; add after baking"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the rolled oats, chopped almonds, pumpkin seeds, cinnamon, and salt."
+        },
+        {
+          "step": 3,
+          "text": "In a separate bowl, whisk together the maple syrup, melted coconut oil, and vanilla extract until well combined."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet mixture over the dry ingredients and stir until everything is evenly coated."
+        },
+        {
+          "step": 5,
+          "text": "Spread the granola mixture evenly onto a lined baking sheet."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 20-25 minutes, stirring halfway through to ensure even browning."
+        },
+        {
+          "step": 7,
+          "text": "Once golden and fragrant, remove from the oven and let it cool completely on the baking sheet."
+        },
+        {
+          "step": 8,
+          "text": "After cooling, stir in the dried fruit if using. Store in an airtight container."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 210,
+        "protein": "6g",
+        "carbs": "29g",
+        "fat": "9g",
+        "fiber": "4g",
+        "sugar": "5g"
+      },
+    tags: ["breakfast","snack","vegan","whole-food-plant-based","granola"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Rolled oats are the base of this granola and provide great texture. Feel free to customize the nuts and seeds based on your preference. For a sweeter granola, adjust the maple syrup to taste.',
+    faqs: [
+        {
+          "question": "Can I make this granola gluten-free?",
+          "answer": "Yes, just ensure you use certified gluten-free rolled oats."
+        },
+        {
+          "question": "How long does this granola last?",
+          "answer": "Stored in an airtight container, it can last up to two weeks at room temperature."
+        }
+      ],
+    tips: ["For extra crunch, let the granola cool completely on the baking sheet before storing.","Experiment with different nuts, seeds, and spices to personalize your granola."],
+    variations: ["Add coconut flakes for a tropical twist.","Incorporate cocoa powder for a chocolatey flavor."],
+    storage: 'Store the granola in an airtight container at room temperature for up to two weeks. For longer shelf life, refrigerate or freeze in a sealed bag.',
+  },
+  {
+    id: '1767013077488.1086',
+    title: 'Vegan English Muffins',
+    slug: 'vegan-english-muffins',
+    description: 'Deliciously fluffy and golden brown, these vegan English muffins are perfect for breakfast and can be toasted to perfection.',
+    prologue: 'Discover the joy of homemade vegan English muffins with this easy recipe from vegancooking.recipes. Made with simple, wholesome ingredients, these muffins are a delightful addition to your morning routine. Perfect for toasting and slathering with your favorite plant-based spreads, they offer a satisfying start to your day without any animal products.',
+    image: '/recipe-images/vegan-english-muffins-1767013078695.webp',
+    prepTime: 30,
+    cookTime: 20,
+    totalTime: 50,
+    servings: 8,
+    difficulty: 'medium',
+    category: ["breakfast"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "All-purpose flour",
+          "amount": "3",
+          "unit": "cups",
+          "notes": "plus extra for dusting"
+        },
+        {
+          "name": "Active dry yeast",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "ensure it's fresh for best results"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "to activate the yeast"
+        },
+        {
+          "name": "Warm water",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "about 110°F (43°C)"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Baking powder",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for added fluffiness"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for moisture and flavor"
+        },
+        {
+          "name": "Cornmeal",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for dusting baking surface"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a small bowl, combine warm water, maple syrup, and active dry yeast. Let it sit for about 5-10 minutes until it becomes frothy."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, whisk together the all-purpose flour, salt, and baking powder."
+        },
+        {
+          "step": 3,
+          "text": "Once the yeast mixture is frothy, add it to the flour mixture along with the olive oil."
+        },
+        {
+          "step": 4,
+          "text": "Stir until a rough dough forms. Then, knead the dough on a floured surface for about 5-7 minutes until smooth and elastic."
+        },
+        {
+          "step": 5,
+          "text": "Place the kneaded dough in a lightly greased bowl, cover with a clean kitchen towel, and let it rise in a warm place for about 1 hour or until doubled in size."
+        },
+        {
+          "step": 6,
+          "text": "Once risen, punch down the dough and turn it out onto a floured surface. Roll it out to about 1-inch thickness."
+        },
+        {
+          "step": 7,
+          "text": "Using a round cutter or a glass, cut out circles from the dough. Place the circles on a baking sheet dusted with cornmeal."
+        },
+        {
+          "step": 8,
+          "text": "Cover the cut-out muffins with a towel and let them rise for another 30 minutes."
+        },
+        {
+          "step": 9,
+          "text": "Preheat a skillet or griddle over medium-low heat. Cook the muffins for about 7-10 minutes on each side, or until golden brown and cooked through."
+        },
+        {
+          "step": 10,
+          "text": "Let the muffins cool on a wire rack before slicing. Serve toasted with your favorite vegan spreads."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "5g",
+        "carbs": "30g",
+        "fat": "3g",
+        "fiber": "1g",
+        "sugar": "0.5g"
+      },
+    tags: ["breakfast","vegan","whole-food-plant-based","muffins","homemade"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'All-purpose flour can be substituted with whole wheat flour for a more nutritious option, though it may alter the texture slightly. For gluten-free muffins, use a gluten-free flour blend.',
+    faqs: [
+        {
+          "question": "Can I freeze these muffins?",
+          "answer": "Yes, you can freeze the English muffins after they have cooled completely. Place them in a freezer-safe bag or container for up to 3 months."
+        },
+        {
+          "question": "How do I know when the muffins are done cooking?",
+          "answer": "The muffins should be golden brown on both sides and sound hollow when tapped on the bottom."
+        }
+      ],
+    tips: ["For a more flavorful muffin, add herbs or spices such as rosemary or garlic powder to the dough.","Make sure to check the temperature of the water when activating the yeast; it should be warm but not too hot."],
+    variations: ["Add a handful of dried fruits like cranberries or raisins for a sweet twist.","Incorporate seeds such as sunflower or flaxseed for added texture and nutrition."],
+    storage: 'Store the muffins in an airtight container at room temperature for up to 3 days. For longer storage, refrigerate them for up to a week or freeze for up to 3 months.',
+  },
 ];

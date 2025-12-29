@@ -2380,4 +2380,624 @@ export const internationalRecipes: Recipe[] = [
     variations: ["Add grated carrots or zucchini for additional nutrients and flavors.","Experiment with spices like smoked paprika or turmeric for a different taste."],
     storage: 'Store leftover falafels in an airtight container in the refrigerator for up to 4 days. Reheat in the oven to retain crispness.',
   },
+  {
+    id: '1767010793062.2068',
+    title: 'Vegan Enchiladas',
+    slug: 'vegan-enchiladas',
+    description: 'Delicious and hearty vegan enchiladas filled with black beans, corn, and spices, topped with a rich homemade enchilada sauce.',
+    prologue: 'Discover the vibrant flavors of Mexican cuisine with these Vegan Enchiladas, packed with plant-based goodness. Perfect for a family dinner or a gathering with friends, this dish is both satisfying and nutritious. At vegancooking.recipes, we believe in creating wholesome meals that everyone can enjoy, without compromising on taste or health.',
+    image: '/recipe-images/vegan-enchiladas-1767010794457.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Corn tortillas",
+          "amount": "8",
+          "unit": "pieces",
+          "notes": "Use gluten-free tortillas if needed."
+        },
+        {
+          "name": "Canned black beans",
+          "amount": "1",
+          "unit": "15 oz can",
+          "notes": "Rinsed and drained."
+        },
+        {
+          "name": "Canned corn",
+          "amount": "1",
+          "unit": "15 oz can",
+          "notes": "Rinsed and drained."
+        },
+        {
+          "name": "Red onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced."
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Diced."
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "Ground cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For flavor."
+        },
+        {
+          "name": "Chili powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "For spice."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "To taste."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "For sautéing."
+        },
+        {
+          "name": "Canned tomato sauce",
+          "amount": "1",
+          "unit": "15 oz can",
+          "notes": "For the enchilada sauce."
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "1/2",
+          "unit": "cup",
+          "notes": "For thinning the sauce."
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Optional, for a cheesy flavor."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a skillet, heat the olive oil over medium heat. Add the diced red onion and bell pepper, and sauté for 5 minutes until softened."
+        },
+        {
+          "step": 3,
+          "text": "Add the minced garlic, cumin, chili powder, and salt to the skillet. Sauté for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Stir in the black beans and corn. Cook for another 2-3 minutes until heated through. Remove from heat."
+        },
+        {
+          "step": 5,
+          "text": "In a separate bowl, combine the canned tomato sauce and vegetable broth. Mix well to make the enchilada sauce."
+        },
+        {
+          "step": 6,
+          "text": "Spread a thin layer of the enchilada sauce on the bottom of a 9x13 inch baking dish."
+        },
+        {
+          "step": 7,
+          "text": "Take one corn tortilla, fill it with about 1/4 cup of the black bean mixture, and roll it up. Place it seam side down in the baking dish. Repeat with remaining tortillas."
+        },
+        {
+          "step": 8,
+          "text": "Once all the enchiladas are in the dish, pour the remaining enchilada sauce over the top, making sure to cover all the tortillas."
+        },
+        {
+          "step": 9,
+          "text": "If using, sprinkle nutritional yeast over the top for added flavor."
+        },
+        {
+          "step": 10,
+          "text": "Bake in the preheated oven for 20-25 minutes until heated through and slightly golden."
+        },
+        {
+          "step": 11,
+          "text": "Remove from the oven, let cool for a few minutes, and serve with your favorite toppings such as avocado or cilantro."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 320,
+        "protein": "14g",
+        "carbs": "58g",
+        "fat": "7g",
+        "fiber": "12g",
+        "sugar": "3g"
+      },
+    tags: ["vegan","Mexican","whole-food-plant-based","enchiladas","gluten-free","international"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute black beans with pinto beans or lentils. You can also add chopped spinach or kale to the filling for extra nutrients.',
+    faqs: [
+        {
+          "question": "Can I freeze enchiladas?",
+          "answer": "Yes, you can freeze the assembled but uncooked enchiladas. Just cover them tightly with foil and freeze for up to 3 months. When ready to bake, thaw overnight in the fridge and bake as directed."
+        }
+      ],
+    tips: ["Use fresh tortillas for a better texture.","Experiment with different fillings like mushrooms or zucchini."],
+    variations: ["Add diced jalapeños for a spicy kick.","Use sweet potatoes or butternut squash for a sweeter filling."],
+    storage: 'Store leftovers in an airtight container in the fridge for up to 4 days. Reheat in the oven or microwave before serving.',
+  },
+  {
+    id: '1767011179406.6033',
+    title: 'Vegan Dumplings',
+    slug: 'vegan-dumplings',
+    description: 'Deliciously stuffed vegan dumplings filled with a savory mixture of vegetables and spices, perfect for any occasion.',
+    prologue: 'Explore the delightful world of vegan cooking with these delectable dumplings. Made with wholesome, plant-based ingredients, these dumplings are packed with flavor and nutrition. Perfect for a family meal or a cozy gathering, this recipe will impress both vegans and non-vegans alike. Check out more vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/vegan-dumplings-1767011180643.webp',
+    prepTime: 30,
+    cookTime: 20,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "All-purpose flour",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "plus extra for dusting"
+        },
+        {
+          "name": "Water",
+          "amount": "3/4",
+          "unit": "cup",
+          "notes": "warm"
+        },
+        {
+          "name": "Cabbage",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "finely chopped"
+        },
+        {
+          "name": "Carrot",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "grated"
+        },
+        {
+          "name": "Green onion",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "finely chopped"
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "grated"
+        },
+        {
+          "name": "Soy sauce",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Sesame oil",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "optional for flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "to taste"
+        },
+        {
+          "name": "Fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, optional"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large mixing bowl, combine the all-purpose flour and warm water. Stir until the mixture forms a dough."
+        },
+        {
+          "step": 2,
+          "text": "Knead the dough on a floured surface for about 5-7 minutes until smooth and elastic. Cover with a damp cloth and let rest for 20 minutes."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, mix together the finely chopped cabbage, grated carrot, green onion, minced garlic, grated ginger, soy sauce, sesame oil, salt, black pepper, and chopped cilantro (if using). This will be the filling."
+        },
+        {
+          "step": 4,
+          "text": "After resting, divide the dough into small balls (about 1 inch in diameter). Roll each ball out into a thin circle on a floured surface."
+        },
+        {
+          "step": 5,
+          "text": "Place about 1 tablespoon of the filling in the center of each dough circle. Fold the dough over to create a half-moon shape and pinch the edges to seal."
+        },
+        {
+          "step": 6,
+          "text": "In a large pot, bring water to a boil. Carefully add the dumplings (do not overcrowd) and cook for about 5-7 minutes, or until they float to the top."
+        },
+        {
+          "step": 7,
+          "text": "Using a slotted spoon, remove the dumplings and place them on a plate. Optionally, you can sauté them in a non-stick pan with a little oil for a crispy texture."
+        },
+        {
+          "step": 8,
+          "text": "Serve warm with soy sauce or your favorite dipping sauce."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "6g",
+        "carbs": "34g",
+        "fat": "2g",
+        "fiber": "3g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","dumplings","whole-food","plant-based","Asian","international","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can substitute all-purpose flour with whole wheat flour for a healthier option. Feel free to customize the filling with other vegetables such as mushrooms, bell peppers, or spinach.',
+    faqs: [
+        {
+          "question": "Can I freeze these dumplings?",
+          "answer": "Yes, you can freeze uncooked dumplings. Place them in a single layer on a baking sheet, freeze until solid, then transfer to a freezer bag. Cook from frozen by adding a few extra minutes to the boiling time."
+        }
+      ],
+    tips: ["Make sure to seal the dumplings well to prevent them from opening during cooking.","Experiment with different fillings to suit your taste."],
+    variations: ["Spicy kimchi dumplings","Mushroom and spinach dumplings"],
+    storage: 'Store any leftover cooked dumplings in an airtight container in the refrigerator for up to 3 days. Reheat by steaming or sautéing.',
+  },
+  {
+    id: '1767012961461.772',
+    title: 'Vegan Baba Ganoush',
+    slug: 'vegan-baba-ganoush',
+    description: 'A creamy, smoky, and flavorful dip made from roasted eggplant, tahini, and garlic, perfect for serving with pita or fresh vegetables.',
+    prologue: 'Baba Ganoush is a classic Middle Eastern dip that showcases the rich flavors of roasted eggplant. This vegan version is not only delicious but also packed with nutrients, making it a perfect addition to your whole-food plant-based diet. Whether you\'re hosting a gathering or simply indulging in a healthy snack, this recipe from vegancooking.recipes will satisfy your taste buds and leave you wanting more.',
+    image: '/recipe-images/vegan-baba-ganoush-1767012962975.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Eggplant",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Pierce the skin several times with a fork."
+        },
+        {
+          "name": "Tahini",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "Stir well before measuring."
+        },
+        {
+          "name": "Garlic",
+          "amount": "2",
+          "unit": "cloves",
+          "notes": "Minced."
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Freshly squeezed."
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "For drizzling, optional."
+        },
+        {
+          "name": "Cumin",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Ground."
+        },
+        {
+          "name": "Salt",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Adjust to taste."
+        },
+        {
+          "name": "Pepper",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "Freshly ground."
+        },
+        {
+          "name": "Fresh parsley",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Chopped, for garnish."
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 400°F (200°C)."
+        },
+        {
+          "step": 2,
+          "text": "Place the whole eggplant on a baking sheet and roast it in the preheated oven for 25-30 minutes, until the skin is charred and the flesh is soft."
+        },
+        {
+          "step": 3,
+          "text": "Remove the eggplant from the oven and let it cool for about 10 minutes. Once cooled, cut it open and scoop out the flesh, discarding the skin."
+        },
+        {
+          "step": 4,
+          "text": "In a food processor, combine the roasted eggplant flesh, tahini, minced garlic, lemon juice, cumin, salt, and pepper."
+        },
+        {
+          "step": 5,
+          "text": "Blend the mixture until smooth and creamy, scraping down the sides as necessary."
+        },
+        {
+          "step": 6,
+          "text": "Taste and adjust seasoning, adding more salt or lemon juice if desired."
+        },
+        {
+          "step": 7,
+          "text": "Transfer the baba ganoush to a serving bowl, drizzle with olive oil if using, and garnish with chopped parsley."
+        },
+        {
+          "step": 8,
+          "text": "Serve with pita bread, fresh vegetables, or crackers."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 120,
+        "protein": "3g",
+        "carbs": "10g",
+        "fat": "8g",
+        "fiber": "4g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","dip","appetizer","Middle Eastern","healthy","international","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Eggplants can vary in size; choose a medium one for this recipe. If tahini is not available, you can substitute with sunflower seed butter for a nut-free option. Fresh garlic enhances the flavor, but roasted garlic can be used for a milder taste.',
+    faqs: [
+        {
+          "question": "Can I make Baba Ganoush without tahini?",
+          "answer": "Yes, you can use sunflower seed butter as an alternative, or simply omit it for a lighter version."
+        },
+        {
+          "question": "How long does Baba Ganoush last in the fridge?",
+          "answer": "It can be stored in an airtight container for up to 5 days."
+        }
+      ],
+    tips: ["For an extra smoky flavor, you can grill the eggplant instead of roasting it.","Serve with a variety of dipping options like carrot sticks, cucumber slices, or whole grain crackers for a healthy snack."],
+    variations: ["Add roasted red peppers for a sweet twist.","Incorporate spices like smoked paprika or chili powder for added heat."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 5 days. For longer storage, consider freezing the baba ganoush in a freezer-safe container for up to 3 months. Thaw in the fridge before serving.',
+  },
+  {
+    id: '1767013166917.7659',
+    title: 'Vegan Thai Curry',
+    slug: 'vegan-thai-curry',
+    description: 'This vibrant Vegan Thai Curry is packed with fresh vegetables and aromatic spices, creating a delightful meal that’s both nourishing and satisfying.',
+    prologue: 'Discover the rich flavors of Thai cuisine with this Vegan Thai Curry that combines wholesome ingredients and a medley of spices. Perfect for any occasion, this dish is not only delicious but also adheres to a whole-food, plant-based lifestyle. Join the growing community of plant-based cooking enthusiasts at vegancooking.recipes and enjoy a meal that\'s good for you and the planet.',
+    image: '/recipe-images/vegan-thai-curry-1767013168204.webp',
+    prepTime: 20,
+    cookTime: 30,
+    totalTime: 50,
+    servings: 4,
+    difficulty: 'medium',
+    category: ["international"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Coconut oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Yellow onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Fresh ginger",
+          "amount": "1",
+          "unit": "inch",
+          "notes": "grated"
+        },
+        {
+          "name": "Bell peppers",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced (any color)"
+        },
+        {
+          "name": "Carrots",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "sliced"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "sliced"
+        },
+        {
+          "name": "Broccoli florets",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "fresh or frozen"
+        },
+        {
+          "name": "Coconut milk",
+          "amount": "1",
+          "unit": "can",
+          "notes": "full-fat for creaminess"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Red curry paste",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "adjust for spice preference"
+        },
+        {
+          "name": "Soy sauce or tamari",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for umami flavor"
+        },
+        {
+          "name": "Lime juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        },
+        {
+          "name": "Salt",
+          "amount": "to taste",
+          "unit": "",
+          "notes": "optional"
+        },
+        {
+          "name": "Cooked brown rice or quinoa",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "for serving"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot or Dutch oven, heat the coconut oil over medium heat."
+        },
+        {
+          "step": 2,
+          "text": "Add the diced onion and sauté for about 5 minutes, or until translucent."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the minced garlic and grated ginger, cooking for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the sliced bell peppers, carrots, zucchini, and broccoli florets to the pot, stirring to combine."
+        },
+        {
+          "step": 5,
+          "text": "Cook the vegetables for about 5-7 minutes, stirring occasionally, until they start to soften."
+        },
+        {
+          "step": 6,
+          "text": "Add the red curry paste, stirring it into the vegetables until well incorporated."
+        },
+        {
+          "step": 7,
+          "text": "Pour in the coconut milk and vegetable broth, stirring to combine all ingredients."
+        },
+        {
+          "step": 8,
+          "text": "Bring the mixture to a gentle simmer, then reduce the heat to low and let it cook for 10-15 minutes."
+        },
+        {
+          "step": 9,
+          "text": "Once the vegetables are tender, stir in the soy sauce (or tamari) and lime juice."
+        },
+        {
+          "step": 10,
+          "text": "Taste the curry and adjust seasoning with salt if needed."
+        },
+        {
+          "step": 11,
+          "text": "Serve the curry hot over cooked brown rice or quinoa and garnish with fresh basil."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 420,
+        "protein": "10g",
+        "carbs": "55g",
+        "fat": "20g",
+        "fiber": "8g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","Thai","curry","whole-food plant-based","gluten-free","international","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Coconut milk adds creaminess to the curry; use light coconut milk for a lower-fat option. Red curry paste can vary in spiciness, so adjust according to your taste. Fresh vegetables can be substituted based on seasonal availability.',
+    faqs: [
+        {
+          "question": "Can I use other vegetables?",
+          "answer": "Absolutely! Feel free to substitute with your favorite vegetables such as eggplant, green beans, or spinach."
+        },
+        {
+          "question": "Is this dish gluten-free?",
+          "answer": "Yes, if you use tamari instead of soy sauce, the dish can be gluten-free."
+        }
+      ],
+    tips: ["Prep all your vegetables before starting to cook for a smoother cooking experience.","For extra flavor, let the curry sit for a few minutes off the heat before serving; it enhances the taste!"],
+    variations: ["Add tofu or chickpeas for extra protein.","Use a different curry paste, such as green or massaman, for a unique flavor profile."],
+    storage: 'Store leftovers in an airtight container in the refrigerator for up to 4 days. Reheat on the stovetop or in the microwave before serving.',
+  },
 ];

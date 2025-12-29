@@ -1870,5 +1870,285 @@ export const bakingRecipes: Recipe[] = [
     variations: ["Add a handful of chopped nuts for added texture.","Replace half of the blueberries with shredded coconut for a tropical twist."],
     storage: 'Store in an airtight container at room temperature for up to 3 days. For longer storage, freeze muffins in a freezer-safe bag for up to 3 months. Reheat in the oven or microwave before serving.',
   },
+  {
+    id: '1767011046077.3083',
+    title: 'Vegan Chocolate Cupcakes',
+    slug: 'vegan-chocolate-cupcakes',
+    description: 'Indulge in these moist and decadent vegan chocolate cupcakes that are easy to make and incredibly delicious.',
+    prologue: 'These vegan chocolate cupcakes are a delightful treat for anyone craving something sweet and satisfying without any animal products. Made with wholesome, plant-based ingredients, each bite offers rich chocolate flavor and a light, fluffy texture. Perfect for birthdays, celebrations, or just a sweet snack, this recipe from vegancooking.recipes guarantees a crowd-pleasing dessert that everyone will love.',
+    image: '/recipe-images/vegan-chocolate-cupcakes-1767011047665.webp',
+    prepTime: 15,
+    cookTime: 20,
+    totalTime: 35,
+    servings: 12,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "all-purpose flour",
+          "amount": "1 ½",
+          "unit": "cups",
+          "notes": "sifted"
+        },
+        {
+          "name": "granulated sugar",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "can substitute with coconut sugar for a lower glycemic index"
+        },
+        {
+          "name": "unsweetened cocoa powder",
+          "amount": "½",
+          "unit": "cup",
+          "notes": "sifted"
+        },
+        {
+          "name": "baking powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "ensure it's vegan"
+        },
+        {
+          "name": "baking soda",
+          "amount": "½",
+          "unit": "tsp",
+          "notes": "ensure it's fresh"
+        },
+        {
+          "name": "salt",
+          "amount": "¼",
+          "unit": "tsp",
+          "notes": "enhances flavor"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "½",
+          "unit": "cup",
+          "notes": "acts as an egg replacer"
+        },
+        {
+          "name": "almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "or any plant-based milk"
+        },
+        {
+          "name": "vegetable oil",
+          "amount": "⅓",
+          "unit": "cup",
+          "notes": "can use melted coconut oil"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "adds flavor"
+        },
+        {
+          "name": "vegan chocolate chips",
+          "amount": "½",
+          "unit": "cup",
+          "notes": "optional for extra chocolate flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and line a 12-cup muffin tin with paper liners."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, whisk together the sifted all-purpose flour, granulated sugar, cocoa powder, baking powder, baking soda, and salt until well combined."
+        },
+        {
+          "step": 3,
+          "text": "In a separate bowl, mix the unsweetened applesauce, almond milk, vegetable oil, and vanilla extract until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and stir gently until just combined. Be careful not to overmix."
+        },
+        {
+          "step": 5,
+          "text": "If using, fold in the vegan chocolate chips into the batter."
+        },
+        {
+          "step": 6,
+          "text": "Divide the batter evenly among the 12 muffin cups, filling each about 2/3 full."
+        },
+        {
+          "step": 7,
+          "text": "Bake in the preheated oven for 18-20 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 8,
+          "text": "Remove from the oven and let cool in the pan for about 5 minutes before transferring to a wire rack to cool completely."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "2g",
+        "carbs": "28g",
+        "fat": "7g",
+        "fiber": "2g",
+        "sugar": "10g"
+      },
+    tags: ["vegan","dessert","baking","chocolate","cupcakes","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'All-purpose flour can be substituted with whole wheat flour for a healthier option. If you want to make these cupcakes gluten-free, use a 1:1 gluten-free flour blend. The unsweetened applesauce can be replaced with mashed bananas or another fruit puree if desired.',
+    faqs: [
+        {
+          "question": "Can I make these cupcakes gluten-free?",
+          "answer": "Yes, you can substitute the all-purpose flour with a gluten-free flour blend."
+        },
+        {
+          "question": "How can I store leftover cupcakes?",
+          "answer": "Store in an airtight container at room temperature for up to 3 days, or refrigerate for up to a week."
+        }
+      ],
+    tips: ["Make sure your ingredients are at room temperature for the best results.","Don't overmix the batter; it should be just combined for light and fluffy cupcakes."],
+    variations: ["Add a pinch of espresso powder to enhance the chocolate flavor.","Top with vegan frosting or a dusting of powdered sugar for a special touch."],
+    storage: 'Store the cupcakes in an airtight container at room temperature for up to 3 days or refrigerate for up to a week. For longer storage, freeze the cupcakes by wrapping them individually in plastic wrap and placing them in a freezer-safe container for up to 3 months.',
+  },
+  {
+    id: '1767013114778.4333',
+    title: 'Vegan Pumpkin Bread',
+    slug: 'vegan-pumpkin-bread',
+    description: 'Delightfully moist and fragrant, this vegan pumpkin bread is perfect for fall or any time you crave a slice of comfort. Made with wholesome ingredients, it\'s a delicious treat for everyone!',
+    prologue: 'Looking for a delicious and healthy vegan pumpkin bread recipe? This delightful loaf combines the rich flavors of pumpkin and warm spices, making it perfect for breakfast, snacks, or dessert. With simple whole-food ingredients, you can create a moist and flavorful bread that everyone will love. Check out vegancooking.recipes for more amazing vegan recipes!',
+    image: '/recipe-images/vegan-pumpkin-bread-1767013116159.webp',
+    prepTime: 15,
+    cookTime: 60,
+    totalTime: 75,
+    servings: 10,
+    difficulty: 'easy',
+    category: ["baking"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "whole wheat flour",
+          "amount": "1.5",
+          "unit": "cups",
+          "notes": "can substitute with spelt flour for a different flavor"
+        },
+        {
+          "name": "baking powder",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "baking soda",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "ground cinnamon",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "ground nutmeg",
+          "amount": "0.5",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "salt",
+          "amount": "0.5",
+          "unit": "tsp",
+          "notes": ""
+        },
+        {
+          "name": "coconut sugar",
+          "amount": "0.75",
+          "unit": "cups",
+          "notes": "can substitute with brown sugar or maple sugar"
+        },
+        {
+          "name": "unsweetened applesauce",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "acts as a binder and adds moisture"
+        },
+        {
+          "name": "canned pumpkin puree",
+          "amount": "1",
+          "unit": "cups",
+          "notes": "ensure it's pure pumpkin, not pumpkin pie filling"
+        },
+        {
+          "name": "non-dairy milk",
+          "amount": "0.5",
+          "unit": "cups",
+          "notes": "use almond, soy, or oat milk"
+        },
+        {
+          "name": "vanilla extract",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": ""
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C) and grease a 9x5 inch loaf pan or line it with parchment paper."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the whole wheat flour, baking powder, baking soda, ground cinnamon, ground nutmeg, and salt. Whisk together until well mixed."
+        },
+        {
+          "step": 3,
+          "text": "In another bowl, mix the coconut sugar, unsweetened applesauce, canned pumpkin puree, non-dairy milk, and vanilla extract until smooth."
+        },
+        {
+          "step": 4,
+          "text": "Pour the wet ingredients into the dry ingredients and gently stir with a spatula until just combined. Do not overmix."
+        },
+        {
+          "step": 5,
+          "text": "Pour the batter into the prepared loaf pan, smoothing the top with a spatula."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 55-60 minutes, or until a toothpick inserted into the center comes out clean."
+        },
+        {
+          "step": 7,
+          "text": "Once baked, remove from the oven and let it cool in the pan for about 10 minutes, then transfer to a wire rack to cool completely."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 150,
+        "protein": "3g",
+        "carbs": "30g",
+        "fat": "2g",
+        "fiber": "3g",
+        "sugar": "8g"
+      },
+    tags: ["vegan","pumpkin","baking","bread","whole food plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Whole wheat flour adds fiber and nutrients. You can substitute with gluten-free flour if needed, but the texture may vary. Canned pumpkin puree is recommended for consistency, but you can also use fresh pumpkin if cooked and pureed well.',
+    faqs: [
+        {
+          "question": "Can I use fresh pumpkin instead of canned?",
+          "answer": "Yes, make sure the fresh pumpkin is cooked and pureed until smooth for the best results."
+        },
+        {
+          "question": "How do I store leftovers?",
+          "answer": "Store the bread in an airtight container at room temperature for up to 3 days or refrigerate for up to a week."
+        }
+      ],
+    tips: ["For added flavor, consider folding in chopped walnuts or pecans into the batter.","Serve with a spread of almond butter for a delicious breakfast or snack!"],
+    variations: ["Add chocolate chips for a sweet twist.","Incorporate dried cranberries or raisins for added texture and sweetness."],
+    storage: 'Store the cooled pumpkin bread in an airtight container at room temperature for up to 3 days. For longer storage, slice and freeze it in a freezer-safe bag for up to 3 months.',
+  },
 ];
 

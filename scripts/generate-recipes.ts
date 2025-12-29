@@ -342,6 +342,8 @@ async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recip
 
   const prompt = `Create a detailed, accurate vegan recipe for "${title}". 
 
+CRITICAL REQUIREMENT: The "title" field in your JSON response MUST be exactly "${title}" - do not modify or change it.
+
 Requirements:
 - The recipe must be completely vegan (no animal products)
 - All ingredients must be real, specific, and measurable
@@ -352,7 +354,7 @@ Requirements:
 
 Return a JSON object with this exact structure:
 {
-  "title": "Vegan [Recipe Name]",
+  "title": "${title}",
   "description": "A brief, enticing description (1-2 sentences)",
   "prologue": "A detailed SEO-optimized introduction (3-4 sentences) mentioning vegancooking.recipes",
   "prepTime": number in minutes,
@@ -956,21 +958,55 @@ async function main() {
         }
       }
       
+      // FINAL PRE-GENERATION CHECK: Verify the slug that will be generated is unique
+      const expectedSlug = generateSlug(uniqueTitle!);
+      if (existingRecipes.bySlug.has(expectedSlug) || attemptedSlugs.has(expectedSlug)) {
+        console.log(`   ⚠️  SKIPPED: Slug "${expectedSlug}" would be a duplicate. Finding new title...`);
+        // Mark as attempted and continue to find a new title
+        attemptedSlugs.add(expectedSlug);
+        attemptedTitles.add(uniqueTitle!.toLowerCase().trim());
+        // Try to find a new unique title
+        let foundNewTitle = false;
+        for (let retry = 0; retry < 10; retry++) {
+          const newCandidate = getUniqueRecipeTitle(category, existingRecipes);
+          if (newCandidate) {
+            const newSlug = generateSlug(newCandidate);
+            const normalizedNew = newCandidate.toLowerCase().trim();
+            if (!existingRecipes.byTitle.has(normalizedNew) && 
+                !existingRecipes.bySlug.has(newSlug) &&
+                !attemptedTitles.has(normalizedNew) && 
+                !attemptedSlugs.has(newSlug)) {
+              uniqueTitle = newCandidate;
+              attemptedTitles.add(normalizedNew);
+              attemptedSlugs.add(newSlug);
+              foundNewTitle = true;
+              break;
+            }
+          }
+        }
+        if (!foundNewTitle) {
+          console.log(`   ⚠️  SKIPPED: Could not find a unique recipe title/slug for ${category}.`);
+          skippedCount++;
+          continue;
+        }
+      }
+      
       console.log(`   📝 Generating: "${uniqueTitle}" (${category})...`);
+      console.log(`   🔍 Pre-check: Title and slug are unique before API call`);
       
       // Generate the recipe with the unique title
       const recipe = await generateRecipeWithOpenAI({
-        title: uniqueTitle,
+        title: uniqueTitle!,
         category: [category],
         veganType: ['whole-food-plant-based'],
       });
       
       // CRITICAL: Always check for duplicates after generation
-      // The slug might differ from what we expected, or OpenAI might modify the title
+      // Even though we checked before, OpenAI might have modified the title despite our instructions
       const duplicateCheck = isDuplicateRecipe(recipe, existingRecipes);
       if (duplicateCheck.isDuplicate) {
         console.log(`   ❌ DUPLICATE DETECTED after generation: ${duplicateCheck.reason}`);
-        console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved.`);
+        console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved (this should be rare).`);
         
         // Mark this title/slug as attempted so we don't try it again
         attemptedTitles.add(recipe.title.toLowerCase().trim());
@@ -986,6 +1022,21 @@ async function main() {
         console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved.`);
         failCount++;
         continue;
+      }
+      
+      // Verify OpenAI didn't change the title (which would change the slug)
+      if (recipe.title.toLowerCase().trim() !== uniqueTitle!.toLowerCase().trim()) {
+        console.log(`   ⚠️  WARNING: OpenAI changed title from "${uniqueTitle}" to "${recipe.title}"`);
+        // Re-check the new slug
+        const newSlugCheck = isDuplicateRecipe(recipe, existingRecipes);
+        if (newSlugCheck.isDuplicate) {
+          console.log(`   ❌ DUPLICATE DETECTED due to title change: ${newSlugCheck.reason}`);
+          console.log(`   📋 STRICT UNIQUE PROTOCOL: Recipe not saved.`);
+          attemptedTitles.add(recipe.title.toLowerCase().trim());
+          attemptedSlugs.add(recipe.slug);
+          failCount++;
+          continue;
+        }
       }
 
       console.log(`✅ Generated: ${recipe.title}`);

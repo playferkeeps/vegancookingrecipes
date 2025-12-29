@@ -4,6 +4,10 @@ import { getAllRecipes, getRecipesByCategory } from '@/data/recipes';
 import RecipeCard from '@/components/RecipeCard';
 import AdBanner from '@/components/AdBanner';
 import AdInFeed from '@/components/AdInFeed';
+import { Recipe } from '@/types/recipe';
+
+// Force dynamic rendering to show random recipes on each page load
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Home - Delicious Vegan Recipes for Every Meal | vegancooking.recipes',
@@ -21,12 +25,36 @@ export const metadata = {
   },
 };
 
+/**
+ * Shuffle array using Fisher-Yates algorithm
+ */
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+/**
+ * Get random recipes from an array
+ */
+function getRandomRecipes(recipes: Recipe[], count: number): Recipe[] {
+  if (recipes.length <= count) {
+    return shuffleArray(recipes);
+  }
+  return shuffleArray(recipes).slice(0, count);
+}
+
 export default function Home() {
   const allRecipes = getAllRecipes();
-  const featuredRecipes = allRecipes.slice(0, 6);
-  const bakingRecipes = getRecipesByCategory('baking').slice(0, 3);
-  const savoryRecipes = getRecipesByCategory('savory').slice(0, 3);
-  const internationalRecipes = getRecipesByCategory('international').slice(0, 3);
+  
+  // Get random recipes for each section
+  const featuredRecipes = getRandomRecipes(allRecipes, 6);
+  const bakingRecipes = getRandomRecipes(getRecipesByCategory('baking'), 3);
+  const savoryRecipes = getRandomRecipes(getRecipesByCategory('savory'), 3);
+  const internationalRecipes = getRandomRecipes(getRecipesByCategory('international'), 3);
 
   return (
     <>

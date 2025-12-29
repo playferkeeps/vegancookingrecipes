@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { HiMenu, HiX } from 'react-icons/hi';
 import SearchBar from './SearchBar';
 
@@ -22,10 +23,17 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link 
             href="/" 
-            className="text-xl sm:text-2xl font-bold text-green-600 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 rounded transition-colors"
+            className="flex items-center focus:outline-none focus:ring-2 focus:ring-vcr-primary rounded transition-opacity hover:opacity-90"
             onClick={closeMenu}
           >
-            🌱 vegancooking.recipes
+            <Image
+              src="/img/vcr-logo-lg.png"
+              alt="vegancooking.recipes"
+              width={200}
+              height={50}
+              className="h-8 sm:h-10 w-auto"
+              priority
+            />
           </Link>
           
           {/* Desktop Navigation */}

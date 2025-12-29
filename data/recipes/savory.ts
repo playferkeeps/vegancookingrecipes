@@ -2124,5 +2124,487 @@ export const savoryRecipes: Recipe[] = [
     variations: ["Add cooked quinoa for extra protein and texture.","Incorporate other vegetables like carrots or corn for added color and nutrition."],
     storage: 'Store any leftovers in an airtight container in the refrigerator for up to 3 days. Reheat in the oven or microwave before serving.',
   },
+  {
+    id: '1767011755597.84',
+    title: 'Vegan Chickpea Stew',
+    slug: 'vegan-chickpea-stew',
+    description: 'A hearty and flavorful chickpea stew packed with vegetables and spices, perfect for a comforting meal.',
+    prologue: 'Discover the delightful world of vegan cooking with this wholesome Chickpea Stew recipe from vegancooking.recipes. This nourishing dish combines protein-rich chickpeas with a medley of vegetables and aromatic spices, creating a satisfying meal that’s both filling and nutritious. Ideal for weeknight dinners or meal prep, this stew is a must-try for anyone looking to embrace a whole food plant-based lifestyle.',
+    image: '/recipe-images/vegan-chickpea-stew-1767011756885.webp',
+    prepTime: 15,
+    cookTime: 30,
+    totalTime: 45,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tbsp",
+          "notes": "for sautéing (optional, can skip for oil-free)"
+        },
+        {
+          "name": "Onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Carrot",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Celery",
+          "amount": "2",
+          "unit": "stalks",
+          "notes": "diced"
+        },
+        {
+          "name": "Bell pepper",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced (any color)"
+        },
+        {
+          "name": "Diced tomatoes",
+          "amount": "14",
+          "unit": "oz",
+          "notes": "canned, no salt added"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "low-sodium preferred"
+        },
+        {
+          "name": "Canned chickpeas",
+          "amount": "15",
+          "unit": "oz",
+          "notes": "drained and rinsed"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "fresh, chopped"
+        },
+        {
+          "name": "Ground cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Paprika",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "smoked or sweet"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "freshly squeezed"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the olive oil over medium heat. If you are making this oil-free, simply skip this step and add the vegetables directly."
+        },
+        {
+          "step": 2,
+          "text": "Add the diced onion and sauté for about 3-4 minutes, or until translucent."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the minced garlic and cook for another minute, until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the diced carrots, celery, and bell pepper to the pot. Cook for about 5-7 minutes, stirring occasionally, until the vegetables start to soften."
+        },
+        {
+          "step": 5,
+          "text": "Pour in the diced tomatoes (with their juice) and vegetable broth. Stir to combine."
+        },
+        {
+          "step": 6,
+          "text": "Add the drained chickpeas, cumin, paprika, salt, and black pepper. Bring the mixture to a boil."
+        },
+        {
+          "step": 7,
+          "text": "Reduce the heat to low and let the stew simmer for about 15-20 minutes, allowing the flavors to meld together."
+        },
+        {
+          "step": 8,
+          "text": "Stir in the chopped spinach and let it wilt for about 2-3 minutes."
+        },
+        {
+          "step": 9,
+          "text": "Remove from heat and stir in the lemon juice. Taste and adjust seasoning if necessary."
+        },
+        {
+          "step": 10,
+          "text": "Serve hot, garnished with fresh herbs if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 250,
+        "protein": "12g",
+        "carbs": "40g",
+        "fat": "6g",
+        "fiber": "10g",
+        "sugar": "6g"
+      },
+    tags: ["vegan","stew","chickpeas","comfort food","whole food plant-based","savory","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Chickpeas are a great source of protein and fiber. You can substitute canned chickpeas with cooked dried chickpeas if preferred. For a spicier stew, consider adding a pinch of cayenne pepper.',
+    faqs: [
+        {
+          "question": "Can I freeze chickpea stew?",
+          "answer": "Yes, this stew freezes well. Allow it to cool completely before transferring to an airtight container. It can be frozen for up to three months."
+        },
+        {
+          "question": "What can I serve with this stew?",
+          "answer": "This chickpea stew pairs well with brown rice, quinoa, or a slice of crusty whole grain bread."
+        }
+      ],
+    tips: ["For extra flavor, consider adding a bay leaf while the stew simmers and remove it before serving.","Feel free to customize the vegetables based on what you have on hand, such as zucchini or sweet potatoes."],
+    variations: ["Add coconut milk for a creamier texture and a hint of sweetness.","Incorporate different legumes like lentils or black beans for added protein."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 4 days. Reheat on the stove or in the microwave until warmed through.',
+  },
+  {
+    id: '1767012066927.0293',
+    title: 'Vegan Minestrone Soup',
+    slug: 'vegan-minestrone-soup',
+    description: 'A hearty and nutritious vegan minestrone soup packed with vegetables, beans, and whole grains, perfect for any meal.',
+    prologue: 'Discover the deliciousness of Vegan Minestrone Soup, a wholesome dish that brings together an array of colorful vegetables, hearty beans, and savory herbs. This recipe is not only completely plant-based but also bursting with flavor, making it a perfect choice for those seeking a healthy and fulfilling meal. Explore more at vegancooking.recipes for additional plant-based dishes that nourish your body and soul.',
+    image: '/recipe-images/vegan-minestrone-soup-1767012068193.webp',
+    prepTime: 15,
+    cookTime: 40,
+    totalTime: 55,
+    servings: 6,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "for sautéing"
+        },
+        {
+          "name": "Yellow onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Carrots",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Celery stalks",
+          "amount": "2",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Garlic",
+          "amount": "4",
+          "unit": "cloves",
+          "notes": "minced"
+        },
+        {
+          "name": "Zucchini",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "diced"
+        },
+        {
+          "name": "Green beans",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "trimmed and cut into 1-inch pieces"
+        },
+        {
+          "name": "Diced tomatoes",
+          "amount": "1",
+          "unit": "can",
+          "notes": "14.5 oz, with juices"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "low-sodium"
+        },
+        {
+          "name": "Cannellini beans",
+          "amount": "1",
+          "unit": "can",
+          "notes": "15 oz, drained and rinsed"
+        },
+        {
+          "name": "Pasta (small shape)",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "such as ditalini or elbow"
+        },
+        {
+          "name": "Bay leaf",
+          "amount": "1",
+          "unit": "leaf",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Dried oregano",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "for flavor"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "Fresh basil",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped, for garnish"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the olive oil over medium heat. Add the diced onion, carrots, and celery. Sauté for about 5 minutes or until the vegetables are softened."
+        },
+        {
+          "step": 2,
+          "text": "Add the minced garlic and sauté for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the diced zucchini and green beans, cooking for another 3-4 minutes."
+        },
+        {
+          "step": 4,
+          "text": "Add the can of diced tomatoes (with juices) and vegetable broth to the pot. Stir to combine."
+        },
+        {
+          "step": 5,
+          "text": "Add the cannellini beans, pasta, bay leaf, dried oregano, salt, and black pepper. Bring the mixture to a boil."
+        },
+        {
+          "step": 6,
+          "text": "Once boiling, reduce the heat to low and simmer the soup for about 20 minutes, or until the pasta is tender."
+        },
+        {
+          "step": 7,
+          "text": "Remove the bay leaf and stir in fresh basil just before serving."
+        },
+        {
+          "step": 8,
+          "text": "Serve hot, garnished with additional basil if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 220,
+        "protein": "10g",
+        "carbs": "35g",
+        "fat": "6g",
+        "fiber": "10g",
+        "sugar": "4g"
+      },
+    tags: ["vegan","soup","healthy","whole-food","plant-based","savory","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Feel free to substitute any vegetables based on what\'s in season or your personal preference. You can use other types of beans such as kidney beans or black beans. For gluten-free options, use gluten-free pasta.',
+    faqs: [
+        {
+          "question": "Can I freeze minestrone soup?",
+          "answer": "Yes, minestrone soup freezes well. Allow it to cool completely, then transfer to an airtight container and freeze for up to 3 months."
+        },
+        {
+          "question": "How long does minestrone soup last in the fridge?",
+          "answer": "It can last in the fridge for up to 5 days when stored in an airtight container."
+        }
+      ],
+    tips: ["For added flavor, consider adding a splash of balsamic vinegar just before serving.","Serve with a slice of crusty whole-grain bread for a complete meal."],
+    variations: ["Add kale or spinach for extra greens.","For a spicier version, add crushed red pepper flakes."],
+    storage: 'Store any leftover soup in an airtight container in the refrigerator for up to 5 days. Reheat on the stove or in the microwave until warmed through. For freezing, ensure the soup is completely cooled before transferring to freezer-safe containers.',
+  },
+  {
+    id: '1767013465207.3733',
+    title: 'Vegan Broccoli Soup',
+    slug: 'vegan-broccoli-soup',
+    description: 'This creamy vegan broccoli soup is packed with flavor and nutrition, making it a perfect comforting dish for any season.',
+    prologue: 'Looking for a delicious and wholesome vegan soup? This whole-food-plant-based broccoli soup is not only easy to make but also loaded with essential nutrients. Perfect for a quick lunch or dinner, it will satisfy your cravings while keeping it healthy. Discover more vegan recipes at vegancooking.recipes!',
+    image: '/recipe-images/vegan-broccoli-soup-1767013466579.webp',
+    prepTime: 15,
+    cookTime: 25,
+    totalTime: 40,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["savory"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Broccoli florets",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Fresh or frozen, roughly chopped"
+        },
+        {
+          "name": "Yellow onion",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "Chopped"
+        },
+        {
+          "name": "Garlic cloves",
+          "amount": "3",
+          "unit": "cloves",
+          "notes": "Minced"
+        },
+        {
+          "name": "Vegetable broth",
+          "amount": "4",
+          "unit": "cups",
+          "notes": "Low-sodium recommended"
+        },
+        {
+          "name": "Potato",
+          "amount": "1",
+          "unit": "large",
+          "notes": "Peeled and diced"
+        },
+        {
+          "name": "Nutritional yeast",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "For a cheesy flavor"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Optional, for sautéing"
+        },
+        {
+          "name": "Salt",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "To taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Freshly cracked, to taste"
+        },
+        {
+          "name": "Lemon juice",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "Freshly squeezed"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a large pot, heat the olive oil over medium heat (optional). If not using oil, you can sauté the onion in a little water."
+        },
+        {
+          "step": 2,
+          "text": "Add the chopped onion and cook for about 5 minutes until it becomes translucent."
+        },
+        {
+          "step": 3,
+          "text": "Stir in the minced garlic and cook for an additional 1-2 minutes until fragrant."
+        },
+        {
+          "step": 4,
+          "text": "Add the diced potato and broccoli florets to the pot, followed by the vegetable broth."
+        },
+        {
+          "step": 5,
+          "text": "Bring the mixture to a boil, then reduce the heat and let it simmer for 15-20 minutes until the vegetables are tender."
+        },
+        {
+          "step": 6,
+          "text": "Once the vegetables are soft, remove the pot from heat and use an immersion blender to puree the soup until smooth. Alternatively, you can transfer it in batches to a blender."
+        },
+        {
+          "step": 7,
+          "text": "Stir in the nutritional yeast, salt, black pepper, and lemon juice. Adjust seasonings to taste."
+        },
+        {
+          "step": 8,
+          "text": "Serve hot, garnished with a sprinkle of nutritional yeast or some fresh herbs if desired."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 180,
+        "protein": "6g",
+        "carbs": "32g",
+        "fat": "3g",
+        "fiber": "7g",
+        "sugar": "2g"
+      },
+    tags: ["vegan","soup","whole-food-plant-based","broccoli","healthy","savory"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Broccoli is rich in vitamins C and K and can be substituted with cauliflower for a different flavor. Nutritional yeast gives the soup a cheesy flavor without dairy, but can be omitted if you prefer. Feel free to add other vegetables like carrots or spinach for extra nutrition.',
+    faqs: [
+        {
+          "question": "Can I freeze this soup?",
+          "answer": "Yes, this soup can be frozen in an airtight container for up to 3 months. Thaw in the refrigerator overnight before reheating."
+        },
+        {
+          "question": "How can I make this soup creamier?",
+          "answer": "You can add a cup of unsweetened plant-based milk or blended cashews for a creamier texture."
+        }
+      ],
+    tips: ["Use fresh broccoli for the best flavor and texture.","Adjust the seasoning to your preference, especially the lemon juice for brightness."],
+    variations: ["Add cooked quinoa or lentils for added protein.","Top with roasted chickpeas for a crunchy texture."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 4 days. Reheat on the stove or in the microwave before serving.',
+  },
 ];
 

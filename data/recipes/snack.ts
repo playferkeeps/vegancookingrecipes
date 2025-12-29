@@ -1860,4 +1860,364 @@ export const snackRecipes: Recipe[] = [
     variations: ["Add fruit puree for flavored yogurt.","Mix in spices like cinnamon or ginger for a different twist."],
     storage: 'Store the yogurt in airtight jars in the refrigerator for up to 1 week. If it separates, simply stir before serving.',
   },
+  {
+    id: '1767011134012.4927',
+    title: 'Vegan Creamy Avocado Dip',
+    slug: 'vegan-creamy-avocado-dip',
+    description: 'This creamy avocado dip is a delightful blend of fresh ingredients, perfect for snacking with veggies or tortilla chips.',
+    prologue: 'If you\'re looking for a quick and delicious snack, this Vegan Creamy Avocado Dip is the perfect solution. Packed with healthy fats from avocados and the zest of lime, it\'s not only tasty but also nutritious. This recipe is entirely plant-based, making it an excellent choice for anyone following a whole-food-plant-based lifestyle. Explore more vegan recipes at vegancooking.recipes!',
+    image: '/recipe-images/vegan-creamy-avocado-dip-1767011135411.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["snack"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "ripe avocados",
+          "amount": "2",
+          "unit": "whole",
+          "notes": "pitted and peeled"
+        },
+        {
+          "name": "lime juice",
+          "amount": "2",
+          "unit": "tbsp",
+          "notes": "freshly squeezed"
+        },
+        {
+          "name": "garlic",
+          "amount": "1",
+          "unit": "clove",
+          "notes": "minced"
+        },
+        {
+          "name": "cumin",
+          "amount": "1",
+          "unit": "tsp",
+          "notes": "ground"
+        },
+        {
+          "name": "salt",
+          "amount": "1/2",
+          "unit": "tsp",
+          "notes": "to taste"
+        },
+        {
+          "name": "fresh cilantro",
+          "amount": "1/4",
+          "unit": "cup",
+          "notes": "chopped"
+        },
+        {
+          "name": "water",
+          "amount": "1-2",
+          "unit": "tbsp",
+          "notes": "to adjust consistency"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "In a medium-sized mixing bowl, mash the ripe avocados using a fork or a potato masher until smooth."
+        },
+        {
+          "step": 2,
+          "text": "Add the freshly squeezed lime juice, minced garlic, ground cumin, and salt to the mashed avocado."
+        },
+        {
+          "step": 3,
+          "text": "Mix all the ingredients together until well combined."
+        },
+        {
+          "step": 4,
+          "text": "If the dip is too thick, gradually add water, one tablespoon at a time, until you reach your desired consistency."
+        },
+        {
+          "step": 5,
+          "text": "Fold in the chopped fresh cilantro."
+        },
+        {
+          "step": 6,
+          "text": "Taste and adjust salt or lime juice as necessary."
+        },
+        {
+          "step": 7,
+          "text": "Transfer the dip to a serving bowl and enjoy it immediately with fresh vegetables or tortilla chips."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 160,
+        "protein": "2g",
+        "carbs": "10g",
+        "fat": "14g",
+        "fiber": "7g",
+        "sugar": "1g"
+      },
+    tags: ["vegan","dip","snack","whole-food-plant-based","avocado"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Avocados should be ripe for the best creaminess. If you don\'t have fresh cilantro, parsley can be a good substitute. Adjust lime juice based on your taste preference.',
+    faqs: [
+        {
+          "question": "Can I make this dip in advance?",
+          "answer": "Yes, you can prepare the dip a few hours in advance. To prevent browning, press plastic wrap directly onto the surface of the dip."
+        },
+        {
+          "question": "What can I serve with this dip?",
+          "answer": "This dip pairs well with fresh veggies like carrots, cucumbers, and bell peppers, as well as tortilla chips."
+        }
+      ],
+    tips: ["Use ripe avocados for the best texture.","If you like a spicy kick, add a pinch of cayenne pepper or chopped jalapeños."],
+    variations: ["Add diced tomatoes for a pico de gallo twist.","Incorporate black beans for added protein and texture."],
+    storage: 'Store any leftovers in an airtight container in the refrigerator for up to 2 days. To minimize browning, press plastic wrap directly onto the surface of the dip.',
+  },
+  {
+    id: '1767011361982.4363',
+    title: 'Vegan Whole-Food Plant-Based Smoothie',
+    slug: 'vegan-whole-food-plant-based-smoothie',
+    description: 'This refreshing smoothie is packed with nutrients and flavor, making it the perfect snack to energize your day.',
+    prologue: 'Discover the vibrant world of vegan smoothies with this delicious whole-food plant-based recipe. Ideal for a quick snack or a nutritious breakfast, this smoothie combines the health benefits of fruits and leafy greens without any animal products. At vegancooking.recipes, we believe in nourishing your body with the best ingredients, and this smoothie is a perfect example of that philosophy.',
+    image: '/recipe-images/vegan-whole-food-plant-based-smoothie-1767011363624.webp',
+    prepTime: 10,
+    cookTime: 20,
+    totalTime: 30,
+    servings: 2,
+    difficulty: 'easy',
+    category: ["snack"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Banana",
+          "amount": "1",
+          "unit": "medium",
+          "notes": "ripe for natural sweetness"
+        },
+        {
+          "name": "Spinach",
+          "amount": "2",
+          "unit": "cups",
+          "notes": "fresh, packed lightly"
+        },
+        {
+          "name": "Almond milk",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "unsweetened for a healthier option"
+        },
+        {
+          "name": "Chia seeds",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "for added omega-3 and fiber"
+        },
+        {
+          "name": "Frozen mixed berries",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "blueberries, strawberries, raspberries, or a mix"
+        },
+        {
+          "name": "Peanut butter",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "natural, unsweetened"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "optional, adjust to taste"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Gather all your ingredients and ensure your frozen berries are ready."
+        },
+        {
+          "step": 2,
+          "text": "In a blender, combine the banana, spinach, almond milk, chia seeds, and peanut butter."
+        },
+        {
+          "step": 3,
+          "text": "Add the frozen mixed berries to the blender."
+        },
+        {
+          "step": 4,
+          "text": "If you like a sweeter smoothie, add the maple syrup."
+        },
+        {
+          "step": 5,
+          "text": "Blend on high until smooth and creamy, about 30-60 seconds."
+        },
+        {
+          "step": 6,
+          "text": "Taste the smoothie and adjust sweetness if necessary."
+        },
+        {
+          "step": 7,
+          "text": "Pour the smoothie into two glasses and enjoy immediately."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 300,
+        "protein": "10g",
+        "carbs": "45g",
+        "fat": "12g",
+        "fiber": "10g",
+        "sugar": "20g"
+      },
+    tags: ["smoothie","vegan","snack","quick","whole-food plant-based","whole-food-plant-based"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'Bananas can be substituted with avocados for creaminess without sweetness. Almond milk can be replaced with any other plant-based milk like oat or soy. Adjust the amount of peanut butter according to your taste preference.',
+    faqs: [
+        {
+          "question": "Can I make this smoothie without spinach?",
+          "answer": "Yes, you can omit the spinach or substitute it with other leafy greens like kale or Swiss chard."
+        },
+        {
+          "question": "How can I make this smoothie thicker?",
+          "answer": "Add more frozen fruits or a handful of oats for a thicker consistency."
+        }
+      ],
+    tips: ["Use very ripe bananas for the best natural sweetness.","Blend the spinach with the liquid first for a smoother texture."],
+    variations: ["Add a scoop of protein powder for an extra protein boost.","Incorporate a tablespoon of cacao powder for a chocolatey flavor."],
+    storage: 'This smoothie is best enjoyed fresh, but you can store leftovers in an airtight container in the fridge for up to 24 hours. Shake well before consuming.',
+  },
+  {
+    id: '1767011456703.8232',
+    title: 'Vegan Spiced Nuts',
+    slug: 'vegan-spiced-nuts',
+    description: 'A crunchy, savory blend of nuts seasoned with spices, perfect for snacking.',
+    prologue: 'Looking for a healthy and delicious snack that\'s completely plant-based? These Vegan Spiced Nuts are the perfect answer! Packed with protein and flavor, they make a great addition to your vegan meal prep or a delightful treat for any occasion. Discover more innovative vegan recipes at vegancooking.recipes.',
+    image: '/recipe-images/vegan-spiced-nuts-1767011458047.webp',
+    prepTime: 10,
+    cookTime: 15,
+    totalTime: 25,
+    servings: 4,
+    difficulty: 'easy',
+    category: ["snack"],
+    veganType: ["whole-food-plant-based"],
+    ingredients: [
+        {
+          "name": "Raw almonds",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Can substitute with other nuts like cashews or walnuts"
+        },
+        {
+          "name": "Raw cashews",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Feel free to mix with other nuts"
+        },
+        {
+          "name": "Raw pecans",
+          "amount": "1",
+          "unit": "cup",
+          "notes": "Optional, for additional crunch"
+        },
+        {
+          "name": "Olive oil",
+          "amount": "2",
+          "unit": "tablespoons",
+          "notes": "Can use avocado oil for a different flavor"
+        },
+        {
+          "name": "Maple syrup",
+          "amount": "1",
+          "unit": "tablespoon",
+          "notes": "For a touch of sweetness"
+        },
+        {
+          "name": "Smoked paprika",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "Adds a smoky flavor"
+        },
+        {
+          "name": "Garlic powder",
+          "amount": "1",
+          "unit": "teaspoon",
+          "notes": "For savory depth"
+        },
+        {
+          "name": "Cinnamon",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Optional, adds warmth"
+        },
+        {
+          "name": "Sea salt",
+          "amount": "1/2",
+          "unit": "teaspoon",
+          "notes": "Adjust to taste"
+        },
+        {
+          "name": "Black pepper",
+          "amount": "1/4",
+          "unit": "teaspoon",
+          "notes": "Freshly ground for best flavor"
+        }
+      ],
+    instructions: [
+        {
+          "step": 1,
+          "text": "Preheat your oven to 350°F (175°C)."
+        },
+        {
+          "step": 2,
+          "text": "In a large mixing bowl, combine the raw almonds, cashews, and pecans."
+        },
+        {
+          "step": 3,
+          "text": "In a separate small bowl, whisk together the olive oil, maple syrup, smoked paprika, garlic powder, cinnamon, sea salt, and black pepper."
+        },
+        {
+          "step": 4,
+          "text": "Pour the oil and spice mixture over the nuts and stir well to coat all the nuts evenly."
+        },
+        {
+          "step": 5,
+          "text": "Spread the seasoned nuts in a single layer on a baking sheet lined with parchment paper."
+        },
+        {
+          "step": 6,
+          "text": "Bake in the preheated oven for 10-15 minutes, stirring halfway through to ensure even toasting."
+        },
+        {
+          "step": 7,
+          "text": "Once they are golden brown and fragrant, remove from the oven and let cool completely."
+        },
+        {
+          "step": 8,
+          "text": "Store in an airtight container at room temperature for up to 1 week."
+        }
+      ],
+    nutritionInfo: {
+        "calories": 200,
+        "protein": "6g",
+        "carbs": "8g",
+        "fat": "18g",
+        "fiber": "3g",
+        "sugar": "1g"
+      },
+    tags: ["snack","vegan","whole-food-plant-based","nuts","healthy"],
+    author: 'vegancooking.recipes',
+    datePublished: '2025-12-29',
+    ingredientNotes: 'You can easily substitute any of the nuts for your favorites or whatever you have on hand. Just keep the total amount consistent. For a spicier kick, consider adding cayenne pepper to the spice mix.',
+    faqs: [
+        {
+          "question": "Can I use roasted nuts instead of raw?",
+          "answer": "Yes, but reduce the baking time to avoid burning them. Roasted nuts won't need much time in the oven."
+        }
+      ],
+    tips: ["Make sure to stir the nuts halfway through baking for even toasting.","Experiment with different spices like curry powder or chili powder for variety."],
+    variations: ["Add dried herbs like rosemary or thyme for an herby flavor.","For a sweet version, omit the spices and use only maple syrup with a sprinkle of cinnamon."],
+    storage: 'Store the cooled spiced nuts in an airtight container at room temperature. They will stay fresh for about a week. For longer storage, keep them in the refrigerator for up to two weeks.',
+  },
 ];

@@ -20,17 +20,13 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
 }
 
 /* Accessibility improvements */
 :focus-visible {
-  outline: 2px solid #16a34a;
+  outline: 2px solid #0a5a28; /* Logo primary green */
   outline-offset: 2px;
 }
 
@@ -39,18 +35,18 @@ body {
   /* Ensure touch targets are at least 44x44px */
   button,
   a,
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type='checkbox'],
+  input[type='radio'] {
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   /* Improve text readability on small screens */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
   /* Prevent horizontal scroll */
   * {
     max-width: 100%;
@@ -72,4 +68,3 @@ body {
     display: none;
   }
 }
-
