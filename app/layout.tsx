@@ -102,12 +102,12 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
         </RecaptchaProvider>
-        {/* Google Analytics - Load with lazyOnload strategy for optimal SEO (doesn't impact Core Web Vitals) */}
+        {/* Google Analytics - Load with afterInteractive strategy for proper detection */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-5PG8FMRN5R"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
