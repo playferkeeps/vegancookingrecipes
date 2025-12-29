@@ -32,6 +32,14 @@ export const metadata: Metadata = {
     siteName: 'vegancooking.recipes',
     title: 'Vegan Cooking Recipes - Delicious Plant-Based Meals | vegancooking.recipes',
     description: 'Discover amazing vegan recipes for every meal at vegancooking.recipes. From baking to savory dishes, international cuisine, and more.',
+    images: [
+      {
+        url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+        width: 1200,
+        height: 630,
+        alt: 'vegancooking.recipes - Vegan Cooking Recipes',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -69,7 +77,6 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/img/vcr-favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/img/vcr-favicon.png" />
-        <link rel="canonical" href="https://vegancooking.recipes" />
         <meta name="application-name" content="vegancooking.recipes" />
         <meta name="apple-mobile-web-app-title" content="vegancooking.recipes" />
       </head>

@@ -19,6 +19,8 @@ const nextConfig = {
   output: 'standalone',
   // Compress output (SWC minification is enabled by default in Next.js 16)
   compress: true,
+  // Remove X-Powered-By header for security
+  poweredByHeader: false,
 }
 
 module.exports = nextConfig

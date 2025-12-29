@@ -23,17 +23,19 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link 
             href="/" 
-            className="flex items-center focus:outline-none focus:ring-2 focus:ring-vcr-primary rounded transition-opacity hover:opacity-90"
+            className="flex items-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-vcr-primary rounded transition-opacity hover:opacity-90"
             onClick={closeMenu}
           >
             <Image
               src="/img/vcr-logo-lg.png"
-              alt="vegancooking.recipes"
+              alt=""
               width={200}
               height={50}
-              className="h-8 sm:h-10 w-auto"
+              className="h-8 sm:h-10 md:h-12 w-auto"
               priority
+              aria-hidden="true"
             />
+            <span className="text-xl sm:text-2xl font-bold text-vcr-primary">vegancooking.recipes</span>
           </Link>
           
           {/* Desktop Navigation */}

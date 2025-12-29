@@ -78,16 +78,18 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate JSON-LD structured data for SEO
+// Generate JSON-LD structured data for SEO (2025/2026 best practices)
 function generateStructuredData(recipe: Recipe) {
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
+  const imageUrl = recipe.image.startsWith('http') ? recipe.image : `https://vegancooking.recipes${recipe.image}`;
   
-  return {
+  // Base Recipe schema
+  const recipeSchema: any = {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
     name: recipe.title,
     description: recipe.description,
-    image: recipe.image,
+    image: Array.isArray(recipe.image) ? recipe.image : [imageUrl],
     url: url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -97,10 +99,14 @@ function generateStructuredData(recipe: Recipe) {
       '@type': 'Organization',
       name: 'vegancooking.recipes',
       url: 'https://vegancooking.recipes',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+      },
     },
     author: {
-      '@type': 'Person',
-      name: recipe.author,
+      '@type': 'Organization',
+      name: 'vegancooking.recipes',
       url: 'https://vegancooking.recipes',
     },
     datePublished: recipe.datePublished,
@@ -110,28 +116,124 @@ function generateStructuredData(recipe: Recipe) {
     totalTime: `PT${recipe.totalTime}M`,
     recipeYield: `${recipe.servings} servings`,
     recipeCategory: recipe.category.join(', '),
-    recipeCuisine: recipe.category.includes('international') ? 'International' : 'Vegan',
-    keywords: [...recipe.tags, 'vegancooking.recipes', 'vegan recipes'].join(', '),
+    keywords: [...recipe.tags, ...recipe.category, 'vegancooking.recipes', 'vegan recipes'].join(', '),
     recipeIngredient: recipe.ingredients.map(
-      (ing) => `${ing.amount} ${ing.unit || ''} ${ing.name}${ing.notes ? ` (${ing.notes})` : ''}`
+      (ing) => {
+        const ingredient = typeof ing === 'string' ? ing : ing.name;
+        const amount = typeof ing === 'string' ? '' : (ing.amount || '');
+        const unit = typeof ing === 'string' ? '' : (ing.unit || '');
+        const notes = typeof ing === 'string' ? '' : (ing.notes || '');
+        return `${amount} ${unit} ${ingredient}${notes ? ` (${notes})` : ''}`.trim();
+      }
     ),
     recipeInstructions: recipe.instructions.map((inst) => ({
       '@type': 'HowToStep',
       position: inst.step,
       text: inst.text,
+      name: `Step ${inst.step}`,
     })),
-    nutrition: recipe.nutritionInfo
-      ? {
-          '@type': 'NutritionInformation',
-          calories: `${recipe.nutritionInfo.calories} calories`,
-          proteinContent: recipe.nutritionInfo.protein,
-          carbohydrateContent: recipe.nutritionInfo.carbs,
-          fatContent: recipe.nutritionInfo.fat,
-          fiberContent: recipe.nutritionInfo.fiber,
-          sugarContent: recipe.nutritionInfo.sugar,
-        }
-      : undefined,
+    suitableForDiet: 'https://schema.org/VegetarianDiet',
+    recipeCuisine: recipe.category.includes('international') ? 'International' : 'Vegan',
   };
+
+  // Add nutrition information if available
+  if (recipe.nutritionInfo) {
+    recipeSchema.nutrition = {
+      '@type': 'NutritionInformation',
+      calories: recipe.nutritionInfo.calories ? `${recipe.nutritionInfo.calories}` : undefined,
+      proteinContent: recipe.nutritionInfo.protein,
+      carbohydrateContent: recipe.nutritionInfo.carbs,
+      fatContent: recipe.nutritionInfo.fat,
+      fiberContent: recipe.nutritionInfo.fiber,
+      sugarContent: recipe.nutritionInfo.sugar,
+    };
+  }
+
+  // Add difficulty level
+  if (recipe.difficulty) {
+    recipeSchema.difficulty = recipe.difficulty.charAt(0).toUpperCase() + recipe.difficulty.slice(1);
+  }
+
+  // Add FAQ schema if available (2025/2026 best practice)
+  const schemas = [recipeSchema];
+  
+  if (recipe.faqs && recipe.faqs.length > 0) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: recipe.faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  // Add BreadcrumbList schema (2025/2026 best practice)
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://vegancooking.recipes',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Recipes',
+        item: 'https://vegancooking.recipes/recipes',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: recipe.category[0] ? recipe.category[0].charAt(0).toUpperCase() + recipe.category[0].slice(1) : 'Recipe',
+        item: recipe.category[0] ? `https://vegancooking.recipes/categories/${recipe.category[0]}` : undefined,
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: recipe.title,
+        item: url,
+      },
+    ],
+  });
+
+  // Add Article schema for better SEO (2025/2026 best practice)
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: recipe.title,
+    description: recipe.description,
+    image: imageUrl,
+    datePublished: recipe.datePublished,
+    dateModified: recipe.dateModified || recipe.datePublished,
+    author: {
+      '@type': 'Organization',
+      name: 'vegancooking.recipes',
+      url: 'https://vegancooking.recipes',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'vegancooking.recipes',
+      url: 'https://vegancooking.recipes',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+  });
+
+  return schemas;
 }
 
 export default async function RecipePage({ params }: PageProps) {
@@ -145,12 +247,18 @@ export default async function RecipePage({ params }: PageProps) {
   const structuredData = generateStructuredData(recipe);
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
 
+  // Handle both single schema and array of schemas
+  const structuredDataArray = Array.isArray(structuredData) ? structuredData : [structuredData];
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      {structuredDataArray.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <JumpToRecipe recipeId="recipe" />
       <article className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
         {/* Recipe Header */}
