@@ -115,10 +115,10 @@ export default function RootLayout({
             gtag('config', 'G-5PG8FMRN5R');
           `}
         </Script>
-        {/* AdSense Script - Load asynchronously to prevent render blocking */}
+        {/* AdSense Script - Load after page is interactive to avoid blocking */}
         <Script
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX'}`}
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
       </body>
