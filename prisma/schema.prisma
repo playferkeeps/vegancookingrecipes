@@ -11,142 +11,177 @@ datasource db {
 
 // Recipe categories enum
 model RecipeCategory {
-  id        String   @id @default(uuid())
-  recipeId  String
-  category  String   // 'baking' | 'savory' | 'international' | 'breakfast' | 'lunch' | 'dinner' | 'dessert' | 'snack' | 'beverage'
-  recipe    Recipe    @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-  
+  id       String @id @default(uuid())
+  recipeId String
+  category String // 'baking' | 'savory' | 'international' | 'breakfast' | 'lunch' | 'dinner' | 'dessert' | 'snack' | 'beverage'
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
   @@index([recipeId])
   @@index([category])
 }
 
 // Vegan types enum
 model RecipeVeganType {
-  id        String   @id @default(uuid())
+  id        String @id @default(uuid())
   recipeId  String
-  veganType String   // 'raw-vegan' | 'whole-food-plant-based' | 'gluten-free-vegan' | 'oil-free-vegan' | 'high-protein-vegan' | 'budget-vegan' | 'gourmet-vegan'
-  recipe    Recipe    @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-  
+  veganType String // 'raw-vegan' | 'whole-food-plant-based' | 'gluten-free-vegan' | 'oil-free-vegan' | 'high-protein-vegan' | 'budget-vegan' | 'gourmet-vegan'
+  recipe    Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
   @@index([recipeId])
   @@index([veganType])
 }
 
 // Ingredients (stored as JSON for flexibility)
 model Ingredient {
-  id          String   @id @default(uuid())
-  recipeId    String
-  name        String
-  amount      String
-  unit        String?
-  notes       String?
-  orderIndex   Int      // For maintaining ingredient order
-  
-  recipe      Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-  
+  id         String  @id @default(uuid())
+  recipeId   String
+  name       String
+  amount     String
+  unit       String?
+  notes      String?
+  orderIndex Int // For maintaining ingredient order
+
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
   @@index([recipeId])
 }
 
 // Instructions (stored as separate rows for flexibility)
 model Instruction {
-  id          String   @id @default(uuid())
-  recipeId    String
-  step        Int
-  text        String
-  image       String?
-  
-  recipe      Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-  
-  @@index([recipeId])
+  id       String  @id @default(uuid())
+  recipeId String
+  step     Int
+  text     String
+  image    String?
+
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
   @@unique([recipeId, step])
+  @@index([recipeId])
 }
 
 // Nutrition info (stored as JSON for flexibility)
 model NutritionInfo {
-  id          String   @id @default(uuid())
-  recipeId    String   @unique
-  calories    Int?
-  protein     String?
-  carbs       String?
-  fat         String?
-  fiber       String?
-  sugar       String?
-  
-  recipe      Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  id       String  @id @default(uuid())
+  recipeId String  @unique
+  calories Int?
+  protein  String?
+  carbs    String?
+  fat      String?
+  fiber    String?
+  sugar    String?
+
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
 }
 
 // FAQ entries
 model FAQ {
-  id          String   @id @default(uuid())
-  recipeId    String
-  question    String
-  answer      String
-  orderIndex   Int      // For maintaining FAQ order
-  
-  recipe      Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-  
+  id         String @id @default(uuid())
+  recipeId   String
+  question   String
+  answer     String
+  orderIndex Int // For maintaining FAQ order
+
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
   @@index([recipeId])
 }
 
 // Tags (many-to-many relationship)
 model RecipeTag {
-  id        String   @id @default(uuid())
-  recipeId  String
-  tag       String
-  recipe    Recipe   @relation(fields: [recipeId], references: [id], onDelete: Cascade)
-  
+  id       String @id @default(uuid())
+  recipeId String
+  tag      String
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([recipeId, tag])
   @@index([recipeId])
   @@index([tag])
-  @@unique([recipeId, tag])
 }
 
 // Related recipes (many-to-many self-referential)
 model RelatedRecipe {
-  id          String   @id @default(uuid())
-  recipeId    String
-  relatedId   String   // ID of the related recipe
-  
-  recipe      Recipe   @relation("RecipeRelated", fields: [recipeId], references: [id], onDelete: Cascade)
-  
+  id        String @id @default(uuid())
+  recipeId  String
+  relatedId String // ID of the related recipe
+
+  recipe Recipe @relation("RecipeRelated", fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([recipeId, relatedId])
   @@index([recipeId])
   @@index([relatedId])
-  @@unique([recipeId, relatedId])
 }
 
 // Main Recipe model
 model Recipe {
-  id                String            @id @default(uuid())
-  title             String
-  slug              String            @unique
-  description       String
-  prologue          String            @db.Text
-  image             String
-  prepTime          Int               // in minutes
-  cookTime          Int               // in minutes
-  totalTime         Int               // in minutes
-  servings          Int
-  difficulty        String            // 'easy' | 'medium' | 'hard'
-  author            String            @default("Katie")
-  datePublished     DateTime          @default(now())
-  dateModified      DateTime?         @updatedAt
-  
+  id            String    @id @default(uuid())
+  title         String
+  slug          String    @unique
+  description   String
+  prologue      String    @db.Text
+  image         String
+  prepTime      Int // in minutes
+  cookTime      Int // in minutes
+  totalTime     Int // in minutes
+  servings      Int
+  difficulty    String // 'easy' | 'medium' | 'hard'
+  author        String    @default("Katie")
+  datePublished DateTime  @default(now())
+  dateModified  DateTime? @updatedAt
+
   // SEO enhancement fields
-  ingredientNotes   String?           @db.Text
-  tips              String[]           // Array of tips
-  variations        String[]          // Array of variations
-  storage           String?           @db.Text
-  
+  ingredientNotes String?  @db.Text
+  tips            String[] // Array of tips
+  variations      String[] // Array of variations
+  storage         String?  @db.Text
+
   // Relations
-  categories        RecipeCategory[]
-  veganTypes        RecipeVeganType[]
-  ingredients       Ingredient[]
-  instructions      Instruction[]
-  nutritionInfo     NutritionInfo?
-  faqs              FAQ[]
-  tags              RecipeTag[]
-  relatedRecipes    RelatedRecipe[]   @relation("RecipeRelated")
-  
+  categories     RecipeCategory[]
+  veganTypes     RecipeVeganType[]
+  ingredients    Ingredient[]
+  instructions   Instruction[]
+  nutritionInfo  NutritionInfo?
+  faqs           FAQ[]
+  tags           RecipeTag[]
+  relatedRecipes RelatedRecipe[]   @relation("RecipeRelated")
+  votes          Vote[]
+  comments       Comment[]
+
   @@index([slug])
   @@index([title])
   @@index([datePublished])
   @@index([difficulty])
+}
+
+// Votes model for recipe voting
+model Vote {
+  id        String   @id @default(uuid())
+  recipeId  String   @map("recipe_id")
+  userId    String   @map("user_id")
+  voteType  String   @map("vote_type") // 'up' | 'down'
+  createdAt DateTime @default(now()) @map("created_at")
+
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@unique([recipeId, userId])
+  @@index([recipeId])
+  @@index([userId])
+  @@map("votes")
+}
+
+// Comments model for recipe comments
+model Comment {
+  id        String   @id @default(uuid())
+  recipeId  String   @map("recipe_id")
+  name      String
+  email     String
+  comment   String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@index([recipeId])
+  @@index([createdAt])
+  @@map("comments")
 }

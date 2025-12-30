@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { getAllRecipes } from '@/data/recipes';
+import RecipeCard from '@/components/RecipeCard';
 
 export const metadata = {
   title: 'Vegan Meal Prep Guide - Easy Step-by-Step Instructions | vegancooking.recipes',
@@ -7,7 +9,45 @@ export const metadata = {
   keywords: ['vegan meal prep', 'meal prep guide', 'plant-based meal prep', 'meal prep tips', 'vegan meal planning'],
 };
 
-export default function MealPrepGuide() {
+export default async function MealPrepGuide() {
+  // Fetch dinner recipes that don't contain noodles
+  const allRecipes = await getAllRecipes();
+  const dinnerRecipesNoNoodles = allRecipes
+    .filter(recipe => {
+      // Must be dinner category
+      if (!recipe.category.includes('dinner')) return false;
+      
+      // Exclude recipes with noodles/pasta in title, description, or ingredients
+      const titleLower = recipe.title.toLowerCase();
+      const descLower = (recipe.description || '').toLowerCase();
+      const ingredientsText = recipe.ingredients
+        .map(ing => typeof ing === 'string' ? ing : ing.name)
+        .join(' ')
+        .toLowerCase();
+      
+      const hasNoodles = 
+        titleLower.includes('noodle') ||
+        titleLower.includes('pasta') ||
+        titleLower.includes('spaghetti') ||
+        titleLower.includes('linguine') ||
+        titleLower.includes('fettuccine') ||
+        titleLower.includes('penne') ||
+        titleLower.includes('ravioli') ||
+        titleLower.includes('lasagna') ||
+        titleLower.includes('macaroni') ||
+        titleLower.includes('ramen') ||
+        titleLower.includes('udon') ||
+        titleLower.includes('soba') ||
+        titleLower.includes('chow mein') ||
+        titleLower.includes('lo mein') ||
+        descLower.includes('noodle') ||
+        descLower.includes('pasta') ||
+        ingredientsText.includes('noodle') ||
+        ingredientsText.includes('pasta');
+      
+      return !hasNoodles;
+    })
+    .slice(0, 6); // Show 6 recipes
   return (
     <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
       {/* Hero Section */}
@@ -332,7 +372,7 @@ export default function MealPrepGuide() {
             Not every recipe is great for meal prep, but I&apos;ve learned which ones hold up well. These are the ones I come back to again and again.
           </p>
         </div>
-        <div className="bg-green-50 rounded-lg p-6 sm:p-8 text-center">
+        <div className="bg-green-50 rounded-lg p-6 sm:p-8 text-center mb-8">
           <p className="text-lg sm:text-xl text-gray-700 mb-4">
             When I&apos;m looking through my <Link href="/recipes" className="text-green-600 hover:text-green-700 underline font-semibold">recipe collection</Link> for meal prep ideas, I look for dishes that:
           </p>
@@ -343,6 +383,28 @@ export default function MealPrepGuide() {
             <li>Keep me satisfied and full—nothing worse than being hungry an hour after eating</li>
           </ul>
         </div>
+        
+        {/* Featured Dinner Recipes */}
+        {dinnerRecipesNoNoodles.length > 0 && (
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 text-gray-900 text-center">
+              My Favorite Dinner Recipes for Meal Prep
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {dinnerRecipesNoNoodles.map((recipe) => (
+                <RecipeCard key={recipe.id} recipe={recipe} />
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Link
+                href="/recipes?category=dinner"
+                className="inline-block bg-green-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-base sm:text-lg"
+              >
+                View All Dinner Recipes
+              </Link>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* CTA Section */}

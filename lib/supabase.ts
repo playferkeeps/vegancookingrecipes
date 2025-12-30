@@ -16,7 +16,21 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 // Create a single supabase client for interacting with your database
 export const supabase = supabaseUrl && supabaseAnonKey
-  ? createClient(supabaseUrl, supabaseAnonKey)
+  ? createClient(supabaseUrl, supabaseAnonKey, {
+      db: {
+        schema: 'public',
+      },
+      auth: {
+        persistSession: false, // Don't persist auth sessions for anonymous access
+      },
+      global: {
+        // PostgREST requires specific Accept headers for different response types
+        // The Supabase client handles this automatically, but we can override if needed
+        headers: {
+          'apikey': supabaseAnonKey, // Ensure API key is in headers
+        },
+      },
+    })
   : null;
 
 /**

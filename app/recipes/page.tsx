@@ -22,6 +22,16 @@ export default function RecipesPage() {
   const INITIAL_DISPLAY_COUNT = 12;
   const LOAD_MORE_COUNT = 12;
 
+  // Shuffle array using Fisher-Yates algorithm
+  const shuffleArray = useCallback(<T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }, []);
+
   useEffect(() => {
     // Load all recipes on client side via API
     const loadRecipes = async () => {
@@ -29,7 +39,8 @@ export default function RecipesPage() {
         const response = await fetch('/api/recipes');
         const data = await response.json();
         const recipes = data.recipes || [];
-        setAllRecipes(recipes);
+        // Recipes are already shuffled from API, but shuffle again for extra randomness
+        setAllRecipes(shuffleArray(recipes));
       } catch (error) {
         console.error('Error loading recipes:', error);
         setAllRecipes([]);
@@ -38,7 +49,7 @@ export default function RecipesPage() {
       }
     };
     loadRecipes();
-  }, []);
+  }, [shuffleArray]);
 
   // Apply time filters to recipes
   const applyTimeFilters = useCallback((recipes: Recipe[]): Recipe[] => {

@@ -53,6 +53,18 @@ export async function generateStaticParams() {
   }));
 }
 
+/**
+ * Shuffle array using Fisher-Yates algorithm
+ */
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default async function CategoryPage({ params }: PageProps) {
   const { category: categoryParam } = await params;
   const category = categoryParam as RecipeCategory;
@@ -62,6 +74,9 @@ export default async function CategoryPage({ params }: PageProps) {
     notFound();
   }
 
+  // Shuffle recipes for random display
+  const shuffledRecipes = shuffleArray(recipes);
+
   return (
     <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
       <header className="mb-6 sm:mb-8">
@@ -69,12 +84,12 @@ export default async function CategoryPage({ params }: PageProps) {
           {category} Recipes
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 px-1 sm:px-0">
-          Discover our collection of {recipes.length} delicious {category} vegan recipes.
+          Discover our collection of {shuffledRecipes.length} delicious {category} vegan recipes.
         </p>
       </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-        {recipes.map((recipe) => (
+        {shuffledRecipes.map((recipe) => (
           <RecipeCard key={recipe.id} recipe={recipe} />
         ))}
       </div>
