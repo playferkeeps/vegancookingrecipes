@@ -170,6 +170,9 @@ export default async function Home() {
         {/* Top Banner Ad */}
         <AdBanner />
 
+        {/* Banner Ad After Featured Recipes */}
+        <AdBanner />
+
         {/* Featured Recipes */}
         <section className="py-16 container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Some of My Favorites</h2>
@@ -186,11 +189,9 @@ export default async function Home() {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredRecipes.map((recipe, index) => (
+            {featuredRecipes.map((recipe) => (
               <div key={recipe.id}>
                 <RecipeCard recipe={recipe} />
-                {/* In-feed ad after 3rd recipe */}
-                {index === 2 && <AdInFeed />}
               </div>
             ))}
           </div>

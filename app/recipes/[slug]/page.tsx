@@ -510,7 +510,7 @@ export default async function RecipePage({ params }: PageProps) {
           <IngredientsList ingredients={recipe.ingredients} />
 
           {/* In-Content Ad Between Ingredients and Instructions */}
-          <AdRectangle className="hidden md:block" />
+          <AdBanner className="hidden md:block" />
 
           {/* Instructions */}
           <section className="mb-4 sm:mb-6">
