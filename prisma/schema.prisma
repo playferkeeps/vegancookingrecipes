@@ -146,6 +146,7 @@ model Recipe {
   relatedRecipes RelatedRecipe[]   @relation("RecipeRelated")
   votes          Vote[]
   comments       Comment[]
+  views          RecipeView[]
 
   @@index([slug])
   @@index([title])
@@ -184,4 +185,21 @@ model Comment {
   @@index([recipeId])
   @@index([createdAt])
   @@map("comments")
+}
+
+// Recipe views tracking model
+model RecipeView {
+  id        String   @id @default(uuid())
+  recipeId  String   @map("recipe_id")
+  userId    String?  @map("user_id") // Optional: track by user if available
+  viewedAt  DateTime @default(now()) @map("viewed_at")
+  ipAddress String?  @map("ip_address") // Optional: for analytics
+  userAgent String?  @map("user_agent") // Optional: for analytics
+
+  recipe Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+
+  @@index([recipeId])
+  @@index([viewedAt])
+  @@index([userId])
+  @@map("recipe_views")
 }

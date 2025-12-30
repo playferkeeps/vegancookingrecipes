@@ -24,3 +24,4 @@ export default function RecipesLayout({
   return <>{children}</>;
 }
 
+

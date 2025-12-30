@@ -11,6 +11,7 @@ import RelatedRecipes from '@/components/RelatedRecipes';
 import IngredientsList from '@/components/IngredientsList';
 import AdBanner from '@/components/AdBanner';
 import AdRectangle from '@/components/AdRectangle';
+import ViewTracker from '@/components/ViewTracker';
 import { Recipe } from '@/types/recipe';
 
 interface PageProps {
@@ -302,6 +303,7 @@ export default async function RecipePage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
+      <ViewTracker recipeId={recipe.id} />
       <JumpToRecipe recipeId="recipe" />
       <article className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 max-w-4xl">
         {/* Recipe Header */}
