@@ -28,22 +28,20 @@ export default function MealPrepGuide() {
           Vegan Meal Prep Guide
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          Save time, eat healthy, and stay organized with our simple step-by-step meal prep guide. Perfect for busy weekdays!
+          Let me show you how I meal prep every week. It&apos;s honestly been a game-changer for me—I spend a couple hours on Sunday, and then I&apos;m set for the whole week. No more scrambling to figure out what to eat when I&apos;m tired and hungry!
         </p>
       </header>
 
       {/* Introduction */}
       <section className="mb-12 sm:mb-16">
         <div className="bg-green-50 rounded-lg p-6 sm:p-8 md:p-10 mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Why Meal Prep?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Why I Meal Prep</h2>
           <div className="space-y-3 text-gray-700 text-base sm:text-lg leading-relaxed">
             <p>
-              Meal prepping is one of the best ways to stay on track with your plant-based lifestyle. 
-              By spending a few hours on the weekend, you can have healthy, delicious meals ready for the entire week.
+              I&apos;ll be honest—I wasn&apos;t always a meal prepper. But after one too many weeks of coming home exhausted and reaching for whatever was easiest (usually not the healthiest), I decided to try something different. Now I can&apos;t imagine my week without it.
             </p>
             <p>
-              <strong className="text-green-700">Benefits:</strong> Save time during busy weekdays, reduce food waste, 
-              save money, and make healthier choices effortlessly.
+              Here&apos;s what I love about it: I spend a couple hours on Sunday afternoon (usually with some good music playing), and then I&apos;m set for the whole week. No more decision fatigue about what to eat. No more wasting food because I bought too much and didn&apos;t use it. And honestly? It&apos;s saved me so much money. When I have meals ready to go, I&apos;m way less likely to order takeout or grab something on the go.
             </p>
           </div>
         </div>
@@ -52,7 +50,7 @@ export default function MealPrepGuide() {
       {/* Step-by-Step Guide */}
       <section className="mb-12 sm:mb-16">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center text-gray-900">
-          Your Simple 5-Step Meal Prep Plan
+          My Simple 5-Step Meal Prep Routine
         </h2>
 
         <div className="space-y-8 sm:space-y-12">
@@ -86,21 +84,21 @@ export default function MealPrepGuide() {
                   </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
-                  Plan Your Meals (15 minutes)
+                  Step 1: Plan Your Meals (15 minutes)
                 </h3>
                 <div className="space-y-3 text-gray-700 text-base sm:text-lg leading-relaxed">
                   <p>
-                    <strong className="text-green-700">Choose 2-3 recipes</strong> you want to make for the week. 
-                    Pick recipes that:
+                    I usually do this on Saturday morning while I&apos;m having my coffee. I pick <strong className="text-green-700">2-3 recipes</strong> I want to make for the week. Here&apos;s what I look for:
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-4">
-                    <li>Store well in the fridge (3-5 days)</li>
-                    <li>Can be easily reheated</li>
-                    <li>Use similar ingredients to reduce waste</li>
-                    <li>You actually enjoy eating</li>
+                    <li>Things that actually taste good after sitting in the fridge for a few days (not everything does!)</li>
+                    <li>Recipes that reheat well—soups, stews, and grain bowls are my go-tos</li>
+                    <li>Dishes that share ingredients so I&apos;m not buying a million different things</li>
+                    <li>Most importantly: recipes I&apos;m actually excited to eat. If I&apos;m not looking forward to it, I won&apos;t eat it, and then it&apos;s just wasted food.
+                    </li>
                   </ul>
                   <p className="mt-3">
-                    <strong>Pro tip:</strong> Browse our <Link href="/recipes" className="text-green-600 hover:text-green-700 underline">recipe collection</Link> for meal prep-friendly options!
+                    I&apos;ve got a whole collection of <Link href="/recipes" className="text-green-600 hover:text-green-700 underline">recipes</Link> that work great for meal prep—things I&apos;ve tested and know hold up well!
                   </p>
                 </div>
               </div>
@@ -137,15 +135,14 @@ export default function MealPrepGuide() {
                   </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
-                  Make Your Shopping List (10 minutes)
+                  Step 2: Make Your Shopping List (10 minutes)
                 </h3>
                 <div className="space-y-3 text-gray-700 text-base sm:text-lg leading-relaxed">
                   <p>
-                    Write down all the ingredients you need. <strong className="text-green-700">Group by category</strong> 
-                    (produce, grains, beans, etc.) to make shopping faster.
+                    I write down everything I need, and I <strong className="text-green-700">group it by where it is in the store</strong>—all the produce together, all the grains together, etc. It makes shopping so much faster, and I&apos;m way less likely to forget something.
                   </p>
                   <p>
-                    <strong>Don&apos;t forget:</strong> Storage containers, reusable bags, and any snacks you want for the week.
+                    One thing I always check before I leave: do I have enough containers? There&apos;s nothing worse than getting home and realizing I don&apos;t have enough glass containers to store everything. I also grab any snacks I want for the week while I&apos;m at it—saves me an extra trip later.
                   </p>
                 </div>
               </div>
@@ -182,21 +179,14 @@ export default function MealPrepGuide() {
                   </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
-                  Prep Your Ingredients (30-45 minutes)
+                  Step 3: Prep Your Ingredients (30-45 minutes)
                 </h3>
                 <div className="space-y-3 text-gray-700 text-base sm:text-lg leading-relaxed">
                   <p>
-                    <strong className="text-green-700">Start with the longest tasks first:</strong>
+                    This is where I get strategic. I <strong className="text-green-700">start with whatever takes the longest</strong>—usually grains like rice or quinoa. While those are cooking, I&apos;m roasting vegetables in the oven. Then I chop fresh veggies for salads or snacks. I make all my dressings and sauces at once. If I need cooked beans or lentils, I do those too.
                   </p>
-                  <ul className="list-disc list-inside space-y-2 ml-4">
-                    <li>Cook grains (rice, quinoa, pasta) - these take the longest</li>
-                    <li>Roast vegetables while grains cook</li>
-                    <li>Chop fresh vegetables for salads or snacks</li>
-                    <li>Prepare dressings and sauces</li>
-                    <li>Cook beans or lentils if needed</li>
-                  </ul>
-                  <p className="mt-3">
-                    <strong>Time saver:</strong> Use your oven and stovetop simultaneously to maximize efficiency!
+                  <p>
+                    My biggest time-saver? Using my oven and stovetop at the same time. While something&apos;s roasting, I&apos;m cooking grains. While grains are simmering, I&apos;m chopping. It feels like a little dance, and by the end, everything&apos;s ready at once.
                   </p>
                 </div>
               </div>
@@ -233,19 +223,17 @@ export default function MealPrepGuide() {
                   </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
-                  Assemble Your Meals (20-30 minutes)
+                  Step 4: Assemble Your Meals (20-30 minutes)
                 </h3>
                 <div className="space-y-3 text-gray-700 text-base sm:text-lg leading-relaxed">
                   <p>
-                    Once everything is cooked and cooled, <strong className="text-green-700">portion into containers</strong>. 
-                    Use glass containers when possible - they&apos;re better for the environment and easier to reheat.
+                    Once everything&apos;s cooked and cooled down a bit, I <strong className="text-green-700">start portioning everything into containers</strong>. I&apos;m a big fan of glass containers—they&apos;re better for the planet, they don&apos;t stain, and they reheat so much better than plastic. Plus, I can see what&apos;s inside, which honestly helps me actually eat what I prepped.
                   </p>
                   <p>
-                    <strong>Label your containers</strong> with what&apos;s inside and the date. This helps you remember 
-                    what to eat and when it was made.
+                    I always <strong>label my containers</strong> with what&apos;s inside and the date I made it. I used to think I&apos;d remember, but I don&apos;t. The labels save me from that &quot;what is this and when did I make it?&quot; moment on Thursday.
                   </p>
                   <p>
-                    <strong>Storage tip:</strong> Keep dressings separate until you&apos;re ready to eat to keep everything fresh!
+                    One thing I learned the hard way: <strong>keep dressings separate</strong> until you&apos;re ready to eat. If you mix them in ahead of time, everything gets soggy. I keep mine in little jars or small containers, and I just add them when I&apos;m ready to eat.
                   </p>
                 </div>
               </div>
@@ -282,19 +270,17 @@ export default function MealPrepGuide() {
                   </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">
-                  Store & Enjoy! (5 minutes)
+                  Step 5: Store & Enjoy! (5 minutes)
                 </h3>
                 <div className="space-y-3 text-gray-700 text-base sm:text-lg leading-relaxed">
                   <p>
-                    Place containers in the fridge, organized by day or meal type. 
-                    <strong className="text-green-700"> Most prepped meals stay fresh for 3-5 days.</strong>
+                    I organize my containers in the fridge by day or meal type—it just makes it easier to grab what I need. <strong className="text-green-700">Most of my prepped meals stay fresh for 3-5 days</strong>, so I usually prep Sunday and eat through Thursday or Friday. By then, I&apos;m ready to mix it up anyway.
                   </p>
                   <p>
-                    <strong>Reheating:</strong> Most meals can be reheated in the microwave (2-3 minutes) or on the stovetop. 
-                    Add a splash of water or plant-based milk if things seem dry.
+                    When it&apos;s time to eat, I usually reheat things in the microwave (2-3 minutes does the trick) or on the stovetop if I want it a bit crispier. If something seems a little dry after reheating, I&apos;ll add a splash of water or plant-based milk—it makes a huge difference.
                   </p>
                   <p>
-                    <strong>Enjoy your week!</strong> You&apos;ve just saved yourself hours of cooking time and set yourself up for success. 🌱
+                    And that&apos;s it! You&apos;ve just set yourself up for a whole week of easy, healthy eating. Trust me, your future self will thank you when you&apos;re tired on Tuesday and dinner is already ready. 🌱
                   </p>
                 </div>
               </div>
@@ -306,30 +292,30 @@ export default function MealPrepGuide() {
       {/* Quick Tips Section */}
       <section className="mb-12 sm:mb-16">
         <div className="bg-gray-50 rounded-lg p-6 sm:p-8 md:p-10">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">Quick Meal Prep Tips</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">A Few Things I&apos;ve Learned</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div className="bg-white p-4 sm:p-6 rounded-lg">
               <h3 className="font-bold text-lg mb-2 text-green-700">💡 Start Small</h3>
               <p className="text-gray-700">
-                Don&apos;t try to prep everything at once. Start with 2-3 meals and build from there.
+                When I first started, I tried to prep everything for the whole week. It was overwhelming, and I ended up wasting food. Now I stick to 2-3 recipes, and that&apos;s plenty. You can always add more later once you get the hang of it.
               </p>
             </div>
             <div className="bg-white p-4 sm:p-6 rounded-lg">
               <h3 className="font-bold text-lg mb-2 text-green-700">🥗 Mix & Match</h3>
               <p className="text-gray-700">
-                Prep components (grains, proteins, veggies) separately so you can mix and match throughout the week.
+                Sometimes I prep components separately—a big batch of quinoa, roasted veggies, some beans. Then I can mix and match them throughout the week. It keeps things interesting and gives me more flexibility.
               </p>
             </div>
             <div className="bg-white p-4 sm:p-6 rounded-lg">
               <h3 className="font-bold text-lg mb-2 text-green-700">⏰ Pick Your Day</h3>
               <p className="text-gray-700">
-                Sunday works for most people, but choose whatever day fits your schedule best.
+                Sunday afternoon works for me, but honestly, pick whatever day makes sense for your life. The best meal prep routine is the one you&apos;ll actually stick to.
               </p>
             </div>
             <div className="bg-white p-4 sm:p-6 rounded-lg">
               <h3 className="font-bold text-lg mb-2 text-green-700">🎵 Make It Fun</h3>
               <p className="text-gray-700">
-                Put on some music or a podcast. Meal prep doesn&apos;t have to be a chore!
+                I always put on music or a podcast while I&apos;m prepping. It makes the time go by faster, and honestly, it&apos;s become something I look forward to. Meal prep doesn&apos;t have to feel like a chore!
               </p>
             </div>
           </div>
@@ -340,21 +326,21 @@ export default function MealPrepGuide() {
       <section className="mb-12 sm:mb-16">
         <div className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            Meal Prep-Friendly Recipes
+            Recipes That Work Great for Meal Prep
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            These recipes are perfect for meal prep - they store well, reheat beautifully, and taste great all week!
+            Not every recipe is great for meal prep, but I&apos;ve learned which ones hold up well. These are the ones I come back to again and again.
           </p>
         </div>
         <div className="bg-green-50 rounded-lg p-6 sm:p-8 text-center">
           <p className="text-lg sm:text-xl text-gray-700 mb-4">
-            Browse our collection of <Link href="/recipes" className="text-green-600 hover:text-green-700 underline font-semibold">vegan recipes</Link> and look for dishes that:
+            When I&apos;m looking through my <Link href="/recipes" className="text-green-600 hover:text-green-700 underline font-semibold">recipe collection</Link> for meal prep ideas, I look for dishes that:
           </p>
           <ul className="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg max-w-2xl mx-auto">
-            <li>Can be made in large batches</li>
-            <li>Store well in the refrigerator</li>
-            <li>Reheat easily without losing flavor or texture</li>
-            <li>Are satisfying and filling</li>
+            <li>Can be made in big batches (soups, stews, grain bowls)</li>
+            <li>Actually taste good after a few days in the fridge (not everything does!)</li>
+            <li>Reheat well without getting mushy or losing their flavor</li>
+            <li>Keep me satisfied and full—nothing worse than being hungry an hour after eating</li>
           </ul>
         </div>
       </section>
@@ -362,10 +348,10 @@ export default function MealPrepGuide() {
       {/* CTA Section */}
       <section className="text-center bg-gradient-to-r from-green-600 to-green-800 text-white rounded-lg p-8 sm:p-12">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-          Ready to Start Meal Prepping?
+          Ready to Give It a Try?
         </h2>
         <p className="text-lg sm:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto opacity-90">
-          Browse our recipe collection and start your meal prep journey today. Your future self will thank you!
+          Start with just one or two recipes this week. Pick something you&apos;re excited to eat, and see how it goes. I promise, once you get the hang of it, you&apos;ll wonder how you ever lived without it!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link

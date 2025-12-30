@@ -155,7 +155,7 @@ export default async function Home() {
               Delicious Vegan Recipes
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-0 leading-relaxed">
-              Discover amazing plant-based recipes for every meal. From baking to savory dishes, international cuisine, and more.
+              I&apos;m so glad you&apos;re here! I&apos;ve been cooking up plant-based magic in my kitchen, and I&apos;m excited to share these recipes with you. Whether you&apos;re craving something sweet, savory, or from halfway around the world, I&apos;ve got you covered.
             </p>
             <Link
               href="/recipes"
@@ -172,9 +172,9 @@ export default async function Home() {
 
         {/* Featured Recipes */}
         <section className="py-16 container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4 text-center">Featured Vegan Recipes</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">Some of My Favorites</h2>
           <p className="text-gray-600 mb-6 text-center max-w-3xl mx-auto">
-            Explore our handpicked selection of the best vegan recipes. Each recipe is carefully crafted to be delicious, nutritious, and easy to follow. Whether you&apos;re new to plant-based cooking or a seasoned vegan chef, you&apos;ll find something to love in our collection.
+            These are recipes I come back to again and again—the ones I make when I need something comforting, or when I want to impress friends, or just when I&apos;m craving something really good. I&apos;ve tested every single one, and I promise they&apos;re worth making. Whether you&apos;re just starting your plant-based journey or you&apos;ve been at this for years, I think you&apos;ll find something here that speaks to you.
           </p>
           <div className="mb-8 flex flex-col items-center gap-3">
             <p className="text-sm font-semibold text-gray-700">Share vegancooking.recipes with friends:</p>
@@ -201,9 +201,9 @@ export default async function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 text-center">Recipe Categories</h2>
             <div className="mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Vegan Baking Recipes</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">Baking</h3>
               <p className="text-gray-600 mb-6">
-                Discover our collection of sweet and savory baked goods that are completely plant-based. From fluffy vegan cakes to hearty breads, our baking recipes use only plant-based ingredients without compromising on taste or texture. Perfect for breakfast, dessert, or anytime you crave something baked.
+                There&apos;s something magical about baking, isn&apos;t there? I love the way my kitchen smells when I&apos;m making bread, or the satisfaction of pulling a perfectly golden batch of cookies from the oven. All my baking recipes are plant-based, but I promise you won&apos;t miss the eggs or butter. I&apos;ve spent countless hours in my kitchen perfecting these—from fluffy cakes that actually rise to breads with that perfect crust. These are the recipes I make when I want to treat myself or share something special with the people I love.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {bakingRecipes.map((recipe) => (
@@ -222,9 +222,9 @@ export default async function Home() {
             </div>
 
             <div className="mb-8 sm:mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">Savory Vegan Recipes</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">Savory</h3>
               <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base px-2 sm:px-0">
-                Indulge in our hearty and flavorful savory dishes perfect for every occasion. From comforting soups and stews to satisfying main courses, these plant-based recipes prove that vegan food can be both nutritious and incredibly delicious. Each dish is packed with flavor and designed to satisfy even the most discerning palate.
+                This is where I really get to play with flavors. I love creating hearty, satisfying dishes that make you forget you&apos;re eating plant-based. My soups and stews are what I turn to when I need comfort, and I&apos;ve learned that the secret is in layering flavors—a good base, the right herbs, and letting things simmer until they&apos;re just right. These are the recipes that have become staples in my kitchen, the ones I make when I want something that truly nourishes both body and soul.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 {savoryRecipes.map((recipe) => (
@@ -243,9 +243,9 @@ export default async function Home() {
             </div>
 
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">International Vegan Cuisine</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">International</h3>
               <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base px-2 sm:px-0">
-                Take a culinary journey around the world with our collection of international plant-based recipes. From Asian-inspired dishes to Mediterranean classics, Mexican favorites to Indian curries, discover how diverse and exciting vegan cooking can be. These authentic recipes bring global flavors to your kitchen while staying completely plant-based.
+                I&apos;ve always been fascinated by how different cultures approach plant-based cooking. Some of my favorite recipes come from adapting traditional dishes from around the world—like that time I spent weeks perfecting a vegan version of a curry I had in India, or when I figured out how to make plant-based versions of Mediterranean classics. These recipes let me travel through food, and I love sharing that experience with you. Each one tells a story, and I hope they inspire you to explore flavors you might not have tried before.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                 {internationalRecipes.map((recipe) => (
@@ -275,16 +275,16 @@ export default async function Home() {
               
               <div className="space-y-6 sm:space-y-8 mb-16 sm:mb-20">
                 <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
-                  Welcome to vegancooking.recipes, your ultimate destination for delicious, healthy, and easy-to-follow vegan recipes. Our mission is to make plant-based cooking accessible, enjoyable, and inspiring for everyone, whether you&apos;re a seasoned vegan or just starting your journey toward a more plant-based lifestyle.
+                  Welcome! I&apos;m so happy you found your way here. This little corner of the internet is where I share the recipes I&apos;ve been developing in my kitchen—the ones that have become part of my regular rotation, the experiments that turned out better than I expected, and the dishes that make me excited to cook.
                 </p>
                 <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
-                  We believe that vegan food should be anything but boring. That&apos;s why we&apos;ve curated a diverse collection of recipes spanning all meal types and cuisines. From quick breakfast ideas to elaborate dinner parties, from simple snacks to decadent desserts, we have something for every occasion and every skill level.
+                  When I first went plant-based, I was worried I&apos;d have to give up all my favorite foods. Turns out, I was wrong. I&apos;ve spent years figuring out how to make plant-based versions of everything I love, and along the way, I&apos;ve discovered that vegan food doesn&apos;t have to be complicated or boring. Sometimes it&apos;s a quick breakfast I can throw together on a busy morning. Other times, it&apos;s a project I spend a whole Sunday afternoon on. Both have their place.
                 </p>
                 <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
-                  All our recipes are carefully tested and developed to ensure they&apos;re not only delicious but also nutritious. We focus on using whole, plant-based ingredients that provide essential nutrients while delivering incredible flavors. Our recipes are free from animal products, making them suitable for vegans, vegetarians, and anyone looking to incorporate more plant-based meals into their diet.
+                  Every recipe here is something I&apos;ve actually made, usually multiple times. I test them, tweak them, and only share them when I&apos;m confident they&apos;ll work in your kitchen too. I focus on whole foods because that&apos;s what makes me feel good, but I also believe food should be joyful. So you&apos;ll find everything from simple, nourishing meals to the occasional treat that&apos;s just pure comfort.
                 </p>
                 <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
-                  Whether you&apos;re looking for comfort food classics made vegan, exploring international cuisines, or trying your hand at plant-based baking, vegancooking.recipes has you covered. Join our community of plant-based food lovers and discover how delicious and satisfying vegan cooking can be.
+                  Whether you&apos;re looking to recreate a comfort food classic, try something from a different part of the world, or just need some inspiration for what to make for dinner, I hope you find something here that speaks to you. Cooking is such a personal thing, and I&apos;m honored you&apos;re letting me share a bit of my kitchen with you.
                 </p>
               </div>
 
