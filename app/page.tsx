@@ -5,6 +5,7 @@ import RecipeCard from '@/components/RecipeCard';
 import AdBanner from '@/components/AdBanner';
 import AdInFeed from '@/components/AdInFeed';
 import SocialShare from '@/components/SocialShare';
+import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
 
 // Generate Organization schema for homepage SEO (2025/2026 best practice)
@@ -150,25 +151,63 @@ export default async function Home() {
               style={{ objectFit: 'cover' }}
             />
           </div>
-          <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              Delicious Vegan Recipes
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-0 leading-relaxed">
-              I&apos;m so glad you&apos;re here! I&apos;ve been cooking up plant-based magic in my kitchen, and I&apos;m excited to share these recipes with you. Whether you&apos;re craving something sweet, savory, or from halfway around the world, I&apos;ve got you covered.
-            </p>
-            <Link
-              href="/recipes"
-              className="inline-block bg-white text-green-600 font-semibold py-3 sm:py-3.5 px-6 sm:px-8 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
-              aria-label="Browse all vegan recipes"
-            >
-              Browse Recipes
-            </Link>
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+              {/* Katie's Photo */}
+              <div className="flex-shrink-0">
+                <div className="rounded-full overflow-hidden shadow-2xl ring-4 ring-white/30 hover:ring-white/50 transition-all duration-300">
+                  <Image
+                    src="/img/vcr-katie.png"
+                    alt="Katie - Barefoot Chef and Creator of vegancooking.recipes"
+                    width={180}
+                    height={180}
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+              
+              {/* Hero Content */}
+              <div className="flex-1 text-center md:text-left">
+                <div className="mb-3 sm:mb-4">
+                  <span className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm sm:text-base font-semibold">
+                    Welcome to my kitchen! 👋
+                  </span>
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+                  Hi, I&apos;m Katie
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 max-w-2xl mx-auto md:mx-0 leading-relaxed">
+                  I&apos;m so glad you&apos;re here! I&apos;ve been cooking up plant-based magic in my kitchen, and I&apos;m excited to share these recipes with you. Whether you&apos;re craving something sweet, savory, or from halfway around the world, I&apos;ve got you covered.
+                </p>
+                
+                {/* VCR Brand Explanation */}
+                <div className="mb-6 sm:mb-8 bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 max-w-2xl mx-auto md:mx-0">
+                  <p className="text-sm sm:text-base md:text-lg mb-2 font-semibold">
+                    What does <strong className="text-white">VCR</strong> mean?
+                  </p>
+                  <p className="text-sm sm:text-base leading-relaxed">
+                    The <strong className="font-semibold">V</strong>ibrant, <strong className="font-semibold">C</strong>onscious, <strong className="font-semibold">R</strong>oots on my apron—that&apos;s what I hope my recipes help you cultivate. Welcome to my warm, slightly messy, hippie kitchen where plants are our best medicine and cooking is a sacred practice. 🌱✨
+                  </p>
+                </div>
+                
+                <Link
+                  href="/recipes"
+                  className="inline-block bg-white text-green-600 font-semibold py-3 sm:py-3.5 px-6 sm:px-8 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-green-600 text-sm sm:text-base min-h-[44px] flex items-center justify-center"
+                  aria-label="Browse all vegan recipes"
+                >
+                  Browse Recipes
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Top Banner Ad */}
         <AdBanner />
+
+        {/* Email Signup - Lead Magnet */}
+        {/* <EmailSignup variant="default" /> */}
 
         {/* Banner Ad After Featured Recipes */}
         <AdBanner />
@@ -289,37 +328,20 @@ export default async function Home() {
                 </p>
               </div>
 
-              {/* Meet Katie - The Chef Behind the Recipes */}
-              <div className="border-t-2 border-gray-300 pt-12 sm:pt-16 mt-12 sm:mt-16">
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-12 text-center text-gray-900">
-                  Meet Katie, The Chef Behind the Recipes
+              {/* About Section - Link to full about page */}
+              <div className="border-t-2 border-gray-300 pt-12 sm:pt-16 mt-12 sm:mt-16 text-center">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-gray-900">
+                  Want to Know More About Me?
                 </h3>
-                
-                <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-center md:items-start">
-                  {/* Katie's Image - Circular */}
-                  <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:justify-start">
-                    <div className="rounded-full overflow-hidden shadow-xl ring-4 ring-green-100 hover:ring-green-200 transition-all duration-300">
-                      <Image
-                        src="/img/vcr-katie.png"
-                        alt="Katie - Barefoot Chef and Creator of vegancooking.recipes"
-                        width={200}
-                        height={200}
-                        className="object-cover"
-                        priority
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Bio Text */}
-                  <div className="flex-1 space-y-5 sm:space-y-6">
-                    <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
-                      Hello beautiful souls, and welcome! I&apos;m Katie. 🌻 I believe the kitchen is a sacred space and that plants are our best medicine. I&apos;m a barefoot chef obsessed with whole foods, healing herbs, and cooking with intention.
-                    </p>
-                    <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
-                      My food philosophy is simple: nourish your body, respect Mother Earth, and eat with joy. The VCR on my apron stands for <strong className="text-green-700 font-semibold">Vibrant, Conscious, Roots</strong>—because that&apos;s what I hope my recipes help you cultivate. No judgment here, just big flavours and warm hugs. Let&apos;s get crunchy! 🥕✨🌱
-                    </p>
-                  </div>
-                </div>
+                <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto">
+                  Hello beautiful souls! I&apos;m Katie. 🌻 I believe the kitchen is a sacred space and that plants are our best medicine. I&apos;m a barefoot chef obsessed with whole foods, healing herbs, and cooking with intention.
+                </p>
+                <Link
+                  href="/about"
+                  className="inline-block bg-green-600 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                >
+                  Read My Full Story
+                </Link>
               </div>
 
               <div className="mt-12 sm:mt-16 text-center border-t border-gray-300 pt-8 sm:pt-10">

@@ -12,6 +12,7 @@ import IngredientsList from '@/components/IngredientsList';
 import AdBanner from '@/components/AdBanner';
 import AdRectangle from '@/components/AdRectangle';
 import ViewTracker from '@/components/ViewTracker';
+import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
 
 interface PageProps {
@@ -144,9 +145,10 @@ function generateStructuredData(recipe: Recipe) {
       },
     },
     author: {
-      '@type': 'Organization',
-      name: 'vegancooking.recipes',
+      '@type': 'Person',
+      name: 'Katie',
       url: 'https://vegancooking.recipes',
+      description: 'Barefoot chef and creator of vegancooking.recipes. Believes the kitchen is a sacred space and that plants are our best medicine.',
     },
     datePublished: recipe.datePublished,
     dateModified: recipe.dateModified || recipe.datePublished,
@@ -256,9 +258,10 @@ function generateStructuredData(recipe: Recipe) {
     datePublished: recipe.datePublished,
     dateModified: recipe.dateModified || recipe.datePublished,
     author: {
-      '@type': 'Organization',
-      name: 'vegancooking.recipes',
+      '@type': 'Person',
+      name: 'Katie',
       url: 'https://vegancooking.recipes',
+      description: 'Barefoot chef and creator of vegancooking.recipes',
     },
     publisher: {
       '@type': 'Organization',
@@ -544,6 +547,9 @@ export default async function RecipePage({ params }: PageProps) {
 
         {/* Banner Ad After Recipe Content */}
         <AdBanner />
+
+        {/* Email Signup - Lead Magnet */}
+        {/* <EmailSignup variant="inline" /> */}
 
         {/* Comments Section */}
         <Comments recipeId={recipe.id} />
