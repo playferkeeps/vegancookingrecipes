@@ -88,6 +88,7 @@ function getSiteUrl(): string {
 
 /**
  * Generate tweet text for a recipe
+ * Ensures the full URL is always included and never truncated
  */
 function generateTweetText(recipe: { title: string; slug: string; description?: string }): string {
   const baseUrl = getSiteUrl();
@@ -102,24 +103,48 @@ function generateTweetText(recipe: { title: string; slug: string; description?: 
   const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿'];
   const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
   
-  // Keep tweet under 280 characters (leave room for URL which is ~23 chars)
-  const maxTextLength = 280 - 24 - 10; // URL + spacing + emoji
+  // Build the fixed parts (emoji, title, URL with spacing)
+  // Twitter counts URLs as 23 characters, but we need to ensure the full URL is included
+  const urlWithSpacing = `\n\n${recipeUrl}`;
+  const titleWithEmoji = `${randomEmoji} ${recipe.title}`;
   
-  let tweetText = `${randomEmoji} ${recipe.title}`;
+  // Calculate available space for description
+  // 280 char limit - title - URL - spacing - description separator
+  const fixedPartsLength = titleWithEmoji.length + urlWithSpacing.length + 3; // +3 for " - "
+  const maxDescriptionLength = 280 - fixedPartsLength;
   
-  // Add description if it fits
-  if (recipe.description) {
-    const description = recipe.description.substring(0, maxTextLength - tweetText.length - 3);
+  // Start with title and emoji
+  let tweetText = titleWithEmoji;
+  
+  // Add description if it fits (truncate description only, never the URL)
+  if (recipe.description && maxDescriptionLength > 0) {
+    const description = recipe.description.substring(0, maxDescriptionLength);
     if (description.length > 0) {
       tweetText += ` - ${description}`;
     }
   }
   
-  tweetText += `\n\n${recipeUrl}`;
+  // Always append the full URL (never truncate this)
+  tweetText += urlWithSpacing;
   
-  // Truncate if still too long
+  // Final safety check: if somehow still too long, truncate description further
+  // But NEVER truncate the URL
   if (tweetText.length > 280) {
-    tweetText = tweetText.substring(0, 277) + '...';
+    const currentDescriptionLength = tweetText.length - titleWithEmoji.length - urlWithSpacing.length - 3;
+    const newMaxDescriptionLength = Math.max(0, currentDescriptionLength - (tweetText.length - 280));
+    
+    if (recipe.description && newMaxDescriptionLength > 0) {
+      const truncatedDescription = recipe.description.substring(0, newMaxDescriptionLength);
+      tweetText = `${titleWithEmoji} - ${truncatedDescription}${urlWithSpacing}`;
+    } else {
+      // If we can't fit description, just use title and URL
+      tweetText = `${titleWithEmoji}${urlWithSpacing}`;
+    }
+  }
+  
+  // Final validation: ensure URL is always present and complete
+  if (!tweetText.includes(recipeUrl)) {
+    throw new Error('URL was truncated - this should never happen!');
   }
   
   return tweetText;

@@ -40,13 +40,30 @@ export default function AdSense({
           (window as any).adsbygoogle.push({});
           adInitialized.current = true;
 
-          // Log helpful info in development
-          if (process.env.NODE_ENV === 'development') {
-            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            if (isLocalhost) {
-              console.log(`[AdSense] Ad unit initialized (Slot: ${adSlot}). Note: AdSense typically doesn't serve ads on localhost. Deploy to production to see ads.`);
+          // Log helpful info for debugging
+          console.log(`[AdSense] Ad unit initialized (Slot: ${adSlot}, Format: ${adFormat})`);
+          
+          // Monitor ad status after initialization
+          setTimeout(() => {
+            if (insRef.current) {
+              const adStatus = insRef.current.getAttribute('data-ad-status');
+              const adsbygoogleStatus = insRef.current.getAttribute('data-adsbygoogle-status');
+              console.log(`[AdSense] Ad status check (Slot: ${adSlot}):`, {
+                'data-ad-status': adStatus,
+                'data-adsbygoogle-status': adsbygoogleStatus,
+                hostname: window.location.hostname
+              });
+              
+              if (adStatus === 'unfilled') {
+                console.warn(`[AdSense] Ad slot ${adSlot} is unfilled. This could mean:`, [
+                  '1. Ad unit not approved yet (can take 24-48 hours)',
+                  '2. No ads available for this slot',
+                  '3. Site not fully verified in AdSense',
+                  '4. Ad unit configuration issue'
+                ]);
+              }
             }
-          }
+          }, 2000);
         } else {
           // Script not loaded yet, retry
           setTimeout(initializeAd, 100);
@@ -66,7 +83,7 @@ export default function AdSense({
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [isMounted, adSlot]);
+  }, [isMounted, adSlot, adFormat]);
 
   // Replace with your AdSense publisher ID
   const PUBLISHER_ID = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX';
