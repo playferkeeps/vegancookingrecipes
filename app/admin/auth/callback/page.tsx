@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { supabaseClient } from '@/lib/supabase-client';
 import { getCurrentUser, isAdmin } from '@/lib/auth';
 
@@ -11,7 +11,6 @@ import { getCurrentUser, isAdmin } from '@/lib/auth';
  */
 export default function AuthCallback() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
   const [message, setMessage] = useState('Processing authentication...');
 
