@@ -17,7 +17,7 @@ export default function AdBanner({ className = '' }: AdBannerProps) {
       <div className="w-full max-w-4xl">
         <AdSense
           adSlot={adSlot}
-          adFormat="horizontal"
+          adFormat="auto"
           className="min-h-[100px]"
         />
       </div>
