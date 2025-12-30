@@ -11,6 +11,7 @@
     "type-check": "tsc --noEmit",
     "generate-recipes": "tsx scripts/generate-recipes.ts",
     "generate-images-for-existing": "tsx scripts/generate-images-for-existing-recipes.ts",
+    "generate-meal-prep-images": "tsx scripts/generate-meal-prep-images.ts",
     "prepare": "husky",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
