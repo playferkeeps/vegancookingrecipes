@@ -31,9 +31,18 @@ export default function AdSense({
 
     const initializeAd = () => {
       try {
-        if (typeof window !== 'undefined' && (window as any).adsbygoogle) {
+        if (typeof window !== 'undefined') {
+          // Check if adsbygoogle script is loaded and ready
+          const adsbygoogle = (window as any).adsbygoogle;
+          
+          if (!adsbygoogle) {
+            // Script not loaded yet, retry
+            setTimeout(initializeAd, 200);
+            return;
+          }
+
           // Initialize adsbygoogle array if it doesn't exist
-          (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+          (window as any).adsbygoogle = adsbygoogle || [];
           
           // Push empty object to initialize this specific ad unit
           // This matches the AdSense pattern: (adsbygoogle = window.adsbygoogle || []).push({});
@@ -43,42 +52,62 @@ export default function AdSense({
           // Log helpful info for debugging
           console.log(`[AdSense] Ad unit initialized (Slot: ${adSlot}, Format: ${adFormat})`);
           
-          // Monitor ad status after initialization
-          setTimeout(() => {
-            if (insRef.current) {
-              const adStatus = insRef.current.getAttribute('data-ad-status');
-              const adsbygoogleStatus = insRef.current.getAttribute('data-adsbygoogle-status');
+          // Monitor ad status multiple times to catch status changes
+          const checkStatus = (attempt: number) => {
+            if (!insRef.current) return;
+            
+            const adStatus = insRef.current.getAttribute('data-ad-status');
+            const adsbygoogleStatus = insRef.current.getAttribute('data-adsbygoogle-status');
+            
+            if (attempt === 1) {
+              // First check after 1 second
               console.log(`[AdSense] Ad status check (Slot: ${adSlot}):`, {
                 'data-ad-status': adStatus,
                 'data-adsbygoogle-status': adsbygoogleStatus,
                 hostname: window.location.hostname
               });
-              
-              if (adStatus === 'unfilled') {
-                console.warn(`[AdSense] Ad slot ${adSlot} is unfilled. This could mean:`, [
-                  '1. Ad unit not approved yet (can take 24-48 hours)',
-                  '2. No ads available for this slot',
-                  '3. Site not fully verified in AdSense',
-                  '4. Ad unit configuration issue'
+            }
+            
+            // Check if ad is filled
+            if (adStatus === 'filled') {
+              console.log(`[AdSense] ✓ Ad slot ${adSlot} is filled and displaying!`);
+              return;
+            }
+            
+            // If still null or unfilled after multiple checks, log warning
+            if (attempt === 3) {
+              if (adStatus === null || adStatus === 'unfilled') {
+                console.warn(`[AdSense] ⚠️ Ad slot ${adSlot} status: ${adStatus || 'null'}. Possible reasons:`, [
+                  '1. Ad unit not approved yet (can take 24-48 hours after creation)',
+                  '2. No ads available for this slot/format combination',
+                  '3. Site not fully verified in AdSense dashboard',
+                  '4. Ad unit format mismatch (check if format matches AdSense dashboard)',
+                  '5. Ad serving policies (check AdSense dashboard for policy issues)',
+                  '6. Low traffic/new site (may take time for ads to start serving)'
                 ]);
               }
             }
-          }, 2000);
-        } else {
-          // Script not loaded yet, retry
-          setTimeout(initializeAd, 100);
+            
+            // Continue checking if not filled yet (up to 3 times)
+            if (attempt < 3 && (adStatus === null || adStatus === 'unfilled')) {
+              setTimeout(() => checkStatus(attempt + 1), 2000);
+            }
+          };
+          
+          // Start checking status after 1 second
+          setTimeout(() => checkStatus(1), 1000);
         }
       } catch (err) {
         console.error('AdSense error:', err);
         // Retry if initialization failed
         if (!adInitialized.current) {
-          setTimeout(initializeAd, 200);
+          setTimeout(initializeAd, 500);
         }
       }
     };
 
-    // Wait a bit for the script to load and element to be in DOM, then initialize
-    const timeoutId = setTimeout(initializeAd, 100);
+    // Wait longer for the script to fully load, then initialize
+    const timeoutId = setTimeout(initializeAd, 500);
 
     return () => {
       clearTimeout(timeoutId);
