@@ -8,6 +8,18 @@
 import { Recipe, Ingredient, Instruction, NutritionInfo, FAQ } from '@/types/recipe';
 import { supabase } from '@/lib/supabase';
 
+/**
+ * Shuffle array using Fisher-Yates algorithm
+ */
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 // Aggressive caching to minimize database queries
 let recipesCache: Recipe[] | null = null;
 let cacheTimestamp: number = 0;
@@ -152,7 +164,7 @@ export async function getAllRecipesFromDB(): Promise<Recipe[]> {
         tags:RecipeTag(tag),
         relatedRecipes:RelatedRecipe(relatedId)
       `)
-      .order('datePublished', { ascending: false })
+      // No ordering - recipes will be shuffled client-side for random display
       .limit(10000); // Get all recipes
     
     if (error) throw error;
@@ -172,11 +184,14 @@ export async function getAllRecipesFromDB(): Promise<Recipe[]> {
       return supabaseToRecipe(row);
     });
     
+    // Shuffle recipes for random display
+    const shuffledRecipes = shuffleArray(recipes);
+    
     // Update cache
-    recipesCache = recipes;
+    recipesCache = shuffledRecipes;
     cacheTimestamp = now;
     
-    return recipes;
+    return shuffledRecipes;
   } catch (error: any) {
     console.error('Error fetching recipes from database:', error);
     recipesCache = null;

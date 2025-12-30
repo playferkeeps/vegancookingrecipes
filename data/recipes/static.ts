@@ -16,7 +16,7 @@ import { snackRecipes } from './snack';
 import { beverageRecipes } from './beverage';
 
 // Combine all recipes
-export const allRecipes: Recipe[] = [
+const combinedRecipes: Recipe[] = [
   ...originalRecipes,
   ...bakingRecipes,
   ...savoryRecipes,
@@ -28,6 +28,21 @@ export const allRecipes: Recipe[] = [
   ...snackRecipes,
   ...beverageRecipes,
 ];
+
+/**
+ * Shuffle array using Fisher-Yates algorithm
+ */
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// Shuffle recipes for random display
+export const allRecipes: Recipe[] = shuffleArray(combinedRecipes);
 
 // Helper functions to query recipes
 export function getRecipesByCategory(category: string): Recipe[] {

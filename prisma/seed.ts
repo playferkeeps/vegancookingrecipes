@@ -209,6 +209,97 @@ async function main() {
     }
   }
   
+  // Seed sample votes and comments for a few popular recipes
+  console.log('\n💬 Seeding sample votes and comments...');
+  try {
+    // Get a few recipes to add votes/comments to
+    const sampleRecipes = await prisma.recipe.findMany({
+      take: 5,
+      select: { id: true, title: true, slug: true },
+    });
+    
+    if (sampleRecipes.length > 0) {
+      // Add some sample votes
+      const sampleVotes = [
+        { voteType: 'up', userId: 'user_sample_1' },
+        { voteType: 'up', userId: 'user_sample_2' },
+        { voteType: 'up', userId: 'user_sample_3' },
+        { voteType: 'down', userId: 'user_sample_4' },
+        { voteType: 'up', userId: 'user_sample_5' },
+      ];
+      
+      for (const recipe of sampleRecipes.slice(0, 3)) {
+        // Add votes for first 3 recipes
+        for (const vote of sampleVotes) {
+          try {
+            await prisma.vote.upsert({
+              where: {
+                recipeId_userId: {
+                  recipeId: recipe.id,
+                  userId: vote.userId,
+                },
+              },
+              create: {
+                recipeId: recipe.id,
+                userId: vote.userId,
+                voteType: vote.voteType,
+              },
+              update: {
+                voteType: vote.voteType,
+              },
+            });
+          } catch (error) {
+            // Ignore duplicate errors
+          }
+        }
+      }
+      console.log(`✅ Added sample votes for ${Math.min(3, sampleRecipes.length)} recipes`);
+      
+      // Add some sample comments
+      const sampleComments = [
+        {
+          name: 'Sarah M.',
+          email: 'sarah@example.com',
+          comment: 'This recipe is amazing! I made it last week and my whole family loved it. The flavors are incredible!',
+        },
+        {
+          name: 'Mike T.',
+          email: 'mike@example.com',
+          comment: 'Great recipe! I added a bit more spice and it turned out perfect. Will definitely make again.',
+        },
+        {
+          name: 'Emma L.',
+          email: 'emma@example.com',
+          comment: 'So easy to follow and the results were restaurant-quality. Thank you for sharing!',
+        },
+      ];
+      
+      for (const recipe of sampleRecipes.slice(0, 2)) {
+        // Add comments for first 2 recipes
+        for (const comment of sampleComments) {
+          try {
+            await prisma.comment.create({
+              data: {
+                recipeId: recipe.id,
+                name: comment.name,
+                email: comment.email,
+                comment: comment.comment,
+              },
+            });
+          } catch (error) {
+            // Ignore errors
+          }
+        }
+      }
+      console.log(`✅ Added sample comments for ${Math.min(2, sampleRecipes.length)} recipes`);
+    } else {
+      console.log('⏭️  No recipes found to add votes/comments to');
+    }
+  } catch (error: any) {
+    console.warn('⚠️  Could not seed votes/comments:', error.message);
+    // Don't fail the entire seed if votes/comments fail
+  }
+  
   console.log('\n✨ Seed complete!');
   console.log(`✅ Successfully migrated: ${successCount} recipes`);
   console.log(`⏭️  Skipped (already exist): ${skipCount} recipes`);

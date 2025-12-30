@@ -37,7 +37,7 @@ export async function getVoteStats(recipeId: string): Promise<VoteStats> {
     // Get all votes for this recipe
     const { data: votes, error } = await supabase
       .from('votes')
-      .select('vote_type')
+      .select('*')
       .eq('recipe_id', recipeId);
 
     if (error) {
@@ -74,19 +74,24 @@ export async function getUserVote(recipeId: string): Promise<'up' | 'down' | nul
   const userId = getUserId();
 
   try {
+    // Use .limit(1) instead of .maybeSingle() to avoid 406 errors when no rows exist
+    // .maybeSingle() expects exactly one row and returns 406 if none found
+    // .limit(1) returns an empty array if no rows, which is easier to handle
     const { data, error } = await supabase
       .from('votes')
-      .select('vote_type')
+      .select('*')
       .eq('recipe_id', recipeId)
       .eq('user_id', userId)
-      .single();
+      .limit(1);
 
-    if (error && error.code !== 'PGRST116') { // PGRST116 = no rows returned
+    if (error) {
+      // Only log real errors, not expected "no rows" scenarios
       console.error('Error fetching user vote:', error);
       return getUserVoteFromLocalStorage(recipeId);
     }
 
-    return data?.vote_type || null;
+    // Return the vote type if found, null otherwise
+    return data && data.length > 0 ? data[0].vote_type : null;
   } catch (error) {
     console.error('Error getting user vote:', error);
     return getUserVoteFromLocalStorage(recipeId);
@@ -109,12 +114,20 @@ export async function submitVote(
 
   try {
     // Check if user already voted
-    const { data: existingVote } = await supabase
+    // Use .limit(1) instead of .maybeSingle() to avoid 406 errors when no rows exist
+    const { data: existingVotes, error: checkError } = await supabase
       .from('votes')
-      .select('id, vote_type')
+      .select('*')
       .eq('recipe_id', recipeId)
       .eq('user_id', userId)
-      .single();
+      .limit(1);
+    
+    if (checkError) {
+      // Real error, throw it
+      throw checkError;
+    }
+
+    const existingVote = existingVotes && existingVotes.length > 0 ? existingVotes[0] : null;
 
     if (existingVote) {
       if (existingVote.vote_type === voteType) {
@@ -197,6 +210,7 @@ export async function submitComment(
   }
 
   try {
+    const now = new Date().toISOString();
     const { data, error } = await supabase
       .from('comments')
       .insert({
@@ -204,6 +218,8 @@ export async function submitComment(
         name,
         email,
         comment,
+        created_at: now,
+        updated_at: now, // Set updated_at on creation (required by schema)
       })
       .select()
       .single();

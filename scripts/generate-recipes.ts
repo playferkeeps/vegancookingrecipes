@@ -374,37 +374,165 @@ function getRandomRecipeTitle(category: RecipeCategory | string): string {
 }
 
 /**
- * Generate variations of a title to find unique options
+ * Extract the core recipe name by removing common prefixes and suffixes
  */
-function generateTitleVariations(baseTitle: string, category: RecipeCategory | string): string[] {
-  const variations: string[] = [];
-  const prefixes = ['Vegan', 'Plant-Based', 'Easy', 'Simple', 'Quick', 'Homemade', 'Classic', 'Best', 'Creamy', 'Spicy', 'BBQ', 'Smoky', 'Herbed', 'Garlic', 'Lemon', 'Coconut', 'Thai', 'Italian', 'Mexican', 'Asian'];
-  const suffixes = ['Recipe', 'Dish', 'Bowl', 'Plate', 'Style', 'Version'];
+function extractCoreRecipeName(title: string): string {
+  const prefixes = ['vegan', 'plant-based', 'easy', 'simple', 'quick', 'homemade', 'classic', 'best', 'creamy', 'spicy', 'bbq', 'smoky', 'herbed', 'garlic', 'lemon', 'coconut', 'thai', 'italian', 'mexican', 'asian', 'weeknight', 'sunday', 'morning', 'breakfast'];
+  const suffixes = ['recipe', 'dish', 'bowl', 'plate', 'style', 'version', 'dinner'];
   
-  // Try adding prefixes
+  let core = title.toLowerCase().trim();
+  
+  // Remove prefixes
   for (const prefix of prefixes) {
-    if (!baseTitle.toLowerCase().includes(prefix.toLowerCase())) {
-      variations.push(`${prefix} ${baseTitle}`);
+    if (core.startsWith(prefix + ' ')) {
+      core = core.substring(prefix.length + 1).trim();
     }
   }
   
-  // Try adding suffixes (only if not already present)
+  // Remove suffixes
   for (const suffix of suffixes) {
-    if (!baseTitle.toLowerCase().includes(suffix.toLowerCase())) {
-      variations.push(`${baseTitle} ${suffix}`);
+    if (core.endsWith(' ' + suffix)) {
+      core = core.substring(0, core.length - suffix.length - 1).trim();
     }
   }
   
-  // Try category-specific variations
-  if (category === 'dinner') {
-    variations.push(`${baseTitle} Dinner`, `Weeknight ${baseTitle}`, `Sunday ${baseTitle}`);
-  } else if (category === 'breakfast') {
-    variations.push(`Morning ${baseTitle}`, `Breakfast ${baseTitle}`);
-  } else if (category === 'dessert') {
-    variations.push(`Vegan ${baseTitle}`, `Plant-Based ${baseTitle}`);
+  return core;
+}
+
+/**
+ * Generate variations of a title to find unique options
+ * But avoid generating variations of the same core recipe
+ */
+function generateTitleVariations(
+  baseTitle: string, 
+  category: RecipeCategory | string,
+  usedCoreRecipes: Set<string>
+): string[] {
+  const variations: string[] = [];
+  const coreName = extractCoreRecipeName(baseTitle);
+  
+  // If this core recipe has already been used, don't generate variations
+  if (usedCoreRecipes.has(coreName)) {
+    return [];
+  }
+  
+  // Only generate a few variations, not all prefixes
+  const limitedPrefixes = ['Vegan', 'Plant-Based', 'Easy', 'Simple', 'Quick', 'Classic', 'Creamy', 'Spicy'];
+  
+  // Try adding a limited set of prefixes (only 3-4 variations)
+  const selectedPrefixes = limitedPrefixes
+    .filter(prefix => !baseTitle.toLowerCase().includes(prefix.toLowerCase()))
+    .slice(0, 3); // Only 3 variations max
+  
+  for (const prefix of selectedPrefixes) {
+    variations.push(`${prefix} ${baseTitle}`);
   }
   
   return variations;
+}
+
+/**
+ * Generate multiple unique title suggestions using OpenAI
+ */
+async function generateAITitleSuggestions(
+  openai: OpenAI,
+  category: RecipeCategory | string,
+  existingTitles: string[],
+  attemptedTitles: Set<string>,
+  count: number = 5
+): Promise<string[]> {
+  try {
+    const existingTitlesList = existingTitles.slice(0, 30).join(', '); // Show more existing titles
+    const attemptedList = Array.from(attemptedTitles).slice(0, 15).join(', ');
+    
+    const prompt = `Generate ${count} unique, creative vegan recipe titles for the "${category}" category.
+
+CRITICAL REQUIREMENTS:
+- Each title must be completely unique and different from these existing titles: ${existingTitlesList}
+- Each title must be different from these attempted titles: ${attemptedList}
+- Each should be a real, cookable vegan recipe (not generic like "Vegan Food")
+- Each should be specific and appetizing
+- Each should be 2-5 words long
+- Titles should be DIVERSE - avoid generating variations of the same base recipe (e.g., don't generate "Lasagna", "Easy Lasagna", "Simple Lasagna" - these are all the same base recipe)
+- Each title should represent a DISTINCTLY different recipe, not just a variation with a prefix/suffix
+- Be creative and think of different ingredients, cooking methods, cuisines, and flavor profiles
+
+Return ONLY a JSON array of titles, like this:
+{"titles": ["Title 1", "Title 2", "Title 3", "Title 4", "Title 5"]}
+
+Examples of good, diverse titles for ${category}:
+- "BBQ Jackfruit Sandwiches"
+- "Creamy Mushroom Risotto"
+- "Spicy Thai Basil Tofu"
+- "Lemon Herb Quinoa Bowl"
+- "Smoky Chipotle Black Bean Tacos"
+- "Garlic Herb Stuffed Portobellos"
+- "Coconut Curry Lentil Soup"
+- "Mediterranean Stuffed Eggplant"
+- "Teriyaki Tofu Skewers"
+- "Mushroom Wellington"
+
+BAD examples (these are variations of the same recipe):
+- "Lasagna", "Easy Lasagna", "Simple Lasagna" ❌
+- "Pasta", "Vegan Pasta", "Quick Pasta" ❌
+
+Generate ${count} unique, diverse titles now as a JSON array:`;
+
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a creative recipe naming expert. Generate unique, specific vegan recipe titles. Return only a JSON array of titles, no other text.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      response_format: { type: 'json_object' },
+      temperature: 0.9, // Higher temperature for more creativity
+      max_tokens: 200,
+    });
+
+    const content = completion.choices[0]?.message?.content?.trim();
+    if (!content) {
+      return [];
+    }
+    
+    try {
+      const parsed = JSON.parse(content);
+      // Handle different response formats
+      let titles: string[] = [];
+      if (Array.isArray(parsed)) {
+        titles = parsed;
+      } else if (parsed.titles && Array.isArray(parsed.titles)) {
+        titles = parsed.titles;
+      } else if (parsed.suggestions && Array.isArray(parsed.suggestions)) {
+        titles = parsed.suggestions;
+      } else {
+        // Try to extract array from any key
+        const values = Object.values(parsed);
+        if (values.length > 0 && Array.isArray(values[0])) {
+          titles = values[0] as string[];
+        }
+      }
+      
+      // Clean up titles (remove quotes, trim)
+      return titles
+        .map((t: any) => String(t).trim().replace(/^["']|["']$/g, ''))
+        .filter((t: string) => t.length > 0);
+    } catch (parseError) {
+      // If JSON parsing fails, try to extract titles from text
+      const lines = content.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+      return lines
+        .map(line => line.replace(/^[-*•]\s*/, '').replace(/^["']|["']$/g, '').trim())
+        .filter(t => t.length > 0 && t.length < 100);
+    }
+  } catch (error: any) {
+    console.error(`   ⚠️  Error generating AI title suggestions: ${error.message}`);
+    return [];
+  }
 }
 
 /**
@@ -418,82 +546,40 @@ async function generateNewUniqueTitle(
   attemptedSlugs: Set<string>,
   existingRecipes: { byTitle: Map<string, Recipe>, bySlug: Map<string, Recipe> }
 ): Promise<string | null> {
-  try {
-    const existingTitlesList = existingTitles.slice(0, 20).join(', '); // Show sample of existing titles
-    const attemptedList = Array.from(attemptedTitles).slice(0, 10).join(', ');
-    
-    const prompt = `Generate a unique, creative vegan recipe title for the "${category}" category.
-
-REQUIREMENTS:
-- Must be completely unique and different from these existing titles: ${existingTitlesList}
-- Must be different from these attempted titles: ${attemptedList}
-- Should be a real, cookable vegan recipe (not generic like "Vegan Food")
-- Should be specific and appetizing
-- Should be 2-5 words long
-- Must generate a unique slug that doesn't conflict with existing recipes
-
-Return ONLY the recipe title, nothing else. No quotes, no explanation, just the title.
-
-Examples of good titles for ${category}:
-- "BBQ Jackfruit Sandwiches"
-- "Creamy Mushroom Risotto"
-- "Spicy Thai Basil Tofu"
-- "Lemon Herb Quinoa Bowl"
-- "Smoky Chipotle Black Bean Tacos"
-
-Generate a unique title now:`;
-
-    const completion = await openai.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a creative recipe naming expert. Generate unique, specific vegan recipe titles. Return only the title, no quotes or extra text.',
-        },
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-      temperature: 0.9, // Higher temperature for more creativity
-      max_tokens: 50,
-    });
-
-    const generatedTitle = completion.choices[0]?.message?.content?.trim().replace(/^["']|["']$/g, '');
-    
-    if (!generatedTitle) {
-      return null;
-    }
-    
-    const normalizedTitle = generatedTitle.toLowerCase().trim();
-    const candidateSlug = generateSlug(generatedTitle);
+  // Use the batch generation function and return the first unique one
+  const suggestions = await generateAITitleSuggestions(openai, category, existingTitles, attemptedTitles, 3);
+  
+  for (const title of suggestions) {
+    const normalizedTitle = title.toLowerCase().trim();
+    const candidateSlug = generateSlug(title);
     
     // Check if this generated title is unique
     if (existingRecipes.byTitle.has(normalizedTitle) || attemptedTitles.has(normalizedTitle)) {
-      return null; // Try again
+      continue;
     }
     
     if (existingRecipes.bySlug.has(candidateSlug) || attemptedSlugs.has(candidateSlug)) {
-      return null; // Try again
+      continue;
     }
     
-    return generatedTitle;
-  } catch (error: any) {
-    console.error(`   ⚠️  Error generating new title with AI: ${error.message}`);
-    return null;
+    return title;
   }
+  
+  return null;
 }
 
 /**
  * Get a unique recipe title for a category
  * Tries multiple random titles until finding one that doesn't exist
+ * Uses AI to generate title suggestions proactively, not just as fallback
  * Falls back to generating variations, then AI-generated titles if pool is exhausted
  */
 async function getUniqueRecipeTitle(
   category: RecipeCategory | string,
-  existingRecipes: { byTitle: Map<string, Recipe>, bySlug: Map<string, Recipe> },
+  existingRecipes: { byTitle: Map<string, Recipe>, bySlug: Map<string, Recipe>, byCoreName: Set<string> },
   attemptedTitles: Set<string>,
   attemptedSlugs: Set<string>,
+  usedCoreRecipes: Set<string>,
   openai: OpenAI | null = null,
   maxAttempts: number = 100
 ): Promise<string | null> {
@@ -503,11 +589,48 @@ async function getUniqueRecipeTitle(
     : [];
   
   const triedFromList = new Set<string>();
+  const existingTitlesArray = Array.from(existingRecipes.byTitle.keys());
+  
+  // If we have OpenAI and the pool is getting low, proactively generate AI suggestions
+  let aiSuggestions: string[] = [];
+  let aiSuggestionsIndex = 0;
+  const shouldUseAI = openai && (titles.length === 0 || triedFromList.size > titles.length * 0.7);
+  
+  if (shouldUseAI && aiSuggestions.length === 0) {
+    console.log(`   🤖 Generating AI title suggestions for ${category}...`);
+    aiSuggestions = await generateAITitleSuggestions(openai, category, existingTitlesArray, attemptedTitles, 10);
+    if (aiSuggestions.length > 0) {
+      console.log(`   ✅ Generated ${aiSuggestions.length} AI title suggestions`);
+    }
+  }
   
   // Try titles from the list first (try up to 2x the list size to account for duplicates)
   const maxListAttempts = titles.length > 0 ? Math.min(maxAttempts, titles.length * 3) : 50;
   for (let attempt = 0; attempt < maxListAttempts; attempt++) {
-    const randomTitle = getRandomRecipeTitle(category);
+    // Alternate between predefined titles and AI suggestions
+    let randomTitle: string;
+    if (aiSuggestions.length > 0 && attempt % 3 === 0) {
+      // Use AI suggestion every 3rd attempt
+      if (aiSuggestionsIndex < aiSuggestions.length) {
+        randomTitle = aiSuggestions[aiSuggestionsIndex++];
+      } else {
+        // Refresh AI suggestions if we've used them all
+        if (openai) {
+          aiSuggestions = await generateAITitleSuggestions(openai, category, existingTitlesArray, attemptedTitles, 10);
+          aiSuggestionsIndex = 0;
+          if (aiSuggestions.length > 0) {
+            randomTitle = aiSuggestions[aiSuggestionsIndex++];
+          } else {
+            randomTitle = getRandomRecipeTitle(category);
+          }
+        } else {
+          randomTitle = getRandomRecipeTitle(category);
+        }
+      }
+    } else {
+      randomTitle = getRandomRecipeTitle(category);
+    }
+    
     const normalizedTitle = randomTitle.toLowerCase().trim();
     const candidateSlug = generateSlug(randomTitle);
     
@@ -535,16 +658,34 @@ async function getUniqueRecipeTitle(
       continue;
     }
     
-    // Found a unique title AND slug!
+    // Check if the core recipe name already exists in the database
+    const coreName = extractCoreRecipeName(randomTitle);
+    if (existingRecipes.byCoreName.has(coreName)) {
+      attemptedTitles.add(normalizedTitle);
+      attemptedSlugs.add(candidateSlug);
+      continue; // Skip - this core recipe already exists
+    }
+    
+    // Found a unique title AND slug AND core recipe name!
+    usedCoreRecipes.add(coreName);
+    
+    if (aiSuggestions.includes(randomTitle)) {
+      console.log(`   ✨ Using AI-generated title: "${randomTitle}"`);
+    }
     return randomTitle;
   }
   
   // If we've exhausted the list, try variations of existing titles
-  const existingTitlesArray = Array.from(existingRecipes.byTitle.keys());
-  const sampleTitles = titles.length > 0 ? titles.slice(0, 10) : ['Vegan Recipe', 'Plant-Based Dish'];
+  // But only if the core recipe hasn't been used yet
+  const sampleTitles = titles.length > 0 ? titles.slice(0, Math.min(20, titles.length)) : ['Vegan Recipe', 'Plant-Based Dish'];
   
   for (const baseTitle of sampleTitles) {
-    const variations = generateTitleVariations(baseTitle, category);
+    const coreName = extractCoreRecipeName(baseTitle);
+    if (usedCoreRecipes.has(coreName)) {
+      continue; // Skip if we've already used this core recipe
+    }
+    
+    const variations = generateTitleVariations(baseTitle, category, usedCoreRecipes);
     for (const variation of variations) {
       const normalizedTitle = variation.toLowerCase().trim();
       const candidateSlug = generateSlug(variation);
@@ -559,40 +700,143 @@ async function getUniqueRecipeTitle(
         continue;
       }
       
-      // Found a unique variation!
+      // Check if the core recipe name already exists
+      const variationCore = extractCoreRecipeName(variation);
+      if (existingRecipes.byCoreName.has(variationCore)) {
+        attemptedTitles.add(normalizedTitle);
+        attemptedSlugs.add(candidateSlug);
+        continue; // Skip - this core recipe already exists
+      }
+      
+      // Found a unique variation! Mark the core recipe as used
+      usedCoreRecipes.add(variationCore);
+      return variation;
+    }
+  }
+  
+  // Also try variations of some random titles from the list
+  const randomSample = titles.length > 0 
+    ? titles.sort(() => Math.random() - 0.5).slice(0, 10)
+    : [];
+  for (const baseTitle of randomSample) {
+    const coreName = extractCoreRecipeName(baseTitle);
+    if (usedCoreRecipes.has(coreName)) {
+      continue; // Skip if we've already used this core recipe
+    }
+    
+    const variations = generateTitleVariations(baseTitle, category, usedCoreRecipes);
+    for (const variation of variations) {
+      const normalizedTitle = variation.toLowerCase().trim();
+      const candidateSlug = generateSlug(variation);
+      
+      if (attemptedTitles.has(normalizedTitle) || attemptedSlugs.has(candidateSlug)) {
+        continue;
+      }
+      
+      if (existingRecipes.byTitle.has(normalizedTitle) || existingRecipes.bySlug.has(candidateSlug)) {
+        attemptedTitles.add(normalizedTitle);
+        attemptedSlugs.add(candidateSlug);
+        continue;
+      }
+      
+      // Check if the core recipe name already exists
+      const variationCore = extractCoreRecipeName(variation);
+      if (existingRecipes.byCoreName.has(variationCore)) {
+        attemptedTitles.add(normalizedTitle);
+        attemptedSlugs.add(candidateSlug);
+        continue; // Skip - this core recipe already exists
+      }
+      
+      // Found a unique variation! Mark the core recipe as used
+      usedCoreRecipes.add(variationCore);
       return variation;
     }
   }
   
   // Last resort: Use AI to generate a completely new title
   if (openai) {
-    console.log(`   🤖 Pool exhausted, generating new unique title with AI...`);
-    const aiTitle = await generateNewUniqueTitle(
+    console.log(`   🤖 Title pool exhausted, generating new unique title suggestions with AI...`);
+    
+    // Generate a fresh batch of AI suggestions
+    const freshAISuggestions = await generateAITitleSuggestions(
       openai,
       category,
       existingTitlesArray,
       attemptedTitles,
-      attemptedSlugs,
-      existingRecipes
+      10
     );
     
-    if (aiTitle) {
+    // Try each AI suggestion, but check core recipe names too
+    for (const aiTitle of freshAISuggestions) {
+      const normalizedTitle = aiTitle.toLowerCase().trim();
+      const candidateSlug = generateSlug(aiTitle);
+      const coreName = extractCoreRecipeName(aiTitle);
+      
+      // Check if this generated title is unique
+      if (existingRecipes.byTitle.has(normalizedTitle) || attemptedTitles.has(normalizedTitle)) {
+        continue;
+      }
+      
+      if (existingRecipes.bySlug.has(candidateSlug) || attemptedSlugs.has(candidateSlug)) {
+        continue;
+      }
+      
+      // Check if the core recipe name already exists in the database
+      if (existingRecipes.byCoreName.has(coreName)) {
+        continue; // Skip - this core recipe already exists in database
+      }
+      
+      // Check if we've already used this core recipe in this batch
+      if (usedCoreRecipes.has(coreName)) {
+        continue;
+      }
+      
+      usedCoreRecipes.add(coreName);
+      console.log(`   ✅ AI generated unique title: "${aiTitle}"`);
       return aiTitle;
     }
     
-    // Try one more time with AI
-    const aiTitle2 = await generateNewUniqueTitle(
+    // If all suggestions were duplicates, try one more batch
+    console.log(`   🔄 All AI suggestions were duplicates, generating another batch...`);
+    const secondBatch = await generateAITitleSuggestions(
       openai,
       category,
       existingTitlesArray,
       attemptedTitles,
-      attemptedSlugs,
-      existingRecipes
+      10
     );
     
-    if (aiTitle2) {
-      return aiTitle2;
+    for (const aiTitle of secondBatch) {
+      const normalizedTitle = aiTitle.toLowerCase().trim();
+      const candidateSlug = generateSlug(aiTitle);
+      const coreName = extractCoreRecipeName(aiTitle);
+      
+      if (existingRecipes.byTitle.has(normalizedTitle) || attemptedTitles.has(normalizedTitle)) {
+        continue;
+      }
+      
+      if (existingRecipes.bySlug.has(candidateSlug) || attemptedSlugs.has(candidateSlug)) {
+        continue;
+      }
+      
+      // Check if the core recipe name already exists in the database
+      if (existingRecipes.byCoreName.has(coreName)) {
+        continue; // Skip - this core recipe already exists in database
+      }
+      
+      // Check if we've already used this core recipe in this batch
+      if (usedCoreRecipes.has(coreName)) {
+        continue;
+      }
+      
+      usedCoreRecipes.add(coreName);
+      console.log(`   ✅ AI generated unique title: "${aiTitle}"`);
+      return aiTitle;
     }
+    
+    console.log(`   ⚠️  AI title generation failed after 2 batches (20 suggestions)`);
+  } else {
+    console.log(`   ⚠️  OpenAI not available for title generation fallback`);
   }
   
   // Couldn't find a unique title after all attempts
@@ -995,9 +1239,10 @@ function formatRecipeForFile(recipe: Recipe): string {
  * Load all existing recipes from Supabase or static files
  * Returns a map of slug -> recipe and title -> recipe for duplicate checking
  */
-async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe> }> {
+async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe>, byCoreName: Set<string> }> {
   const bySlug = new Map<string, Recipe>();
   const byTitle = new Map<string, Recipe>();
+  const byCoreName = new Set<string>();
   
   // Always check Supabase if database is configured (regardless of useSupabase flag)
   // This ensures we catch duplicates even if saving to files
@@ -1016,6 +1261,9 @@ async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: M
       for (const title of titles) {
         const normalizedTitle = title.toLowerCase().trim();
         byTitle.set(normalizedTitle, { title } as Recipe);
+        // Also track core recipe names
+        const coreName = extractCoreRecipeName(title);
+        byCoreName.add(coreName);
       }
       
       console.log(`   ✅ Loaded ${slugs.size} recipes from Supabase (${slugs.size} slugs, ${titles.size} titles)`);
@@ -1048,8 +1296,12 @@ async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: M
           const titleMatch = recipeBlock.match(/title:\s*'([^']+)'/);
           if (titleMatch) {
             const title = titleMatch[1];
+            const normalizedTitle = title.toLowerCase().trim();
             bySlug.set(slug, { slug } as Recipe);
-            byTitle.set(title.toLowerCase().trim(), { title } as Recipe);
+            byTitle.set(normalizedTitle, { title } as Recipe);
+            // Also track core recipe names
+            const coreName = extractCoreRecipeName(title);
+            byCoreName.add(coreName);
           }
         }
       }
@@ -1088,8 +1340,12 @@ async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: M
             const titleMatch = recipeBlock.match(/title:\s*'([^']+)'/);
             if (titleMatch) {
               const title = titleMatch[1];
+              const normalizedTitle = title.toLowerCase().trim();
               bySlug.set(slug, { slug, title } as Recipe);
-              byTitle.set(title.toLowerCase().trim(), { slug, title } as Recipe);
+              byTitle.set(normalizedTitle, { slug, title } as Recipe);
+              // Also track core recipe names
+              const coreName = extractCoreRecipeName(title);
+              byCoreName.add(coreName);
             }
           }
         }
@@ -1101,16 +1357,16 @@ async function loadAllExistingRecipes(useSupabase: boolean): Promise<{ bySlug: M
   
   const totalSlugs = bySlug.size;
   const totalTitles = byTitle.size;
-  console.log(`   ✅ Loaded ${totalSlugs} total recipes from all sources (${totalSlugs} slugs, ${totalTitles} titles)`);
+  console.log(`   ✅ Loaded ${totalSlugs} total recipes from all sources (${totalSlugs} slugs, ${totalTitles} titles, ${byCoreName.size} unique core recipes)`);
   
-  return { bySlug, byTitle };
+  return { bySlug, byTitle, byCoreName };
 }
 
 /**
  * Check if a recipe is a duplicate (STRICT UNIQUE PROTOCOL)
  * Checks by both slug and title across ALL recipe files
  */
-function isDuplicateRecipe(recipe: Recipe, existingRecipes: { bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe> }): { isDuplicate: boolean; reason?: string } {
+function isDuplicateRecipe(recipe: Recipe, existingRecipes: { bySlug: Map<string, Recipe>, byTitle: Map<string, Recipe>, byCoreName: Set<string> }): { isDuplicate: boolean; reason?: string } {
   // Check by slug (most important - must be unique)
   if (existingRecipes.bySlug.has(recipe.slug)) {
     const existing = existingRecipes.bySlug.get(recipe.slug)!;
@@ -1127,6 +1383,15 @@ function isDuplicateRecipe(recipe: Recipe, existingRecipes: { bySlug: Map<string
     return {
       isDuplicate: true,
       reason: `Recipe with title "${recipe.title}" already exists (slug: "${existing.slug || 'unknown'}")`
+    };
+  }
+  
+  // Also check if the core recipe name already exists
+  const coreName = extractCoreRecipeName(recipe.title);
+  if (existingRecipes.byCoreName.has(coreName)) {
+    return {
+      isDuplicate: true,
+      reason: `Core recipe "${coreName}" already exists (variation of existing recipe)`
     };
   }
   
@@ -1353,6 +1618,8 @@ async function main() {
   // Track all attempted titles/slugs in this batch to prevent duplicates within the same run
   const attemptedTitles = new Set<string>();
   const attemptedSlugs = new Set<string>();
+  // Track core recipe names (without prefixes/suffixes) to prevent generating the same base recipe multiple times
+  const usedCoreRecipes = new Set<string>();
 
   for (let i = 0; i < recipePlan.length; i++) {
     const { category, title: originalTitle } = recipePlan[i];
@@ -1374,7 +1641,7 @@ async function main() {
         
         if (!candidateTitle) {
           // Try to get a unique title (checks both title AND slug)
-          candidateTitle = await getUniqueRecipeTitle(category, existingRecipes, attemptedTitles, attemptedSlugs, openai);
+          candidateTitle = await getUniqueRecipeTitle(category, existingRecipes, attemptedTitles, attemptedSlugs, usedCoreRecipes, openai);
           if (!candidateTitle) {
             console.log(`   ⚠️  SKIPPED: No more unique recipe titles available for ${category} category after ${checkAttempts} attempts.`);
             skippedCount++;
@@ -1403,6 +1670,10 @@ async function main() {
             attemptedTitles.add(normalizedCandidate);
             attemptedSlugs.add(candidateSlug);
             
+            // Track the core recipe name to prevent generating variations of the same base recipe
+            const coreName = extractCoreRecipeName(candidateTitle);
+            usedCoreRecipes.add(coreName);
+            
             if (originalTitle && normalizedCandidate !== originalTitle.toLowerCase().trim()) {
               console.log(`   ℹ️  Original title "${originalTitle}" was duplicate, using: "${uniqueTitle}"`);
             }
@@ -1427,7 +1698,7 @@ async function main() {
           }
           
           // Get a new candidate title for the next iteration (checks both title AND slug)
-          candidateTitle = await getUniqueRecipeTitle(category, existingRecipes, attemptedTitles, attemptedSlugs, openai);
+          candidateTitle = await getUniqueRecipeTitle(category, existingRecipes, attemptedTitles, attemptedSlugs, usedCoreRecipes, openai);
         }
       }
       
