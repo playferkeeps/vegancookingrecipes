@@ -125,7 +125,7 @@ model Recipe {
   totalTime         Int               // in minutes
   servings          Int
   difficulty        String            // 'easy' | 'medium' | 'hard'
-  author            String            @default("vegancooking.recipes")
+  author            String            @default("Katie")
   datePublished     DateTime          @default(now())
   dateModified      DateTime?         @updatedAt
   
