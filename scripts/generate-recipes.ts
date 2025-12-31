@@ -900,6 +900,7 @@ interface GenerateOptions {
   recipeTitle?: string; // Optional specific recipe title to use
   ingredients?: string; // Comma-delimited list of ingredients to include
   allergenFriendly?: boolean; // Flag for allergen-friendly version (gluten-free, nut-free, etc.)
+  keywords?: string; // Comma-delimited keywords to set context for recipe type (e.g., "comfort food, winter, hearty, spicy")
 }
 
 async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recipe> {
@@ -910,7 +911,8 @@ async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recip
     maxTime,
     recipeTitle,
     ingredients,
-    allergenFriendly
+    allergenFriendly,
+    keywords
   } = options;
   const openai = getOpenAIClient();
 
@@ -935,19 +937,49 @@ async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recip
 - Provide allergen-free alternatives in ingredient notes where applicable`
     : '';
 
+  const keywordsConstraint = keywords
+    ? `\nRECIPE CONTEXT KEYWORDS: The recipe should embody these characteristics: ${keywords}. Use these keywords to guide the recipe's style, flavor profile, cooking method, and overall vibe. For example:
+- If keywords include "comfort food", make it hearty, satisfying, and warming
+- If "spicy", incorporate heat and bold flavors
+- If "winter", use seasonal ingredients and warming spices
+- If "quick" or "easy", keep it simple and fast
+- If "healthy", emphasize whole foods and nutrition
+- If "indulgent" or "decadent", make it rich and special
+- If "light" or "fresh", keep it bright and not too heavy
+- Let these keywords influence ingredient choices, cooking techniques, and the overall character of the dish`
+    : '';
+
   const prompt = `You are Katie, a barefoot chef who believes the kitchen is a sacred space and that plants are our best medicine. You're obsessed with whole foods, healing herbs, and cooking with intention. Your food philosophy is: nourish your body, respect Mother Earth, and eat with joy.
 
 Create a detailed, accurate vegan recipe for "${finalTitle}" written in YOUR personal voice - warm, authentic, and conversational, like you're sharing a recipe with a friend.
 
 CRITICAL REQUIREMENT: The "title" field in your JSON response MUST be exactly "${finalTitle}" - do not modify or change it.
 
+ABSOLUTE VEGAN REQUIREMENT - NON-NEGOTIABLE:
+This recipe MUST be 100% vegan. This is not optional. The following are FORBIDDEN and must NEVER appear in any form:
+- NO meat (beef, pork, chicken, turkey, lamb, fish, seafood, etc.)
+- NO dairy (milk, cheese, butter, cream, yogurt, sour cream, buttermilk, etc.)
+- NO eggs (chicken eggs, duck eggs, or any egg products)
+- NO honey (use maple syrup, agave, or other plant-based sweeteners)
+- NO gelatin (use agar agar, pectin, or other plant-based gelling agents)
+- NO animal-derived ingredients (whey, casein, lard, tallow, etc.)
+- NO hidden animal products (check all ingredients carefully)
+
+REQUIRED VEGAN SUBSTITUTIONS:
+- Use plant-based milks (almond, soy, oat, coconut, cashew, etc.)
+- Use vegan butter or oils instead of dairy butter
+- Use plant-based cheeses (cashew cheese, nutritional yeast, etc.)
+- Use egg substitutes (flax eggs, chia eggs, aquafaba, silken tofu, etc.)
+- Use plant-based proteins (tofu, tempeh, seitan, legumes, etc.)
+- Use plant-based sweeteners (maple syrup, agave, coconut sugar, etc.)
+
 Requirements:
-- The recipe must be completely vegan (no animal products)
+- The recipe must be completely vegan (no animal products) - this is MANDATORY
 - All ingredients must be real, specific, and measurable
 - Instructions must be detailed, step-by-step, and accurate
 - Include realistic prep time, cook time, and servings
 - Make it suitable for ${category.join(' and ')} category
-- Vegan type: ${veganType.join(', ')}${maxTimeConstraint}${ingredientsConstraint}${allergenFriendlyConstraint}
+- Vegan type: ${veganType.join(', ')}${maxTimeConstraint}${ingredientsConstraint}${allergenFriendlyConstraint}${keywordsConstraint}
 - Write in first person ("I", "my", "me") - sound like a real person who has tested this recipe
 - Include personal touches: specific tips you discovered, why you love this recipe, or a brief memory/anecdote
 - Avoid generic marketing phrases like "absolutely delicious", "perfect for", "sure to become a favorite"
@@ -992,14 +1024,15 @@ Ensure:
 - Cooking temperatures are specified (e.g., "350°F" or "175°C")
 - Instructions are clear and actionable
 - Times are realistic for the recipe type
-- The recipe is actually cookable and accurate`;
+- The recipe is actually cookable and accurate
+- DOUBLE-CHECK: Every single ingredient must be plant-based - verify there are NO animal products in any form`;
 
   const completion = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     messages: [
       {
         role: 'system',
-        content: 'You are Katie, a warm, authentic vegan chef who writes recipes in a personal, conversational style. You write like you\'re sharing recipes with friends who have actually tested them, not like a marketing department. Create accurate, detailed, and tested vegan recipes. Always return valid JSON.',
+        content: 'You are Katie, a warm, authentic vegan chef who writes recipes in a personal, conversational style. You write like you\'re sharing recipes with friends who have actually tested them, not like a marketing department. Create accurate, detailed, and tested vegan recipes. CRITICAL: ALL recipes MUST be 100% vegan - NO animal products whatsoever (no meat, dairy, eggs, honey, gelatin, or any animal-derived ingredients). Use only plant-based ingredients and vegan substitutes. Always return valid JSON.',
       },
       {
         role: 'user',
@@ -1059,6 +1092,53 @@ Ensure:
 
   // Use the title from recipeData (what OpenAI returned), or fall back to provided title
   const finalRecipeTitle = recipeData.title || options.recipeTitle || title;
+  
+  // VALIDATE: Ensure recipe is 100% vegan - check for any non-vegan ingredients
+  // Use word boundaries to avoid false positives (e.g., "butternut" contains "butter", "coconut" contains "nut")
+  const nonVeganPatterns = [
+    /\b(beef|pork|chicken|turkey|lamb|veal|duck|goose)\b/i,
+    /\b(fish|salmon|tuna|shrimp|crab|lobster|anchovy|sardine|mackerel|cod|halibut|seafood)\b/i,
+    /\b(cow|sheep|goat)\s*(milk|cheese|yogurt|cream)\b/i,
+    /\b(dairy|milk|buttermilk|whey|casein|lactose)\b/i,
+    /\b(cheese|parmesan|mozzarella|cheddar|gouda|brie|feta|swiss|provolone|ricotta)\b/i,
+    /\b(butter|cream|sour\s*cream|heavy\s*cream|whipping\s*cream)\b/i,
+    /\b(egg|eggs|yolk|yolks|egg\s*white|egg\s*whites)\b/i,
+    /\b(honey|beeswax|royal\s*jelly)\b/i,
+    /\b(gelatin|gelatine|collagen)\b/i,
+    /\b(lard|tallow|suet)\b/i,
+    /\b(bacon|ham|sausage|pepperoni|prosciutto|pancetta)\b/i,
+    /\b(worcestershire|anchovy|fish\s*sauce)\b/i,
+  ];
+  
+  const allIngredientText = [
+    ...(recipeData.ingredients || []).map((ing: any) => 
+      `${ing.name || ''} ${ing.notes || ''}`.toLowerCase()
+    ),
+    ...(recipeData.instructions || []).map((inst: any) => 
+      `${inst.text || ''}`.toLowerCase()
+    ),
+    (recipeData.ingredientNotes || '').toLowerCase(),
+    (recipeData.description || '').toLowerCase(),
+    (recipeData.prologue || '').toLowerCase(),
+  ].join(' ');
+  
+  const foundNonVegan: string[] = [];
+  nonVeganPatterns.forEach((pattern, index) => {
+    if (pattern.test(allIngredientText)) {
+      // Extract the matched term for better error reporting
+      const match = allIngredientText.match(pattern);
+      if (match) {
+        foundNonVegan.push(match[0]);
+      }
+    }
+  });
+  
+  if (foundNonVegan.length > 0) {
+    throw new Error(
+      `❌ VEGAN VALIDATION FAILED: Recipe contains non-vegan ingredients: ${foundNonVegan.join(', ')}. ` +
+      `This recipe MUST be 100% vegan. Please regenerate with only plant-based ingredients.`
+    );
+  }
   
   const recipe: Recipe = {
     id,
@@ -1525,6 +1605,7 @@ async function main() {
   let recipeTitle: string | undefined;
   let ingredients: string | undefined;
   let allergenFriendly = false;
+  let keywords: string | undefined;
 
   // Parse command line arguments
   for (let i = 0; i < args.length; i++) {
@@ -1571,6 +1652,13 @@ async function main() {
       i++;
     } else if (args[i] === '--allergenFriendly' || args[i] === '--allergen-friendly') {
       allergenFriendly = true;
+    } else if (args[i] === '--keywords' && args[i + 1]) {
+      keywords = args[i + 1].trim();
+      if (keywords.length === 0) {
+        console.error('❌ Error: --keywords requires a comma-delimited list');
+        process.exit(1);
+      }
+      i++;
     }
   }
   
@@ -1594,6 +1682,8 @@ async function main() {
     console.log('  npm run generate-recipes -- --count 1 --title "Vegan Chocolate Cake" --category dessert');
     console.log('  npm run generate-recipes -- --count 1 --title "Quinoa Salad" --ingredients "quinoa, tomatoes, cucumber, olive oil"');
     console.log('  npm run generate-recipes -- --count 1 --title "Gluten-Free Brownies" --allergenFriendly');
+    console.log('  npm run generate-recipes -- --count 5 --keywords "comfort food, winter, hearty, spicy"');
+    console.log('  npm run generate-recipes -- --count 1 --title "Cozy Soup" --keywords "warm, creamy, seasonal"');
     console.log('\n💡 Options:');
     console.log('  --count <number>          Number of recipes to generate (required)');
     console.log('  --category <name>          Target specific category (can be used multiple times)');
@@ -1602,6 +1692,7 @@ async function main() {
     console.log('  --title <name>            Specific recipe title to use (for recipe and image generation)');
     console.log('  --ingredients <list>      Comma-delimited list of ingredients to include (e.g., "quinoa, tomatoes, olive oil")');
     console.log('  --allergenFriendly        Make recipe allergen-friendly (gluten-free, nut-free, soy-free, etc.)');
+    console.log('  --keywords <list>          Comma-delimited keywords to set context (e.g., "comfort food, winter, hearty, spicy, quick, healthy")');
     console.log('  --supabase                Save to Supabase database');
     console.log('  --no-supabase             Force saving to static files');
     console.log('\n💡 If no categories are specified, recipes will be generated across all categories.');
@@ -1650,6 +1741,9 @@ async function main() {
   }
   if (allergenFriendly) {
     console.log(`🌾 Allergen-Friendly: Enabled (gluten-free, nut-free, soy-free, etc.)`);
+  }
+  if (keywords) {
+    console.log(`🏷️  Context Keywords: ${keywords}`);
   }
   console.log(`💾 Saving to: ${useSupabase ? 'Supabase (database)' : 'Static files'}`);
   if (useSupabase && !hasDatabaseConfig) {
@@ -1808,6 +1902,8 @@ async function main() {
             recipeTitle: recipeTitle, // Use provided title if available
             ingredients: ingredients, // Use provided ingredients if available
             allergenFriendly: allergenFriendly, // Use allergen-friendly flag if set
+            keywords: keywords, // Use provided keywords if available
+            keywords: keywords, // Use provided keywords if available
           });
         } catch (error: any) {
           if (error.message?.includes('exceeds maxTime') && generationAttempts < maxGenerationAttempts - 1) {
