@@ -9,8 +9,8 @@ import RecipeFAQ from '@/components/RecipeFAQ';
 import RecipeTips from '@/components/RecipeTips';
 import RelatedRecipes from '@/components/RelatedRecipes';
 import IngredientsList from '@/components/IngredientsList';
-import AdBanner from '@/components/AdBanner';
-import AdRectangle from '@/components/AdRectangle';
+// import AdBanner from '@/components/AdBanner';
+// import AdRectangle from '@/components/AdRectangle';
 import ViewTracker from '@/components/ViewTracker';
 import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
@@ -419,7 +419,7 @@ export default async function RecipePage({ params }: PageProps) {
         </section>
 
         {/* Banner Ad After Prologue */}
-        <AdBanner />
+        {/* <AdBanner /> */}
 
         {/* Tips, Variations, and Storage */}
         <RecipeTips
@@ -513,7 +513,7 @@ export default async function RecipePage({ params }: PageProps) {
           <IngredientsList ingredients={recipe.ingredients} />
 
           {/* In-Content Ad Between Ingredients and Instructions */}
-          <AdBanner className="hidden md:block" />
+          {/* <AdBanner className="hidden md:block" /> */}
 
           {/* Instructions */}
           <section className="mb-4 sm:mb-6">
@@ -546,7 +546,7 @@ export default async function RecipePage({ params }: PageProps) {
         </div>
 
         {/* Banner Ad After Recipe Content */}
-        <AdBanner />
+        {/* <AdBanner /> */}
 
         {/* Email Signup - Lead Magnet */}
         {/* <EmailSignup variant="inline" /> */}

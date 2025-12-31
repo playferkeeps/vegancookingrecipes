@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { getAllRecipesAsync, getRecipesByCategoryAsync } from '@/data/recipes/helpers';
 import RecipeCard from '@/components/RecipeCard';
-import AdBanner from '@/components/AdBanner';
-import AdInFeed from '@/components/AdInFeed';
+// import AdBanner from '@/components/AdBanner';
+// import AdInFeed from '@/components/AdInFeed';
 import SocialShare from '@/components/SocialShare';
 import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
@@ -204,13 +204,13 @@ export default async function Home() {
         </section>
 
         {/* Top Banner Ad */}
-        <AdBanner />
+        {/* <AdBanner /> */}
 
         {/* Email Signup - Lead Magnet */}
         {/* <EmailSignup variant="default" /> */}
 
         {/* Banner Ad After Featured Recipes */}
-        <AdBanner />
+        {/* <AdBanner /> */}
 
         {/* Featured Recipes */}
         <section className="py-16 container mx-auto px-4">

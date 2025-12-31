@@ -82,11 +82,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* DNS Prefetch and Preconnect for CDN and external resources */}
-        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        {/* <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" /> */}
         <link rel="dns-prefetch" href="https://www.google.com" />
         <link rel="dns-prefetch" href="https://www.gstatic.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        {/* <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" /> */}
         <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
@@ -116,11 +116,11 @@ export default function RootLayout({
           `}
         </Script>
         {/* AdSense Script - Load after page is interactive to avoid blocking */}
-        <Script
+        {/* <Script
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX'}`}
           strategy="afterInteractive"
           crossOrigin="anonymous"
-        />
+        /> */}
       </body>
     </html>
   );
