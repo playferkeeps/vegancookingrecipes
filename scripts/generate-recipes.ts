@@ -81,8 +81,16 @@ function checkForExistingImage(recipeTitle: string): string | null {
  * Generate an AI image for a recipe using Replicate with retry logic for rate limits
  * Uses FLUX Schnell for fast and cost-effective food photography ($3 per 1000 images)
  * Checks for existing images first to avoid regenerating
+ * @param recipeTitle - The recipe title to use in the image prompt (can be custom title)
+ * @param description - Recipe description for context
+ * @param customImagePrompt - Optional custom prompt for image generation (uses recipeTitle if not provided)
  */
-async function generateRecipeImage(recipeTitle: string, description: string, retryCount: number = 0): Promise<string> {
+async function generateRecipeImage(
+  recipeTitle: string, 
+  description: string, 
+  retryCount: number = 0,
+  customImagePrompt?: string
+): Promise<string> {
   // First, check if an image already exists for this recipe
   const existingImage = checkForExistingImage(recipeTitle);
   if (existingImage) {
@@ -96,8 +104,9 @@ async function generateRecipeImage(recipeTitle: string, description: string, ret
   try {
     const replicate = getReplicateClient();
     
-    // Create a detailed prompt for food photography
-    const imagePrompt = `Professional food photography of ${recipeTitle}, ${description}, vegan recipe, high quality, appetizing, well-lit, food styling, shallow depth of field, restaurant quality, food blog style, natural lighting, vibrant colors, on a clean background, professional photography`;
+    // Use custom prompt if provided, otherwise create a detailed prompt for food photography
+    const imagePrompt = customImagePrompt || 
+      `Professional food photography of ${recipeTitle}, ${description}, vegan recipe, high quality, appetizing, well-lit, food styling, shallow depth of field, restaurant quality, food blog style, natural lighting, vibrant colors, on a clean background, professional photography`;
 
     console.log(`   🖼️  Generating image for "${recipeTitle}"...`);
 
@@ -888,21 +897,49 @@ interface GenerateOptions {
   category: RecipeCategory[];
   veganType?: VeganType[];
   maxTime?: number; // Maximum total time in minutes
+  recipeTitle?: string; // Optional specific recipe title to use
+  ingredients?: string; // Comma-delimited list of ingredients to include
+  allergenFriendly?: boolean; // Flag for allergen-friendly version (gluten-free, nut-free, etc.)
 }
 
 async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recipe> {
-  const { title, category, veganType = ['whole-food-plant-based'], maxTime } = options;
+  const { 
+    title, 
+    category, 
+    veganType = ['whole-food-plant-based'], 
+    maxTime,
+    recipeTitle,
+    ingredients,
+    allergenFriendly
+  } = options;
   const openai = getOpenAIClient();
+
+  // Use provided recipe title or fall back to generated title
+  const finalTitle = recipeTitle || title;
 
   const maxTimeConstraint = maxTime 
     ? `\nCRITICAL TIME CONSTRAINT: The total time (prepTime + cookTime) MUST be ${maxTime} minutes or less. This is a hard requirement - the recipe must be quick and simple enough to complete within ${maxTime} minutes total.`
     : '';
 
+  const ingredientsConstraint = ingredients
+    ? `\nCRITICAL INGREDIENT REQUIREMENT: The recipe MUST include these specific ingredients: ${ingredients}. These ingredients should be prominently featured in the recipe. You can add other ingredients as needed, but these must be included.`
+    : '';
+
+  const allergenFriendlyConstraint = allergenFriendly
+    ? `\nCRITICAL ALLERGEN-FRIENDLY REQUIREMENT: This recipe MUST be allergen-friendly. This means:
+- NO gluten (use gluten-free alternatives like rice flour, almond flour, or certified gluten-free oats)
+- NO nuts (avoid all tree nuts and peanuts - use seeds like sunflower seeds or pumpkin seeds as alternatives)
+- NO soy (avoid tofu, tempeh, soy sauce - use alternatives like chickpea flour, coconut aminos, etc.)
+- NO common allergens (avoid sesame, shellfish, eggs, dairy - all should already be vegan, but double-check)
+- Clearly note in the recipe that it's allergen-friendly
+- Provide allergen-free alternatives in ingredient notes where applicable`
+    : '';
+
   const prompt = `You are Katie, a barefoot chef who believes the kitchen is a sacred space and that plants are our best medicine. You're obsessed with whole foods, healing herbs, and cooking with intention. Your food philosophy is: nourish your body, respect Mother Earth, and eat with joy.
 
-Create a detailed, accurate vegan recipe for "${title}" written in YOUR personal voice - warm, authentic, and conversational, like you're sharing a recipe with a friend.
+Create a detailed, accurate vegan recipe for "${finalTitle}" written in YOUR personal voice - warm, authentic, and conversational, like you're sharing a recipe with a friend.
 
-CRITICAL REQUIREMENT: The "title" field in your JSON response MUST be exactly "${title}" - do not modify or change it.
+CRITICAL REQUIREMENT: The "title" field in your JSON response MUST be exactly "${finalTitle}" - do not modify or change it.
 
 Requirements:
 - The recipe must be completely vegan (no animal products)
@@ -910,7 +947,7 @@ Requirements:
 - Instructions must be detailed, step-by-step, and accurate
 - Include realistic prep time, cook time, and servings
 - Make it suitable for ${category.join(' and ')} category
-- Vegan type: ${veganType.join(', ')}${maxTimeConstraint}
+- Vegan type: ${veganType.join(', ')}${maxTimeConstraint}${ingredientsConstraint}${allergenFriendlyConstraint}
 - Write in first person ("I", "my", "me") - sound like a real person who has tested this recipe
 - Include personal touches: specific tips you discovered, why you love this recipe, or a brief memory/anecdote
 - Avoid generic marketing phrases like "absolutely delicious", "perfect for", "sure to become a favorite"
@@ -995,9 +1032,10 @@ Ensure:
   const id = String(Date.now() + Math.random());
 
   // Generate AI image for the recipe
-  const recipeTitle = recipeData.title || title;
+  // Use provided recipe title for image if available, otherwise use generated title
+  const imageTitle = options.recipeTitle || recipeData.title || title;
   const recipeDescription = recipeData.description || '';
-  const imageUrl = await generateRecipeImage(recipeTitle, recipeDescription);
+  const imageUrl = await generateRecipeImage(imageTitle, recipeDescription);
 
   let prepTime = recipeData.prepTime || 15;
   let cookTime = recipeData.cookTime || 20;
@@ -1481,6 +1519,9 @@ async function main() {
   let maxTime: number | undefined;
   const targetCategories: RecipeCategory[] = [];
   const newCategories: string[] = [];
+  let recipeTitle: string | undefined;
+  let ingredients: string | undefined;
+  let allergenFriendly = false;
 
   // Parse command line arguments
   for (let i = 0; i < args.length; i++) {
@@ -1511,6 +1552,22 @@ async function main() {
       }
       newCategories.push(newCategory);
       i++;
+    } else if (args[i] === '--title' && args[i + 1]) {
+      recipeTitle = args[i + 1].trim();
+      if (recipeTitle.length === 0) {
+        console.error('❌ Error: --title requires a recipe title');
+        process.exit(1);
+      }
+      i++;
+    } else if (args[i] === '--ingredients' && args[i + 1]) {
+      ingredients = args[i + 1].trim();
+      if (ingredients.length === 0) {
+        console.error('❌ Error: --ingredients requires a comma-delimited list');
+        process.exit(1);
+      }
+      i++;
+    } else if (args[i] === '--allergenFriendly' || args[i] === '--allergen-friendly') {
+      allergenFriendly = true;
     }
   }
   
@@ -1531,14 +1588,21 @@ async function main() {
     console.log('  npm run generate-recipes -- --count 50');
     console.log('  npm run generate-recipes -- --count 100 --category baking --category dessert');
     console.log('  npm run generate-recipes -- --count 20 --newCategory "raw-food" --maxTime 15');
+    console.log('  npm run generate-recipes -- --count 1 --title "Vegan Chocolate Cake" --category dessert');
+    console.log('  npm run generate-recipes -- --count 1 --title "Quinoa Salad" --ingredients "quinoa, tomatoes, cucumber, olive oil"');
+    console.log('  npm run generate-recipes -- --count 1 --title "Gluten-Free Brownies" --allergenFriendly');
     console.log('\n💡 Options:');
     console.log('  --count <number>          Number of recipes to generate (required)');
     console.log('  --category <name>          Target specific category (can be used multiple times)');
     console.log('  --newCategory <name>       Create recipes in a new category (can be used multiple times)');
     console.log('  --maxTime <minutes>        Maximum total time for recipes');
+    console.log('  --title <name>            Specific recipe title to use (for recipe and image generation)');
+    console.log('  --ingredients <list>      Comma-delimited list of ingredients to include (e.g., "quinoa, tomatoes, olive oil")');
+    console.log('  --allergenFriendly        Make recipe allergen-friendly (gluten-free, nut-free, soy-free, etc.)');
     console.log('  --supabase                Save to Supabase database');
     console.log('  --no-supabase             Force saving to static files');
     console.log('\n💡 If no categories are specified, recipes will be generated across all categories.');
+    console.log('💡 If --title is provided, it will be used for both the recipe and image generation.');
     process.exit(1);
   }
 
@@ -1574,6 +1638,15 @@ async function main() {
   }
   if (maxTime) {
     console.log(`⏱️  Max Total Time: ${maxTime} minutes`);
+  }
+  if (recipeTitle) {
+    console.log(`📝 Recipe Title: "${recipeTitle}"`);
+  }
+  if (ingredients) {
+    console.log(`🥕 Required Ingredients: ${ingredients}`);
+  }
+  if (allergenFriendly) {
+    console.log(`🌾 Allergen-Friendly: Enabled (gluten-free, nut-free, soy-free, etc.)`);
   }
   console.log(`💾 Saving to: ${useSupabase ? 'Supabase (database)' : 'Static files'}`);
   if (useSupabase && !hasDatabaseConfig) {
@@ -1633,8 +1706,9 @@ async function main() {
       let checkAttempts = 0;
       const maxCheckAttempts = 100;
       
-      // Start with the original title from the plan, or get a random one
-      let candidateTitle: string | null = originalTitle || getRandomRecipeTitle(category);
+      // If a recipe title was provided via --title, use it directly (but still check for uniqueness)
+      // Otherwise, start with the original title from the plan, or get a random one
+      let candidateTitle: string | null = recipeTitle || originalTitle || getRandomRecipeTitle(category);
       
       while (checkAttempts < maxCheckAttempts) {
         checkAttempts++;
@@ -1674,7 +1748,9 @@ async function main() {
             const coreName = extractCoreRecipeName(candidateTitle);
             usedCoreRecipes.add(coreName);
             
-            if (originalTitle && normalizedCandidate !== originalTitle.toLowerCase().trim()) {
+            if (recipeTitle && normalizedCandidate !== recipeTitle.toLowerCase().trim()) {
+              console.log(`   ⚠️  WARNING: Provided title "${recipeTitle}" was duplicate, using: "${uniqueTitle}"`);
+            } else if (originalTitle && normalizedCandidate !== originalTitle.toLowerCase().trim()) {
               console.log(`   ℹ️  Original title "${originalTitle}" was duplicate, using: "${uniqueTitle}"`);
             }
             break; // Exit the retry loop - we found a unique title
@@ -1726,6 +1802,9 @@ async function main() {
             title: uniqueTitle!,
             category: [category],
             veganType: ['whole-food-plant-based'],
+            recipeTitle: recipeTitle, // Use provided title if available
+            ingredients: ingredients, // Use provided ingredients if available
+            allergenFriendly: allergenFriendly, // Use allergen-friendly flag if set
           });
         } catch (error: any) {
           if (error.message?.includes('exceeds maxTime') && generationAttempts < maxGenerationAttempts - 1) {

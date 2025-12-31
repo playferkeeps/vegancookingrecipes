@@ -23,6 +23,32 @@ interface XApiConfig {
 }
 
 /**
+ * Get formatted timestamp for logging
+ */
+function getTimestamp(): string {
+  return new Date().toISOString();
+}
+
+/**
+ * Log with timestamp
+ */
+function logWithTimestamp(message: string, type: 'log' | 'error' | 'warn' = 'log'): void {
+  const timestamp = getTimestamp();
+  const formattedMessage = `[${timestamp}] ${message}`;
+  
+  switch (type) {
+    case 'error':
+      console.error(formattedMessage);
+      break;
+    case 'warn':
+      console.warn(formattedMessage);
+      break;
+    default:
+      console.log(formattedMessage);
+  }
+}
+
+/**
  * Get random recipe
  */
 async function getRandomRecipe() {
@@ -45,7 +71,7 @@ function getSiteUrl(): string {
   
   // If no env var, use default
   if (!envUrl) {
-    console.warn(`⚠️  NEXT_PUBLIC_SITE_URL not set, using default: ${defaultUrl}`);
+    logWithTimestamp(`⚠️  NEXT_PUBLIC_SITE_URL not set, using default: ${defaultUrl}`, 'warn');
     return defaultUrl;
   }
   
@@ -54,7 +80,7 @@ function getSiteUrl(): string {
   try {
     url = new URL(envUrl);
   } catch {
-    console.warn(`⚠️  Invalid NEXT_PUBLIC_SITE_URL format, using default: ${defaultUrl}`);
+    logWithTimestamp(`⚠️  Invalid NEXT_PUBLIC_SITE_URL format, using default: ${defaultUrl}`, 'warn');
     return defaultUrl;
   }
   
@@ -71,14 +97,14 @@ function getSiteUrl(): string {
   );
   
   if (!isAllowed) {
-    console.error(`❌ NEXT_PUBLIC_SITE_URL (${envUrl}) is not from vegancooking.recipes domain!`);
-    console.error(`   Using default: ${defaultUrl}`);
+    logWithTimestamp(`❌ NEXT_PUBLIC_SITE_URL (${envUrl}) is not from vegancooking.recipes domain!`, 'error');
+    logWithTimestamp(`   Using default: ${defaultUrl}`, 'error');
     return defaultUrl;
   }
   
   // Ensure HTTPS in production (unless localhost)
   if (!hostname.includes('localhost') && url.protocol !== 'https:') {
-    console.warn(`⚠️  NEXT_PUBLIC_SITE_URL should use HTTPS in production`);
+    logWithTimestamp(`⚠️  NEXT_PUBLIC_SITE_URL should use HTTPS in production`, 'warn');
     url.protocol = 'https:';
   }
   
@@ -192,7 +218,7 @@ async function postTweet(text: string, config: XApiConfig): Promise<{ success: b
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('X API Error:', data);
+      logWithTimestamp(`X API Error: ${JSON.stringify(data)}`, 'error');
       return {
         success: false,
         error: data.detail || data.title || data.errors?.[0]?.message || 'Failed to post tweet',
@@ -204,7 +230,7 @@ async function postTweet(text: string, config: XApiConfig): Promise<{ success: b
       tweetId: data.data?.id,
     };
   } catch (error: any) {
-    console.error('Error posting to X:', error);
+    logWithTimestamp(`Error posting to X: ${error.message || error}`, 'error');
     return {
       success: false,
       error: error.message || 'Unknown error',
@@ -217,17 +243,17 @@ async function postTweet(text: string, config: XApiConfig): Promise<{ success: b
  * @param shouldExit - If true, calls process.exit() on errors (for direct execution)
  */
 async function main(shouldExit: boolean = false) {
-  console.log('🍽️  Starting recipe post to X...\n');
+  logWithTimestamp('🍽️  Starting recipe post to X...\n');
 
   // Validate site URL first - ensure it's from our domain
   const siteUrl = getSiteUrl();
-  console.log(`🌐 Using site URL: ${siteUrl}`);
+  logWithTimestamp(`🌐 Using site URL: ${siteUrl}`);
   
   // Verify it's from our domain
   if (!siteUrl.includes('vegancooking.recipes') && !siteUrl.includes('localhost')) {
     const error = new Error(`Site URL must be from vegancooking.recipes domain! Current: ${siteUrl}`);
-    console.error('❌', error.message);
-    console.error('   Set NEXT_PUBLIC_SITE_URL to https://vegancooking.recipes');
+    logWithTimestamp(`❌ ${error.message}`, 'error');
+    logWithTimestamp('   Set NEXT_PUBLIC_SITE_URL to https://vegancooking.recipes', 'error');
     if (shouldExit) process.exit(1);
     throw error;
   }
@@ -243,45 +269,45 @@ async function main(shouldExit: boolean = false) {
 
   if (!config.apiKey || !config.apiSecret || !config.accessToken || !config.accessTokenSecret) {
     const error = new Error('Missing X API credentials!');
-    console.error('❌', error.message);
-    console.error('\nRequired environment variables:');
-    console.error('  X_API_KEY');
-    console.error('  X_API_SECRET');
-    console.error('  X_ACCESS_TOKEN');
-    console.error('  X_ACCESS_TOKEN_SECRET');
-    console.error('\nSee X_API_SETUP.md for instructions.');
+    logWithTimestamp(`❌ ${error.message}`, 'error');
+    logWithTimestamp('\nRequired environment variables:', 'error');
+    logWithTimestamp('  X_API_KEY', 'error');
+    logWithTimestamp('  X_API_SECRET', 'error');
+    logWithTimestamp('  X_ACCESS_TOKEN', 'error');
+    logWithTimestamp('  X_ACCESS_TOKEN_SECRET', 'error');
+    logWithTimestamp('\nSee X_API_SETUP.md for instructions.', 'error');
     if (shouldExit) process.exit(1);
     throw error;
   }
 
   try {
     // Get random recipe
-    console.log('📖 Fetching recipes...');
+    logWithTimestamp('📖 Fetching recipes...');
     const recipe = await getRandomRecipe();
-    console.log(`✅ Selected recipe: "${recipe.title}"`);
+    logWithTimestamp(`✅ Selected recipe: "${recipe.title}"`);
 
     // Generate tweet text
     const tweetText = generateTweetText(recipe);
-    console.log(`\n📝 Tweet text:\n${tweetText}\n`);
+    logWithTimestamp(`\n📝 Tweet text:\n${tweetText}\n`);
 
     // Post to X
-    console.log('🐦 Posting to X...');
+    logWithTimestamp('🐦 Posting to X...');
     const result = await postTweet(tweetText, config);
 
     if (result.success) {
       const siteUrl = getSiteUrl();
-      console.log(`✅ Successfully posted to X!`);
-      console.log(`   Tweet ID: ${result.tweetId}`);
-      console.log(`   Recipe: ${recipe.title}`);
-      console.log(`   URL: ${siteUrl}/recipes/${recipe.slug}`);
+      logWithTimestamp(`✅ Successfully posted to X!`);
+      logWithTimestamp(`   Tweet ID: ${result.tweetId}`);
+      logWithTimestamp(`   Recipe: ${recipe.title}`);
+      logWithTimestamp(`   URL: ${siteUrl}/recipes/${recipe.slug}`);
     } else {
       const error = new Error(`Failed to post to X: ${result.error}`);
-      console.error(`❌ ${error.message}`);
+      logWithTimestamp(`❌ ${error.message}`, 'error');
       if (shouldExit) process.exit(1);
       throw error;
     }
   } catch (error: any) {
-    console.error('❌ Error:', error.message);
+    logWithTimestamp(`❌ Error: ${error.message}`, 'error');
     if (shouldExit) process.exit(1);
     throw error;
   }

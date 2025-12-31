@@ -15,6 +15,8 @@
     "humanize-content": "tsx scripts/humanize-content.ts",
     "post-recipe-to-x": "tsx scripts/post-recipe-to-x.ts",
     "schedule-x-posts": "tsx scripts/schedule-x-posts.ts",
+    "post-recipe-to-facebook": "tsx scripts/post-recipe-to-facebook.ts",
+    "schedule-facebook-posts": "tsx scripts/schedule-facebook-posts.ts",
     "prepare": "husky",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",

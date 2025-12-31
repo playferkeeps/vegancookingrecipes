@@ -1,16 +1,16 @@
 /**
- * Script to schedule X posts at regular intervals
+ * Script to schedule Facebook posts at regular intervals
  * 
  * Usage:
- *   npm run schedule-x-posts
+ *   npm run schedule-facebook-posts
  * 
  * This will run continuously and post recipes at the specified interval
  */
 
 import 'dotenv/config';
-import { postRecipeToX } from './post-recipe-to-x';
+import { postRecipeToFacebook } from './post-recipe-to-facebook';
 
-const INTERVAL_HOURS = parseInt(process.env.X_POST_INTERVAL_HOURS || '6', 10);
+const INTERVAL_HOURS = parseInt(process.env.FACEBOOK_POST_INTERVAL_HOURS || '6', 10);
 const INTERVAL_MS = INTERVAL_HOURS * 60 * 60 * 1000;
 
 /**
@@ -39,12 +39,12 @@ function logWithTimestamp(message: string, type: 'log' | 'error' | 'warn' = 'log
   }
 }
 
-logWithTimestamp(`🤖 X Post Scheduler Started`);
+logWithTimestamp(`🤖 Facebook Post Scheduler Started`);
 logWithTimestamp(`   Interval: ${INTERVAL_HOURS} hours`);
 logWithTimestamp(`   Next post in: ${INTERVAL_HOURS} hours\n`);
 
 // Post immediately on start
-postRecipeToX().catch((error) => {
+postRecipeToFacebook(false).catch((error) => {
   logWithTimestamp(`❌ Error in initial post: ${error.message}`, 'error');
   logWithTimestamp('   Will retry at next interval...\n');
 });
@@ -52,7 +52,7 @@ postRecipeToX().catch((error) => {
 // Then post at regular intervals
 setInterval(() => {
   logWithTimestamp(`\n⏰ Scheduled post time reached...\n`);
-  postRecipeToX().catch((error) => {
+  postRecipeToFacebook(false).catch((error) => {
     logWithTimestamp(`❌ Error in scheduled post: ${error.message}`, 'error');
     logWithTimestamp('   Will retry at next interval...\n');
   });
@@ -68,5 +68,4 @@ process.on('SIGTERM', () => {
   logWithTimestamp('\n👋 Shutting down scheduler...');
   process.exit(0);
 });
-
 
