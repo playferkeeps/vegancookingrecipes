@@ -17,6 +17,7 @@
     "schedule-x-posts": "tsx scripts/schedule-x-posts.ts",
     "post-recipe-to-facebook": "tsx scripts/post-recipe-to-facebook.ts",
     "schedule-facebook-posts": "tsx scripts/schedule-facebook-posts.ts",
+    "purge-duplicates": "tsx scripts/purge-duplicate-recipes.ts",
     "prepare": "husky",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",

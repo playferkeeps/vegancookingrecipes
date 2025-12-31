@@ -13,6 +13,7 @@ import 'dotenv/config';
 import OAuth from 'oauth-1.0a';
 import crypto from 'crypto';
 import { getAllRecipesAsync } from '../data/recipes/helpers';
+import { Logger } from '../lib/logger';
 
 interface XApiConfig {
   apiKey: string;
@@ -20,32 +21,6 @@ interface XApiConfig {
   accessToken: string;
   accessTokenSecret: string;
   bearerToken?: string; // Optional: for OAuth 2.0
-}
-
-/**
- * Get formatted timestamp for logging
- */
-function getTimestamp(): string {
-  return new Date().toISOString();
-}
-
-/**
- * Log with timestamp
- */
-function logWithTimestamp(message: string, type: 'log' | 'error' | 'warn' = 'log'): void {
-  const timestamp = getTimestamp();
-  const formattedMessage = `[${timestamp}] ${message}`;
-  
-  switch (type) {
-    case 'error':
-      console.error(formattedMessage);
-      break;
-    case 'warn':
-      console.warn(formattedMessage);
-      break;
-    default:
-      console.log(formattedMessage);
-  }
 }
 
 /**
@@ -71,7 +46,8 @@ function getSiteUrl(): string {
   
   // If no env var, use default
   if (!envUrl) {
-    logWithTimestamp(`⚠️  NEXT_PUBLIC_SITE_URL not set, using default: ${defaultUrl}`, 'warn');
+    // Note: Logger not available here, use console for early warnings
+    console.warn(`⚠️  [${new Date().toISOString()}] NEXT_PUBLIC_SITE_URL not set, using default: ${defaultUrl}`);
     return defaultUrl;
   }
   
@@ -80,7 +56,8 @@ function getSiteUrl(): string {
   try {
     url = new URL(envUrl);
   } catch {
-    logWithTimestamp(`⚠️  Invalid NEXT_PUBLIC_SITE_URL format, using default: ${defaultUrl}`, 'warn');
+    // Note: Logger not available here, use console for early warnings
+    console.warn(`⚠️  [${new Date().toISOString()}] Invalid NEXT_PUBLIC_SITE_URL format, using default: ${defaultUrl}`);
     return defaultUrl;
   }
   
@@ -97,14 +74,16 @@ function getSiteUrl(): string {
   );
   
   if (!isAllowed) {
-    logWithTimestamp(`❌ NEXT_PUBLIC_SITE_URL (${envUrl}) is not from vegancooking.recipes domain!`, 'error');
-    logWithTimestamp(`   Using default: ${defaultUrl}`, 'error');
+    // Note: Logger not available here, use console for early errors
+    console.error(`❌ [${new Date().toISOString()}] NEXT_PUBLIC_SITE_URL (${envUrl}) is not from vegancooking.recipes domain!`);
+    console.error(`   [${new Date().toISOString()}] Using default: ${defaultUrl}`);
     return defaultUrl;
   }
   
   // Ensure HTTPS in production (unless localhost)
   if (!hostname.includes('localhost') && url.protocol !== 'https:') {
-    logWithTimestamp(`⚠️  NEXT_PUBLIC_SITE_URL should use HTTPS in production`, 'warn');
+    // Note: Logger not available here, use console for early warnings
+    console.warn(`⚠️  [${new Date().toISOString()}] NEXT_PUBLIC_SITE_URL should use HTTPS in production`);
     url.protocol = 'https:';
   }
   
@@ -218,7 +197,8 @@ async function postTweet(text: string, config: XApiConfig): Promise<{ success: b
     const data = await response.json();
 
     if (!response.ok) {
-      logWithTimestamp(`X API Error: ${JSON.stringify(data)}`, 'error');
+      // Logger not available in this function, error will be caught in main()
+      throw new Error(`X API Error: ${JSON.stringify(data)}`);
       return {
         success: false,
         error: data.detail || data.title || data.errors?.[0]?.message || 'Failed to post tweet',
@@ -230,7 +210,8 @@ async function postTweet(text: string, config: XApiConfig): Promise<{ success: b
       tweetId: data.data?.id,
     };
   } catch (error: any) {
-    logWithTimestamp(`Error posting to X: ${error.message || error}`, 'error');
+    // Logger not available in this function, error will be caught in main()
+    throw error;
     return {
       success: false,
       error: error.message || 'Unknown error',
@@ -243,18 +224,22 @@ async function postTweet(text: string, config: XApiConfig): Promise<{ success: b
  * @param shouldExit - If true, calls process.exit() on errors (for direct execution)
  */
 async function main(shouldExit: boolean = false) {
-  logWithTimestamp('🍽️  Starting recipe post to X...\n');
+  const logger = new Logger('X Recipe Post');
+  logger.log('🍽️  Starting recipe post to X...\n');
 
   // Validate site URL first - ensure it's from our domain
   const siteUrl = getSiteUrl();
-  logWithTimestamp(`🌐 Using site URL: ${siteUrl}`);
+  logger.log(`🌐 Using site URL: ${siteUrl}`);
   
   // Verify it's from our domain
   if (!siteUrl.includes('vegancooking.recipes') && !siteUrl.includes('localhost')) {
     const error = new Error(`Site URL must be from vegancooking.recipes domain! Current: ${siteUrl}`);
-    logWithTimestamp(`❌ ${error.message}`, 'error');
-    logWithTimestamp('   Set NEXT_PUBLIC_SITE_URL to https://vegancooking.recipes', 'error');
-    if (shouldExit) process.exit(1);
+    logger.error(error.message);
+    logger.error('   Set NEXT_PUBLIC_SITE_URL to https://vegancooking.recipes');
+    if (shouldExit) {
+      logger.close();
+      process.exit(1);
+    }
     throw error;
   }
 
@@ -269,47 +254,58 @@ async function main(shouldExit: boolean = false) {
 
   if (!config.apiKey || !config.apiSecret || !config.accessToken || !config.accessTokenSecret) {
     const error = new Error('Missing X API credentials!');
-    logWithTimestamp(`❌ ${error.message}`, 'error');
-    logWithTimestamp('\nRequired environment variables:', 'error');
-    logWithTimestamp('  X_API_KEY', 'error');
-    logWithTimestamp('  X_API_SECRET', 'error');
-    logWithTimestamp('  X_ACCESS_TOKEN', 'error');
-    logWithTimestamp('  X_ACCESS_TOKEN_SECRET', 'error');
-    logWithTimestamp('\nSee X_API_SETUP.md for instructions.', 'error');
-    if (shouldExit) process.exit(1);
+    logger.error(error.message);
+    logger.error('\nRequired environment variables:');
+    logger.error('  X_API_KEY');
+    logger.error('  X_API_SECRET');
+    logger.error('  X_ACCESS_TOKEN');
+    logger.error('  X_ACCESS_TOKEN_SECRET');
+    logger.error('\nSee X_API_SETUP.md for instructions.');
+    if (shouldExit) {
+      logger.close();
+      process.exit(1);
+    }
     throw error;
   }
 
   try {
     // Get random recipe
-    logWithTimestamp('📖 Fetching recipes...');
+    logger.log('📖 Fetching recipes...');
     const recipe = await getRandomRecipe();
-    logWithTimestamp(`✅ Selected recipe: "${recipe.title}"`);
+    logger.success(`Selected recipe: "${recipe.title}"`);
 
     // Generate tweet text
     const tweetText = generateTweetText(recipe);
-    logWithTimestamp(`\n📝 Tweet text:\n${tweetText}\n`);
+    logger.log(`\n📝 Tweet text:\n${tweetText}\n`);
 
     // Post to X
-    logWithTimestamp('🐦 Posting to X...');
+    logger.log('🐦 Posting to X...');
     const result = await postTweet(tweetText, config);
 
     if (result.success) {
       const siteUrl = getSiteUrl();
-      logWithTimestamp(`✅ Successfully posted to X!`);
-      logWithTimestamp(`   Tweet ID: ${result.tweetId}`);
-      logWithTimestamp(`   Recipe: ${recipe.title}`);
-      logWithTimestamp(`   URL: ${siteUrl}/recipes/${recipe.slug}`);
+      logger.success('Successfully posted to X!');
+      logger.log(`   Tweet ID: ${result.tweetId}`);
+      logger.log(`   Recipe: ${recipe.title}`);
+      logger.log(`   URL: ${siteUrl}/recipes/${recipe.slug}`);
     } else {
       const error = new Error(`Failed to post to X: ${result.error}`);
-      logWithTimestamp(`❌ ${error.message}`, 'error');
-      if (shouldExit) process.exit(1);
+      logger.error(error.message);
+      if (shouldExit) {
+        logger.close();
+        process.exit(1);
+      }
       throw error;
     }
   } catch (error: any) {
-    logWithTimestamp(`❌ Error: ${error.message}`, 'error');
-    if (shouldExit) process.exit(1);
+    logger.error(error.message, error);
+    if (shouldExit) {
+      logger.close();
+      process.exit(1);
+    }
     throw error;
+  } finally {
+    logger.close();
   }
 }
 

@@ -216,4 +216,7 @@ storybook-static
 tmp/
 temp/
 
+# Logs
+logs/
+
 /lib/generated/prisma
