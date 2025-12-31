@@ -1057,10 +1057,13 @@ Ensure:
     console.log(`   ⚠️  Adjusted times to fit maxTime: ${prepTime}min prep + ${cookTime}min cook = ${totalTime}min`);
   }
 
+  // Use the title from recipeData (what OpenAI returned), or fall back to provided title
+  const finalRecipeTitle = recipeData.title || options.recipeTitle || title;
+  
   const recipe: Recipe = {
     id,
-    title: recipeTitle,
-    slug: generateSlug(recipeTitle),
+    title: finalRecipeTitle,
+    slug: generateSlug(finalRecipeTitle),
     description: recipeDescription,
     prologue: recipeData.prologue || '',
     image: imageUrl,

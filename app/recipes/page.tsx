@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import RecipeCard from '@/components/RecipeCard';
 import SearchBar from '@/components/SearchBar';
-import TimeFilters from '@/components/TimeFilters';
-import { Recipe } from '@/types/recipe';
+import RecipeFilters from '@/components/RecipeFilters';
+import { Recipe, RecipeCategory, VeganType } from '@/types/recipe';
 
 export default function RecipesPage() {
   const [allRecipes, setAllRecipes] = useState<Recipe[]>([]);
@@ -18,6 +18,27 @@ export default function RecipesPage() {
   const [cookTimeMax, setCookTimeMax] = useState<number | null>(null);
   const [prepTimeMax, setPrepTimeMax] = useState<number | null>(null);
   const [totalTimeMax, setTotalTimeMax] = useState<number | null>(null);
+  
+  // Category filters
+  const [selectedCategories, setSelectedCategories] = useState<RecipeCategory[]>([]);
+  
+  // Difficulty filter
+  const [selectedDifficulty, setSelectedDifficulty] = useState<('easy' | 'medium' | 'hard')[]>([]);
+  
+  // Vegan type filters
+  const [selectedVeganTypes, setSelectedVeganTypes] = useState<VeganType[]>([]);
+  
+  // Servings filters
+  const [servingsMin, setServingsMin] = useState<number | null>(null);
+  const [servingsMax, setServingsMax] = useState<number | null>(null);
+  
+  // Allergen filters
+  const [glutenFree, setGlutenFree] = useState(false);
+  const [nutFree, setNutFree] = useState(false);
+  const [soyFree, setSoyFree] = useState(false);
+  
+  // Tag filters
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   
   const INITIAL_DISPLAY_COUNT = 12;
   const LOAD_MORE_COUNT = 12;
@@ -51,9 +72,10 @@ export default function RecipesPage() {
     loadRecipes();
   }, [shuffleArray]);
 
-  // Apply time filters to recipes
-  const applyTimeFilters = useCallback((recipes: Recipe[]): Recipe[] => {
+  // Apply all filters to recipes
+  const applyAllFilters = useCallback((recipes: Recipe[]): Recipe[] => {
     return recipes.filter((recipe) => {
+      // Time filters
       if (prepTimeMax !== null && recipe.prepTime > prepTimeMax) {
         return false;
       }
@@ -63,18 +85,156 @@ export default function RecipesPage() {
       if (totalTimeMax !== null && recipe.totalTime > totalTimeMax) {
         return false;
       }
+      
+      // Category filters
+      if (selectedCategories.length > 0) {
+        const hasMatchingCategory = recipe.category.some((cat) =>
+          selectedCategories.includes(cat)
+        );
+        if (!hasMatchingCategory) {
+          return false;
+        }
+      }
+      
+      // Difficulty filter
+      if (selectedDifficulty.length > 0) {
+        if (!selectedDifficulty.includes(recipe.difficulty)) {
+          return false;
+        }
+      }
+      
+      // Vegan type filters
+      if (selectedVeganTypes.length > 0) {
+        const hasMatchingVeganType = recipe.veganType.some((type) =>
+          selectedVeganTypes.includes(type)
+        );
+        if (!hasMatchingVeganType) {
+          return false;
+        }
+      }
+      
+      // Servings filters
+      if (servingsMin !== null && recipe.servings < servingsMin) {
+        return false;
+      }
+      if (servingsMax !== null && recipe.servings > servingsMax) {
+        return false;
+      }
+      
+      // Allergen filters
+      if (glutenFree) {
+        const isGlutenFree =
+          recipe.veganType.includes('gluten-free-vegan') ||
+          recipe.tags.some((tag) => tag.toLowerCase().includes('gluten-free')) ||
+          recipe.tags.some((tag) => tag.toLowerCase().includes('gluten free'));
+        if (!isGlutenFree) {
+          return false;
+        }
+      }
+      
+      if (nutFree) {
+        const hasNuts =
+          recipe.tags.some((tag) =>
+            ['nut', 'almond', 'walnut', 'pecan', 'hazelnut', 'cashew', 'pistachio', 'peanut'].some(
+              (nut) => tag.toLowerCase().includes(nut)
+            )
+          ) ||
+          recipe.ingredients.some((ing) => {
+            const ingName = typeof ing === 'string' ? ing : ing.name;
+            return ['nut', 'almond', 'walnut', 'pecan', 'hazelnut', 'cashew', 'pistachio', 'peanut'].some(
+              (nut) => ingName.toLowerCase().includes(nut)
+            );
+          });
+        if (hasNuts) {
+          return false;
+        }
+      }
+      
+      if (soyFree) {
+        const hasSoy =
+          recipe.tags.some((tag) =>
+            ['soy', 'tofu', 'tempeh', 'edamame', 'miso'].some((soyItem) =>
+              tag.toLowerCase().includes(soyItem)
+            )
+          ) ||
+          recipe.ingredients.some((ing) => {
+            const ingName = typeof ing === 'string' ? ing : ing.name;
+            return ['soy', 'tofu', 'tempeh', 'edamame', 'miso', 'soy sauce', 'tamari'].some(
+              (soyItem) => ingName.toLowerCase().includes(soyItem)
+            );
+          });
+        if (hasSoy) {
+          return false;
+        }
+      }
+      
+      // Tag filters
+      if (selectedTags.length > 0) {
+        const recipeTags = recipe.tags.map((tag) => tag.toLowerCase());
+        const hasMatchingTag = selectedTags.some((selectedTag) =>
+          recipeTags.includes(selectedTag.toLowerCase())
+        );
+        if (!hasMatchingTag) {
+          return false;
+        }
+      }
+      
       return true;
     });
-  }, [prepTimeMax, cookTimeMax, totalTimeMax]);
+  }, [
+    prepTimeMax,
+    cookTimeMax,
+    totalTimeMax,
+    selectedCategories,
+    selectedDifficulty,
+    selectedVeganTypes,
+    servingsMin,
+    servingsMax,
+    glutenFree,
+    nutFree,
+    soyFree,
+    selectedTags,
+  ]);
+
+  // Clear all filters function
+  const clearAllFilters = useCallback(() => {
+    setCookTimeMax(null);
+    setPrepTimeMax(null);
+    setTotalTimeMax(null);
+    setSelectedCategories([]);
+    setSelectedDifficulty([]);
+    setSelectedVeganTypes([]);
+    setServingsMin(null);
+    setServingsMax(null);
+    setGlutenFree(false);
+    setNutFree(false);
+    setSoyFree(false);
+    setSelectedTags([]);
+  }, []);
 
   // Apply filters when recipes or filters change
   useEffect(() => {
     if (allRecipes.length > 0) {
-      const filtered = applyTimeFilters(allRecipes);
+      const filtered = applyAllFilters(allRecipes);
       setFilteredRecipes(filtered);
       setDisplayedRecipes(filtered.slice(0, INITIAL_DISPLAY_COUNT));
     }
-  }, [allRecipes, applyTimeFilters]);
+  }, [
+    allRecipes,
+    applyAllFilters,
+    prepTimeMax,
+    cookTimeMax,
+    totalTimeMax,
+    selectedCategories,
+    selectedDifficulty,
+    selectedVeganTypes,
+    servingsMin,
+    servingsMax,
+    glutenFree,
+    nutFree,
+    soyFree,
+    selectedTags,
+  ]);
 
   // Use refs to store latest values for scroll handler
   const filteredRecipesRef = useRef(filteredRecipes);
@@ -186,14 +346,34 @@ export default function RecipesPage() {
           />
         </div>
 
-        {/* Time Filters */}
-        <TimeFilters
+        {/* Comprehensive Filters */}
+        <RecipeFilters
+          recipes={allRecipes}
           cookTimeMax={cookTimeMax}
           prepTimeMax={prepTimeMax}
           totalTimeMax={totalTimeMax}
           onCookTimeChange={setCookTimeMax}
           onPrepTimeChange={setPrepTimeMax}
           onTotalTimeChange={setTotalTimeMax}
+          selectedCategories={selectedCategories}
+          onCategoriesChange={setSelectedCategories}
+          selectedDifficulty={selectedDifficulty}
+          onDifficultyChange={setSelectedDifficulty}
+          selectedVeganTypes={selectedVeganTypes}
+          onVeganTypesChange={setSelectedVeganTypes}
+          servingsMin={servingsMin}
+          servingsMax={servingsMax}
+          onServingsMinChange={setServingsMin}
+          onServingsMaxChange={setServingsMax}
+          glutenFree={glutenFree}
+          nutFree={nutFree}
+          soyFree={soyFree}
+          onGlutenFreeChange={setGlutenFree}
+          onNutFreeChange={setNutFree}
+          onSoyFreeChange={setSoyFree}
+          selectedTags={selectedTags}
+          onTagsChange={setSelectedTags}
+          onClearAll={clearAllFilters}
         />
 
         {filteredRecipes.length > 0 && (
@@ -238,7 +418,7 @@ export default function RecipesPage() {
             No recipes match your filters
           </p>
           <div className="text-sm text-gray-500 space-y-2">
-            <p>Try adjusting your time filters to see more recipes.</p>
+            <p>Try adjusting your filters to see more recipes.</p>
           </div>
         </div>
       )}
