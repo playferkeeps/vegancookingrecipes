@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { getRecipeBySlugAsync, getAllRecipesAsync } from '@/data/recipes/helpers';
+import { getPrismaClient } from '@/lib/prisma';
 import JumpToRecipe from '@/components/JumpToRecipe';
 import SocialShare from '@/components/SocialShare';
 import Comments from '@/components/Comments';
@@ -113,13 +114,53 @@ export async function generateStaticParams() {
   }));
 }
 
+// Get vote stats server-side for AggregateRating
+async function getRecipeVoteStats(recipeId: string) {
+  try {
+    const prisma = getPrismaClient();
+    if (!prisma) {
+      return null;
+    }
+
+    const votes = await prisma.vote.findMany({
+      where: { recipeId },
+      select: { voteType: true },
+    });
+
+    const upVotes = votes.filter(v => v.voteType === 'up').length;
+    const downVotes = votes.filter(v => v.voteType === 'down').length;
+    const totalVotes = upVotes + downVotes;
+
+    if (totalVotes === 0) {
+      return null;
+    }
+
+    // Convert up/down votes to 5-star rating
+    // Formula: (upVotes / totalVotes) * 5, rounded to 1 decimal
+    const ratingValue = Math.round(((upVotes / totalVotes) * 5) * 10) / 10;
+    
+    return {
+      ratingValue: Math.max(1, Math.min(5, ratingValue)), // Clamp between 1 and 5
+      reviewCount: totalVotes,
+      bestRating: 5,
+      worstRating: 1,
+    };
+  } catch (error) {
+    console.error('Error fetching vote stats:', error);
+    return null;
+  }
+}
+
 // Generate JSON-LD structured data for SEO (2025/2026 best practices)
-function generateStructuredData(recipe: Recipe) {
+async function generateStructuredData(recipe: Recipe) {
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
   // Ensure image URL is absolute for structured data
   const imageUrl = recipe.image.startsWith('http') 
     ? recipe.image 
     : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
+  
+  // Get vote stats for AggregateRating
+  const voteStats = await getRecipeVoteStats(recipe.id);
   
   // Base Recipe schema
   const recipeSchema: any = {
@@ -127,7 +168,8 @@ function generateStructuredData(recipe: Recipe) {
     '@type': 'Recipe',
     name: recipe.title,
     description: recipe.description,
-    image: Array.isArray(recipe.image) ? recipe.image : [imageUrl],
+    // Google requires image to be an array for rich results
+    image: [imageUrl],
     url: url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -140,8 +182,8 @@ function generateStructuredData(recipe: Recipe) {
       logo: {
         '@type': 'ImageObject',
         url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
-        width: 1200,
-        height: 630,
+        width: 150,
+        height: 150,
       },
     },
     author: {
@@ -155,8 +197,7 @@ function generateStructuredData(recipe: Recipe) {
     prepTime: `PT${recipe.prepTime}M`,
     cookTime: `PT${recipe.cookTime}M`,
     totalTime: `PT${recipe.totalTime}M`,
-    recipeYield: `${recipe.servings} servings`,
-    recipeCategory: recipe.category.join(', '),
+    recipeCategory: recipe.category.length > 0 ? recipe.category : ['Recipe'],
     keywords: [...recipe.tags, ...recipe.category, 'vegancooking.recipes', 'vegan recipes'].join(', '),
     recipeIngredient: recipe.ingredients.map(
       (ing) => {
@@ -167,18 +208,39 @@ function generateStructuredData(recipe: Recipe) {
         return `${amount} ${unit} ${ingredient}${notes ? ` (${notes})` : ''}`.trim();
       }
     ),
-    recipeInstructions: recipe.instructions.map((inst) => ({
-      '@type': 'HowToStep',
-      position: inst.step,
-      text: inst.text,
-      name: `Step ${inst.step}`,
-    })),
+    recipeInstructions: recipe.instructions.map((inst) => {
+      const step: any = {
+        '@type': 'HowToStep',
+        position: inst.step,
+        text: inst.text,
+        name: `Step ${inst.step}`,
+      };
+      // Add image to step if available (enhances rich results)
+      if (inst.image) {
+        const stepImageUrl = inst.image.startsWith('http') 
+          ? inst.image 
+          : `https://vegancooking.recipes${inst.image.startsWith('/') ? inst.image : `/${inst.image}`}`;
+        step.image = stepImageUrl;
+      }
+      return step;
+    }),
     suitableForDiet: [
       'https://schema.org/VegetarianDiet',
       'https://schema.org/VeganDiet',
     ],
     recipeCuisine: recipe.category.includes('international') ? 'International' : 'Vegan',
   };
+
+  // Add AggregateRating for rich results with stars (2025/2026 best practice)
+  if (voteStats && voteStats.reviewCount >= 1) {
+    recipeSchema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: voteStats.ratingValue.toString(),
+      reviewCount: voteStats.reviewCount.toString(),
+      bestRating: voteStats.bestRating.toString(),
+      worstRating: voteStats.worstRating.toString(),
+    };
+  }
 
   // Add nutrition information if available
   if (recipe.nutritionInfo) {
@@ -249,12 +311,22 @@ function generateStructuredData(recipe: Recipe) {
   });
 
   // Add Article schema for better SEO (2025/2026 best practice)
-  schemas.push({
+  // Combine prologue, description, and tips for articleBody
+  const articleBody = [
+    recipe.prologue,
+    recipe.description,
+    recipe.ingredientNotes,
+    recipe.tips?.join(' '),
+    recipe.storage,
+  ].filter(Boolean).join('\n\n').substring(0, 5000); // Limit to 5000 chars
+
+  const articleSchema: any = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: recipe.title,
     description: recipe.description,
-    image: imageUrl,
+    image: [imageUrl], // Array format for better rich results
+    articleBody: articleBody || recipe.description,
     datePublished: recipe.datePublished,
     dateModified: recipe.dateModified || recipe.datePublished,
     author: {
@@ -270,14 +342,50 @@ function generateStructuredData(recipe: Recipe) {
       logo: {
         '@type': 'ImageObject',
         url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
-        width: 1200,
-        height: 630,
+        width: 150,
+        height: 150,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': url,
     },
+    keywords: [...recipe.tags, ...recipe.category, 'vegancooking.recipes', 'vegan recipes'].join(', '),
+  };
+
+  // Add AggregateRating to Article schema if available
+  if (voteStats && voteStats.reviewCount >= 1) {
+    articleSchema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: voteStats.ratingValue.toString(),
+      reviewCount: voteStats.reviewCount.toString(),
+      bestRating: voteStats.bestRating.toString(),
+      worstRating: voteStats.worstRating.toString(),
+    };
+  }
+
+  schemas.push(articleSchema);
+
+  // Add HowTo schema for better recipe instructions visibility (2025/2026 best practice)
+  schemas.push({
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: recipe.title,
+    description: recipe.description,
+    image: imageUrl,
+    totalTime: `PT${recipe.totalTime}M`,
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: 'USD',
+      value: '10', // Estimated cost - can be made dynamic
+    },
+    step: recipe.instructions.map((inst) => ({
+      '@type': 'HowToStep',
+      position: inst.step,
+      name: `Step ${inst.step}`,
+      text: inst.text,
+      ...(inst.image && { image: inst.image }),
+    })),
   });
 
   return schemas;
@@ -291,7 +399,7 @@ export default async function RecipePage({ params }: PageProps) {
     notFound();
   }
 
-  const structuredData = generateStructuredData(recipe);
+  const structuredData = await generateStructuredData(recipe);
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
 
   // Handle both single schema and array of schemas

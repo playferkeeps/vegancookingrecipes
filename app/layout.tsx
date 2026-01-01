@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
-        width: 1200,
-        height: 630,
+        width: 150,
+        height: 150,
         alt: 'vegancooking.recipes - Vegan Cooking Recipes',
         type: 'image/png',
       },
@@ -68,8 +68,8 @@ export const metadata: Metadata = {
   other: {
     'og:site': 'vegancooking.recipes',
     'google-adsense-account': process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-XXXXXXXXXX',
-    'og:image:width': '1200',
-    'og:image:height': '630',
+    'og:image:width': '150',
+    'og:image:height': '150',
   },
 };
 

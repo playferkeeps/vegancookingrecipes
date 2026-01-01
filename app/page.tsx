@@ -15,7 +15,12 @@ function generateOrganizationSchema() {
     '@type': 'Organization',
     name: 'vegancooking.recipes',
     url: 'https://vegancooking.recipes',
-    logo: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+      width: 150,
+      height: 150,
+    },
     description: 'Discover amazing vegan recipes for every meal at vegancooking.recipes. From baking to savory dishes, international cuisine, and more.',
     sameAs: [
       'https://twitter.com/vegancooking',
@@ -63,8 +68,8 @@ export const metadata = {
     images: [
       {
         url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
-        width: 1200,
-        height: 630,
+        width: 150,
+        height: 150,
         alt: 'vegancooking.recipes - Vegan Cooking Recipes',
         type: 'image/png',
       },
@@ -82,8 +87,8 @@ export const metadata = {
     canonical: 'https://vegancooking.recipes/',
   },
   other: {
-    'og:image:width': '1200',
-    'og:image:height': '630',
+    'og:image:width': '150',
+    'og:image:height': '150',
   },
 };
 
