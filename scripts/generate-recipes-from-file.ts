@@ -17,6 +17,24 @@ import * as path from 'path';
 import { execSync } from 'child_process';
 import { commitAndPushRecipeImages } from './git-utils';
 
+// Debug logging helper for Node.js
+function debugLog(location: string, message: string, data: any, hypothesisId: string) {
+  const logEntry = JSON.stringify({
+    location,
+    message,
+    data,
+    timestamp: Date.now(),
+    sessionId: 'debug-session',
+    runId: 'run1',
+    hypothesisId,
+  }) + '\n';
+  try {
+    fs.appendFileSync('/home/pfk/dev/cooking-site/.cursor/debug.log', logEntry);
+  } catch (e) {
+    // Ignore log errors
+  }
+}
+
 interface Options {
   filePath: string;
   category?: string;
@@ -100,11 +118,19 @@ function readTitlesFromFile(filePath: string): string[] {
 }
 
 function buildGenerateCommand(title: string, options: Options): string {
+  // #region agent log
+  debugLog('generate-recipes-from-file.ts:102', 'buildGenerateCommand entry', { title, hasCategory: !!options.category, category: options.category }, 'A');
+  // #endregion
+  
   let command = 'npm run generate-recipes -- --count 1 --title "' + title.replace(/"/g, '\\"') + '"';
   
   if (options.category) {
     command += ` --category ${options.category}`;
   }
+  
+  // #region agent log
+  debugLog('generate-recipes-from-file.ts:115', 'buildGenerateCommand before return', { command, hasCategoryInCommand: command.includes('--category') }, 'A');
+  // #endregion
   
   if (options.useSupabase) {
     command += ' --supabase';
@@ -125,6 +151,10 @@ function buildGenerateCommand(title: string, options: Options): string {
   if (options.theme) {
     command += ` --theme "${options.theme.replace(/"/g, '\\"')}"`;
   }
+  
+  // #region agent log
+  debugLog('generate-recipes-from-file.ts:130', 'buildGenerateCommand final command', { finalCommand: command }, 'A');
+  // #endregion
   
   return command;
 }

@@ -101,4 +101,3 @@ export function getPrismaClient(): PrismaClientType | null {
   }
   return prisma;
 }
-
