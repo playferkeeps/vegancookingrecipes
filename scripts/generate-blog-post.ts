@@ -63,9 +63,48 @@ function generateSlug(title: string): string {
 }
 
 /**
+ * Convert ReadableStream to Buffer
+ */
+async function streamToBuffer(stream: ReadableStream): Promise<Buffer> {
+  const reader = stream.getReader();
+  const chunks: Uint8Array[] = [];
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
+  }
+
+  return Buffer.concat(chunks);
+}
+
+/**
+ * Save base64 image to file
+ */
+async function saveBase64Image(dataUrl: string, filename: string): Promise<string> {
+  const base64Data = dataUrl.split(',')[1];
+  const buffer = Buffer.from(base64Data, 'base64');
+  return saveBufferImage(buffer, filename);
+}
+
+/**
+ * Save buffer image to file
+ */
+async function saveBufferImage(buffer: Buffer, filename: string): Promise<string> {
+  const imagesDir = path.join(process.cwd(), 'public', 'blog-images');
+  if (!fs.existsSync(imagesDir)) {
+    fs.mkdirSync(imagesDir, { recursive: true });
+  }
+
+  const filePath = path.join(imagesDir, filename);
+  fs.writeFileSync(filePath, buffer);
+  return `/blog-images/${filename}`;
+}
+
+/**
  * Download and save image from URL
  */
-function downloadImage(url: string, filename: string): Promise<string> {
+function downloadAndSaveImage(url: string, filename: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const imagesDir = path.join(process.cwd(), 'public', 'blog-images');
     if (!fs.existsSync(imagesDir)) {
@@ -107,29 +146,69 @@ async function generateBlogImage(
   filename: string
 ): Promise<string> {
   try {
-    const output = await replicate.run(
+    const output: unknown = await replicate.run(
       'black-forest-labs/flux-schnell',
       {
         input: {
           prompt: prompt,
           aspect_ratio: '16:9',
           output_format: 'webp',
+          output_quality: 90,
         },
       }
     );
 
+    // Handle different output formats from Replicate
     let imageUrl: string;
-    if (Array.isArray(output) && output.length > 0) {
-      imageUrl = output[0] as string;
+    
+    // Check if output is a ReadableStream
+    if (output && typeof output === 'object' && 'getReader' in output) {
+      // It's a ReadableStream - convert to buffer
+      const buffer = await streamToBuffer(output as ReadableStream);
+      imageUrl = await saveBufferImage(buffer, filename);
     } else if (typeof output === 'string') {
-      imageUrl = output;
+      // Could be a URL or base64 data
+      if (output.startsWith('http')) {
+        imageUrl = await downloadAndSaveImage(output, filename);
+      } else if (output.startsWith('data:')) {
+        // Base64 data URL - save it to a file
+        imageUrl = await saveBase64Image(output, filename);
+      } else {
+        throw new Error(`Unexpected string format: ${output.substring(0, 50)}...`);
+      }
+    } else if (Buffer.isBuffer(output)) {
+      // Binary image data - save it to a file
+      imageUrl = await saveBufferImage(output, filename);
+    } else if (Array.isArray(output) && output.length > 0) {
+      const firstOutput = output[0];
+      if (firstOutput && typeof firstOutput === 'object' && 'getReader' in firstOutput) {
+        // ReadableStream in array
+        const buffer = await streamToBuffer(firstOutput as ReadableStream);
+        imageUrl = await saveBufferImage(buffer, filename);
+      } else if (typeof firstOutput === 'string') {
+        if (firstOutput.startsWith('http')) {
+          imageUrl = await downloadAndSaveImage(firstOutput, filename);
+        } else if (firstOutput.startsWith('data:')) {
+          imageUrl = await saveBase64Image(firstOutput, filename);
+        } else {
+          throw new Error(`Unexpected array element format: ${firstOutput.substring(0, 50)}...`);
+        }
+      } else if (Buffer.isBuffer(firstOutput)) {
+        imageUrl = await saveBufferImage(firstOutput, filename);
+      } else {
+        throw new Error(`Unexpected array element type: ${typeof firstOutput}`);
+      }
+    } else if (output && typeof output === 'object' && 'url' in output) {
+      imageUrl = await downloadAndSaveImage((output as any).url, filename);
     } else {
-      throw new Error('Unexpected output format from Replicate');
+      throw new Error(`Unexpected output format from Replicate: ${typeof output}`);
     }
 
-    // Download and save image
-    const savedPath = await downloadImage(imageUrl, filename);
-    return savedPath;
+    if (!imageUrl || typeof imageUrl !== 'string') {
+      throw new Error(`Invalid image URL format from Replicate: ${typeof imageUrl}`);
+    }
+
+    return imageUrl;
   } catch (error: any) {
     throw new Error(`Failed to generate image: ${error.message}`);
   }
@@ -178,14 +257,17 @@ ${recipe.ingredientNotes ? `Ingredient Notes: ${recipe.ingredientNotes}` : ''}
 ${recipe.tips ? `Tips: ${recipe.tips.join(', ')}` : ''}
 
 Create a blog post that:
-1. Is engaging and personal (written in Katie's voice - warm, authentic, conversational)
-2. Is SEO-optimized with relevant keywords naturally integrated
-3. Tells a story about the recipe (why it's special, when to make it, etc.)
-4. Includes helpful tips and variations
+1. Is engaging and personal (written in Katie's voice - warm, authentic, conversational, like you're sharing with a friend)
+2. Is SEO-optimized with relevant keywords naturally integrated (no keyword stuffing)
+3. Tells a story about the recipe (why it's special, when to make it, personal anecdotes, etc.)
+4. Includes helpful tips and variations (written from personal experience)
 5. Is 800-1200 words long
-6. Has a compelling introduction that hooks the reader
+6. Has a compelling introduction that hooks the reader with a personal story or memory
 7. Includes sections on ingredients, preparation tips, serving suggestions
 8. Has a strong conclusion that encourages readers to try the recipe
+9. Uses first person ("I", "my", "me") throughout - sound like a real person, not a marketing department
+10. Avoids generic phrases like "absolutely delicious" or "perfect for" - be specific and personal
+11. Includes personal anecdotes, memories, or experiences with this recipe
 
 Also suggest 3-5 image prompts for blog post images (ingredients, cooking process, final dish, etc.). Make them descriptive and appetizing.
 
@@ -264,6 +346,14 @@ async function generateBlogImages(
     const filename = `${generateSlug(recipeTitle)}-blog-${i + 1}-${Date.now()}.webp`;
 
     try {
+      // Add delay between requests to respect rate limits (6 requests per minute = 10 seconds between requests)
+      // Wait 11 seconds to be safe (only after the first image)
+      if (i > 0) {
+        const delay = 11000; // 11 seconds
+        logger.log(`   ⏳ Waiting ${delay / 1000} seconds to respect rate limits...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+
       logger.log(`   🖼️  Generating image ${i + 1}/${Math.min(imagePrompts.length, 5)}: ${prompt.substring(0, 50)}...`);
       const imageUrl = await generateBlogImage(replicate, prompt, filename);
       imageUrls.push(imageUrl);
@@ -295,13 +385,27 @@ async function createBlogPost(
 ): Promise<void> {
   const slug = generateSlug(blogData.title);
 
-  // Check if blog post already exists
+  // Check if blog post already exists (by slug)
   const existing = await prisma.blogPost.findUnique({
     where: { slug },
   });
 
   if (existing) {
     logger.warn(`   ⚠️  Blog post with slug "${slug}" already exists. Skipping.`);
+    return;
+  }
+
+  // Also check if this recipe already has a blog post (by recipe slug in relatedRecipeIds)
+  const existingRecipeBlogPost = await prisma.blogPost.findFirst({
+    where: {
+      relatedRecipeIds: {
+        has: recipe.slug,
+      },
+    },
+  });
+
+  if (existingRecipeBlogPost) {
+    logger.warn(`   ⚠️  Recipe "${recipe.title}" (slug: ${recipe.slug}) already has a blog post. Skipping.`);
     return;
   }
 
@@ -393,6 +497,28 @@ async function main() {
     await prisma.$connect();
     logger.success('Database connection established\n');
 
+    // Get all existing blog posts to find which recipes already have blog posts
+    logger.log('🔍 Checking for existing blog posts...');
+    const existingBlogPosts = await prisma.blogPost.findMany({
+      select: {
+        relatedRecipeIds: true,
+      },
+    });
+
+    // Extract all recipe slugs that already have blog posts
+    const recipesWithBlogPosts = new Set<string>();
+    existingBlogPosts.forEach(blogPost => {
+      if (blogPost.relatedRecipeIds && Array.isArray(blogPost.relatedRecipeIds)) {
+        blogPost.relatedRecipeIds.forEach(slug => {
+          if (typeof slug === 'string') {
+            recipesWithBlogPosts.add(slug);
+          }
+        });
+      }
+    });
+
+    logger.log(`   Found ${recipesWithBlogPosts.size} recipe(s) that already have blog posts`);
+
     // Find recipes
     logger.log('🔍 Finding recipes...');
     const where: any = {};
@@ -412,6 +538,13 @@ async function main() {
       ];
     }
 
+    // Exclude recipes that already have blog posts
+    if (recipesWithBlogPosts.size > 0) {
+      where.slug = {
+        notIn: Array.from(recipesWithBlogPosts),
+      };
+    }
+
     // Build include for recipe relations
     const include = {
       ingredients: { orderBy: { orderIndex: 'asc' } },
@@ -429,10 +562,13 @@ async function main() {
 
     if (recipes.length === 0) {
       logger.warn('No recipes found matching criteria.');
+      if (recipesWithBlogPosts.size > 0) {
+        logger.warn(`   Note: ${recipesWithBlogPosts.size} recipe(s) already have blog posts and were excluded.`);
+      }
       process.exit(0);
     }
 
-    logger.success(`Found ${recipes.length} recipe(s)\n`);
+    logger.success(`Found ${recipes.length} recipe(s) without existing blog posts\n`);
 
     // Generate blog posts
     for (let i = 0; i < recipes.length; i++) {

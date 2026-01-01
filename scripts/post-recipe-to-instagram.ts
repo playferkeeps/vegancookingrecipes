@@ -1,0 +1,346 @@
+/**
+ * Script to post recipe images to Instagram Business Account
+ * Uses Instagram Graph API to post photos
+ * 
+ * Prerequisites:
+ * - Instagram Business Account
+ * - Facebook Page connected to Instagram
+ * - Instagram Business Account ID
+ * 
+ * Usage:
+ *   npm run post-recipe-to-instagram
+ * 
+ * Or run on a schedule with cron:
+ *   0 0,6,12,18 * * * cd /path/to/cooking-site && npm run post-recipe-to-instagram
+ */
+
+import 'dotenv/config';
+import { getAllRecipesAsync } from '../data/recipes/helpers';
+
+interface InstagramApiConfig {
+  accessToken: string;
+  instagramBusinessAccountId: string;
+  facebookPageId: string;
+}
+
+/**
+ * Get formatted timestamp for logging
+ */
+function getTimestamp(): string {
+  return new Date().toISOString();
+}
+
+/**
+ * Log with timestamp
+ */
+function logWithTimestamp(message: string, type: 'log' | 'error' | 'warn' = 'log'): void {
+  const timestamp = getTimestamp();
+  const formattedMessage = `[${timestamp}] ${message}`;
+  
+  switch (type) {
+    case 'error':
+      console.error(formattedMessage);
+      break;
+    case 'warn':
+      console.warn(formattedMessage);
+      break;
+    default:
+      console.log(formattedMessage);
+  }
+}
+
+/**
+ * Get random recipe
+ */
+async function getRandomRecipe() {
+  const recipes = await getAllRecipesAsync();
+  if (recipes.length === 0) {
+    throw new Error('No recipes found');
+  }
+  
+  const randomIndex = Math.floor(Math.random() * recipes.length);
+  return recipes[randomIndex];
+}
+
+/**
+ * Get and validate site URL
+ */
+function getSiteUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
+  const defaultUrl = 'https://vegancooking.recipes';
+  
+  if (!envUrl) {
+    logWithTimestamp(`⚠️  NEXT_PUBLIC_SITE_URL not set, using default: ${defaultUrl}`, 'warn');
+    return defaultUrl;
+  }
+  
+  let url: URL;
+  try {
+    url = new URL(envUrl);
+  } catch {
+    logWithTimestamp(`⚠️  Invalid NEXT_PUBLIC_SITE_URL format, using default: ${defaultUrl}`, 'warn');
+    return defaultUrl;
+  }
+  
+  const allowedDomains = [
+    'vegancooking.recipes',
+    'www.vegancooking.recipes',
+    'localhost',
+  ];
+  
+  const hostname = url.hostname.toLowerCase();
+  const isAllowed = allowedDomains.some(domain => 
+    hostname === domain || hostname.endsWith(`.${domain}`)
+  );
+  
+  if (!isAllowed) {
+    logWithTimestamp(`❌ NEXT_PUBLIC_SITE_URL (${envUrl}) is not from vegancooking.recipes domain!`, 'error');
+    return defaultUrl;
+  }
+  
+  if (!hostname.includes('localhost') && url.protocol !== 'https:') {
+    url.protocol = 'https:';
+  }
+  
+  return url.toString().replace(/\/$/, '');
+}
+
+/**
+ * Generate Instagram caption for a recipe
+ * Instagram doesn't allow clickable links in posts, so we include the URL in the caption
+ */
+function generateInstagramCaption(recipe: { title: string; slug: string; description?: string }): string {
+  const baseUrl = getSiteUrl();
+  const recipeUrl = `${baseUrl}/recipes/${recipe.slug}`;
+  
+  const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿', '🥑'];
+  const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+  let caption = `${randomEmoji} ${recipe.title}\n\n`;
+  
+  if (recipe.description) {
+    const maxDescriptionLength = 150; // Instagram has 2200 char limit, but shorter is better
+    if (recipe.description.length > maxDescriptionLength) {
+      caption += `${recipe.description.substring(0, maxDescriptionLength)}...\n\n`;
+    } else {
+      caption += `${recipe.description}\n\n`;
+    }
+  }
+  
+  caption += `👉 Full recipe: ${recipeUrl}\n\n`;
+  caption += `#VeganRecipes #PlantBased #VeganCooking #HealthyEating #VeganFood #PlantBasedCooking #VeganMeals #VeganRecipe`;
+  
+  return caption;
+}
+
+
+/**
+ * Upload image to Instagram using Graph API
+ * Instagram requires a two-step process:
+ * 1. Create a media container with the image URL
+ * 2. Publish the container
+ * 
+ * Note: Instagram requires images to be publicly accessible via HTTPS
+ */
+async function postToInstagram(
+  imageUrl: string,
+  caption: string,
+  config: InstagramApiConfig
+): Promise<{ success: boolean; mediaId?: string; error?: string }> {
+  try {
+    // Validate image URL is publicly accessible
+    if (!imageUrl.startsWith('http')) {
+      return {
+        success: false,
+        error: 'Image URL must be publicly accessible via HTTPS. Recipe images must be hosted online.',
+      };
+    }
+
+    if (!imageUrl.startsWith('https')) {
+      logWithTimestamp('⚠️  Image URL should use HTTPS for security', 'warn');
+    }
+
+    // Step 1: Create media container
+    logWithTimestamp('📸 Creating Instagram media container...');
+    logWithTimestamp(`   Image URL: ${imageUrl}`);
+    
+    const containerUrl = `https://graph.facebook.com/v18.0/${config.instagramBusinessAccountId}/media`;
+    
+    const containerParams = new URLSearchParams({
+      image_url: imageUrl,
+      caption: caption.substring(0, 2200), // Instagram has 2200 character limit
+      access_token: config.accessToken,
+    });
+    
+    const containerResponse = await fetch(`${containerUrl}?${containerParams.toString()}`, {
+      method: 'POST',
+    });
+    
+    const containerData = await containerResponse.json();
+    
+    if (!containerResponse.ok) {
+      logWithTimestamp(`Instagram API Error (container): ${JSON.stringify(containerData)}`, 'error');
+      return {
+        success: false,
+        error: containerData.error?.message || containerData.error?.error_user_msg || 'Failed to create media container',
+      };
+    }
+    
+    const creationId = containerData.id;
+    logWithTimestamp(`✅ Media container created: ${creationId}`);
+    
+    // Step 2: Check container status and publish
+    logWithTimestamp('⏳ Waiting for container to be ready...');
+    
+    // Instagram requires waiting for the container to be ready
+    let status = 'IN_PROGRESS';
+    let attempts = 0;
+    const maxAttempts = 10;
+    
+    while (status === 'IN_PROGRESS' && attempts < maxAttempts) {
+      await new Promise(resolve => setTimeout(resolve, 3000)); // Wait 3 seconds
+      
+      const statusUrl = `https://graph.facebook.com/v18.0/${creationId}?fields=status_code&access_token=${config.accessToken}`;
+      const statusResponse = await fetch(statusUrl);
+      const statusData = await statusResponse.json();
+      
+      if (statusData.status_code === 'FINISHED') {
+        status = 'FINISHED';
+        break;
+      } else if (statusData.status_code === 'ERROR') {
+        return {
+          success: false,
+          error: 'Container processing failed. Check image URL and format.',
+        };
+      }
+      
+      attempts++;
+      logWithTimestamp(`   Attempt ${attempts}/${maxAttempts}...`);
+    }
+    
+    if (status !== 'FINISHED') {
+      return {
+        success: false,
+        error: 'Container did not finish processing in time. Try again later.',
+      };
+    }
+    
+    // Step 3: Publish the container
+    logWithTimestamp('📤 Publishing to Instagram...');
+    
+    const publishUrl = `https://graph.facebook.com/v18.0/${config.instagramBusinessAccountId}/media_publish`;
+    const publishParams = new URLSearchParams({
+      creation_id: creationId,
+      access_token: config.accessToken,
+    });
+    
+    const publishResponse = await fetch(`${publishUrl}?${publishParams.toString()}`, {
+      method: 'POST',
+    });
+    
+    const publishData = await publishResponse.json();
+    
+    if (!publishResponse.ok) {
+      logWithTimestamp(`Instagram API Error (publish): ${JSON.stringify(publishData)}`, 'error');
+      return {
+        success: false,
+        error: publishData.error?.message || publishData.error?.error_user_msg || 'Failed to publish to Instagram',
+      };
+    }
+    
+    return {
+      success: true,
+      mediaId: publishData.id,
+    };
+  } catch (error: any) {
+    logWithTimestamp(`Error posting to Instagram: ${error.message || error}`, 'error');
+    return {
+      success: false,
+      error: error.message || 'Unknown error',
+    };
+  }
+}
+
+/**
+ * Get absolute image URL for recipe
+ */
+function getRecipeImageUrl(recipe: { image: string }): string {
+  const baseUrl = getSiteUrl();
+  
+  if (recipe.image.startsWith('http')) {
+    return recipe.image;
+  }
+  
+  return `${baseUrl}${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
+}
+
+/**
+ * Main function
+ */
+async function main(shouldExit: boolean = false) {
+  logWithTimestamp('📷 Starting recipe post to Instagram...\n');
+
+  const siteUrl = getSiteUrl();
+  logWithTimestamp(`🌐 Using site URL: ${siteUrl}`);
+  
+  if (!siteUrl.includes('vegancooking.recipes') && !siteUrl.includes('localhost')) {
+    const error = new Error(`Site URL must be from vegancooking.recipes domain! Current: ${siteUrl}`);
+    logWithTimestamp(`❌ ${error.message}`, 'error');
+    if (shouldExit) process.exit(1);
+    throw error;
+  }
+
+  const config: InstagramApiConfig = {
+    accessToken: process.env.INSTAGRAM_ACCESS_TOKEN || '',
+    instagramBusinessAccountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '',
+    facebookPageId: process.env.FACEBOOK_PAGE_ID || '',
+  };
+
+  if (!config.accessToken || !config.instagramBusinessAccountId) {
+    const error = new Error('Missing Instagram API credentials!');
+    logWithTimestamp(`❌ ${error.message}`, 'error');
+    logWithTimestamp('\nRequired environment variables:', 'error');
+    logWithTimestamp('  INSTAGRAM_ACCESS_TOKEN', 'error');
+    logWithTimestamp('  INSTAGRAM_BUSINESS_ACCOUNT_ID', 'error');
+    logWithTimestamp('\nSee INSTAGRAM_API_SETUP.md for instructions.', 'error');
+    if (shouldExit) process.exit(1);
+    throw error;
+  }
+
+  try {
+    logWithTimestamp('📖 Fetching recipes...');
+    const recipe = await getRandomRecipe();
+    logWithTimestamp(`✅ Selected recipe: "${recipe.title}"`);
+
+    const caption = generateInstagramCaption(recipe);
+    const imageUrl = getRecipeImageUrl(recipe);
+    
+    logWithTimestamp(`\n📝 Caption:\n${caption}\n`);
+    logWithTimestamp(`🖼️  Image URL: ${imageUrl}\n`);
+
+    logWithTimestamp('📷 Posting to Instagram...');
+    logWithTimestamp(`   Using image URL: ${imageUrl}`);
+    const result = await postToInstagram(imageUrl, caption, config);
+
+    if (result.success) {
+      logWithTimestamp(`✅ Successfully posted to Instagram!`);
+      logWithTimestamp(`   Media ID: ${result.mediaId}`);
+      logWithTimestamp(`   Recipe: ${recipe.title}`);
+    } else {
+      logWithTimestamp(`❌ Failed to post to Instagram: ${result.error}`, 'error');
+      if (shouldExit) process.exit(1);
+      throw new Error(result.error);
+    }
+  } catch (error: any) {
+    logWithTimestamp(`❌ Error: ${error.message}`, 'error');
+    if (shouldExit) process.exit(1);
+    throw error;
+  }
+}
+
+// Run if called directly
+if (require.main === module) {
+  main(true);
+}
+
+export { main as postRecipeToInstagram };
