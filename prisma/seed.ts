@@ -209,97 +209,99 @@ async function main() {
     }
   }
   
-  // Seed sample votes and comments for a few popular recipes
-  console.log('\n💬 Seeding sample votes and comments...');
+  // Seed sample blog posts
+  console.log('\n📝 Seeding sample blog posts...');
   try {
-    // Get a few recipes to add votes/comments to
-    const sampleRecipes = await prisma.recipe.findMany({
-      take: 5,
-      select: { id: true, title: true, slug: true },
+    // Get a few recipes to create blog posts for
+    const recipesForBlog = await prisma.recipe.findMany({
+      take: 3,
+      include: {
+        categories: true,
+        tags: true,
+      },
+      orderBy: { datePublished: 'desc' },
     });
-    
-    if (sampleRecipes.length > 0) {
-      // Add some sample votes
-      const sampleVotes = [
-        { voteType: 'up', userId: 'user_sample_1' },
-        { voteType: 'up', userId: 'user_sample_2' },
-        { voteType: 'up', userId: 'user_sample_3' },
-        { voteType: 'down', userId: 'user_sample_4' },
-        { voteType: 'up', userId: 'user_sample_5' },
-      ];
-      
-      for (const recipe of sampleRecipes.slice(0, 3)) {
-        // Add votes for first 3 recipes
-        for (const vote of sampleVotes) {
-          try {
-            await prisma.vote.upsert({
-              where: {
-                recipeId_userId: {
-                  recipeId: recipe.id,
-                  userId: vote.userId,
+
+    if (recipesForBlog.length > 0) {
+      for (const recipe of recipesForBlog) {
+        const blogSlug = `how-to-make-${recipe.slug}`;
+        
+        // Check if blog post already exists
+        const existingBlog = await prisma.blogPost.findUnique({
+          where: { slug: blogSlug },
+        });
+
+        if (existingBlog) {
+          console.log(`⏭️  Skipping blog post for "${recipe.title}" (already exists)`);
+          continue;
+        }
+
+        const categories = recipe.categories.map((c: any) => c.category).join(', ');
+        const tags = recipe.tags.map((t: any) => t.tag).slice(0, 5).join(', ');
+
+        await prisma.blogPost.create({
+          data: {
+            title: `How to Make the Perfect ${recipe.title}`,
+            slug: blogSlug,
+            excerpt: `Learn how to make this delicious vegan ${recipe.title.toLowerCase()}. This recipe is perfect for ${categories} and takes just ${recipe.totalTime} minutes to prepare.`,
+            content: `
+              <h2>Introduction</h2>
+              <p>Welcome to my kitchen! Today I'm sharing my favorite recipe for ${recipe.title}. This dish has become a staple in my home, and I'm excited to show you how to make it.</p>
+              
+              <h2>Why This Recipe Works</h2>
+              <p>This ${recipe.title.toLowerCase()} is special because it combines simple, whole-food ingredients in a way that creates incredible flavor. With just ${recipe.totalTime} minutes from start to finish, it's perfect for busy weeknights.</p>
+              
+              <h2>Key Ingredients</h2>
+              <p>The secret to this recipe is using fresh, quality ingredients. Each component plays an important role in creating the final dish.</p>
+              
+              <h2>Step-by-Step Instructions</h2>
+              <p>Follow these simple steps to create a delicious ${recipe.title.toLowerCase()} that will impress your family and friends.</p>
+              
+              <h2>Tips for Success</h2>
+              <ul>
+                <li>Use fresh ingredients whenever possible</li>
+                <li>Don't rush the cooking process</li>
+                <li>Taste as you go and adjust seasonings</li>
+              </ul>
+              
+              <h2>Variations</h2>
+              <p>Feel free to customize this recipe to your taste. You can add extra vegetables, adjust the spices, or try different cooking methods.</p>
+              
+              <h2>Conclusion</h2>
+              <p>I hope you love this ${recipe.title.toLowerCase()} as much as I do! It's a recipe that's close to my heart, and I'm so happy to share it with you. Happy cooking!</p>
+            `,
+            featuredImage: recipe.image,
+            author: 'Katie',
+            published: true,
+            datePublished: new Date(),
+            metaTitle: `How to Make ${recipe.title} - Vegan Recipe Guide`,
+            metaDescription: `Learn how to make delicious vegan ${recipe.title.toLowerCase()}. This easy recipe takes ${recipe.totalTime} minutes and is perfect for ${categories}.`,
+            metaKeywords: `${tags}, vegan, recipe, ${categories}`,
+            ogImage: recipe.image,
+            relatedRecipeIds: [recipe.slug],
+            images: {
+              create: [
+                {
+                  url: recipe.image,
+                  alt: `Featured image for ${recipe.title}`,
+                  orderIndex: 0,
                 },
-              },
-              create: {
-                recipeId: recipe.id,
-                userId: vote.userId,
-                voteType: vote.voteType,
-              },
-              update: {
-                voteType: vote.voteType,
-              },
-            });
-          } catch (error) {
-            // Ignore duplicate errors
-          }
-        }
+              ],
+            },
+          },
+        });
+
+        console.log(`✅ Created blog post: "How to Make the Perfect ${recipe.title}"`);
       }
-      console.log(`✅ Added sample votes for ${Math.min(3, sampleRecipes.length)} recipes`);
-      
-      // Add some sample comments
-      const sampleComments = [
-        {
-          name: 'Sarah M.',
-          email: 'sarah@example.com',
-          comment: 'This recipe is amazing! I made it last week and my whole family loved it. The flavors are incredible!',
-        },
-        {
-          name: 'Mike T.',
-          email: 'mike@example.com',
-          comment: 'Great recipe! I added a bit more spice and it turned out perfect. Will definitely make again.',
-        },
-        {
-          name: 'Emma L.',
-          email: 'emma@example.com',
-          comment: 'So easy to follow and the results were restaurant-quality. Thank you for sharing!',
-        },
-      ];
-      
-      for (const recipe of sampleRecipes.slice(0, 2)) {
-        // Add comments for first 2 recipes
-        for (const comment of sampleComments) {
-          try {
-            await prisma.comment.create({
-              data: {
-                recipeId: recipe.id,
-                name: comment.name,
-                email: comment.email,
-                comment: comment.comment,
-              },
-            });
-          } catch (error) {
-            // Ignore errors
-          }
-        }
-      }
-      console.log(`✅ Added sample comments for ${Math.min(2, sampleRecipes.length)} recipes`);
+      console.log(`✅ Created ${Math.min(3, recipesForBlog.length)} sample blog posts`);
     } else {
-      console.log('⏭️  No recipes found to add votes/comments to');
+      console.log('⏭️  No recipes found to create blog posts for');
     }
   } catch (error: any) {
-    console.warn('⚠️  Could not seed votes/comments:', error.message);
-    // Don't fail the entire seed if votes/comments fail
+    console.warn('⚠️  Could not seed blog posts:', error.message);
+    // Don't fail the entire seed if blog posts fail
   }
-  
+
   console.log('\n✨ Seed complete!');
   console.log(`✅ Successfully migrated: ${successCount} recipes`);
   console.log(`⏭️  Skipped (already exist): ${skipCount} recipes`);

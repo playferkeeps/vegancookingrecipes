@@ -25,12 +25,15 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as https from 'https';
 import * as http from 'http';
+import { execSync } from 'child_process';
 import { 
   saveRecipeToSupabase, 
   checkRecipeExistsInSupabase,
   getAllRecipeSlugsFromSupabase,
   getAllRecipeTitlesFromSupabase,
 } from './save-recipe-to-supabase';
+import { optimizeRecipeSEO } from './optimize-recipe-seo';
+import { commitAndPushRecipeImages } from './git-utils';
 
 function getOpenAIClient() {
   if (!process.env.OPENAI_API_KEY) {
@@ -901,6 +904,193 @@ interface GenerateOptions {
   ingredients?: string; // Comma-delimited list of ingredients to include
   allergenFriendly?: boolean; // Flag for allergen-friendly version (gluten-free, nut-free, etc.)
   keywords?: string; // Comma-delimited keywords to set context for recipe type (e.g., "comfort food, winter, hearty, spicy")
+  theme?: string; // Recipe theme (e.g., "Mediterranean", "Asian", "Holiday", "Comfort Food", "Summer", "Winter")
+}
+
+/**
+ * Find vegan alternatives for non-vegan ingredients using AI
+ */
+async function findVeganAlternatives(
+  openai: OpenAI,
+  nonVeganIngredients: string[],
+  recipeContext: any
+): Promise<Map<string, string>> {
+  const replacements = new Map<string, string>();
+  
+  // Create a prompt to find vegan alternatives
+  const prompt = `You are a vegan cooking expert. Find appropriate vegan alternatives for these non-vegan ingredients found in a recipe.
+
+Recipe context:
+- Title: ${recipeContext.title || 'Unknown'}
+- Description: ${recipeContext.description || 'N/A'}
+
+Non-vegan ingredients found:
+${nonVeganIngredients.map((ing, i) => `${i + 1}. ${ing}`).join('\n')}
+
+For each non-vegan ingredient, provide a specific, appropriate vegan alternative that:
+1. Works well in the recipe context
+2. Maintains similar flavor/texture/function
+3. Is commonly available
+4. Is a direct 1:1 replacement (same amount/measurement)
+
+Return a JSON object with this exact structure:
+{
+  "${nonVeganIngredients[0].toLowerCase()}": "vegan alternative name",
+  ${nonVeganIngredients.length > 1 ? `"${nonVeganIngredients[1].toLowerCase()}": "vegan alternative name"` : ''}
+}
+
+Examples:
+- "butter" → "vegan butter" or "coconut oil"
+- "milk" → "almond milk" or "oat milk" or "coconut milk"
+- "cheese" → "nutritional yeast" or "vegan cheese" or "cashew cheese"
+- "egg" → "flax egg" or "chia egg" or "aquafaba"
+- "honey" → "maple syrup" or "agave nectar"
+- "chicken" → "seitan" or "tofu" or "chickpeas"
+- "fish sauce" → "coconut aminos" or "soy sauce alternative"
+
+Return ONLY the JSON object, no other text.`;
+
+  try {
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a vegan cooking expert who provides accurate, appropriate vegan ingredient substitutions. Always return valid JSON.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      response_format: { type: 'json_object' },
+      temperature: 0.3, // Lower temperature for more consistent replacements
+    });
+
+    const content = completion.choices[0]?.message?.content;
+    if (!content) {
+      throw new Error('No response from OpenAI');
+    }
+
+    let alternatives;
+    try {
+      alternatives = JSON.parse(content);
+    } catch (e) {
+      const jsonMatch = content.match(/```(?:json)?\s*(\{[\s\S]*\})\s*```/);
+      if (jsonMatch) {
+        alternatives = JSON.parse(jsonMatch[1]);
+      } else {
+        throw new Error('Failed to parse alternatives JSON');
+      }
+    }
+
+    // Build replacement map (case-insensitive matching)
+    nonVeganIngredients.forEach((ing) => {
+      const key = ing.toLowerCase();
+      if (alternatives[key]) {
+        replacements.set(ing, alternatives[key]);
+      } else {
+        // Try to find a close match
+        const foundKey = Object.keys(alternatives).find((k) => 
+          k.toLowerCase().includes(key) || key.includes(k.toLowerCase())
+        );
+        if (foundKey) {
+          replacements.set(ing, alternatives[foundKey]);
+        } else {
+          // Fallback to generic replacement
+          replacements.set(ing, getGenericVeganAlternative(ing));
+        }
+      }
+    });
+
+    return replacements;
+  } catch (error: any) {
+    throw new Error(`Failed to find vegan alternatives: ${error.message}`);
+  }
+}
+
+/**
+ * Get a generic vegan alternative for common non-vegan ingredients
+ */
+function getGenericVeganAlternative(nonVeganIngredient: string): string {
+  const lower = nonVeganIngredient.toLowerCase();
+  
+  if (lower.includes('butter')) return 'vegan butter';
+  if (lower.includes('milk')) return 'plant-based milk';
+  if (lower.includes('cheese')) return 'vegan cheese';
+  if (lower.includes('cream')) return 'coconut cream';
+  if (lower.includes('egg')) return 'flax egg';
+  if (lower.includes('honey')) return 'maple syrup';
+  if (lower.includes('chicken') || lower.includes('meat')) return 'seitan';
+  if (lower.includes('fish')) return 'jackfruit';
+  if (lower.includes('gelatin')) return 'agar agar';
+  if (lower.includes('bacon') || lower.includes('ham')) return 'tempeh bacon';
+  
+  return 'vegan alternative';
+}
+
+/**
+ * Apply vegan replacements to all recipe text fields
+ */
+function applyVeganReplacements(recipeData: any, replacements: Map<string, string>): any {
+  const replaceInText = (text: string): string => {
+    let result = text;
+    replacements.forEach((veganAlt, nonVegan) => {
+      // Case-insensitive replacement with word boundaries
+      const regex = new RegExp(`\\b${nonVegan.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
+      result = result.replace(regex, veganAlt);
+    });
+    return result;
+  };
+
+  // Replace in ingredients
+  if (recipeData.ingredients && Array.isArray(recipeData.ingredients)) {
+    recipeData.ingredients = recipeData.ingredients.map((ing: any) => ({
+      ...ing,
+      name: replaceInText(ing.name || ''),
+      notes: ing.notes ? replaceInText(ing.notes) : undefined,
+    }));
+  }
+
+  // Replace in instructions
+  if (recipeData.instructions && Array.isArray(recipeData.instructions)) {
+    recipeData.instructions = recipeData.instructions.map((inst: any) => ({
+      ...inst,
+      text: replaceInText(inst.text || ''),
+    }));
+  }
+
+  // Replace in text fields
+  if (recipeData.description) {
+    recipeData.description = replaceInText(recipeData.description);
+  }
+  if (recipeData.prologue) {
+    recipeData.prologue = replaceInText(recipeData.prologue);
+  }
+  if (recipeData.ingredientNotes) {
+    recipeData.ingredientNotes = replaceInText(recipeData.ingredientNotes);
+  }
+  if (recipeData.storage) {
+    recipeData.storage = replaceInText(recipeData.storage);
+  }
+
+  // Replace in tips and variations
+  if (recipeData.tips && Array.isArray(recipeData.tips)) {
+    recipeData.tips = recipeData.tips.map((tip: string) => replaceInText(tip));
+  }
+  if (recipeData.variations && Array.isArray(recipeData.variations)) {
+    recipeData.variations = recipeData.variations.map((variation: string) => replaceInText(variation));
+  }
+
+  // Replace in FAQs
+  if (recipeData.faqs && Array.isArray(recipeData.faqs)) {
+    recipeData.faqs = recipeData.faqs.map((faq: any) => ({
+      question: replaceInText(faq.question || ''),
+      answer: replaceInText(faq.answer || ''),
+    }));
+  }
+
+  return recipeData;
 }
 
 async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recipe> {
@@ -912,7 +1102,8 @@ async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recip
     recipeTitle,
     ingredients,
     allergenFriendly,
-    keywords
+    keywords,
+    theme
   } = options;
   const openai = getOpenAIClient();
 
@@ -949,6 +1140,27 @@ async function generateRecipeWithOpenAI(options: GenerateOptions): Promise<Recip
 - Let these keywords influence ingredient choices, cooking techniques, and the overall character of the dish`
     : '';
 
+  const themeConstraint = theme
+    ? `\nRECIPE THEME: This recipe should follow the "${theme}" theme. The theme should strongly influence:
+- Ingredient selection (use ingredients typical of this theme)
+- Flavor profiles (match the theme's characteristic flavors)
+- Cooking methods (use techniques associated with this theme)
+- Presentation style (reflect the theme's aesthetic)
+- Cultural context (if applicable, honor the theme's culinary traditions)
+
+Examples:
+- "Mediterranean" theme: Use olive oil, tomatoes, herbs (oregano, basil, thyme), legumes, whole grains, fresh vegetables. Focus on simple, fresh, vibrant flavors.
+- "Asian" theme: Use soy sauce alternatives (coconut aminos), ginger, garlic, sesame, rice, noodles, bok choy, mushrooms. Focus on umami, balance, and aromatic flavors.
+- "Holiday" theme: Use warming spices (cinnamon, nutmeg, cloves), festive ingredients, rich flavors, special presentation. Make it feel celebratory and indulgent.
+- "Comfort Food" theme: Use hearty, satisfying ingredients, rich textures, familiar flavors. Make it feel like a warm hug.
+- "Summer" theme: Use fresh, light ingredients, cooling elements, bright flavors, minimal cooking. Make it refreshing and vibrant.
+- "Winter" theme: Use hearty, warming ingredients, root vegetables, warming spices, slow-cooked methods. Make it cozy and nourishing.
+- "Mexican" theme: Use beans, corn, peppers, cilantro, lime, avocado, cumin, chili. Focus on bold, vibrant, spicy flavors.
+- "Italian" theme: Use tomatoes, basil, garlic, olive oil, herbs, pasta alternatives, legumes. Focus on simple, fresh, herbaceous flavors.
+
+Let the theme guide every aspect of the recipe while keeping it 100% vegan.`
+    : '';
+
   const prompt = `You are Katie, a barefoot chef who believes the kitchen is a sacred space and that plants are our best medicine. You're obsessed with whole foods, healing herbs, and cooking with intention. Your food philosophy is: nourish your body, respect Mother Earth, and eat with joy.
 
 Create a detailed, accurate vegan recipe for "${finalTitle}" written in YOUR personal voice - warm, authentic, and conversational, like you're sharing a recipe with a friend.
@@ -979,7 +1191,7 @@ Requirements:
 - Instructions must be detailed, step-by-step, and accurate
 - Include realistic prep time, cook time, and servings
 - Make it suitable for ${category.join(' and ')} category
-- Vegan type: ${veganType.join(', ')}${maxTimeConstraint}${ingredientsConstraint}${allergenFriendlyConstraint}${keywordsConstraint}
+- Vegan type: ${veganType.join(', ')}${maxTimeConstraint}${ingredientsConstraint}${allergenFriendlyConstraint}${keywordsConstraint}${themeConstraint}
 - Write in first person ("I", "my", "me") - sound like a real person who has tested this recipe
 - Include personal touches: specific tips you discovered, why you love this recipe, or a brief memory/anecdote
 - Avoid generic marketing phrases like "absolutely delicious", "perfect for", "sure to become a favorite"
@@ -1093,7 +1305,7 @@ Ensure:
   // Use the title from recipeData (what OpenAI returned), or fall back to provided title
   const finalRecipeTitle = recipeData.title || options.recipeTitle || title;
   
-  // VALIDATE: Ensure recipe is 100% vegan - check for any non-vegan ingredients
+  // VALIDATE AND REPLACE: Ensure recipe is 100% vegan - detect and swap non-vegan ingredients
   // Use word boundaries to avoid false positives (e.g., "butternut" contains "butter", "coconut" contains "nut")
   const nonVeganPatterns = [
     /\b(beef|pork|chicken|turkey|lamb|veal|duck|goose)\b/i,
@@ -1110,6 +1322,7 @@ Ensure:
     /\b(worcestershire|anchovy|fish\s*sauce)\b/i,
   ];
   
+  // Collect all text fields to check
   const allIngredientText = [
     ...(recipeData.ingredients || []).map((ing: any) => 
       `${ing.name || ''} ${ing.notes || ''}`.toLowerCase()
@@ -1122,22 +1335,42 @@ Ensure:
     (recipeData.prologue || '').toLowerCase(),
   ].join(' ');
   
-  const foundNonVegan: string[] = [];
-  nonVeganPatterns.forEach((pattern, index) => {
-    if (pattern.test(allIngredientText)) {
-      // Extract the matched term for better error reporting
-      const match = allIngredientText.match(pattern);
-      if (match) {
-        foundNonVegan.push(match[0]);
+  // Find all non-vegan ingredients
+  const foundNonVegan: Set<string> = new Set();
+  nonVeganPatterns.forEach((pattern) => {
+    // matchAll requires a global regex, so create a new global version
+    // Ensure 'g' flag is present (add it if not already there)
+    const flags = pattern.flags.includes('g') ? pattern.flags : pattern.flags + 'g';
+    const globalPattern = new RegExp(pattern.source, flags);
+    const matches = allIngredientText.matchAll(globalPattern);
+    for (const match of matches) {
+      if (match[0]) {
+        foundNonVegan.add(match[0].trim());
       }
     }
   });
   
-  if (foundNonVegan.length > 0) {
-    throw new Error(
-      `❌ VEGAN VALIDATION FAILED: Recipe contains non-vegan ingredients: ${foundNonVegan.join(', ')}. ` +
-      `This recipe MUST be 100% vegan. Please regenerate with only plant-based ingredients.`
-    );
+  // If non-vegan ingredients found, replace them with vegan alternatives
+  if (foundNonVegan.size > 0) {
+    console.log(`   ⚠️  Found non-vegan ingredients: ${Array.from(foundNonVegan).join(', ')}`);
+    console.log(`   🔄 Finding vegan alternatives and replacing...`);
+    
+    try {
+      // Get vegan alternatives for all found non-vegan ingredients
+      const replacements = await findVeganAlternatives(openai, Array.from(foundNonVegan), recipeData);
+      
+      // Apply replacements to all text fields
+      recipeData = applyVeganReplacements(recipeData, replacements);
+      
+      console.log(`   ✅ Replaced non-vegan ingredients with vegan alternatives`);
+    } catch (error: any) {
+      console.warn(`   ⚠️  Failed to replace non-vegan ingredients: ${error.message}`);
+      // If replacement fails, throw error to trigger regeneration
+      throw new Error(
+        `❌ VEGAN VALIDATION FAILED: Recipe contains non-vegan ingredients: ${Array.from(foundNonVegan).join(', ')}. ` +
+        `Failed to find vegan alternatives. Please regenerate with only plant-based ingredients.`
+      );
+    }
   }
   
   const recipe: Recipe = {
@@ -1606,6 +1839,9 @@ async function main() {
   let ingredients: string | undefined;
   let allergenFriendly = false;
   let keywords: string | undefined;
+  let theme: string | undefined;
+  let optimizeSEO = false;
+  let gitPush = false;
 
   // Parse command line arguments
   for (let i = 0; i < args.length; i++) {
@@ -1659,6 +1895,17 @@ async function main() {
         process.exit(1);
       }
       i++;
+    } else if (args[i] === '--theme' && args[i + 1]) {
+      theme = args[i + 1].trim();
+      if (theme.length === 0) {
+        console.error('❌ Error: --theme requires a theme name');
+        process.exit(1);
+      }
+      i++;
+    } else if (args[i] === '--optimize-seo') {
+      optimizeSEO = true;
+    } else if (args[i] === '--git-push') {
+      gitPush = true;
     }
   }
   
@@ -1684,6 +1931,8 @@ async function main() {
     console.log('  npm run generate-recipes -- --count 1 --title "Gluten-Free Brownies" --allergenFriendly');
     console.log('  npm run generate-recipes -- --count 5 --keywords "comfort food, winter, hearty, spicy"');
     console.log('  npm run generate-recipes -- --count 1 --title "Cozy Soup" --keywords "warm, creamy, seasonal"');
+    console.log('  npm run generate-recipes -- --count 5 --theme "Mediterranean"');
+    console.log('  npm run generate-recipes -- --count 1 --title "Pad Thai" --theme "Asian"');
     console.log('\n💡 Options:');
     console.log('  --count <number>          Number of recipes to generate (required)');
     console.log('  --category <name>          Target specific category (can be used multiple times)');
@@ -1693,6 +1942,7 @@ async function main() {
     console.log('  --ingredients <list>      Comma-delimited list of ingredients to include (e.g., "quinoa, tomatoes, olive oil")');
     console.log('  --allergenFriendly        Make recipe allergen-friendly (gluten-free, nut-free, soy-free, etc.)');
     console.log('  --keywords <list>          Comma-delimited keywords to set context (e.g., "comfort food, winter, hearty, spicy, quick, healthy")');
+    console.log('  --theme <name>            Recipe theme (e.g., "Mediterranean", "Asian", "Holiday", "Comfort Food", "Summer", "Winter", "Mexican", "Italian")');
     console.log('  --supabase                Save to Supabase database');
     console.log('  --no-supabase             Force saving to static files');
     console.log('\n💡 If no categories are specified, recipes will be generated across all categories.');
@@ -1744,6 +1994,9 @@ async function main() {
   }
   if (keywords) {
     console.log(`🏷️  Context Keywords: ${keywords}`);
+  }
+  if (theme) {
+    console.log(`🎨 Theme: ${theme}`);
   }
   console.log(`💾 Saving to: ${useSupabase ? 'Supabase (database)' : 'Static files'}`);
   if (useSupabase && !hasDatabaseConfig) {
@@ -1903,7 +2156,7 @@ async function main() {
             ingredients: ingredients, // Use provided ingredients if available
             allergenFriendly: allergenFriendly, // Use allergen-friendly flag if set
             keywords: keywords, // Use provided keywords if available
-            keywords: keywords, // Use provided keywords if available
+            theme: theme, // Use provided theme if available
           });
         } catch (error: any) {
           if (error.message?.includes('exceeds maxTime') && generationAttempts < maxGenerationAttempts - 1) {
@@ -2005,6 +2258,51 @@ async function main() {
         continue;
       }
       
+      // Optimize for SEO if flag is set
+      if (optimizeSEO) {
+        try {
+          console.log(`   🔧 Optimizing for SEO...`);
+          const openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY!,
+          });
+          // Create a simple logger for the optimization
+          const logger = {
+            log: (msg: string) => console.log(`      ${msg}`),
+            success: (msg: string) => console.log(`      ✅ ${msg}`),
+            warn: (msg: string) => console.log(`      ⚠️  ${msg}`),
+            error: (msg: string) => console.log(`      ❌ ${msg}`),
+          } as any;
+          
+          const seoOptimizations = await optimizeRecipeSEO(openai, recipe, logger);
+          
+          // Apply optimizations to recipe
+          if (seoOptimizations.title) {
+            recipe.title = seoOptimizations.title;
+            recipe.slug = generateSlug(seoOptimizations.title);
+          }
+          if (seoOptimizations.description) {
+            recipe.description = seoOptimizations.description;
+          }
+          if (seoOptimizations.prologue) {
+            recipe.prologue = seoOptimizations.prologue;
+          }
+          if (seoOptimizations.tags) {
+            recipe.tags = seoOptimizations.tags;
+          }
+          if (seoOptimizations.faqs) {
+            recipe.faqs = seoOptimizations.faqs;
+          }
+          if (seoOptimizations.ingredientNotes) {
+            recipe.ingredientNotes = seoOptimizations.ingredientNotes;
+          }
+          
+          console.log(`   ✅ SEO optimization complete`);
+        } catch (error: any) {
+          console.warn(`   ⚠️  SEO optimization failed: ${error.message}`);
+          // Continue with recipe generation even if SEO optimization fails
+        }
+      }
+      
       // Save to Supabase or category file
       if (useSupabase) {
         try {
@@ -2056,6 +2354,31 @@ async function main() {
     console.log(`❌ Failed: ${failCount} recipe(s)`);
   }
   console.log(`\n📋 STRICT UNIQUE PROTOCOL: All saved recipes are guaranteed unique by slug and title.`);
+  
+  // Commit and push recipe images to git (only if flag is set and recipes were successfully generated)
+  if (gitPush && successCount > 0) {
+    try {
+      console.log('\n🔍 Checking for new recipe images...');
+      const result = await commitAndPushRecipeImages(successCount);
+      
+      if (result.success) {
+        if (result.filesCommitted > 0) {
+          console.log(`   ✅ ${result.message}`);
+        } else {
+          console.log(`   ℹ️  ${result.message}`);
+        }
+      } else {
+        console.warn(`   ⚠️  ${result.message || result.error}`);
+        console.warn('   Recipe images were generated but not committed to git.');
+      }
+    } catch (error: any) {
+      console.warn(`\n⚠️  Warning: Failed to commit/push recipe images: ${error.message}`);
+      console.warn('   Recipe images were generated but not committed to git.');
+    }
+  } else if (successCount > 0 && !gitPush) {
+    console.log('\n💡 Tip: Use --git-push flag to automatically commit and push recipe images to git.');
+  }
+  
   console.log('⚠️  Next step: Run "npm run build" to rebuild the site with new recipes\n');
 }
 

@@ -7,6 +7,7 @@
  */
 
 import { PrismaClient } from '@prisma/client';
+import type { PrismaClient as PrismaClientType } from '@prisma/client';
 import { getDatabaseUrl } from './db-connection';
 
 const globalForPrisma = globalThis as unknown as {
@@ -86,5 +87,18 @@ export const prisma: PrismaClient | null =
 // Reuse the same Prisma client instance in both dev and production
 if (prisma && !globalForPrisma.prisma) {
   globalForPrisma.prisma = prisma;
+}
+
+// Helper function for API routes and server components
+export function getPrismaClient(): PrismaClientType | null {
+  // In Next.js server components, prisma might be null/undefined during build or if DATABASE_URL is not set
+  // Return null instead of throwing to allow graceful fallback
+  if (!prisma || typeof prisma === 'undefined') {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('Prisma Client is not initialized. Check DATABASE_URL configuration.');
+    }
+    return null;
+  }
+  return prisma;
 }
 

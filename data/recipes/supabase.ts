@@ -111,14 +111,42 @@ function supabaseToRecipe(row: any): Recipe {
       text: inst.text,
       image: inst.image,
     })),
-    nutritionInfo: row.nutritionInfo ? {
-      calories: row.nutritionInfo.calories,
-      protein: row.nutritionInfo.protein,
-      carbs: row.nutritionInfo.carbs,
-      fat: row.nutritionInfo.fat,
-      fiber: row.nutritionInfo.fiber,
-      sugar: row.nutritionInfo.sugar,
-    } : undefined,
+    nutritionInfo: (() => {
+      if (!row.nutritionInfo) return undefined;
+      
+      // Check if nutrition info has any meaningful values
+      const hasCalories = row.nutritionInfo.calories !== null && 
+                         row.nutritionInfo.calories !== undefined && 
+                         row.nutritionInfo.calories > 0;
+      const hasProtein = row.nutritionInfo.protein && 
+                        row.nutritionInfo.protein !== '' && 
+                        row.nutritionInfo.protein !== '0g';
+      const hasCarbs = row.nutritionInfo.carbs && 
+                       row.nutritionInfo.carbs !== '' && 
+                       row.nutritionInfo.carbs !== '0g';
+      const hasFat = row.nutritionInfo.fat && 
+                     row.nutritionInfo.fat !== '' && 
+                     row.nutritionInfo.fat !== '0g';
+      const hasFiber = row.nutritionInfo.fiber && 
+                       row.nutritionInfo.fiber !== '' && 
+                       row.nutritionInfo.fiber !== '0g';
+      const hasSugar = row.nutritionInfo.sugar && 
+                       row.nutritionInfo.sugar !== '' && 
+                       row.nutritionInfo.sugar !== '0g';
+      
+      // Only return nutritionInfo if at least one value is meaningful
+      if (hasCalories || hasProtein || hasCarbs || hasFat || hasFiber || hasSugar) {
+        return {
+          calories: row.nutritionInfo.calories,
+          protein: row.nutritionInfo.protein,
+          carbs: row.nutritionInfo.carbs,
+          fat: row.nutritionInfo.fat,
+          fiber: row.nutritionInfo.fiber,
+          sugar: row.nutritionInfo.sugar,
+        };
+      }
+      return undefined;
+    })(),
     faqs: (row.faqs || []).map((faq: any) => ({
       question: faq.question,
       answer: faq.answer,

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getRecipesByCategoryAsync, getAllRecipesAsync } from '@/data/recipes/helpers';
 import { RecipeCategory } from '@/types/recipe';
-import RecipeCard from '@/components/RecipeCard';
+import ExpandableRecipeCard from '@/components/ExpandableRecipeCard';
 
 interface PageProps {
   params: Promise<{
@@ -90,7 +90,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         {shuffledRecipes.map((recipe) => (
-          <RecipeCard key={recipe.id} recipe={recipe} />
+          <ExpandableRecipeCard key={recipe.id} recipe={recipe} />
         ))}
       </div>
     </div>

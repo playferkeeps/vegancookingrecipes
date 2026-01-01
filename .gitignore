@@ -219,4 +219,7 @@ temp/
 # Logs
 logs/
 
+# Blog images
+public/blog-images/
+
 /lib/generated/prisma
