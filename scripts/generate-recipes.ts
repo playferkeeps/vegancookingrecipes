@@ -113,14 +113,8 @@ async function generateRecipeImage(
   customImagePrompt?: string
 ): Promise<string> {
   // First, check if an image already exists for this recipe
-  // #region agent log
-  debugLog('generate-recipes.ts:116', 'Checking for existing image', { recipeTitle }, 'IMAGE');
-  // #endregion
   const existingImage = checkForExistingImage(recipeTitle);
   if (existingImage) {
-    // #region agent log
-    debugLog('generate-recipes.ts:118', 'Found existing image', { recipeTitle, existingImage }, 'IMAGE');
-    // #endregion
     console.log(`   ✅ Found existing image: ${existingImage}`);
     return existingImage;
   }
@@ -1371,22 +1365,8 @@ Ensure:
   // Don't use options.recipeTitle if it was a duplicate - use the unique title instead
   const imageTitle = finalTitle || recipeData.title || title;
   const recipeDescription = recipeData.description || '';
-  // #region agent log
-  debugLog('generate-recipes.ts:1363', 'Image title selection', { 
-    imageTitle, 
-    finalTitle, 
-    optionsRecipeTitle: options.recipeTitle,
-    recipeDataTitle: recipeData.title,
-    titleParam: title,
-    willUseFinalTitle: finalTitle === imageTitle
-  }, 'IMAGE');
-  // #endregion
   
   const imageUrl = await generateRecipeImage(imageTitle, recipeDescription);
-  
-  // #region agent log
-  debugLog('generate-recipes.ts:1367', 'After generateRecipeImage', { imageUrl: imageUrl?.substring(0, 50) || 'null' }, 'HANG');
-  // #endregion
 
   let prepTime = recipeData.prepTime || 15;
   let cookTime = recipeData.cookTime || 20;
@@ -1408,30 +1388,11 @@ Ensure:
     console.log(`   ⚠️  Adjusted times to fit maxTime: ${prepTime}min prep + ${cookTime}min cook = ${totalTime}min`);
   }
 
-  // #region agent log
-  debugLog('generate-recipes.ts:1393', 'Title comparison after OpenAI response', { 
-    requestedTitle: finalTitle, 
-    openaiReturnedTitle: recipeData.title, 
-    optionsRecipeTitle: options.recipeTitle, 
-    fallbackTitle: title,
-    titlesMatch: recipeData.title === finalTitle
-  }, 'SLUG');
-  // #endregion
-  
   // CRITICAL: Force the title to match what was requested (finalTitle/uniqueTitle) to prevent slug conflicts
   // OpenAI may ignore instructions and return a different title, but we must use the unique title
   // that was verified to be unique before the API call
   // Always prioritize the requested title (finalTitle) over what OpenAI returns
   const finalRecipeTitle = finalTitle || recipeData.title || title;
-  
-  // #region agent log
-  debugLog('generate-recipes.ts:1394', 'Final recipe title decision', { 
-    finalRecipeTitle, 
-    willUseOpenAITitle: recipeData.title === finalRecipeTitle,
-    willUseRequestedTitle: finalTitle === finalRecipeTitle,
-    forcedToRequested: (options.recipeTitle || finalTitle) === finalRecipeTitle
-  }, 'SLUG');
-  // #endregion
   
   // VALIDATE AND REPLACE: Ensure recipe is 100% vegan - detect and swap non-vegan ingredients
   // Use word boundaries to avoid false positives (e.g., "butternut" contains "butter", "coconut" contains "nut")
@@ -1500,15 +1461,6 @@ Ensure:
       );
     }
   }
-  
-  // #region agent log
-  debugLog('generate-recipes.ts:1464', 'Creating recipe object', { 
-    finalRecipeTitle, 
-    generatedSlug: generateSlug(finalRecipeTitle),
-    requestedTitle: finalTitle,
-    requestedSlug: generateSlug(finalTitle)
-  }, 'SLUG');
-  // #endregion
   
   const recipe: Recipe = {
     id,
@@ -2386,17 +2338,6 @@ async function main() {
       if (!recipe) {
         throw new Error('Failed to generate recipe within maxTime constraint after retries');
       }
-      
-      // #region agent log
-      debugLog('generate-recipes.ts:2341', 'Duplicate check after generation', { 
-        uniqueTitle, 
-        uniqueSlug, 
-        generatedTitle: recipe.title, 
-        generatedSlug: recipe.slug,
-        titleChanged: recipe.title.toLowerCase().trim() !== uniqueTitle!.toLowerCase().trim(),
-        slugChanged: recipe.slug !== uniqueSlug
-      }, 'SLUG');
-      // #endregion
       
       // CRITICAL: Always check for duplicates after generation
       // Even though we checked before, OpenAI might have modified the title despite our instructions
