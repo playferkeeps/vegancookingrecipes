@@ -25,6 +25,7 @@
     "analyze-tags": "tsx scripts/analyze-and-tag-recipes.ts",
     "analyze-categories": "tsx scripts/analyze-and-categorize-recipes.ts",
     "generate-blog": "tsx scripts/generate-blog-post.ts",
+    "modify-recipe": "tsx scripts/modify-recipe.ts",
     "schedule-blog-posts": "tsx scripts/schedule-blog-posts.ts",
     "add-nutrition": "tsx scripts/add-nutrition-info.ts",
     "optimize-seo": "tsx scripts/optimize-recipe-seo.ts",

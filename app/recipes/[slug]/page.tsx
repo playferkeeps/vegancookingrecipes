@@ -9,12 +9,15 @@ import RecipeVoting from '@/components/RecipeVoting';
 import RecipeFAQ from '@/components/RecipeFAQ';
 import RecipeTips from '@/components/RecipeTips';
 import RelatedRecipes from '@/components/RelatedRecipes';
-import IngredientsList from '@/components/IngredientsList';
+import ScalableIngredients from '@/components/ScalableIngredients';
 // import AdBanner from '@/components/AdBanner';
 // import AdRectangle from '@/components/AdRectangle';
 import ViewTracker from '@/components/ViewTracker';
 import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
+
+// Force dynamic rendering to always fetch fresh data from database
+export const dynamic = 'force-dynamic';
 
 interface PageProps {
   params: Promise<{
@@ -569,7 +572,8 @@ export default async function RecipePage({ params }: PageProps) {
                 <span className="font-semibold">Total Time:</span> {recipe.totalTime} min
               </div>
               <div>
-                <span className="font-semibold">Servings:</span> {recipe.servings}
+                <span className="font-semibold">Servings:</span>{' '}
+                <span id="servings-display">{recipe.servings}</span>
               </div>
               <div>
                 <span className="font-semibold">Difficulty:</span>{' '}
@@ -617,8 +621,11 @@ export default async function RecipePage({ params }: PageProps) {
             )}
           </div>
 
-          {/* Ingredients */}
-          <IngredientsList ingredients={recipe.ingredients} />
+          {/* Ingredients with Scaling */}
+          <ScalableIngredients 
+            ingredients={recipe.ingredients} 
+            originalServings={recipe.servings}
+          />
 
           {/* In-Content Ad Between Ingredients and Instructions */}
           {/* <AdBanner className="hidden md:block" /> */}

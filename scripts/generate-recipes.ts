@@ -469,13 +469,18 @@ async function generateAITitleSuggestions(
   category: RecipeCategory | string,
   existingTitles: string[],
   attemptedTitles: Set<string>,
-  count: number = 5
+  count: number = 5,
+  keywords?: string
 ): Promise<string[]> {
   try {
     const existingTitlesList = existingTitles.slice(0, 30).join(', '); // Show more existing titles
     const attemptedList = Array.from(attemptedTitles).slice(0, 15).join(', ');
     
-    const prompt = `Generate ${count} unique, creative vegan recipe titles for the "${category}" category.
+    const keywordsContext = keywords
+      ? `\nIMPORTANT: The recipe titles should align with these keywords/characteristics: ${keywords}. For example, if keywords include "salad dressing", generate titles specifically for salad dressings. If keywords include "spicy", generate titles for spicy recipes. Let the keywords guide the type of recipe titles you generate.`
+      : '';
+    
+    const prompt = `Generate ${count} unique, creative vegan recipe titles for the "${category}" category.${keywordsContext}
 
 CRITICAL REQUIREMENTS:
 - Each title must be completely unique and different from these existing titles: ${existingTitlesList}
@@ -611,7 +616,8 @@ async function getUniqueRecipeTitle(
   attemptedSlugs: Set<string>,
   usedCoreRecipes: Set<string>,
   openai: OpenAI | null = null,
-  maxAttempts: number = 100
+  maxAttempts: number = 100,
+  keywords?: string
 ): Promise<string | null> {
   // #region agent log
   debugLog('generate-recipes.ts:589', 'getUniqueRecipeTitle entry', { category, isBaking: category === 'baking' }, 'C');
@@ -630,31 +636,48 @@ async function getUniqueRecipeTitle(
   const existingTitlesArray = Array.from(existingRecipes.byTitle.keys());
   
   // If we have OpenAI and the pool is getting low, proactively generate AI suggestions
+  // OR if keywords are provided, use AI to generate keyword-specific titles
   let aiSuggestions: string[] = [];
   let aiSuggestionsIndex = 0;
-  const shouldUseAI = openai && (titles.length === 0 || triedFromList.size > titles.length * 0.7);
+  const shouldUseAI = openai && (
+    keywords || // Use AI when keywords are provided to generate keyword-specific titles
+    titles.length === 0 || 
+    triedFromList.size > titles.length * 0.7
+  );
   
   if (shouldUseAI && aiSuggestions.length === 0) {
-    console.log(`   🤖 Generating AI title suggestions for ${category}...`);
-    aiSuggestions = await generateAITitleSuggestions(openai, category, existingTitlesArray, attemptedTitles, 10);
+    if (keywords) {
+      console.log(`   🤖 Generating AI title suggestions for ${category} with keywords: ${keywords}...`);
+    } else {
+      console.log(`   🤖 Generating AI title suggestions for ${category}...`);
+    }
+    aiSuggestions = await generateAITitleSuggestions(openai, category, existingTitlesArray, attemptedTitles, 10, keywords);
     if (aiSuggestions.length > 0) {
       console.log(`   ✅ Generated ${aiSuggestions.length} AI title suggestions`);
     }
   }
   
+  // If keywords are provided, prioritize AI suggestions over predefined titles
+  const prioritizeAI = !!keywords;
+  
   // Try titles from the list first (try up to 2x the list size to account for duplicates)
+  // If keywords are provided, prioritize AI suggestions
   const maxListAttempts = titles.length > 0 ? Math.min(maxAttempts, titles.length * 3) : 50;
   for (let attempt = 0; attempt < maxListAttempts; attempt++) {
     // Alternate between predefined titles and AI suggestions
+    // If keywords are provided, use AI suggestions more frequently
     let randomTitle: string;
-    if (aiSuggestions.length > 0 && attempt % 3 === 0) {
+    const useAISuggestion = prioritizeAI 
+      ? (aiSuggestions.length > 0 && attempt % 2 === 0) // Use AI every other attempt when keywords provided
+      : (aiSuggestions.length > 0 && attempt % 3 === 0); // Use AI every 3rd attempt normally
+    if (useAISuggestion) {
       // Use AI suggestion every 3rd attempt
       if (aiSuggestionsIndex < aiSuggestions.length) {
         randomTitle = aiSuggestions[aiSuggestionsIndex++];
       } else {
         // Refresh AI suggestions if we've used them all
         if (openai) {
-          aiSuggestions = await generateAITitleSuggestions(openai, category, existingTitlesArray, attemptedTitles, 10);
+          aiSuggestions = await generateAITitleSuggestions(openai, category, existingTitlesArray, attemptedTitles, 10, keywords);
           aiSuggestionsIndex = 0;
           if (aiSuggestions.length > 0) {
             randomTitle = aiSuggestions[aiSuggestionsIndex++];
@@ -805,7 +828,8 @@ async function getUniqueRecipeTitle(
       category,
       existingTitlesArray,
       attemptedTitles,
-      10
+      10,
+      keywords
     );
     
     // Try each AI suggestion, but check core recipe names too
@@ -845,7 +869,8 @@ async function getUniqueRecipeTitle(
       category,
       existingTitlesArray,
       attemptedTitles,
-      10
+      10,
+      keywords
     );
     
     for (const aiTitle of secondBatch) {
@@ -2194,7 +2219,7 @@ async function main() {
           }
           
           // Try to get a unique title (checks both title AND slug)
-          candidateTitle = await getUniqueRecipeTitle(categoryForNewTitle, existingRecipes, attemptedTitles, attemptedSlugs, usedCoreRecipes, openai);
+          candidateTitle = await getUniqueRecipeTitle(categoryForNewTitle, existingRecipes, attemptedTitles, attemptedSlugs, usedCoreRecipes, openai, 100, keywords);
           if (!candidateTitle) {
             console.log(`   ⚠️  SKIPPED: No more unique recipe titles available for ${categoryForNewTitle} category after ${checkAttempts} attempts.`);
             skippedCount++;
@@ -2268,7 +2293,7 @@ async function main() {
           debugLog('generate-recipes.ts:2251', 'Calling getUniqueRecipeTitle after duplicate', { category: categoryForNewTitle, checkAttempts, previousCandidate: candidateTitle }, 'C');
           // #endregion
           
-          candidateTitle = await getUniqueRecipeTitle(categoryForNewTitle, existingRecipes, attemptedTitles, attemptedSlugs, usedCoreRecipes, openai);
+          candidateTitle = await getUniqueRecipeTitle(categoryForNewTitle, existingRecipes, attemptedTitles, attemptedSlugs, usedCoreRecipes, openai, 100, keywords);
           
           // #region agent log
           debugLog('generate-recipes.ts:2256', 'getUniqueRecipeTitle returned after duplicate', { newCandidateTitle: candidateTitle, category: categoryForNewTitle, isOatmealRaisin: candidateTitle?.toLowerCase().includes('oatmeal') && candidateTitle?.toLowerCase().includes('raisin') }, 'C');
