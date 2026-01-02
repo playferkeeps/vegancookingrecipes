@@ -619,18 +619,12 @@ async function getUniqueRecipeTitle(
   maxAttempts: number = 100,
   keywords?: string
 ): Promise<string | null> {
-  // #region agent log
-  debugLog('generate-recipes.ts:589', 'getUniqueRecipeTitle entry', { category, isBaking: category === 'baking' }, 'C');
-  // #endregion
   
   // First, try random titles from the predefined list
   const titles = category in RECIPE_TITLES_BY_CATEGORY 
     ? RECIPE_TITLES_BY_CATEGORY[category as RecipeCategory] 
     : [];
   
-  // #region agent log
-  debugLog('generate-recipes.ts:602', 'Titles list loaded', { category, titlesCount: titles.length, hasOatmealRaisin: titles.some((t: string) => t.toLowerCase().includes('oatmeal') && t.toLowerCase().includes('raisin')) }, 'C');
-  // #endregion
   
   const triedFromList = new Set<string>();
   const existingTitlesArray = Array.from(existingRecipes.byTitle.keys());
@@ -660,8 +654,42 @@ async function getUniqueRecipeTitle(
   // If keywords are provided, prioritize AI suggestions over predefined titles
   const prioritizeAI = !!keywords;
   
-  // Try titles from the list first (try up to 2x the list size to account for duplicates)
-  // If keywords are provided, prioritize AI suggestions
+  // If keywords are provided and we have AI suggestions, use ONLY AI suggestions (skip predefined titles)
+  if (prioritizeAI && aiSuggestions.length > 0) {
+    // Try AI suggestions first when keywords are provided
+    for (let aiAttempt = 0; aiAttempt < Math.min(maxAttempts, aiSuggestions.length * 3); aiAttempt++) {
+      const suggestionIndex = aiAttempt % aiSuggestions.length;
+      const candidateTitle = aiSuggestions[suggestionIndex];
+      const normalizedCandidate = candidateTitle.toLowerCase().trim();
+      const candidateSlug = generateSlug(candidateTitle);
+      
+      // Check if this title/slug is unique
+      const isTitleUnique = !existingRecipes.byTitle.has(normalizedCandidate) && 
+                           !attemptedTitles.has(normalizedCandidate);
+      const isSlugUnique = !existingRecipes.bySlug.has(candidateSlug) && 
+                          !attemptedSlugs.has(candidateSlug);
+      
+      if (isTitleUnique && isSlugUnique) {
+        const testRecipe = { title: candidateTitle, slug: candidateSlug } as Recipe;
+        const duplicateCheck = isDuplicateRecipe(testRecipe, existingRecipes);
+        
+        if (!duplicateCheck.isDuplicate) {
+          return candidateTitle;
+        }
+      }
+      
+      attemptedTitles.add(normalizedCandidate);
+      attemptedSlugs.add(candidateSlug);
+      
+      // If we've exhausted all suggestions, generate more
+      if (aiAttempt === aiSuggestions.length - 1 && openai) {
+        aiSuggestions = await generateAITitleSuggestions(openai, category, existingTitlesArray, attemptedTitles, 10, keywords);
+        if (aiSuggestions.length === 0) break; // No more AI suggestions available
+      }
+    }
+  }
+  
+  // Try titles from the list (only if keywords not provided or AI suggestions exhausted)
   const maxListAttempts = titles.length > 0 ? Math.min(maxAttempts, titles.length * 3) : 50;
   for (let attempt = 0; attempt < maxListAttempts; attempt++) {
     // Alternate between predefined titles and AI suggestions
@@ -692,9 +720,6 @@ async function getUniqueRecipeTitle(
       randomTitle = getRandomRecipeTitle(category);
     }
     
-    // #region agent log
-    debugLog('generate-recipes.ts:643', 'Random title selected in getUniqueRecipeTitle', { randomTitle, category, isOatmealRaisin: randomTitle.toLowerCase().includes('oatmeal') && randomTitle.toLowerCase().includes('raisin') }, 'C');
-    // #endregion
     
     const normalizedTitle = randomTitle.toLowerCase().trim();
     const candidateSlug = generateSlug(randomTitle);
@@ -907,6 +932,61 @@ async function getUniqueRecipeTitle(
   }
   
   // Couldn't find a unique title after all attempts
+  return null;
+}
+
+/**
+ * Infer category from keywords (comma-delimited string)
+ */
+function inferCategoryFromKeywords(keywords: string): RecipeCategory | string | null {
+  const keywordsLower = keywords.toLowerCase();
+  
+  // Salad/dressing keywords - should be lunch or snack
+  if (keywordsLower.match(/\b(salad|dressing|vinaigrette|ranch|caesar|coleslaw)\b/)) {
+    return 'lunch';
+  }
+  
+  // Baking keywords
+  if (keywordsLower.match(/\b(cookie|cake|bread|muffin|pie|brownie|cupcake|scone|biscuit|bagel|donut|pretzel|roll|pastry|tart|bar|baking|baked)\b/)) {
+    return 'baking';
+  }
+  
+  // Beverage keywords
+  if (keywordsLower.match(/\b(smoothie|juice|drink|tea|coffee|cocktail|shake|punch|lemonade|soda|beverage)\b/)) {
+    return 'beverage';
+  }
+  
+  // Breakfast keywords
+  if (keywordsLower.match(/\b(pancake|waffle|toast|scramble|omelet|crepe|granola|overnight|oats|breakfast)\b/)) {
+    return 'breakfast';
+  }
+  
+  // Dessert keywords
+  if (keywordsLower.match(/\b(ice cream|gelato|sorbet|pudding|mousse|tiramisu|cheesecake|flan|panna cotta|dessert)\b/)) {
+    return 'dessert';
+  }
+  
+  // Snack keywords
+  if (keywordsLower.match(/\b(chip|cracker|dip|spread|hummus|guacamole|trail mix|popcorn|snack)\b/)) {
+    return 'snack';
+  }
+  
+  // International keywords
+  if (keywordsLower.match(/\b(pad thai|curry|sushi|ramen|pho|taco|burrito|lasagna|risotto|paella|gnocchi|dumpling|bao|gyro|falafel|moussaka|asian|italian|mexican|thai|indian|mediterranean)\b/)) {
+    return 'international';
+  }
+  
+  // Soup/stew keywords
+  if (keywordsLower.match(/\b(soup|stew|chili|chowder|bisque|gumbo|jambalaya)\b/)) {
+    return 'savory';
+  }
+  
+  // Dinner/lunch keywords
+  if (keywordsLower.match(/\b(dinner|lunch|main course|entree|meal)\b/)) {
+    return 'dinner';
+  }
+  
+  // No specific category inferred
   return null;
 }
 
@@ -1299,7 +1379,7 @@ Requirements:
 - All ingredients must be real, specific, and measurable
 - Instructions must be detailed, step-by-step, and accurate
 - Include realistic prep time, cook time, and servings
-- Make it suitable for ${category.join(' and ')} category
+${category.length > 0 ? `- Make it suitable for ${category.join(' and ')} category\n` : ''}
 - Vegan type: ${veganType.join(', ')}${maxTimeConstraint}${ingredientsConstraint}${allergenFriendlyConstraint}${keywordsConstraint}${themeConstraint}
 - Write in first person ("I", "my", "me") - sound like a real person who has tested this recipe
 - Include personal touches: specific tips you discovered, why you love this recipe, or a brief memory/anecdote
@@ -1348,7 +1428,10 @@ Ensure:
 - The recipe is actually cookable and accurate
 - DOUBLE-CHECK: Every single ingredient must be plant-based - verify there are NO animal products in any form`;
 
-  const completion = await openai.chat.completions.create({
+
+  
+  // Add timeout to prevent hanging (60 seconds)
+  const completionPromise = openai.chat.completions.create({
     model: 'gpt-4o-mini',
     messages: [
       {
@@ -1363,6 +1446,13 @@ Ensure:
     response_format: { type: 'json_object' },
     temperature: 0.7,
   });
+  
+  const timeoutPromise = new Promise((_, reject) => 
+    setTimeout(() => reject(new Error('OpenAI API call timed out after 60 seconds')), 60000)
+  );
+  
+  const completion = await Promise.race([completionPromise, timeoutPromise]) as any;
+  
 
   const content = completion.choices[0]?.message?.content;
   if (!content) {
@@ -2119,27 +2209,20 @@ async function main() {
   console.log('');
 
   // Distribute recipes across categories
-  // #region agent log
-  debugLog('generate-recipes.ts:2007', 'Before distributeRecipesAcrossCategories', { count, hasRecipeTitle: !!recipeTitle, categoriesToUse, categoriesToUseLength: categoriesToUse.length }, 'B');
-  // #endregion
   
   // If a specific recipe title is provided, we should infer category from title instead of using plan
   // Only create a recipe plan if we don't have a specific title
+  // NOTE: When keywords are provided, we'll infer category from the generated recipe title after generation
   let recipePlan: Array<{ category: RecipeCategory | string; title: string }>;
   if (recipeTitle && categoriesToUse.length === ALL_CATEGORIES.length) {
     // Infer category from title when no category is specified
     const inferredCategory = inferCategoryFromTitle(recipeTitle);
     recipePlan = [{ category: inferredCategory, title: recipeTitle }];
     
-    // #region agent log
-    debugLog('generate-recipes.ts:2010', 'Inferred category from title', { recipeTitle, inferredCategory }, 'B');
-    // #endregion
   } else {
+    // Use normal distribution - category will be inferred from generated recipe title
     recipePlan = distributeRecipesAcrossCategories(count, categoriesToUse);
     
-    // #region agent log
-    debugLog('generate-recipes.ts:2010', 'After distributeRecipesAcrossCategories', { planLength: recipePlan.length, firstCategory: recipePlan[0]?.category, firstTitle: recipePlan[0]?.title, hasRecipeTitle: !!recipeTitle }, 'B');
-    // #endregion
   }
   
   // Count recipes per category
@@ -2183,9 +2266,6 @@ async function main() {
     const { category, title: originalTitle } = recipePlan[i];
     console.log(`\n[${i + 1}/${count}] Generating recipe for category: ${category}...`);
     
-    // #region agent log
-    debugLog('generate-recipes.ts:2047', 'Recipe generation loop start', { i, count, category, originalTitle, hasRecipeTitle: !!recipeTitle, recipeTitle }, 'B');
-    // #endregion
     
     try {
       // STRICT UNIQUE PROTOCOL: Find a unique title BEFORE generating
@@ -2199,23 +2279,18 @@ async function main() {
       // Otherwise, start with the original title from the plan, or get a random one
       let candidateTitle: string | null = recipeTitle || originalTitle || getRandomRecipeTitle(category);
       
-      // #region agent log
-      debugLog('generate-recipes.ts:2061', 'Candidate title determined', { candidateTitle, category, hasRecipeTitle: !!recipeTitle, recipeTitle, originalTitle }, 'B');
-      // #endregion
       
       while (checkAttempts < maxCheckAttempts) {
         checkAttempts++;
         
         if (!candidateTitle) {
-          // If we have a recipeTitle, infer category from it instead of using the plan's category
-          let categoryForNewTitle = category;
-          if (recipeTitle) {
+          // If keywords are provided, don't use category for title generation - let keywords guide it
+          // Otherwise, if we have a recipeTitle, infer category from it instead of using the plan's category
+          let categoryForNewTitle = keywords ? 'savory' : category; // Use a neutral category when keywords are provided
+          if (recipeTitle && !keywords) {
             const inferredCategory = inferCategoryFromTitle(recipeTitle);
             categoryForNewTitle = inferredCategory;
             
-            // #region agent log
-            debugLog('generate-recipes.ts:2175', 'Inferring category from recipeTitle', { recipeTitle, inferredCategory, originalCategory: category }, 'C');
-            // #endregion
           }
           
           // Try to get a unique title (checks both title AND slug)
@@ -2278,26 +2353,18 @@ async function main() {
           }
           
           // Get a new candidate title for the next iteration (checks both title AND slug)
-          // If we have a recipeTitle, infer category from it instead of using the plan's category
-          let categoryForNewTitle = category;
-          if (recipeTitle) {
+          // If keywords are provided, don't use category for title generation - let keywords guide it
+          // Otherwise, if we have a recipeTitle, infer category from it instead of using the plan's category
+          let categoryForNewTitle = keywords ? 'savory' : category; // Use a neutral category when keywords are provided
+          if (recipeTitle && !keywords) {
             const inferredCategory = inferCategoryFromTitle(recipeTitle);
             categoryForNewTitle = inferredCategory;
             
-            // #region agent log
-            debugLog('generate-recipes.ts:2245', 'Inferring category from recipeTitle for new title', { recipeTitle, inferredCategory, originalCategory: category }, 'C');
-            // #endregion
           }
           
-          // #region agent log
-          debugLog('generate-recipes.ts:2251', 'Calling getUniqueRecipeTitle after duplicate', { category: categoryForNewTitle, checkAttempts, previousCandidate: candidateTitle }, 'C');
-          // #endregion
           
           candidateTitle = await getUniqueRecipeTitle(categoryForNewTitle, existingRecipes, attemptedTitles, attemptedSlugs, usedCoreRecipes, openai, 100, keywords);
           
-          // #region agent log
-          debugLog('generate-recipes.ts:2256', 'getUniqueRecipeTitle returned after duplicate', { newCandidateTitle: candidateTitle, category: categoryForNewTitle, isOatmealRaisin: candidateTitle?.toLowerCase().includes('oatmeal') && candidateTitle?.toLowerCase().includes('raisin') }, 'C');
-          // #endregion
         }
       }
       
@@ -2309,18 +2376,23 @@ async function main() {
         continue;
       }
       
-      // If we have a recipeTitle, use inferred category instead of plan's category
+      // When keywords are provided, don't use a specific category - let the recipe be generated freely
+      // The category will be inferred from the generated recipe title after generation
+      const useCategoryConstraint = !keywords;
+      
+      // If we have a recipeTitle (and no keywords), use inferred category instead of plan's category
       let categoryToUse = category;
-      if (recipeTitle) {
+      if (recipeTitle && !keywords) {
         const inferredCategory = inferCategoryFromTitle(recipeTitle);
         categoryToUse = inferredCategory;
         
-        // #region agent log
-        debugLog('generate-recipes.ts:2278', 'Using inferred category for recipe generation', { recipeTitle, inferredCategory, originalCategory: category }, 'B');
-        // #endregion
       }
       
-      console.log(`   📝 Generating: "${uniqueTitle}" (${categoryToUse})...`);
+      if (keywords) {
+        console.log(`   📝 Generating: "${uniqueTitle}" (keywords: ${keywords})...`);
+      } else {
+        console.log(`   📝 Generating: "${uniqueTitle}" (${categoryToUse})...`);
+      }
       console.log(`   🔍 Pre-check: Title and slug are unique before API call (verified after ${checkAttempts} check(s))`);
       
       // Generate the recipe with the unique title
@@ -2331,14 +2403,11 @@ async function main() {
       
       while (!recipe && generationAttempts < maxGenerationAttempts) {
         try {
-          // #region agent log
-          debugLog('generate-recipes.ts:2295', 'Before generateRecipeWithOpenAI', { uniqueTitle, category: categoryToUse, hasRecipeTitle: !!recipeTitle, recipeTitle }, 'B');
-          // #endregion
           
           recipe = await generateRecipeWithOpenAI({
             maxTime,
             title: uniqueTitle!,
-            category: [categoryToUse],
+            category: useCategoryConstraint ? [categoryToUse] : [], // Don't constrain category when keywords are provided
             veganType: ['whole-food-plant-based'],
             recipeTitle: recipeTitle, // Use provided title if available
             ingredients: ingredients, // Use provided ingredients if available
@@ -2346,10 +2415,6 @@ async function main() {
             keywords: keywords, // Use provided keywords if available
             theme: theme, // Use provided theme if available
           });
-          
-          // #region agent log
-          debugLog('generate-recipes.ts:2310', 'After generateRecipeWithOpenAI', { generatedTitle: recipe?.title, generatedCategory: recipe?.category, requestedCategory: categoryToUse }, 'B');
-          // #endregion
         } catch (error: any) {
           if (error.message?.includes('exceeds maxTime') && generationAttempts < maxGenerationAttempts - 1) {
             generationAttempts++;
@@ -2431,6 +2496,16 @@ async function main() {
         
         failCount++;
         continue;
+      }
+      
+      // If keywords were provided, infer category from the generated recipe title
+      // This ensures the category matches what was actually generated, not what was planned
+      if (keywords) {
+        const inferredCategory = inferCategoryFromTitle(recipe.title);
+        if (inferredCategory && !recipe.category.includes(inferredCategory as RecipeCategory)) {
+          console.log(`   🎯 Inferred category "${inferredCategory}" from generated recipe title: "${recipe.title}"`);
+          recipe.category = [inferredCategory as RecipeCategory];
+        }
       }
 
       console.log(`✅ Generated: ${recipe.title}`);

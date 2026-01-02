@@ -266,19 +266,30 @@ async function generateStructuredData(recipe: Recipe) {
   // Add FAQ schema if available (2025/2026 best practice)
   const schemas = [recipeSchema];
   
+  // Only add FAQPage schema if we have valid FAQs with both questions and answers
   if (recipe.faqs && recipe.faqs.length > 0) {
-    schemas.push({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: recipe.faqs.map(faq => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer,
-        },
-      })),
-    });
+    const validFAQs = recipe.faqs.filter(faq => 
+      faq && 
+      faq.question && 
+      faq.question.trim().length > 0 && 
+      faq.answer && 
+      faq.answer.trim().length > 0
+    );
+    
+    if (validFAQs.length > 0) {
+      schemas.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: validFAQs.map(faq => ({
+          '@type': 'Question',
+          name: faq.question.trim(),
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer.trim(),
+          },
+        })),
+      });
+    }
   }
 
   // Add BreadcrumbList schema (2025/2026 best practice)

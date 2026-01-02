@@ -148,10 +148,15 @@ export async function submitVote(
         if (error) throw error;
       }
     } else {
-      // New vote
+      // New vote - explicitly generate UUID for id field
+      const voteId = typeof crypto !== 'undefined' && crypto.randomUUID 
+        ? crypto.randomUUID() 
+        : `vote_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+      
       const { error } = await supabase
         .from('votes')
         .insert({
+          id: voteId,
           recipe_id: recipeId,
           user_id: userId,
           vote_type: voteType,
@@ -211,9 +216,15 @@ export async function submitComment(
 
   try {
     const now = new Date().toISOString();
+    // Explicitly generate UUID for id field
+    const commentId = typeof crypto !== 'undefined' && crypto.randomUUID 
+      ? crypto.randomUUID() 
+      : `comment_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+    
     const { data, error } = await supabase
       .from('comments')
       .insert({
+        id: commentId,
         recipe_id: recipeId,
         name,
         email,
