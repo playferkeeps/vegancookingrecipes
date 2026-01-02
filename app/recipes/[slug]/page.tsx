@@ -16,8 +16,10 @@ import ViewTracker from '@/components/ViewTracker';
 import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
 
-// Force dynamic rendering to always fetch fresh data from database
+// Use dynamic rendering but allow static generation for better SEO
+// This allows Next.js to pre-generate pages while still fetching fresh data
 export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // Revalidate every hour for fresh data
 
 interface PageProps {
   params: Promise<{

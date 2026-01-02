@@ -17,6 +17,7 @@
 import 'dotenv/config';
 import { spawn } from 'child_process';
 import * as path from 'path';
+import { commitAndPushBlogImages } from './git-utils';
 
 /**
  * Get formatted timestamp for logging
@@ -179,7 +180,29 @@ async function runScheduledPost(schedule: MealSchedule): Promise<void> {
   
   try {
     await generateBlogPost(schedule.category);
-    logWithTimestamp(`✅ Successfully completed ${schedule.name} blog post generation\n`);
+    logWithTimestamp(`✅ Successfully completed ${schedule.name} blog post generation`);
+    
+    // Commit and push blog images to git
+    try {
+      logWithTimestamp(`🔍 Checking for new blog images...`);
+      const result = await commitAndPushBlogImages(1);
+      
+      if (result.success) {
+        if (result.filesCommitted > 0) {
+          logWithTimestamp(`   ✅ ${result.message}`);
+        } else {
+          logWithTimestamp(`   ℹ️  ${result.message}`);
+        }
+      } else {
+        logWithTimestamp(`   ⚠️  ${result.message || result.error}`, 'warn');
+        logWithTimestamp('   Blog images were generated but not committed to git.', 'warn');
+      }
+    } catch (error: any) {
+      logWithTimestamp(`\n⚠️  Warning: Failed to commit/push blog images: ${error.message}`, 'warn');
+      logWithTimestamp('   Blog images were generated but not committed to git.', 'warn');
+    }
+    
+    logWithTimestamp('');
   } catch (error: any) {
     logWithTimestamp(`❌ Failed to generate ${schedule.name} blog post: ${error.message}`, 'error');
     logWithTimestamp('   Will retry at next scheduled time...\n', 'warn');
