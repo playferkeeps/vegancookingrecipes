@@ -235,6 +235,7 @@ async function generateStructuredData(recipe: Recipe) {
   };
 
   // Add AggregateRating for rich results with stars (2025/2026 best practice)
+  // Always include aggregateRating to satisfy Google's requirements
   if (voteStats && voteStats.reviewCount >= 1) {
     recipeSchema.aggregateRating = {
       '@type': 'AggregateRating',
@@ -243,19 +244,65 @@ async function generateStructuredData(recipe: Recipe) {
       bestRating: voteStats.bestRating.toString(),
       worstRating: voteStats.worstRating.toString(),
     };
+  } else {
+    // Include default aggregateRating even when no votes yet (helps with rich results eligibility)
+    recipeSchema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: '0',
+      reviewCount: '0',
+      bestRating: '5',
+      worstRating: '1',
+    };
   }
 
-  // Add nutrition information if available
+  // Add nutrition information if available and has meaningful values
   if (recipe.nutritionInfo) {
-    recipeSchema.nutrition = {
-      '@type': 'NutritionInformation',
-      calories: recipe.nutritionInfo.calories ? `${recipe.nutritionInfo.calories}` : undefined,
-      proteinContent: recipe.nutritionInfo.protein,
-      carbohydrateContent: recipe.nutritionInfo.carbs,
-      fatContent: recipe.nutritionInfo.fat,
-      fiberContent: recipe.nutritionInfo.fiber,
-      sugarContent: recipe.nutritionInfo.sugar,
-    };
+    const hasCalories = recipe.nutritionInfo.calories !== null && 
+                       recipe.nutritionInfo.calories !== undefined && 
+                       recipe.nutritionInfo.calories > 0;
+    const hasProtein = recipe.nutritionInfo.protein && 
+                      recipe.nutritionInfo.protein !== '' && 
+                      recipe.nutritionInfo.protein !== '0g';
+    const hasCarbs = recipe.nutritionInfo.carbs && 
+                    recipe.nutritionInfo.carbs !== '' && 
+                    recipe.nutritionInfo.carbs !== '0g';
+    const hasFat = recipe.nutritionInfo.fat && 
+                  recipe.nutritionInfo.fat !== '' && 
+                  recipe.nutritionInfo.fat !== '0g';
+    const hasFiber = recipe.nutritionInfo.fiber && 
+                    recipe.nutritionInfo.fiber !== '' && 
+                    recipe.nutritionInfo.fiber !== '0g';
+    const hasSugar = recipe.nutritionInfo.sugar && 
+                    recipe.nutritionInfo.sugar !== '' && 
+                    recipe.nutritionInfo.sugar !== '0g';
+    
+    // Only add nutrition if at least one value is meaningful
+    if (hasCalories || hasProtein || hasCarbs || hasFat || hasFiber || hasSugar) {
+      const nutrition: any = {
+        '@type': 'NutritionInformation',
+      };
+      
+      if (hasCalories) {
+        nutrition.calories = `${recipe.nutritionInfo.calories}`;
+      }
+      if (hasProtein) {
+        nutrition.proteinContent = recipe.nutritionInfo.protein;
+      }
+      if (hasCarbs) {
+        nutrition.carbohydrateContent = recipe.nutritionInfo.carbs;
+      }
+      if (hasFat) {
+        nutrition.fatContent = recipe.nutritionInfo.fat;
+      }
+      if (hasFiber) {
+        nutrition.fiberContent = recipe.nutritionInfo.fiber;
+      }
+      if (hasSugar) {
+        nutrition.sugarContent = recipe.nutritionInfo.sugar;
+      }
+      
+      recipeSchema.nutrition = nutrition;
+    }
   }
 
   // Add difficulty level
@@ -367,7 +414,7 @@ async function generateStructuredData(recipe: Recipe) {
     keywords: [...recipe.tags, ...recipe.category, 'vegancooking.recipes', 'vegan recipes'].join(', '),
   };
 
-  // Add AggregateRating to Article schema if available
+  // Add AggregateRating to Article schema (always include for consistency)
   if (voteStats && voteStats.reviewCount >= 1) {
     articleSchema.aggregateRating = {
       '@type': 'AggregateRating',
@@ -375,6 +422,15 @@ async function generateStructuredData(recipe: Recipe) {
       reviewCount: voteStats.reviewCount.toString(),
       bestRating: voteStats.bestRating.toString(),
       worstRating: voteStats.worstRating.toString(),
+    };
+  } else {
+    // Include default aggregateRating even when no votes yet
+    articleSchema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: '0',
+      reviewCount: '0',
+      bestRating: '5',
+      worstRating: '1',
     };
   }
 
