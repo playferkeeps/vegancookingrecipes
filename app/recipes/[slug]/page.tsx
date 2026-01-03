@@ -219,8 +219,10 @@ async function generateStructuredData(recipe: Recipe) {
         position: inst.step,
         text: inst.text,
         name: `Step ${inst.step}`,
+        url: url, // Required by Google for recipeInstructions
       };
       // Add image to step if available (enhances rich results)
+      // Google requires either image or video in recipeInstructions
       if (inst.image) {
         const stepImageUrl = inst.image.startsWith('http') 
           ? inst.image 
@@ -237,8 +239,9 @@ async function generateStructuredData(recipe: Recipe) {
   };
 
   // Add AggregateRating for rich results with stars (2025/2026 best practice)
-  // Always include aggregateRating to satisfy Google's requirements
-  if (voteStats && voteStats.reviewCount >= 1) {
+  // Only include aggregateRating when we have actual reviews (reviewCount must be positive)
+  // Google requires reviewCount > 0 and ratingValue between worstRating and bestRating
+  if (voteStats && voteStats.reviewCount >= 1 && voteStats.ratingValue >= 1 && voteStats.ratingValue <= 5) {
     recipeSchema.aggregateRating = {
       '@type': 'AggregateRating',
       ratingValue: voteStats.ratingValue.toString(),
@@ -246,16 +249,8 @@ async function generateStructuredData(recipe: Recipe) {
       bestRating: voteStats.bestRating.toString(),
       worstRating: voteStats.worstRating.toString(),
     };
-  } else {
-    // Include default aggregateRating even when no votes yet (helps with rich results eligibility)
-    recipeSchema.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: '0',
-      reviewCount: '0',
-      bestRating: '5',
-      worstRating: '1',
-    };
   }
+  // Do not include aggregateRating when there are no votes (Google requires positive reviewCount)
 
   // Add nutrition information if available and has meaningful values
   if (recipe.nutritionInfo) {
@@ -416,8 +411,9 @@ async function generateStructuredData(recipe: Recipe) {
     keywords: [...recipe.tags, ...recipe.category, 'vegancooking.recipes', 'vegan recipes'].join(', '),
   };
 
-  // Add AggregateRating to Article schema (always include for consistency)
-  if (voteStats && voteStats.reviewCount >= 1) {
+  // Add AggregateRating to Article schema (only when we have actual reviews)
+  // Google requires reviewCount > 0 and ratingValue between worstRating and bestRating
+  if (voteStats && voteStats.reviewCount >= 1 && voteStats.ratingValue >= 1 && voteStats.ratingValue <= 5) {
     articleSchema.aggregateRating = {
       '@type': 'AggregateRating',
       ratingValue: voteStats.ratingValue.toString(),
@@ -425,16 +421,8 @@ async function generateStructuredData(recipe: Recipe) {
       bestRating: voteStats.bestRating.toString(),
       worstRating: voteStats.worstRating.toString(),
     };
-  } else {
-    // Include default aggregateRating even when no votes yet
-    articleSchema.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: '0',
-      reviewCount: '0',
-      bestRating: '5',
-      worstRating: '1',
-    };
   }
+  // Do not include aggregateRating when there are no votes (Google requires positive reviewCount)
 
   schemas.push(articleSchema);
 
@@ -451,13 +439,23 @@ async function generateStructuredData(recipe: Recipe) {
       currency: 'USD',
       value: '10', // Estimated cost - can be made dynamic
     },
-    step: recipe.instructions.map((inst) => ({
-      '@type': 'HowToStep',
-      position: inst.step,
-      name: `Step ${inst.step}`,
-      text: inst.text,
-      ...(inst.image && { image: inst.image }),
-    })),
+    step: recipe.instructions.map((inst) => {
+      const step: any = {
+        '@type': 'HowToStep',
+        position: inst.step,
+        name: `Step ${inst.step}`,
+        text: inst.text,
+        url: url, // Required by Google for HowToStep
+      };
+      // Add image if available (Google requires either image or video in HowToStep)
+      if (inst.image) {
+        const stepImageUrl = inst.image.startsWith('http') 
+          ? inst.image 
+          : `https://vegancooking.recipes${inst.image.startsWith('/') ? inst.image : `/${inst.image}`}`;
+        step.image = stepImageUrl;
+      }
+      return step;
+    }),
   });
 
   return schemas;
