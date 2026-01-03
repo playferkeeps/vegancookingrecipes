@@ -76,13 +76,45 @@ You need a **Page Access Token** (not a User Access Token) to post to your page.
 
 ### Get Page Access Token:
 
+**IMPORTANT**: Before proceeding, ensure you are an **Admin** or **Editor** of the Facebook Page you want to post to.
+
 1. In Graph API Explorer, change the endpoint to:
    ```
    /me/accounts?access_token=YOUR_LONG_LIVED_TOKEN
    ```
    Replace `YOUR_LONG_LIVED_TOKEN` with the token from the previous step
 2. Click **"Submit"**
-3. Find your page in the response and copy the `access_token` (this is your **Page Access Token**)
+3. **If you get an empty `data` array `[]`:**
+   - You may not be an admin/editor of any pages
+   - Go to your Facebook Page → **Settings** → **Page Roles**
+   - Ensure your personal Facebook account is listed as **Admin** or **Editor**
+   - If you're not listed, add yourself (you'll need another admin to add you, or create the page yourself)
+   - After adding yourself, wait a few minutes and try the `/me/accounts` request again
+4. Find your page in the response and copy the `access_token` (this is your **Page Access Token**)
+
+**Alternative method if `/me/accounts` returns empty:**
+
+If you know your Page ID, you can get the Page Access Token directly:
+
+1. In Graph API Explorer, use endpoint:
+
+   ```
+   /PAGE_ID?fields=access_token&access_token=YOUR_LONG_LIVED_USER_TOKEN
+   ```
+
+   Replace:
+   - `PAGE_ID` with your Page ID (get it from your page's About section)
+   - `YOUR_LONG_LIVED_USER_TOKEN` with your **long-lived USER access token** (NOT the app token)
+
+   **Important**: Use the **User Access Token** (the long-lived one from Step 5), NOT the App Token. The App Token is for app-level operations and won't work here.
+
+2. Click **"Submit"**
+3. Copy the `access_token` from the response - this is your **Page Access Token**
+
+**Token Types Explained:**
+
+- **User Access Token**: Grants access to resources owned by the user (pages, posts, etc.). This is what you need.
+- **App Token**: Used for app-level operations (like app insights). Not suitable for posting to pages.
 
 ### Option B: Using Access Token Tool (Alternative)
 
@@ -206,6 +238,40 @@ Then create `app/api/cron/post-to-facebook/route.ts` that calls the script.
 - Verify your Page ID is correct (it's a long number, not the page username)
 - Make sure you're using the Page Access Token for the correct page
 - Ensure the page exists and is published
+
+### Empty `data` array when calling `/me/accounts`
+
+If you get `{"data": []}` when trying to get page access tokens:
+
+1. **Check Page Admin Status:**
+   - Go to your Facebook Page
+   - Click **Settings** → **Page Roles**
+   - Verify your personal Facebook account is listed as **Admin** or **Editor**
+   - If not, add yourself (or have another admin add you)
+
+2. **Verify Token Permissions:**
+   - Ensure you selected `pages_show_list` permission when generating the token
+   - Try regenerating the token with all required permissions:
+     - `pages_show_list`
+     - `pages_read_engagement`
+     - `pages_manage_posts`
+     - `pages_read_user_content`
+
+3. **Use Alternative Method:**
+   - If you know your Page ID, use this endpoint instead:
+     ```
+     /PAGE_ID?fields=access_token&access_token=YOUR_LONG_LIVED_TOKEN
+     ```
+   - This bypasses the `/me/accounts` endpoint
+
+4. **Check App Status:**
+   - Ensure your app is not in Development Mode restrictions
+   - If in Development Mode, only test users can use the app
+   - Consider submitting for App Review if needed
+
+5. **Wait and Retry:**
+   - After adding yourself as admin, wait 5-10 minutes for changes to propagate
+   - Try the request again
 
 ### "Rate limit exceeded"
 

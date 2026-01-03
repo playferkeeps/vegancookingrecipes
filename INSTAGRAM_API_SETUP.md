@@ -2,6 +2,22 @@
 
 This guide explains how to set up the Instagram Graph API to automatically post recipe images to your Instagram Business Account.
 
+## Quick Start (If You Already Set Up Facebook)
+
+If you've already completed the Facebook setup:
+
+1. **Convert Instagram to Business Account** and connect it to your Facebook Page
+2. **Add Instagram Product** to your existing Facebook app
+3. **Get Instagram Business Account ID** using your Page Access Token:
+   - In Graph API Explorer: `/PAGE_ID?fields=instagram_business_account`
+   - Use your **Page Access Token** (same as Facebook)
+4. **Set Environment Variables**:
+   - `INSTAGRAM_ACCESS_TOKEN` = Your **Page Access Token** (same as `FACEBOOK_PAGE_ACCESS_TOKEN`)
+   - `INSTAGRAM_BUSINESS_ACCOUNT_ID` = The ID from step 3
+5. **Test**: `npm run post-recipe-to-instagram`
+
+**Key Point**: Instagram uses the **same Page Access Token** as Facebook!
+
 ## Prerequisites
 
 - A Facebook account
@@ -9,101 +25,190 @@ This guide explains how to set up the Instagram Graph API to automatically post 
 - An Instagram Business Account (convert from personal at [instagram.com/accounts/convert_to_business_account](https://www.instagram.com/accounts/convert_to_business_account))
 - The Instagram account must be connected to your Facebook Page
 - A Facebook Developer account (free)
+- **Recommended**: Complete Facebook setup first (see `FACEBOOK_API_SETUP.md`)
 
 ## Step 1: Convert Instagram to Business Account
 
 1. Open Instagram app on your phone
 2. Go to **Settings** → **Account** → **Switch to Professional Account**
 3. Choose **Business** account type
-4. Connect to your Facebook Page (or create a new one)
+4. **Connect to your Facebook Page** (the same one you use for Facebook posts)
+   - If you don't have a Facebook Page, create one at [facebook.com/pages/create](https://www.facebook.com/pages/create)
+   - Make sure you're an Admin of the Facebook Page
 5. Complete the setup
 
-## Step 2: Create Facebook Developer Account
+**Important**: Your Instagram Business Account MUST be connected to your Facebook Page for the API to work.
+
+## Step 2: Use Your Existing Facebook App
+
+Since you already set up Facebook, you can use the **same Facebook App** for Instagram. No need to create a new app!
+
+If you haven't set up Facebook yet, follow the Facebook setup guide first, then come back here.
+
+## Step 3: Add Instagram Product to Your App
+
+**IMPORTANT**: You must add the Instagram product to your app BEFORE you can see Instagram permissions!
 
 1. Go to [developers.facebook.com](https://developers.facebook.com)
-2. Click **"Get Started"** or **"My Apps"**
-3. Sign in with your Facebook account
-4. Accept the Facebook Platform Terms of Service
-5. Complete the developer account setup
+2. Select your existing app (the one you use for Facebook posts)
+3. **Go to the Dashboard** (click "Dashboard" in the left sidebar)
+   - You need to be on the Dashboard page, not Testing or other pages
+   - The "Add Product" button is usually on the Dashboard
+4. Look for **"Add Product"** or **"Add use case"** button:
+   - It might be in the top right of the dashboard
+   - Or in the main content area
+   - Or click **"Use cases"** in the sidebar, then look for "Add use case"
+5. Once you find it, look for **"Instagram"** or **"Instagram Graph API"**:
+   - If you see it listed, click **"Set Up"** or **"Add"**
+   - If not listed, search for "Instagram" in the product browser
+6. Complete the setup (usually just clicking through)
 
-## Step 3: Create a Facebook App
+**If you still can't find "Add Product":**
 
-1. In the Facebook Developers dashboard, click **"Create App"**
-2. Select **"Business"** as the app type
-3. Fill in the details:
-   - **App Display Name**: "Vegan Cooking Recipes Bot" (or your choice)
-   - **App Contact Email**: Your email address
-4. Click **"Create App"**
-5. Complete the security check if prompted
+Try going directly to your app's dashboard:
 
-## Step 4: Add Instagram Basic Display Product
+```text
+https://developers.facebook.com/apps/YOUR_APP_ID/dashboard/
+```
 
-1. In your app dashboard, go to **"Products"** in the left sidebar
-2. Find **"Instagram"** and click **"Set Up"**
-3. Select **"Basic Display"** (for posting, you'll need the Graph API)
-4. Complete the setup
+(Replace `YOUR_APP_ID` with your App ID - find it in Settings → Basic → App ID)
 
-## Step 5: Add Required Permissions
+**After adding the Instagram product**, you'll be able to see Instagram-specific permissions.
 
-1. Go to **"App Review"** → **"Permissions and Features"**
-2. Request the following permissions:
-   - `instagram_basic` (usually auto-approved)
-   - `pages_show_list` (usually auto-approved)
-   - `instagram_content_publish` (requires App Review for production)
-   - `pages_read_engagement` (usually auto-approved)
+## Step 4: Add Required Permissions
+
+**Where to find permissions (multiple ways to access):**
+
+### Method 1: Via "Use Cases" (Most Common)
+
+1. In your app dashboard, click **"Use cases"** in the left sidebar
+2. You should see use cases listed. Look for or add:
+   - **"Manage everything on your Page"** (for pages permissions)
+   - **"Instagram Content Publishing"** or similar (for Instagram permissions)
+3. Click on a use case to see its required permissions
+4. You can request permissions from there
+
+### Method 2: Via "Testing" Section
+
+1. In your app dashboard, click **"Testing"** in the left sidebar
+2. Look for **"Permissions and Features"** or **"Roles"** submenu
+3. You may see permissions listed there
+
+### Method 3: Via "App Review" (If Available)
+
+1. In your app dashboard, look for **"App Review"** in the left sidebar
+   - **Note**: This may not appear until your app is in a certain state
+   - If you don't see it, use Method 1 or 2 above
+2. Click **"App Review"** → **"Permissions and Features"**
+3. In the search box, type: `instagram` to filter Instagram permissions
+
+### Method 4: Direct URL
+
+If the above don't work, try going directly to:
+
+```text
+https://developers.facebook.com/apps/YOUR_APP_ID/appreview/permissions/
+```
+
+(Replace `YOUR_APP_ID` with your actual App ID - you can find it in your app's Settings → Basic)
+
+**Request the following permissions:**
+
+- **`instagram_basic`** - Basic Instagram access (usually auto-approved for development)
+- **`instagram_content_publish`** - Required for posting to Instagram (may need App Review for production)
+- **`pages_show_list`** - You may already have this from Facebook setup
+- **`pages_read_engagement`** - You may already have this from Facebook setup
+- **`pages_manage_posts`** - You may already have this from Facebook setup
+
+**If you don't see `instagram_basic` or `instagram_content_publish`:**
+
+- Make sure you added the **Instagram product** in Step 3 above
+- The permissions only appear after the Instagram product is added
+- Try refreshing the page or navigating away and back
+
+**For Development Mode:**
+
+- `instagram_basic` is usually available immediately for testing
+- `instagram_content_publish` may require App Review for production use
+- You can test with your own Instagram account in Development Mode
+
+**Note**: If you already set up Facebook, you likely have `pages_show_list`, `pages_read_engagement`, and `pages_manage_posts` already. You mainly need to add `instagram_basic` and `instagram_content_publish`.
+
+## Step 5: Set Up Instagram API (Add Account)
+
+**On the Instagram API setup page you're currently on:**
+
+1. **Step 1: Generate access tokens**
+   - Click the **"Add account"** button
+   - This will let you connect your Instagram Business Account
+   - Follow the prompts to authorize your Instagram account
+   - This will generate the access tokens you need
+
+2. **Step 2: Configure webhooks** (Optional - you can skip this for basic posting)
+   - For basic recipe posting, you don't need webhooks
+   - You can leave "Callback URL" and "Verify token" **empty** for now
+   - Webhooks are only needed if you want to receive notifications about comments, messages, etc.
+   - Click the caret to collapse this section if you're not using it
+
+**Important Notes:**
+
+- Make sure your Instagram account is a **Business Account** and connected to your Facebook Page
+- The Instagram account you add here should be the one you want to post to
+- After adding the account, you'll get access tokens that you can use
 
 ## Step 6: Get Instagram Business Account ID
 
+**Good news**: You can use the **same Page Access Token** you got for Facebook! Instagram uses the Facebook Page Access Token.
+
 1. Go to [developers.facebook.com/tools/explorer](https://developers.facebook.com/tools/explorer)
 2. Select your app from the dropdown
-3. Get a User Access Token with `instagram_basic` and `pages_show_list` permissions
-4. Make a GET request to: `https://graph.facebook.com/v18.0/me/accounts?access_token=YOUR_TOKEN`
-5. Find your Facebook Page in the response
-6. Get the Page Access Token for that page
-7. Make a GET request to: `https://graph.facebook.com/v18.0/PAGE_ID?fields=instagram_business_account&access_token=PAGE_ACCESS_TOKEN`
-8. The `instagram_business_account.id` is your Instagram Business Account ID
+3. In the **Access Token** field, enter your **Page Access Token** (the one you use for Facebook posts)
+4. In the endpoint field, enter:
 
-**Alternative method using Graph API Explorer:**
+   ```text
+   /PAGE_ID?fields=instagram_business_account
+   ```
 
-1. Go to [developers.facebook.com/tools/explorer](https://developers.facebook.com/tools/explorer)
-2. Select your app
-3. Get a Page Access Token (see Facebook setup guide)
-4. In the explorer, enter: `PAGE_ID?fields=instagram_business_account`
+   Replace `PAGE_ID` with your Facebook Page ID (the same one you use for Facebook)
+
 5. Click **"Submit"**
-6. Copy the `instagram_business_account.id` value
+6. In the response, find `instagram_business_account.id` - this is your **Instagram Business Account ID**
+7. Copy this ID (it's a long number)
 
-## Step 7: Get Long-Lived Access Token
+**If you get an error or empty response:**
 
-Instagram requires a long-lived access token. Here's how to get one:
+- Make sure your Instagram Business Account is connected to your Facebook Page
+- Verify you're using the Page Access Token (not User Access Token)
+- Check that your Instagram account is set to Business (not Personal)
 
-1. Go to [developers.facebook.com/tools/accesstoken](https://developers.facebook.com/tools/accesstoken)
-2. Select your app
-3. Generate a User Access Token with these permissions:
-   - `instagram_basic`
-   - `pages_show_list`
-   - `pages_read_engagement`
-4. Exchange it for a long-lived token:
-   ```
-   https://graph.facebook.com/v18.0/oauth/access_token?
-     grant_type=fb_exchange_token&
-     client_id=YOUR_APP_ID&
-     client_secret=YOUR_APP_SECRET&
-     fb_exchange_token=SHORT_LIVED_TOKEN
-   ```
-5. Use this long-lived token as your `INSTAGRAM_ACCESS_TOKEN`
+## Step 6: Get Instagram Access Token
+
+**Important**: For Instagram, you use the **same Page Access Token** that you use for Facebook posts!
+
+The `INSTAGRAM_ACCESS_TOKEN` environment variable should be set to your **Facebook Page Access Token** (the same one as `FACEBOOK_PAGE_ACCESS_TOKEN`).
+
+**Why?** Instagram Business Accounts are connected to Facebook Pages, and they use the same Page Access Token for API access.
+
+**If you don't have a Page Access Token yet:**
+
+1. Follow the Facebook setup guide to get your Page Access Token
+2. Use that same token for Instagram
 
 **Note:** Long-lived tokens expire after 60 days. For production, consider using a system user token or implementing token refresh.
 
-## Step 8: Configure Environment Variables
+## Step 7: Configure Environment Variables
 
 Add these to your `.env.local` file:
 
 ```bash
 # Instagram API Credentials
-INSTAGRAM_ACCESS_TOKEN=your_long_lived_access_token_here
+# IMPORTANT: Use the SAME Page Access Token as Facebook!
+INSTAGRAM_ACCESS_TOKEN=your_facebook_page_access_token_here
 INSTAGRAM_BUSINESS_ACCOUNT_ID=your_instagram_business_account_id_here
+INSTAGRAM_APP_ID=your_instagram_app_id_here
 
-# Facebook Page ID (same as used for Facebook posts)
+# Facebook API Credentials (if not already set)
+FACEBOOK_PAGE_ACCESS_TOKEN=your_facebook_page_access_token_here
 FACEBOOK_PAGE_ID=your_facebook_page_id_here
 
 # Site URL (for recipe links in captions)
@@ -117,7 +222,13 @@ ENABLE_INSTAGRAM_POSTS=true
 SOCIAL_MEDIA_POST_INTERVAL_HOURS=6
 ```
 
-## Step 9: Test the Setup
+**Key Points:**
+
+- `INSTAGRAM_ACCESS_TOKEN` should be the **same value** as `FACEBOOK_PAGE_ACCESS_TOKEN` (your Page Access Token)
+- `FACEBOOK_PAGE_ID` is the same for both Facebook and Instagram
+- `INSTAGRAM_BUSINESS_ACCOUNT_ID` is the ID you got from Step 5
+
+## Step 8: Test the Setup
 
 Run the Instagram posting script:
 
@@ -132,7 +243,14 @@ Expected output:
 - ✅ Published to Instagram
 - ✅ Successfully posted to Instagram!
 
-## Step 10: Schedule Automated Posts
+**If you get errors:**
+
+- Verify `INSTAGRAM_ACCESS_TOKEN` matches your `FACEBOOK_PAGE_ACCESS_TOKEN`
+- Check that `INSTAGRAM_BUSINESS_ACCOUNT_ID` is correct
+- Ensure your Instagram account is connected to your Facebook Page
+- Make sure you have `instagram_content_publish` permission
+
+## Step 9: Schedule Automated Posts
 
 ### Option A: Using the Scheduler Script
 

@@ -20,6 +20,7 @@ import { getAllRecipesAsync } from '../data/recipes/helpers';
 interface InstagramApiConfig {
   accessToken: string;
   instagramBusinessAccountId: string;
+  instagramAppId: string;
   facebookPageId: string;
 }
 
@@ -148,29 +149,48 @@ async function postToInstagram(
   config: InstagramApiConfig
 ): Promise<{ success: boolean; mediaId?: string; error?: string }> {
   try {
-    // Validate image URL is publicly accessible
-    if (!imageUrl.startsWith('http')) {
+    // Validate image URL is publicly accessible via HTTPS (Instagram requirement)
+    if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
       return {
         success: false,
         error: 'Image URL must be publicly accessible via HTTPS. Recipe images must be hosted online.',
       };
     }
 
-    if (!imageUrl.startsWith('https')) {
-      logWithTimestamp('⚠️  Image URL should use HTTPS for security', 'warn');
+    // Instagram requires HTTPS - convert HTTP to HTTPS if needed
+    if (imageUrl.startsWith('http://')) {
+      imageUrl = imageUrl.replace('http://', 'https://');
+      logWithTimestamp('⚠️  Converted HTTP to HTTPS for Instagram compatibility', 'warn');
     }
 
-    // Step 1: Create media container
-    logWithTimestamp('📸 Creating Instagram media container...');
+    // Validate URL format
+    try {
+      new URL(imageUrl);
+    } catch {
+      return {
+        success: false,
+        error: `Invalid image URL format: ${imageUrl}`,
+      };
+    }
+
+    logWithTimestamp(`📸 Image URL validated: ${imageUrl}`);
+
+    // Step 1: Create media container with image
+    logWithTimestamp('📸 Creating Instagram media container with image...');
     logWithTimestamp(`   Image URL: ${imageUrl}`);
+    logWithTimestamp(`   Caption length: ${caption.length} characters`);
     
     const containerUrl = `https://graph.facebook.com/v18.0/${config.instagramBusinessAccountId}/media`;
     
+    // Instagram API requires image_url parameter to attach the photo
     const containerParams = new URLSearchParams({
-      image_url: imageUrl,
+      image_url: imageUrl, // This attaches the recipe image to the post
       caption: caption.substring(0, 2200), // Instagram has 2200 character limit
       access_token: config.accessToken,
     });
+    
+    logWithTimestamp(`   Container URL: ${containerUrl}`);
+    logWithTimestamp(`   Image will be attached from: ${imageUrl}`);
     
     const containerResponse = await fetch(`${containerUrl}?${containerParams.toString()}`, {
       method: 'POST',
@@ -187,10 +207,11 @@ async function postToInstagram(
     }
     
     const creationId = containerData.id;
-    logWithTimestamp(`✅ Media container created: ${creationId}`);
+    logWithTimestamp(`✅ Media container created with image: ${creationId}`);
+    logWithTimestamp(`   Image is being processed by Instagram...`);
     
     // Step 2: Check container status and publish
-    logWithTimestamp('⏳ Waiting for container to be ready...');
+    logWithTimestamp('⏳ Waiting for image container to be ready...');
     
     // Instagram requires waiting for the container to be ready
     let status = 'IN_PROGRESS';
@@ -225,8 +246,8 @@ async function postToInstagram(
       };
     }
     
-    // Step 3: Publish the container
-    logWithTimestamp('📤 Publishing to Instagram...');
+    // Step 3: Publish the container (with image attached)
+    logWithTimestamp('📤 Publishing post to Instagram with image...');
     
     const publishUrl = `https://graph.facebook.com/v18.0/${config.instagramBusinessAccountId}/media_publish`;
     const publishParams = new URLSearchParams({
@@ -263,15 +284,30 @@ async function postToInstagram(
 
 /**
  * Get absolute image URL for recipe
+ * Ensures the image URL is publicly accessible via HTTPS for Instagram
  */
 function getRecipeImageUrl(recipe: { image: string }): string {
   const baseUrl = getSiteUrl();
   
-  if (recipe.image.startsWith('http')) {
+  // If already an absolute URL, ensure it's HTTPS
+  if (recipe.image.startsWith('http://') || recipe.image.startsWith('https://')) {
+    // Convert HTTP to HTTPS for Instagram (requires HTTPS)
+    if (recipe.image.startsWith('http://')) {
+      return recipe.image.replace('http://', 'https://');
+    }
     return recipe.image;
   }
   
-  return `${baseUrl}${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
+  // Convert relative path to absolute HTTPS URL
+  const imagePath = recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`;
+  const fullUrl = `${baseUrl}${imagePath}`;
+  
+  // Ensure HTTPS
+  if (fullUrl.startsWith('http://')) {
+    return fullUrl.replace('http://', 'https://');
+  }
+  
+  return fullUrl;
 }
 
 /**
@@ -293,6 +329,7 @@ async function main(shouldExit: boolean = false) {
   const config: InstagramApiConfig = {
     accessToken: process.env.INSTAGRAM_ACCESS_TOKEN || '',
     instagramBusinessAccountId: process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || '',
+    instagramAppId: process.env.INSTAGRAM_APP_ID || '',
     facebookPageId: process.env.FACEBOOK_PAGE_ID || '',
   };
 
@@ -318,14 +355,20 @@ async function main(shouldExit: boolean = false) {
     logWithTimestamp(`\n📝 Caption:\n${caption}\n`);
     logWithTimestamp(`🖼️  Image URL: ${imageUrl}\n`);
 
-    logWithTimestamp('📷 Posting to Instagram...');
-    logWithTimestamp(`   Using image URL: ${imageUrl}`);
+    logWithTimestamp('📷 Posting to Instagram with recipe image...');
+    logWithTimestamp(`   Recipe: "${recipe.title}"`);
+    logWithTimestamp(`   Image URL: ${imageUrl}`);
+    if (config.instagramAppId) {
+      logWithTimestamp(`   Instagram App ID: ${config.instagramAppId}`);
+    }
+    logWithTimestamp(`   ✅ Image will be attached to the Instagram post`);
     const result = await postToInstagram(imageUrl, caption, config);
 
     if (result.success) {
-      logWithTimestamp(`✅ Successfully posted to Instagram!`);
+      logWithTimestamp(`✅ Successfully posted to Instagram with image!`);
       logWithTimestamp(`   Media ID: ${result.mediaId}`);
-      logWithTimestamp(`   Recipe: ${recipe.title}`);
+      logWithTimestamp(`   Recipe: "${recipe.title}"`);
+      logWithTimestamp(`   Image: ${imageUrl}`);
     } else {
       logWithTimestamp(`❌ Failed to post to Instagram: ${result.error}`, 'error');
       if (shouldExit) process.exit(1);

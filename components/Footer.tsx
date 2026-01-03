@@ -34,7 +34,7 @@ export default function Footer() {
                 <FaXTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
               <a
-                href="https://www.facebook.com/profile.php?id=61586056221592"
+                href="https://www.facebook.com/vegan.cookin.recipes"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Facebook"
