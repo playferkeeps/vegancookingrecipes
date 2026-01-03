@@ -125,7 +125,7 @@ model Recipe {
   totalTime     Int // in minutes
   servings      Int
   difficulty    String // 'easy' | 'medium' | 'hard'
-  author        String    @default("Katie")
+  author        String    @default("Noah")
   datePublished DateTime  @default(now())
   dateModified  DateTime? @updatedAt
 
@@ -228,7 +228,7 @@ model BlogPost {
   excerpt       String    @db.Text
   content       String    @db.Text
   featuredImage String?   @map("featured_image")
-  author        String    @default("Katie")
+  author        String    @default("Noah")
   published     Boolean   @default(false)
   datePublished DateTime? @map("date_published")
   dateModified  DateTime? @updatedAt @map("date_modified")

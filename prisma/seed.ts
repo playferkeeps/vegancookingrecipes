@@ -271,7 +271,7 @@ async function main() {
               <p>I hope you love this ${recipe.title.toLowerCase()} as much as I do! It's a recipe that's close to my heart, and I'm so happy to share it with you. Happy cooking!</p>
             `,
             featuredImage: recipe.image,
-            author: 'Katie',
+            author: 'Noah',
             published: true,
             datePublished: new Date(),
             metaTitle: `How to Make ${recipe.title} - Vegan Recipe Guide`,

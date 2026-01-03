@@ -9,7 +9,7 @@ interface EmailSignupProps {
 
 /**
  * Email signup component with lead magnet
- * Promotes "Katie's 5 Favorite 'Messy Kitchen' 15-Minute Meals - Free PDF"
+ * Promotes "Noah's 5 Favorite 'Messy Kitchen' 15-Minute Meals - Free PDF"
  */
 export default function EmailSignup({ 
   variant = 'default',
@@ -56,7 +56,7 @@ export default function EmailSignup({
           Get My Free Recipe Guide! 🎁
         </h3>
         <p className="text-sm sm:text-base text-gray-700 mb-4">
-          Join my email list and get <strong>Katie&apos;s 5 Favorite &apos;Messy Kitchen&apos; 15-Minute Meals</strong> delivered to your inbox—free!
+          Join my email list and get <strong>Noah&apos;s 5 Favorite &apos;Messy Kitchen&apos; 15-Minute Meals</strong> delivered to your inbox—free!
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
@@ -99,7 +99,7 @@ export default function EmailSignup({
               Get My Free Recipe Guide! 🎁
             </h3>
             <p className="text-sm sm:text-base text-gray-700">
-              Join my email list and get <strong>Katie&apos;s 5 Favorite &apos;Messy Kitchen&apos; 15-Minute Meals</strong>—free PDF delivered to your inbox!
+              Join my email list and get <strong>Noah&apos;s 5 Favorite &apos;Messy Kitchen&apos; 15-Minute Meals</strong>—free PDF delivered to your inbox!
             </p>
           </div>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
@@ -137,7 +137,7 @@ export default function EmailSignup({
               Free Recipe Guide
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-gray-900">
-              Get Katie&apos;s 5 Favorite &apos;Messy Kitchen&apos; 15-Minute Meals
+              Get Noah&apos;s 5 Favorite &apos;Messy Kitchen&apos; 15-Minute Meals
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-2">
               Join my email list and I&apos;ll send you a free PDF with my absolute favorite quick meals—the ones I make when I&apos;m tired, hungry, and need something delicious fast.

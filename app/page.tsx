@@ -158,12 +158,12 @@ export default async function Home() {
           </div>
           <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
-              {/* Katie's Photo */}
+              {/* Noah's Photo */}
               <div className="flex-shrink-0">
                 <div className="rounded-full overflow-hidden shadow-2xl ring-4 ring-white/30 hover:ring-white/50 transition-all duration-300">
                   <Image
-                    src="/img/vcr-katie.png"
-                    alt="Katie - Barefoot Chef and Creator of vegancooking.recipes"
+                    src="/img/vcr-noah.png"
+                    alt="Noah - Barefoot Chef and Creator of vegancooking.recipes"
                     width={180}
                     height={180}
                     className="object-cover"
@@ -180,7 +180,7 @@ export default async function Home() {
                   </span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                  Hi, I&apos;m Katie
+                  Hi, I&apos;m Noah
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-6 max-w-2xl mx-auto md:mx-0 leading-relaxed">
                   I&apos;m so glad you&apos;re here! I&apos;ve been cooking up plant-based magic in my kitchen, and I&apos;m excited to share these recipes with you. Whether you&apos;re craving something sweet, savory, or from halfway around the world, I&apos;ve got you covered.
@@ -339,7 +339,7 @@ export default async function Home() {
                   Want to Know More About Me?
                 </h3>
                 <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto">
-                  Hello beautiful souls! I&apos;m Katie. 🌻 I believe the kitchen is a sacred space and that plants are our best medicine. I&apos;m a barefoot chef obsessed with whole foods, healing herbs, and cooking with intention.
+                  Hello beautiful souls! I&apos;m Noah. 🌻 I believe the kitchen is a sacred space and that plants are our best medicine. I&apos;m a barefoot chef obsessed with whole foods, healing herbs, and cooking with intention.
                 </p>
                 <Link
                   href="/about"

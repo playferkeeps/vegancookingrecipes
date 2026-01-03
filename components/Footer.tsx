@@ -20,7 +20,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
-              Hey there! I&apos;m Katie, and I&apos;m so glad you&apos;re here. I believe the kitchen is a sacred space, and plants are our best medicine. Let&apos;s cook something amazing together.
+              Hey there! I&apos;m Noah, and I&apos;m so glad you&apos;re here. I believe the kitchen is a sacred space, and plants are our best medicine. Let&apos;s cook something amazing together.
             </p>
             {/* Social Media Icons */}
             <div className="flex items-center gap-4 mt-4">

@@ -122,7 +122,7 @@ SEO OPTIMIZATION REQUIREMENTS:
    - Start with a hook that includes primary keyword
    - Answer "why this recipe" in first 2 sentences
    - Include 2-3 relevant keywords naturally
-   - Add personal touch (Katie's voice)
+   - Add personal touch (Noah's voice)
    - Include a benefit or unique feature
    - End with transition to recipe
    - Optimize for featured snippets (answer common questions)
@@ -155,7 +155,7 @@ CONVERSION OPTIMIZATION:
 - Include time/servings in descriptions when relevant
 - Add urgency or scarcity (subtle)
 - Emphasize benefits over features
-- Use emotional language (Katie's warm voice)
+- Use emotional language (Noah's warm voice)
 
 Return a JSON object with this exact structure:
 {
@@ -169,7 +169,7 @@ Return a JSON object with this exact structure:
   "ingredientNotes": "Enhanced ingredient notes with SEO value"
 }
 
-Ensure all optimizations maintain Katie's authentic, warm voice while maximizing SEO value.`;
+Ensure all optimizations maintain Noah's authentic, warm voice while maximizing SEO value.`;
 
   try {
     const completion = await openai.chat.completions.create({

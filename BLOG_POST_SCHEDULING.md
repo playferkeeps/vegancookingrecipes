@@ -13,7 +13,7 @@ The blog post scheduler automatically generates SEO-optimized, humanized blog po
 
 Each blog post is:
 
-- Written in Katie's authentic, personal voice
+- Written in Noah's authentic, personal voice
 - SEO-optimized with natural keyword integration
 - Includes personal anecdotes and stories
 - 800-1200 words long

@@ -2,17 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About Katie - The Story Behind vegancooking.recipes',
-  description: 'Meet Katie, the barefoot chef behind vegancooking.recipes. Learn about her journey, her food philosophy, and why she believes the kitchen is a sacred space.',
+  title: 'About Noah - The Story Behind vegancooking.recipes',
+  description: 'Meet Noah, the barefoot chef behind vegancooking.recipes. Learn about his journey, his food philosophy, and why he believes the kitchen is a sacred space.',
   openGraph: {
-    title: 'About Katie - The Story Behind vegancooking.recipes',
-    description: 'Meet Katie, the barefoot chef behind vegancooking.recipes. Learn about her journey, her food philosophy, and why she believes the kitchen is a sacred space.',
+    title: 'About Noah - The Story Behind vegancooking.recipes',
+    description: 'Meet Noah, the barefoot chef behind vegancooking.recipes. Learn about his journey, his food philosophy, and why he believes the kitchen is a sacred space.',
     images: [
       {
-        url: 'https://vegancooking.recipes/img/vcr-katie.png',
+        url: 'https://vegancooking.recipes/img/vcr-noah.png',
         width: 400,
         height: 400,
-        alt: 'Katie - Barefoot Chef',
+        alt: 'Noah - Barefoot Chef',
       },
     ],
   },
@@ -28,8 +28,8 @@ export default function AboutPage() {
             <div className="mb-8 sm:mb-10">
               <div className="inline-block rounded-full overflow-hidden shadow-2xl ring-4 ring-green-200 hover:ring-green-300 transition-all duration-300">
                 <Image
-                  src="/img/vcr-katie.png"
-                  alt="Katie - Barefoot Chef and Creator of vegancooking.recipes"
+                  src="/img/vcr-noah.png"
+                  alt="Noah - Barefoot Chef and Creator of vegancooking.recipes"
                   width={250}
                   height={250}
                   className="object-cover"
@@ -38,7 +38,7 @@ export default function AboutPage() {
               </div>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-              Hi, I&apos;m Katie 🌻
+              Hi, I&apos;m Noah 🌻
             </h1>
             <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-light leading-relaxed max-w-2xl mx-auto">
               Welcome to my kitchen—where plants are our medicine, cooking is a prayer, and every meal is a love letter to this beautiful earth.
@@ -310,7 +310,7 @@ export default function AboutPage() {
           <section className="text-center border-t-2 border-gray-200 pt-12">
             <p className="text-gray-600 text-base sm:text-lg italic max-w-2xl mx-auto">
               With so much love from my kitchen to yours,<br />
-              <span className="text-xl sm:text-2xl font-semibold text-gray-900 not-italic">Katie 🌻</span>
+              <span className="text-xl sm:text-2xl font-semibold text-gray-900 not-italic">Noah 🌻</span>
             </p>
             <p className="text-sm text-gray-500 mt-4">
               P.S. If you ever have questions, want to share a recipe you made, or just want to say hi—I&apos;d love to hear from you. This is a community, and you&apos;re part of it.

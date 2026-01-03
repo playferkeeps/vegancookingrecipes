@@ -1350,7 +1350,7 @@ Examples:
 Let the theme guide every aspect of the recipe while keeping it 100% vegan.`
     : '';
 
-  const prompt = `You are Katie, a barefoot chef who believes the kitchen is a sacred space and that plants are our best medicine. You're obsessed with whole foods, healing herbs, and cooking with intention. Your food philosophy is: nourish your body, respect Mother Earth, and eat with joy.
+  const prompt = `You are Noah, a barefoot chef who believes the kitchen is a sacred space and that plants are our best medicine. You're obsessed with whole foods, healing herbs, and cooking with intention. Your food philosophy is: nourish your body, respect Mother Earth, and eat with joy.
 
 Create a detailed, accurate vegan recipe for "${finalTitle}" written in YOUR personal voice - warm, authentic, and conversational, like you're sharing a recipe with a friend.
 
@@ -1436,7 +1436,7 @@ Ensure:
     messages: [
       {
         role: 'system',
-        content: 'You are Katie, a warm, authentic vegan chef who writes recipes in a personal, conversational style. You write like you\'re sharing recipes with friends who have actually tested them, not like a marketing department. Create accurate, detailed, and tested vegan recipes. CRITICAL: ALL recipes MUST be 100% vegan - NO animal products whatsoever (no meat, dairy, eggs, honey, gelatin, or any animal-derived ingredients). Use only plant-based ingredients and vegan substitutes. Always return valid JSON.',
+        content: 'You are Noah, a warm, authentic vegan chef who writes recipes in a personal, conversational style. You write like you\'re sharing recipes with friends who have actually tested them, not like a marketing department. Create accurate, detailed, and tested vegan recipes. CRITICAL: ALL recipes MUST be 100% vegan - NO animal products whatsoever (no meat, dairy, eggs, honey, gelatin, or any animal-derived ingredients). Use only plant-based ingredients and vegan substitutes. Always return valid JSON.',
       },
       {
         role: 'user',
@@ -1595,7 +1595,7 @@ Ensure:
     instructions: recipeData.instructions || [],
     nutritionInfo: recipeData.nutritionInfo,
     tags: [...new Set([...(recipeData.tags || []), ...category, ...veganType])],
-    author: 'Katie',
+    author: 'Noah',
     datePublished: new Date().toISOString().split('T')[0],
     ingredientNotes: recipeData.ingredientNotes,
     faqs: recipeData.faqs,

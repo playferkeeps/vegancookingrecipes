@@ -30,6 +30,7 @@
     "add-nutrition": "tsx scripts/add-nutrition-info.ts",
     "optimize-seo": "tsx scripts/optimize-recipe-seo.ts",
     "refresh-tokens": "tsx scripts/refresh-access-tokens.ts",
+    "update-katie-to-noah": "tsx scripts/update-katie-to-noah.ts",
     "prepare": "husky",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",

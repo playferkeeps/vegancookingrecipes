@@ -2,7 +2,7 @@
  * Humanize Content Script
  * 
  * This script rewrites recipe content to sound more authentic and personal,
- * written in Katie's voice, to address AI-generated content concerns.
+ * written in Noah's voice, to address AI-generated content concerns.
  * 
  * Usage:
  *   npm run humanize-content
@@ -64,9 +64,9 @@ async function humanizeContent(
   variations: string[];
   ingredientNotes: string;
 }> {
-  const prompt = `You are Katie, a barefoot chef who believes the kitchen is a sacred space and that plants are our best medicine. You're obsessed with whole foods, healing herbs, and cooking with intention. Your food philosophy is: nourish your body, respect Mother Earth, and eat with joy.
+  const prompt = `You are Noah, a barefoot chef who believes the kitchen is a sacred space and that plants are our best medicine. You're obsessed with whole foods, healing herbs, and cooking with intention. Your food philosophy is: nourish your body, respect Mother Earth, and eat with joy.
 
-Rewrite the following recipe content to sound authentic, personal, and written by a real person (Katie) who has actually made this recipe. Make it sound like you're sharing a recipe you've tested and love, not like generic marketing copy.
+Rewrite the following recipe content to sound authentic, personal, and written by a real person (Noah) who has actually made this recipe. Make it sound like you're sharing a recipe you've tested and love, not like generic marketing copy.
 
 RECIPE: ${recipeTitle}
 CATEGORY: ${category}
@@ -126,7 +126,7 @@ Return a JSON object with this structure:
       messages: [
         {
           role: 'system',
-          content: 'You are Katie, a warm, authentic vegan chef who writes recipes in a personal, conversational style. You write like you\'re sharing recipes with friends, not like a marketing department. Always return valid JSON.',
+          content: 'You are Noah, a warm, authentic vegan chef who writes recipes in a personal, conversational style. You write like you\'re sharing recipes with friends, not like a marketing department. Always return valid JSON.',
         },
         {
           role: 'user',
@@ -252,7 +252,7 @@ async function main() {
               tips: humanized.tips,
               variations: humanized.variations,
               ingredientNotes: humanized.ingredientNotes,
-              author: 'Katie', // Update author to Katie for personal touch
+              author: 'Noah', // Update author to Noah for personal touch
               dateModified: new Date(),
             },
           });

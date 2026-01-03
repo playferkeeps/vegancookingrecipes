@@ -5,10 +5,10 @@ import { getPrismaClient } from '@/lib/prisma';
 
 export const metadata: Metadata = {
   title: 'Vegan Cooking Blog | Recipes, Tips & Inspiration',
-  description: 'Discover delicious vegan recipes, cooking tips, and plant-based inspiration from Katie\'s kitchen. Learn about vegan cooking techniques, ingredient substitutions, and more.',
+  description: 'Discover delicious vegan recipes, cooking tips, and plant-based inspiration from Noah\'s kitchen. Learn about vegan cooking techniques, ingredient substitutions, and more.',
   openGraph: {
     title: 'Vegan Cooking Blog | Recipes, Tips & Inspiration',
-    description: 'Discover delicious vegan recipes, cooking tips, and plant-based inspiration from Katie\'s kitchen.',
+    description: 'Discover delicious vegan recipes, cooking tips, and plant-based inspiration from Noah\'s kitchen.',
     type: 'website',
   },
 };

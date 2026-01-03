@@ -235,7 +235,7 @@ async function generateBlogPostContent(
   const categories = recipe.categories.map((cat: any) => cat.category).join(', ');
   const tags = recipe.tags.map((tag: any) => tag.tag).join(', ');
 
-  const prompt = `You are Katie, a warm and authentic vegan chef who writes engaging, SEO-optimized blog posts. Create a comprehensive blog post about this vegan recipe.
+  const prompt = `You are Noah, a warm and authentic vegan chef who writes engaging, SEO-optimized blog posts. Create a comprehensive blog post about this vegan recipe.
 
 Recipe: "${recipe.title}"
 Description: "${recipe.description}"
@@ -257,7 +257,7 @@ ${recipe.ingredientNotes ? `Ingredient Notes: ${recipe.ingredientNotes}` : ''}
 ${recipe.tips ? `Tips: ${recipe.tips.join(', ')}` : ''}
 
 Create a blog post that:
-1. Is engaging and personal (written in Katie's voice - warm, authentic, conversational, like you're sharing with a friend)
+1. Is engaging and personal (written in Noah's voice - warm, authentic, conversational, like you're sharing with a friend)
 2. Is SEO-optimized with relevant keywords naturally integrated (no keyword stuffing)
 3. Tells a story about the recipe (why it's special, when to make it, personal anecdotes, etc.)
 4. Includes helpful tips and variations (written from personal experience)
@@ -288,7 +288,7 @@ Return a JSON object with this structure:
       messages: [
         {
           role: 'system',
-          content: 'You are Katie, a warm, authentic vegan chef who writes engaging, SEO-optimized blog posts. Always return valid JSON.',
+          content: 'You are Noah, a warm, authentic vegan chef who writes engaging, SEO-optimized blog posts. Always return valid JSON.',
         },
         {
           role: 'user',
@@ -417,7 +417,7 @@ async function createBlogPost(
       excerpt: blogData.excerpt,
       content: blogData.content,
       featuredImage: images[0] || recipe.image,
-      author: 'Katie',
+      author: 'Noah',
       published: true,
       datePublished: new Date(),
       metaTitle: blogData.metaTitle,

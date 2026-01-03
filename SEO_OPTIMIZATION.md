@@ -76,7 +76,7 @@ npm run optimize-seo -- --all --execute
 - Starts with a hook that includes primary keyword
 - Answers "why this recipe" in first 2 sentences
 - Includes 2-3 relevant keywords naturally
-- Maintains Katie's authentic, warm voice
+- Maintains Noah's authentic, warm voice
 - Includes benefits or unique features
 - Optimized for featured snippets (answers common questions)
 - 200-300 words for optimal SEO value
@@ -115,7 +115,7 @@ The script also applies conversion-focused optimizations:
 - **Time/servings**: Included in descriptions when relevant
 - **Urgency/scarcity**: Subtle hints to encourage action
 - **Benefits over features**: Emphasizes what users get, not just what it is
-- **Emotional language**: Maintains Katie's warm, authentic voice
+- **Emotional language**: Maintains Noah's warm, authentic voice
 
 ## Examples
 
