@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Recipe } from '@/types/recipe';
 import IngredientsList from '@/components/IngredientsList';
 
@@ -242,6 +243,20 @@ export default function VeganizePage() {
           <li>✅ Instructions are updated to reflect vegan cooking methods</li>
           <li>✅ You get a complete veganized recipe ready to cook!</li>
         </ul>
+      </div>
+
+      {/* Terms of Service Notice */}
+      <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <p className="text-sm text-blue-900">
+          <strong>Important:</strong> By using this tool, you agree that veganized recipes will be automatically 
+          saved and published to our website. The veganized recipe becomes publicly accessible and may be used 
+          by other visitors. Our AI transforms recipes using plant-based alternatives, but results may vary. 
+          Please review the{' '}
+          <Link href="/tos" className="underline font-medium hover:text-blue-700">
+            Terms of Service
+          </Link>{' '}
+          for complete details about how veganized recipes are handled.
+        </p>
       </div>
     </div>
   );
