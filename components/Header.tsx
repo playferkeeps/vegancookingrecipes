@@ -43,7 +43,7 @@ export default function Header() {
             <SearchBar className="flex-1" />
           </div>
           <ul className="hidden md:flex gap-4 lg:gap-6 items-center">
-            <li>
+            <li key="nav-home">
               <Link 
                 href="/" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
@@ -51,7 +51,7 @@ export default function Header() {
                 Home
               </Link>
             </li>
-            <li>
+            <li key="nav-recipes">
               <Link 
                 href="/recipes" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
@@ -59,7 +59,7 @@ export default function Header() {
                 All Recipes
               </Link>
             </li>
-            <li>
+            <li key="nav-categories">
               <Link 
                 href="/categories" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
@@ -67,7 +67,7 @@ export default function Header() {
                 Categories
               </Link>
             </li>
-            <li>
+            <li key="nav-meal-prep">
               <Link 
                 href="/meal-prep" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
@@ -75,7 +75,7 @@ export default function Header() {
                 Meal Prep
               </Link>
             </li>
-            <li>
+            <li key="nav-blog">
               <Link 
                 href="/blog" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
@@ -83,7 +83,7 @@ export default function Header() {
                 Blog
               </Link>
             </li>
-            <li>
+            <li key="nav-veganize">
               <Link 
                 href="/veganize" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base font-medium"
@@ -91,7 +91,7 @@ export default function Header() {
                 🌱 Veganize
               </Link>
             </li>
-            <li>
+            <li key="nav-about">
               <Link 
                 href="/#about" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
@@ -123,7 +123,7 @@ export default function Header() {
               <SearchBar className="w-full" />
             </div>
             <ul className="flex flex-col gap-2">
-              <li>
+              <li key="mobile-nav-home">
                 <Link 
                   href="/" 
                   className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
@@ -132,7 +132,7 @@ export default function Header() {
                   Home
                 </Link>
               </li>
-              <li>
+              <li key="mobile-nav-recipes">
                 <Link 
                   href="/recipes" 
                   className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
@@ -141,7 +141,7 @@ export default function Header() {
                   All Recipes
                 </Link>
               </li>
-              <li>
+              <li key="mobile-nav-categories">
                 <Link 
                   href="/categories" 
                   className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
@@ -150,7 +150,7 @@ export default function Header() {
                   Categories
                 </Link>
               </li>
-              <li>
+              <li key="mobile-nav-meal-prep">
                 <Link 
                   href="/meal-prep" 
                   className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
@@ -159,7 +159,7 @@ export default function Header() {
                   Meal Prep
                 </Link>
               </li>
-              <li>
+              <li key="mobile-nav-blog">
                 <Link 
                   href="/blog" 
                   className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
@@ -168,7 +168,7 @@ export default function Header() {
                   Blog
                 </Link>
               </li>
-              <li>
+              <li key="mobile-nav-veganize">
                 <Link 
                   href="/veganize" 
                   className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
@@ -177,7 +177,7 @@ export default function Header() {
                   🌱 Veganize
                 </Link>
               </li>
-              <li>
+              <li key="mobile-nav-about">
                 <Link 
                   href="/#about" 
                   className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
