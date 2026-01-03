@@ -113,6 +113,14 @@ export default function Footer() {
                   Contact Us
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/veganize"
+                  className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base block py-1 min-h-[44px] flex items-center"
+                >
+                  🌱 Veganize Recipe
+                </Link>
+              </li>
             </ul>
           </div>
 

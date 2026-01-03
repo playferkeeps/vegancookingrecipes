@@ -85,6 +85,14 @@ export default function Header() {
             </li>
             <li>
               <Link 
+                href="/veganize" 
+                className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base font-medium"
+              >
+                🌱 Veganize
+              </Link>
+            </li>
+            <li>
+              <Link 
                 href="/#about" 
                 className="text-gray-700 hover:text-green-600 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-2 py-1.5 text-sm lg:text-base"
               >
@@ -158,6 +166,15 @@ export default function Header() {
                   onClick={closeMenu}
                 >
                   Blog
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/veganize" 
+                  className="block text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 rounded px-4 py-3 text-base font-medium"
+                  onClick={closeMenu}
+                >
+                  🌱 Veganize
                 </Link>
               </li>
               <li>

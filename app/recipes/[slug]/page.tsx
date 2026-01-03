@@ -41,9 +41,12 @@ export async function generateMetadata({ params }: PageProps) {
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
   // Ensure image URL is absolute for Open Graph and Twitter
   // Twitter requires direct, publicly accessible image URLs
-  const imageUrl = recipe.image.startsWith('http') 
-    ? recipe.image 
-    : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
+  // Handle data URIs, HTTP URLs, and relative paths
+  const imageUrl = recipe.image && recipe.image.trim() !== ''
+    ? (recipe.image.startsWith('http') || recipe.image.startsWith('data:'))
+      ? recipe.image 
+      : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`
+    : 'https://vegancooking.recipes/img/vcr-logo-lg.png'; // Fallback to logo
   
   // Twitter image URL - use direct path (not Next.js optimized)
   // Recipe images are stored as direct paths in /recipe-images/ or /img/
@@ -160,9 +163,12 @@ async function getRecipeVoteStats(recipeId: string) {
 async function generateStructuredData(recipe: Recipe) {
   const url = `https://vegancooking.recipes/recipes/${recipe.slug}`;
   // Ensure image URL is absolute for structured data
-  const imageUrl = recipe.image.startsWith('http') 
-    ? recipe.image 
-    : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`;
+  // Handle data URIs, HTTP URLs, and relative paths
+  const imageUrl = recipe.image && recipe.image.trim() !== ''
+    ? (recipe.image.startsWith('http') || recipe.image.startsWith('data:'))
+      ? recipe.image 
+      : `https://vegancooking.recipes${recipe.image.startsWith('/') ? recipe.image : `/${recipe.image}`}`
+    : 'https://vegancooking.recipes/img/vcr-logo-lg.png'; // Fallback to logo
   
   // Get vote stats for AggregateRating
   const voteStats = await getRecipeVoteStats(recipe.id);
@@ -532,17 +538,19 @@ export default async function RecipePage({ params }: PageProps) {
             />
           </div>
 
-          <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] w-full rounded-lg overflow-hidden mb-6 sm:mb-8" style={{ aspectRatio: '16/9' }}>
-            <Image
-              src={recipe.image}
-              alt={`${recipe.title} - Vegan recipe hero image`}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, 800px"
-              style={{ objectFit: 'cover' }}
-            />
-          </div>
+          {recipe.image && (
+            <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[500px] w-full rounded-lg overflow-hidden mb-6 sm:mb-8" style={{ aspectRatio: '16/9' }}>
+              <Image
+                src={recipe.image}
+                alt={`${recipe.title} - Vegan recipe hero image`}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 800px"
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+          )}
         </header>
 
         {/* Prologue Section */}
