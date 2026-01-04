@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Recipe } from '@/types/recipe';
 import IngredientsList from '@/components/IngredientsList';
@@ -11,6 +11,23 @@ export default function VeganizePage() {
   const [error, setError] = useState<string | null>(null);
   const [veganizedRecipe, setVeganizedRecipe] = useState<Recipe | null>(null);
   const [recipeStatus, setRecipeStatus] = useState<{ saved: boolean; alreadyExists: boolean; recipeUrl: string | null } | null>(null);
+  const [veganizedCount, setVeganizedCount] = useState<number | null>(null);
+
+  // Fetch veganized recipe count on mount
+  useEffect(() => {
+    const fetchCount = async () => {
+      try {
+        const response = await fetch('/api/veganize/stats');
+        if (response.ok) {
+          const data = await response.json();
+          setVeganizedCount(data.veganizedCount || 0);
+        }
+      } catch (err) {
+        console.error('Failed to fetch veganized count:', err);
+      }
+    };
+    fetchCount();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,6 +57,11 @@ export default function VeganizePage() {
         alreadyExists: data.alreadyExists || false,
         recipeUrl: data.recipeUrl || null,
       });
+
+      // Update count if a new recipe was saved
+      if (data.saved) {
+        setVeganizedCount((prev) => (prev !== null ? prev + 1 : 1));
+      }
     } catch (err: any) {
       setError(err.message || 'An error occurred while veganizing the recipe');
     } finally {
@@ -53,9 +75,15 @@ export default function VeganizePage() {
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
           🌱 Veganize Any Recipe
         </h1>
-        <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-4">
           Paste a recipe URL and we&apos;ll transform it into a delicious vegan version!
         </p>
+        {veganizedCount !== null && (
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm sm:text-base text-green-800">
+            <span className="font-semibold">{veganizedCount.toLocaleString()}</span>
+            <span>recipes veganized and counting!</span>
+          </div>
+        )}
       </header>
 
       <form onSubmit={handleSubmit} className="mb-8 sm:mb-12">

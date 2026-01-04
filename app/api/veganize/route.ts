@@ -268,7 +268,7 @@ Return JSON:
   "difficulty": "easy"|"medium"|"hard",
   "category": ["category1"],
   "tags": ["tag1", "tag2"],
-  "ingredients": [{"name": "vegan ingredient", "amount": "amount", "unit": "unit", "notes": "substitution note"}],
+  "ingredients": [{"name": "vegan ingredient", "amount": "amount as string (e.g., '4', '1/2', '2 cups')", "unit": "unit", "notes": "substitution note"}],
   "instructions": [{"step": 1, "text": "completely original instruction text (rewritten, not copied)"}],
   "ingredientNotes": "Original notes about key substitutions (your own words)",
   "tips": ["original tip 1", "original tip 2"],
@@ -338,7 +338,7 @@ Use Noah's authentic voice. All text must be completely original to avoid copyri
       veganType: [],
       ingredients: (veganizedData.ingredients || []).map((ing: any, index: number) => ({
         name: ing.name || '',
-        amount: ing.amount || '',
+        amount: String(ing.amount || ''), // Ensure amount is always a string
         unit: ing.unit || undefined,
         notes: ing.notes || undefined,
       })) as Ingredient[],
