@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Recipe } from '@/types/recipe';
 import IngredientsList from '@/components/IngredientsList';
+import SocialShare from '@/components/SocialShare';
 
 export default function VeganizePage() {
   const [url, setUrl] = useState('');
@@ -73,17 +74,24 @@ export default function VeganizePage() {
     <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 max-w-4xl">
       <header className="mb-8 sm:mb-12 text-center">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-          🌱 Veganize Any Recipe
+          🌱 Free Vegan Recipe Converter - Get Vegan Version of Any Recipe
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-4">
-          Paste a recipe URL and we&apos;ll transform it into a delicious vegan version!
+          Transform any recipe into a <strong>vegan version</strong> instantly! Our free AI-powered <strong>vegan recipe converter</strong> creates delicious <strong>vegan recipes</strong> with perfect plant-based ingredient substitutions. Get <strong>vegan versions</strong> of your favorite dishes in seconds.
         </p>
         {veganizedCount !== null && (
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm sm:text-base text-green-800">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm sm:text-base text-green-800 mb-4">
             <span className="font-semibold">{veganizedCount.toLocaleString()}</span>
             <span>recipes veganized and counting!</span>
           </div>
         )}
+        <div className="mt-6 flex justify-center">
+          <SocialShare
+            url={`${typeof window !== 'undefined' ? window.location.origin : 'https://vegancooking.recipes'}/veganize`}
+            title="🌱 Veganize Any Recipe - Transform Recipes to Plant-Based"
+            description="Use our AI-powered tool to instantly convert any recipe URL into a delicious, fully vegan version!"
+          />
+        </div>
       </header>
 
       <form onSubmit={handleSubmit} className="mb-8 sm:mb-12">
@@ -138,12 +146,26 @@ export default function VeganizePage() {
         <article className="bg-white rounded-lg shadow-lg p-6 sm:p-8">
           {/* Recipe Header */}
           <header className="mb-6 sm:mb-8 border-b border-gray-200 pb-6">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-              {veganizedRecipe.title}
-            </h2>
-            {veganizedRecipe.description && (
-              <p className="text-gray-600 text-lg">{veganizedRecipe.description}</p>
-            )}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+              <div className="flex-1">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                  {veganizedRecipe.title}
+                </h2>
+                {veganizedRecipe.description && (
+                  <p className="text-gray-600 text-lg">{veganizedRecipe.description}</p>
+                )}
+              </div>
+              <div className="flex-shrink-0">
+                <SocialShare
+                  url={recipeStatus?.recipeUrl 
+                    ? `${typeof window !== 'undefined' ? window.location.origin : 'https://vegancooking.recipes'}${recipeStatus.recipeUrl}`
+                    : `${typeof window !== 'undefined' ? window.location.origin : 'https://vegancooking.recipes'}/veganize`}
+                  title={veganizedRecipe.title}
+                  description={veganizedRecipe.description || `Check out this delicious vegan recipe: ${veganizedRecipe.title}`}
+                  image={veganizedRecipe.image}
+                />
+              </div>
+            </div>
             
             {/* Recipe Meta */}
             <div className="flex flex-wrap gap-4 sm:gap-6 mt-4 text-sm sm:text-base text-gray-600">
@@ -263,15 +285,82 @@ export default function VeganizePage() {
 
       {/* Info Section */}
       <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-        <h3 className="text-lg font-semibold text-gray-900 mb-3">How it works</h3>
-        <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
-          <li>✅ Paste any recipe URL from popular cooking sites</li>
-          <li>✅ Our AI extracts the recipe information</li>
-          <li>✅ Non-vegan ingredients are automatically replaced with plant-based alternatives</li>
-          <li>✅ Instructions are updated to reflect vegan cooking methods</li>
-          <li>✅ You get a complete veganized recipe ready to cook!</li>
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">How Our Vegan Recipe Converter Works</h2>
+        <p className="text-base sm:text-lg text-gray-700 mb-4">
+          Getting a <strong>vegan version</strong> of any recipe is simple with our free <strong>vegan recipe converter</strong>. Here&apos;s how to create <strong>vegan recipes</strong> instantly:
+        </p>
+        <ul className="space-y-3 text-gray-700 text-base sm:text-lg">
+          <li className="flex items-start">
+            <span className="mr-3 text-green-600 font-bold">✅</span>
+            <span><strong>Paste any recipe URL</strong> from popular cooking sites - our <strong>vegan recipe converter</strong> works with any recipe</span>
+          </li>
+          <li className="flex items-start">
+            <span className="mr-3 text-green-600 font-bold">✅</span>
+            <span><strong>Our AI extracts</strong> all recipe information and identifies non-vegan ingredients</span>
+          </li>
+          <li className="flex items-start">
+            <span className="mr-3 text-green-600 font-bold">✅</span>
+            <span><strong>Automatic vegan substitutions</strong> - non-vegan ingredients are replaced with perfect plant-based alternatives to create your <strong>vegan version</strong></span>
+          </li>
+          <li className="flex items-start">
+            <span className="mr-3 text-green-600 font-bold">✅</span>
+            <span><strong>Updated instructions</strong> - cooking methods are adjusted for <strong>vegan recipes</strong> with plant-based techniques</span>
+          </li>
+          <li className="flex items-start">
+            <span className="mr-3 text-green-600 font-bold">✅</span>
+            <span><strong>Complete vegan recipe</strong> - you get a full <strong>vegan version</strong> ready to cook, with all ingredients and instructions</span>
+          </li>
         </ul>
+        <p className="text-base sm:text-lg text-gray-700 mt-4">
+          Our <strong>vegan recipe converter</strong> is completely free and creates <strong>vegan versions</strong> in seconds. Try it now to get <strong>vegan recipes</strong> for any dish!
+        </p>
       </div>
+
+      {/* SEO Content - Why Use Our Vegan Recipe Converter */}
+      <section className="mt-12 mb-8 bg-white border border-gray-200 rounded-lg p-6 sm:p-8">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          Why Use Our Free Vegan Recipe Converter?
+        </h2>
+        <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
+          <p className="text-base sm:text-lg leading-relaxed">
+            Our <strong>vegan recipe converter</strong> is the easiest way to get <strong>vegan versions</strong> of any recipe. Whether you&apos;re looking for <strong>vegan recipes</strong> for dinner, breakfast, or dessert, our tool instantly creates perfect <strong>vegan versions</strong> with intelligent plant-based substitutions.
+          </p>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">
+            Get Vegan Versions of Your Favorite Recipes
+          </h3>
+          <p className="text-base sm:text-lg leading-relaxed">
+            Want a <strong>vegan version</strong> of grandma&apos;s chocolate cake? Need <strong>vegan recipes</strong> for your favorite comfort foods? Our <strong>vegan recipe converter</strong> makes it simple. Just paste the recipe URL and get an instant <strong>vegan version</strong> with all the flavor and none of the animal products.
+          </p>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">
+            Perfect Vegan Recipe Substitutions
+          </h3>
+          <p className="text-base sm:text-lg leading-relaxed">
+            Our AI-powered <strong>vegan recipe converter</strong> knows the best plant-based alternatives for every ingredient. From <strong>vegan recipes</strong> that use flax eggs instead of eggs, to <strong>vegan versions</strong> with cashew cream instead of dairy, we create <strong>vegan recipes</strong> that actually work.
+          </p>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mt-6 mb-3">
+            Explore Our Vegan Recipe Collection
+          </h3>
+          <p className="text-base sm:text-lg leading-relaxed">
+            Already have <strong>vegan recipes</strong> you love? Browse our collection of <strong>vegan recipes</strong> for inspiration, or use our <strong>vegan recipe converter</strong> to create new <strong>vegan versions</strong> of dishes you&apos;ve always wanted to try. Check out our{' '}
+            <Link href="/recipes" className="text-green-600 hover:text-green-700 underline font-medium">
+              vegan recipe collection
+            </Link>
+            {' '}or explore by category:{' '}
+            <Link href="/categories/baking" className="text-green-600 hover:text-green-700 underline font-medium">
+              vegan baking recipes
+            </Link>
+            ,{' '}
+            <Link href="/categories/savory" className="text-green-600 hover:text-green-700 underline font-medium">
+              savory vegan recipes
+            </Link>
+            , and{' '}
+            <Link href="/categories/dessert" className="text-green-600 hover:text-green-700 underline font-medium">
+              vegan dessert recipes
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
 
       {/* Terms of Service Notice */}
       <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
