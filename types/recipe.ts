@@ -73,5 +73,6 @@ export interface Recipe {
   variations?: string[]; // Recipe variations
   storage?: string; // Storage instructions
   relatedRecipeIds?: string[]; // Related recipes for internal linking
+  originalUrl?: string; // Original recipe URL for veganized recipes (attribution)
 }
 

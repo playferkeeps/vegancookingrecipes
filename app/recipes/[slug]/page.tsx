@@ -553,6 +553,24 @@ export default async function RecipePage({ params }: PageProps) {
           )}
         </header>
 
+        {/* Attribution for Veganized Recipes */}
+        {recipe.originalUrl && (
+          <div className="mb-6 sm:mb-8 p-4 bg-blue-50 border-l-4 border-blue-400 rounded">
+            <p className="text-sm sm:text-base text-blue-900">
+              <strong>Veganized Recipe:</strong> This recipe was adapted from{' '}
+              <a 
+                href={recipe.originalUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline font-medium"
+              >
+                the original recipe
+              </a>
+              {' '}and transformed into a vegan version using AI.
+            </p>
+          </div>
+        )}
+
         {/* Prologue Section */}
         <section className="mb-6 sm:mb-8">
           <div className="prose prose-sm sm:prose-base md:prose-lg max-w-none px-1 sm:px-0">

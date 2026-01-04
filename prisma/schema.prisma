@@ -134,6 +134,7 @@ model Recipe {
   tips            String[] // Array of tips
   variations      String[] // Array of variations
   storage         String?  @db.Text
+  originalUrl     String?  @db.Text // Original recipe URL for veganized recipes (attribution)
 
   // Relations
   categories     RecipeCategory[]
@@ -206,12 +207,12 @@ model RecipeView {
 
 // Blog post images
 model BlogPostImage {
-  id        String   @id @default(uuid())
+  id         String  @id @default(uuid())
   blogPostId String  @map("blog_post_id")
-  url       String
-  alt       String
-  caption   String?
-  orderIndex Int      @default(0) @map("order_index")
+  url        String
+  alt        String
+  caption    String?
+  orderIndex Int     @default(0) @map("order_index")
 
   blogPost BlogPost @relation(fields: [blogPostId], references: [id], onDelete: Cascade)
 
@@ -232,18 +233,18 @@ model BlogPost {
   published     Boolean   @default(false)
   datePublished DateTime? @map("date_published")
   dateModified  DateTime? @updatedAt @map("date_modified")
-  
+
   // SEO fields
-  metaTitle       String?  @map("meta_title")
-  metaDescription String?  @db.Text @map("meta_description")
-  metaKeywords    String?  @db.Text @map("meta_keywords")
-  ogImage         String?  @map("og_image")
-  
+  metaTitle       String? @map("meta_title")
+  metaDescription String? @map("meta_description") @db.Text
+  metaKeywords    String? @map("meta_keywords") @db.Text
+  ogImage         String? @map("og_image")
+
   // Related recipes
   relatedRecipeIds String[] @map("related_recipe_ids")
-  
+
   // Images
-  images        BlogPostImage[]
+  images BlogPostImage[]
 
   @@index([slug])
   @@index([published])

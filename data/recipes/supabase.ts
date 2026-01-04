@@ -153,6 +153,7 @@ function supabaseToRecipe(row: any): Recipe {
     })),
     tags: (row.tags || []).map((tagRow: any) => tagRow.tag),
     relatedRecipeIds: row.relatedRecipes?.map((rr: any) => rr.relatedId) || [],
+    originalUrl: row.originalUrl || undefined,
   };
 }
 

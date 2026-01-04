@@ -185,6 +185,7 @@ async function saveRecipeToDatabase(recipe: Recipe): Promise<void> {
         tips: recipe.tips || [],
         variations: recipe.variations || [],
         storage: recipe.storage,
+        originalUrl: recipe.originalUrl || null,
         // Categories
         categories: {
           create: recipe.category.map((cat) => ({ category: cat })),
@@ -234,19 +235,32 @@ async function extractAndVeganizeRecipe(html: string, url: string): Promise<Reci
     ? textContent.substring(0, 15000) + '...' 
     : textContent;
 
-  const prompt = `Extract recipe from this content and veganize it in one step.
+  const prompt = `Extract recipe from this content and create a completely original vegan version.
 
 URL: ${url}
 
 Content:
 ${limitedText}
 
-Extract the recipe, then immediately transform it to vegan by replacing non-vegan ingredients with plant-based alternatives. Return JSON:
+CRITICAL COPYRIGHT COMPLIANCE REQUIREMENTS:
+- You must REWRITE all text content in completely original wording. Do NOT copy or closely paraphrase the original text.
+- Instructions must be completely rewritten with different phrasing, sentence structure, and word choice while maintaining the same cooking steps.
+- Description and prologue must be entirely original, not copied from the source.
+- Use your own creative voice and cooking expertise to describe the process.
+- The recipe structure and steps can be similar, but every word must be your own original writing.
+
+Extract the recipe concept, then create a completely original vegan version by:
+1. Replacing non-vegan ingredients with plant-based alternatives
+2. Completely rewriting all instructions in your own original words
+3. Writing an original description and prologue (150-200 words) about the veganized recipe
+4. Creating original tips and notes based on your vegan cooking expertise
+
+Return JSON:
 
 {
   "title": "Vegan [Recipe Title]",
-  "description": "Brief vegan description",
-  "prologue": "150-200 word intro about veganizing this recipe",
+  "description": "Original brief vegan description (completely rewritten, not copied)",
+  "prologue": "150-200 word original intro about veganizing this recipe (entirely original text)",
   "prepTime": number,
   "cookTime": number,
   "totalTime": number,
@@ -255,13 +269,13 @@ Extract the recipe, then immediately transform it to vegan by replacing non-vega
   "category": ["category1"],
   "tags": ["tag1", "tag2"],
   "ingredients": [{"name": "vegan ingredient", "amount": "amount", "unit": "unit", "notes": "substitution note"}],
-  "instructions": [{"step": 1, "text": "vegan instruction"}],
-  "ingredientNotes": "Key substitutions made",
-  "tips": ["tip1", "tip2"],
-  "storage": "storage info"
+  "instructions": [{"step": 1, "text": "completely original instruction text (rewritten, not copied)"}],
+  "ingredientNotes": "Original notes about key substitutions (your own words)",
+  "tips": ["original tip 1", "original tip 2"],
+  "storage": "original storage info"
 }
 
-Use Noah's voice. Be concise.`;
+Use Noah's authentic voice. All text must be completely original to avoid copyright issues.`;
 
   try {
     // Use gpt-4o-mini which is ~10x cheaper than gpt-4o
@@ -270,7 +284,7 @@ Use Noah's voice. Be concise.`;
       messages: [
         {
           role: 'system',
-          content: 'You are Noah, a vegan chef. Extract recipes from content and veganize them in one step. Return JSON only.',
+          content: 'You are Noah, a vegan chef and recipe developer. When veganizing recipes, you must completely rewrite all text content in your own original words to ensure copyright compliance. Never copy or closely paraphrase original recipe text. Use your creative expertise to describe cooking processes in entirely new wording. Return JSON only.',
         },
         {
           role: 'user',
@@ -278,8 +292,8 @@ Use Noah's voice. Be concise.`;
         },
       ],
       response_format: { type: 'json_object' },
-      temperature: 0.6,
-      max_tokens: 2000, // Limit response size to reduce costs
+      temperature: 0.8, // Higher temperature for more creative/original rewording
+      max_tokens: 2500, // Increased to allow for more detailed original descriptions
     });
 
     const content = completion.choices[0]?.message?.content;
@@ -339,6 +353,7 @@ Use Noah's voice. Be concise.`;
       tips: veganizedData.tips || [],
       variations: [],
       storage: veganizedData.storage || undefined,
+      originalUrl: url, // Store original URL for attribution
     };
 
     return recipe;
