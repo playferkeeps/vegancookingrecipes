@@ -92,10 +92,10 @@ function getSiteUrl(): string {
 }
 
 /**
- * Generate tweet text for a recipe
+ * Generate engaging tweet text for a recipe with engagement hooks
  * Ensures the full URL is always included and never truncated
  */
-function generateTweetText(recipe: { title: string; slug: string; description?: string }): string {
+function generateTweetText(recipe: { title: string; slug: string; description?: string; category?: string[] }): string {
   const baseUrl = getSiteUrl();
   const recipeUrl = `${baseUrl}/recipes/${recipe.slug}`;
   
@@ -105,18 +105,28 @@ function generateTweetText(recipe: { title: string; slug: string; description?: 
   }
   
   // Create engaging tweet text
-  const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿'];
+  const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿', '🍃'];
   const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+  
+  // Short engagement hooks that fit in tweets
+  const engagementHooks = [
+    "Who's trying this? 👇",
+    "Save for later! 📌",
+    "Tag someone! 👥",
+    "Drop a ❤️ if you're saving this!",
+    "What do you think? 💭",
+  ];
   
   // Build the fixed parts (emoji, title, URL with spacing)
   // Twitter counts URLs as 23 characters, but we need to ensure the full URL is included
   const urlWithSpacing = `\n\n${recipeUrl}`;
   const titleWithEmoji = `${randomEmoji} ${recipe.title}`;
+  const randomHook = engagementHooks[Math.floor(Math.random() * engagementHooks.length)];
   
-  // Calculate available space for description
-  // 280 char limit - title - URL - spacing - description separator
-  const fixedPartsLength = titleWithEmoji.length + urlWithSpacing.length + 3; // +3 for " - "
-  const maxDescriptionLength = 280 - fixedPartsLength;
+  // Calculate available space for description and hook
+  // 280 char limit - title - URL - spacing - hook
+  const fixedPartsLength = titleWithEmoji.length + urlWithSpacing.length + randomHook.length + 3; // +3 for spacing
+  const maxDescriptionLength = Math.max(0, 280 - fixedPartsLength - 10); // -10 for safety buffer
   
   // Start with title and emoji
   let tweetText = titleWithEmoji;
@@ -129,21 +139,24 @@ function generateTweetText(recipe: { title: string; slug: string; description?: 
     }
   }
   
+  // Add engagement hook
+  tweetText += `\n\n${randomHook}`;
+  
   // Always append the full URL (never truncate this)
   tweetText += urlWithSpacing;
   
   // Final safety check: if somehow still too long, truncate description further
-  // But NEVER truncate the URL
+  // But NEVER truncate the URL or hook
   if (tweetText.length > 280) {
-    const currentDescriptionLength = tweetText.length - titleWithEmoji.length - urlWithSpacing.length - 3;
+    const currentDescriptionLength = tweetText.length - titleWithEmoji.length - urlWithSpacing.length - randomHook.length - 6;
     const newMaxDescriptionLength = Math.max(0, currentDescriptionLength - (tweetText.length - 280));
     
     if (recipe.description && newMaxDescriptionLength > 0) {
       const truncatedDescription = recipe.description.substring(0, newMaxDescriptionLength);
-      tweetText = `${titleWithEmoji} - ${truncatedDescription}${urlWithSpacing}`;
+      tweetText = `${titleWithEmoji} - ${truncatedDescription}\n\n${randomHook}${urlWithSpacing}`;
     } else {
-      // If we can't fit description, just use title and URL
-      tweetText = `${titleWithEmoji}${urlWithSpacing}`;
+      // If we can't fit description, just use title, hook, and URL
+      tweetText = `${titleWithEmoji}\n\n${randomHook}${urlWithSpacing}`;
     }
   }
   

@@ -108,9 +108,9 @@ function getSiteUrl(): string {
 }
 
 /**
- * Generate post text for a recipe
+ * Generate engaging Facebook post text for a recipe with engagement hooks
  */
-function generatePostText(recipe: { title: string; slug: string; description?: string }): string {
+function generatePostText(recipe: { title: string; slug: string; description?: string; category?: string[] }): string {
   const baseUrl = getSiteUrl();
   const recipeUrl = `${baseUrl}/recipes/${recipe.slug}`;
   
@@ -119,14 +119,46 @@ function generatePostText(recipe: { title: string; slug: string; description?: s
     throw new Error(`Invalid recipe URL: ${recipeUrl} - must be from vegancooking.recipes domain`);
   }
 
-  const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿', '🥑'];
+  const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿', '🥑', '🍃', '🥬'];
   const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+  // Engagement questions for Facebook
+  const engagementQuestions = [
+    "Who's trying this recipe this week? Let me know in the comments! 👇",
+    "Have you made something similar? Share your tips below! 💬",
+    "What's your go-to vegan recipe? Drop it in the comments! 🥕",
+    "Tag a friend who would love this! 👥",
+    "What would you pair this with? Let's chat! 💭",
+    "Save this post for later! 📌",
+    "Who's cooking this weekend? 🙋‍♀️",
+  ];
+
+  // Recipe-specific hooks
+  const getRecipeHook = (title: string, category?: string[]): string => {
+    const lowerTitle = title.toLowerCase();
+    if (lowerTitle.includes('easy') || lowerTitle.includes('quick')) {
+      return "Quick, easy, and absolutely delicious! Perfect for busy weeknights. ⚡";
+    }
+    if (lowerTitle.includes('comfort') || lowerTitle.includes('cozy')) {
+      return "The ultimate comfort food, made vegan! Perfect for those cozy nights in. 🏠";
+    }
+    if (category?.some(c => c.toLowerCase().includes('dessert'))) {
+      return "Who says vegan desserts can't be amazing? This one will blow your mind! 🍰";
+    }
+    return "A new favorite that's sure to impress! 🌟";
+  };
+
+  const randomQuestion = engagementQuestions[Math.floor(Math.random() * engagementQuestions.length)];
+  const recipeHook = getRecipeHook(recipe.title, recipe.category);
 
   let postText = `${randomEmoji} ${recipe.title}\n\n`;
   
+  // Add recipe hook
+  postText += `${recipeHook}\n\n`;
+  
   if (recipe.description) {
     // Truncate description if too long (Facebook has a 5000 character limit, but we'll keep it shorter)
-    const maxDescriptionLength = 200;
+    const maxDescriptionLength = 180;
     if (recipe.description.length > maxDescriptionLength) {
       postText += `${recipe.description.substring(0, maxDescriptionLength)}...\n\n`;
     } else {
@@ -134,8 +166,45 @@ function generatePostText(recipe: { title: string; slug: string; description?: s
     }
   }
   
+  // Add engagement question
+  postText += `${randomQuestion}\n\n`;
+  
+  // Add CTA and URL
   postText += `👉 Get the full recipe: ${recipeUrl}\n\n`;
-  postText += `#VeganRecipes #PlantBased #VeganCooking #HealthyEating`;
+  
+  // Comprehensive hashtag strategy - 30 hashtags for maximum reach
+  const baseHashtags = [
+    '#VeganRecipes', '#PlantBased', '#VeganCooking', '#HealthyEating', '#VeganFood',
+    '#VeganMeals', '#PlantBasedCooking', '#VeganRecipe', '#VeganLife', '#VeganFoodie',
+    '#VeganCommunity', '#VeganFoodShare', '#PlantBasedRecipes', '#VeganCookingTips', '#VeganMealIdeas',
+    '#VeganDinner', '#VeganLunch', '#VeganBreakfast', '#VeganDessert', '#VeganSnacks',
+    '#VeganBaking', '#VeganChef', '#VeganFoodBlog', '#VeganFoodPorn', '#VeganFoodLover',
+    '#PlantBasedFood', '#PlantBasedDiet', '#VeganEats', '#VeganYum', '#VeganInspiration',
+  ];
+  
+  // Category-specific hashtags
+  const categoryHashtags = recipe.category?.map(cat => {
+    const capitalized = cat.charAt(0).toUpperCase() + cat.slice(1);
+    return `#Vegan${capitalized}`;
+  }) || [];
+  
+  // Additional niche hashtags
+  const nicheHashtags = [
+    '#VeganFoodPhotography', '#VeganFoodBlogger', '#PlantBasedLiving', '#VeganLifestyle',
+    '#VeganFoodJourney', '#VeganFoodAdventure', '#VeganFoodLove', '#VeganFoodGram',
+  ];
+  
+  // Combine all hashtags, remove duplicates, and ensure we have exactly 30
+  const hashtagSet = new Set([
+    ...baseHashtags,
+    ...categoryHashtags.slice(0, 5), // Up to 5 category hashtags
+    ...nicheHashtags.slice(0, 5), // Up to 5 niche hashtags
+  ]);
+  
+  // Convert to array and trim to exactly 30 hashtags
+  const allHashtags = Array.from(hashtagSet).slice(0, 30);
+  
+  postText += allHashtags.join(' ');
 
   return postText;
 }

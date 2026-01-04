@@ -237,7 +237,7 @@ async function generateBlogPostContent(
 
   const prompt = `You are Noah, a warm and authentic vegan chef who writes engaging, SEO-optimized blog posts. Create a comprehensive blog post about this vegan recipe.
 
-Recipe: "${recipe.title}"
+Recipe: "${recipe.title}"${recipe.title}"
 Description: "${recipe.description}"
 Categories: ${categories}
 Tags: ${tags}
@@ -269,7 +269,12 @@ Create a blog post that:
 10. Avoids generic phrases like "absolutely delicious" or "perfect for" - be specific and personal
 11. Includes personal anecdotes, memories, or experiences with this recipe
 
-Also suggest 3-5 image prompts for blog post images (ingredients, cooking process, final dish, etc.). Make them descriptive and appetizing.
+Also suggest exactly 3 meaningful, contextual image prompts that directly relate to the blog post content. Each image should serve a specific purpose:
+1. **Hero/Featured Image**: A stunning, appetizing photo of the final dish that would work as the main featured image. This should be the most visually appealing and make people want to try the recipe.
+2. **Process/Ingredients Image**: A beautiful shot showing key ingredients arranged artfully OR a step in the cooking process that's visually interesting (e.g., mixing, chopping, ingredients laid out).
+3. **Context/Serving Image**: A lifestyle shot showing the dish in context - either being served, on a table setting, or in a way that shows how it would be enjoyed.
+
+Make each prompt highly descriptive, specific to this recipe, and focused on creating images that enhance the blog post story. Avoid generic prompts - be specific about the dish, ingredients, and context.
 
 Return a JSON object with this structure:
 {
@@ -279,7 +284,7 @@ Return a JSON object with this structure:
   "metaTitle": "SEO meta title (50-60 characters)",
   "metaDescription": "SEO meta description (150-160 characters)",
   "metaKeywords": "Comma-separated SEO keywords",
-  "imagePrompts": ["prompt 1", "prompt 2", "prompt 3", "prompt 4", "prompt 5"]
+  "imagePrompts": ["hero image prompt", "process/ingredients image prompt", "context/serving image prompt"]
 }`;
 
   try {
@@ -331,7 +336,7 @@ Return a JSON object with this structure:
 }
 
 /**
- * Generate blog post images
+ * Generate blog post images - maximum 3 meaningful, contextual images
  */
 async function generateBlogImages(
   replicate: Replicate,
@@ -340,10 +345,25 @@ async function generateBlogImages(
   recipeTitle: string
 ): Promise<string[]> {
   const imageUrls: string[] = [];
+  
+  // Limit to maximum 3 images and ensure we have meaningful prompts
+  const maxImages = 3;
+  const promptsToUse = imagePrompts.slice(0, maxImages);
+  
+  // Image type labels for better logging
+  const imageTypes = ['Hero/Featured', 'Process/Ingredients', 'Context/Serving'];
 
-  for (let i = 0; i < Math.min(imagePrompts.length, 5); i++) {
-    const prompt = imagePrompts[i];
-    const filename = `${generateSlug(recipeTitle)}-blog-${i + 1}-${Date.now()}.webp`;
+  if (promptsToUse.length === 0) {
+    logger.warn('   ⚠️  No image prompts provided, skipping image generation');
+    return imageUrls;
+  }
+
+  logger.log(`   📸 Generating ${promptsToUse.length} meaningful blog post image(s)...`);
+
+  for (let i = 0; i < promptsToUse.length; i++) {
+    const prompt = promptsToUse[i];
+    const imageType = imageTypes[i] || `Image ${i + 1}`;
+    const filename = `${generateSlug(recipeTitle)}-blog-${imageType.toLowerCase().replace(/\//g, '-')}-${Date.now()}.webp`;
 
     try {
       // Add delay between requests to respect rate limits (6 requests per minute = 10 seconds between requests)
@@ -354,12 +374,13 @@ async function generateBlogImages(
         await new Promise(resolve => setTimeout(resolve, delay));
       }
 
-      logger.log(`   🖼️  Generating image ${i + 1}/${Math.min(imagePrompts.length, 5)}: ${prompt.substring(0, 50)}...`);
+      logger.log(`   🖼️  Generating ${imageType} image (${i + 1}/${promptsToUse.length}): ${prompt.substring(0, 60)}...`);
       const imageUrl = await generateBlogImage(replicate, prompt, filename);
       imageUrls.push(imageUrl);
-      logger.success(`   ✅ Image ${i + 1} saved: ${imageUrl}`);
+      logger.success(`   ✅ ${imageType} image saved: ${imageUrl}`);
     } catch (error: any) {
-      logger.warn(`   ⚠️  Failed to generate image ${i + 1}: ${error.message}`);
+      logger.warn(`   ⚠️  Failed to generate ${imageType} image: ${error.message}`);
+      // Continue with other images even if one fails
     }
   }
 

@@ -107,20 +107,71 @@ function getSiteUrl(): string {
 }
 
 /**
- * Generate Instagram caption for a recipe
+ * Generate engaging Instagram caption for a recipe with engagement hooks
  * Instagram doesn't allow clickable links in posts, so we include the URL in the caption
  */
-function generateInstagramCaption(recipe: { title: string; slug: string; description?: string }): string {
+function generateInstagramCaption(recipe: { title: string; slug: string; description?: string; category?: string[] }): string {
   const baseUrl = getSiteUrl();
   const recipeUrl = `${baseUrl}/recipes/${recipe.slug}`;
   
-  const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿', '🥑'];
+  const emojis = ['🌱', '🥕', '🥗', '🍽️', '✨', '💚', '🌿', '🥑', '🍃', '🥬'];
   const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+  // Engagement questions based on recipe type
+  const engagementQuestions = [
+    "Who's making this tonight? 👇",
+    "Save this for later! 📌",
+    "Tag someone who needs to try this! 👥",
+    "What's your favorite vegan recipe? Let me know below! 💬",
+    "Have you tried this before? Share your experience! ✨",
+    "Which ingredient are you most excited about? 🥕",
+    "Drop a ❤️ if you're saving this recipe!",
+    "What would you serve this with? Let's chat! 💭",
+    "Who's ready to cook this weekend? 🙋‍♀️",
+    "Comment your favorite vegan cooking tip! 💡",
+  ];
+
+  // Call-to-action variations
+  const ctas = [
+    "👉 Full recipe in bio link!",
+    "👉 Get the full recipe:",
+    "👉 Recipe link in bio!",
+    "👉 Full recipe below!",
+    "👉 Check out the full recipe:",
+  ];
+
+  // Recipe-specific engagement hooks
+  const getRecipeHook = (title: string, category?: string[]): string => {
+    const lowerTitle = title.toLowerCase();
+    if (lowerTitle.includes('cake') || lowerTitle.includes('dessert') || lowerTitle.includes('cookie')) {
+      return "Perfect for satisfying that sweet tooth! 🍰";
+    }
+    if (lowerTitle.includes('soup') || lowerTitle.includes('stew')) {
+      return "Comfort food at its finest! Perfect for cozy nights. 🍲";
+    }
+    if (lowerTitle.includes('salad')) {
+      return "Fresh, healthy, and absolutely delicious! 🥗";
+    }
+    if (lowerTitle.includes('pasta') || lowerTitle.includes('noodle')) {
+      return "The ultimate comfort food, vegan style! 🍝";
+    }
+    if (category?.some(c => c.toLowerCase().includes('breakfast'))) {
+      return "Start your day right with this! ☀️";
+    }
+    return "A new favorite in the making! 🌟";
+  };
+
+  const randomQuestion = engagementQuestions[Math.floor(Math.random() * engagementQuestions.length)];
+  const randomCta = ctas[Math.floor(Math.random() * ctas.length)];
+  const recipeHook = getRecipeHook(recipe.title, recipe.category);
 
   let caption = `${randomEmoji} ${recipe.title}\n\n`;
   
+  // Add recipe hook
+  caption += `${recipeHook}\n\n`;
+  
   if (recipe.description) {
-    const maxDescriptionLength = 150; // Instagram has 2200 char limit, but shorter is better
+    const maxDescriptionLength = 120; // Keep shorter to leave room for engagement
     if (recipe.description.length > maxDescriptionLength) {
       caption += `${recipe.description.substring(0, maxDescriptionLength)}...\n\n`;
     } else {
@@ -128,8 +179,45 @@ function generateInstagramCaption(recipe: { title: string; slug: string; descrip
     }
   }
   
-  caption += `👉 Full recipe: ${recipeUrl}\n\n`;
-  caption += `#VeganRecipes #PlantBased #VeganCooking #HealthyEating #VeganFood #PlantBasedCooking #VeganMeals #VeganRecipe`;
+  // Add engagement question
+  caption += `${randomQuestion}\n\n`;
+  
+  // Add CTA and URL
+  caption += `${randomCta}\n${recipeUrl}\n\n`;
+  
+  // Comprehensive hashtag strategy - 30 hashtags for maximum reach
+  const baseHashtags = [
+    '#VeganRecipes', '#PlantBased', '#VeganCooking', '#HealthyEating', '#VeganFood',
+    '#VeganMeals', '#PlantBasedCooking', '#VeganRecipe', '#VeganLife', '#VeganFoodie',
+    '#VeganCommunity', '#VeganFoodShare', '#PlantBasedRecipes', '#VeganCookingTips', '#VeganMealIdeas',
+    '#VeganDinner', '#VeganLunch', '#VeganBreakfast', '#VeganDessert', '#VeganSnacks',
+    '#VeganBaking', '#VeganChef', '#VeganFoodBlog', '#VeganFoodPorn', '#VeganFoodLover',
+    '#PlantBasedFood', '#PlantBasedDiet', '#VeganEats', '#VeganYum', '#VeganInspiration',
+  ];
+  
+  // Category-specific hashtags
+  const categoryHashtags = recipe.category?.map(cat => {
+    const capitalized = cat.charAt(0).toUpperCase() + cat.slice(1);
+    return `#Vegan${capitalized}`;
+  }) || [];
+  
+  // Additional niche hashtags
+  const nicheHashtags = [
+    '#VeganFoodPhotography', '#VeganFoodBlogger', '#PlantBasedLiving', '#VeganLifestyle',
+    '#VeganFoodJourney', '#VeganFoodAdventure', '#VeganFoodLove', '#VeganFoodGram',
+  ];
+  
+  // Combine all hashtags, remove duplicates, and ensure we have exactly 30
+  const hashtagSet = new Set([
+    ...baseHashtags,
+    ...categoryHashtags.slice(0, 5), // Up to 5 category hashtags
+    ...nicheHashtags.slice(0, 5), // Up to 5 niche hashtags
+  ]);
+  
+  // Convert to array and trim to exactly 30 hashtags
+  const allHashtags = Array.from(hashtagSet).slice(0, 30);
+  
+  caption += allHashtags.join(' ');
   
   return caption;
 }
