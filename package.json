@@ -32,6 +32,7 @@
     "refresh-tokens": "tsx scripts/refresh-access-tokens.ts",
     "update-katie-to-noah": "tsx scripts/update-katie-to-noah.ts",
     "fix-recipes": "tsx scripts/fix-recipe-issues.ts",
+    "verify-sitemap": "tsx scripts/verify-sitemap-coverage.ts",
     "prepare": "husky",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",

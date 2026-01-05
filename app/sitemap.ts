@@ -50,8 +50,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: recipe.dateModified 
       ? new Date(recipe.dateModified) 
       : (recipe.datePublished ? new Date(recipe.datePublished) : new Date()),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
+    changeFrequency: 'weekly' as const, // Changed from monthly to weekly for better indexing
+    priority: 0.9, // Increased priority for recipe pages
   }));
 
   // Get unique categories for category pages

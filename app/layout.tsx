@@ -5,6 +5,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import RecaptchaProvider from '@/components/RecaptchaProvider';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -97,6 +98,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="vegancooking.recipes" />
       </head>
       <body className={inter.className}>
+        <GoogleAnalytics />
         <RecaptchaProvider>
           <Header />
           <main className="min-h-screen">{children}</main>

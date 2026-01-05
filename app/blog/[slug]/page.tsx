@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getPrismaClient } from '@/lib/prisma';
+import AdBanner from '@/components/AdBanner';
+import AdRectangle from '@/components/AdRectangle';
 
 export const dynamic = 'force-dynamic';
 
@@ -90,6 +92,17 @@ export async function generateMetadata({
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
     keywords: post.metaKeywords?.split(',').map((k) => k.trim()),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
@@ -186,6 +199,9 @@ export default async function BlogPostPage({
             </div>
           )}
 
+          {/* Banner Ad After Header */}
+          <AdBanner />
+
           {/* Content */}
           <div
             className="prose prose-lg max-w-none 
@@ -242,6 +258,9 @@ export default async function BlogPostPage({
               </div>
             </div>
           )}
+
+          {/* Banner Ad Before Related Content */}
+          <AdBanner className="mt-12" />
 
           {/* Other Blog Posts */}
           {otherPosts.length > 0 && (

@@ -10,8 +10,8 @@ import RecipeFAQ from '@/components/RecipeFAQ';
 import RecipeTips from '@/components/RecipeTips';
 import RelatedRecipes from '@/components/RelatedRecipes';
 import ScalableIngredients from '@/components/ScalableIngredients';
-// import AdBanner from '@/components/AdBanner';
-// import AdRectangle from '@/components/AdRectangle';
+import AdBanner from '@/components/AdBanner';
+import AdRectangle from '@/components/AdRectangle';
 import ViewTracker from '@/components/ViewTracker';
 import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
@@ -66,6 +66,17 @@ export async function generateMetadata({ params }: PageProps) {
     title: `${optimizedTitle} - Vegan Recipe | vegancooking.recipes`,
     description: `${optimizedDescription} Find this and more vegan recipes at vegancooking.recipes.`,
     keywords: [...recipe.tags, ...recipe.category, ...recipe.veganType, 'vegancooking.recipes', 'vegan recipes'].join(', '),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
       title: `${optimizedTitle} | vegancooking.recipes`,
       description: `${optimizedDescription} Find this and more vegan recipes at vegancooking.recipes.`,
@@ -623,7 +634,7 @@ export default async function RecipePage({ params }: PageProps) {
         </section>
 
         {/* Banner Ad After Prologue */}
-        {/* <AdBanner /> */}
+        <AdBanner />
 
         {/* Tips, Variations, and Storage */}
         <RecipeTips
@@ -721,7 +732,7 @@ export default async function RecipePage({ params }: PageProps) {
           />
 
           {/* In-Content Ad Between Ingredients and Instructions */}
-          {/* <AdBanner className="hidden md:block" /> */}
+          <AdRectangle className="hidden md:block" />
 
           {/* Instructions */}
           <section className="mb-4 sm:mb-6">
@@ -754,7 +765,7 @@ export default async function RecipePage({ params }: PageProps) {
         </div>
 
         {/* Banner Ad After Recipe Content */}
-        {/* <AdBanner /> */}
+        <AdBanner />
 
         {/* Email Signup - Lead Magnet */}
         {/* <EmailSignup variant="inline" /> */}

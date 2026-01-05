@@ -1,27 +1,34 @@
 import { MetadataRoute } from 'next';
 
+/**
+ * Robots.txt configuration
+ * Ensures all pages are crawlable and indexable
+ */
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = 'https://vegancooking.recipes';
+  
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/_next/',
+          '/setup-social-media',
+        ],
       },
       {
-        // Allow Googlebot to access optimized images for SEO
         userAgent: 'Googlebot',
-        allow: ['/', '/_next/image'],
-        disallow: ['/api/', '/_next/static', '/_next/data'],
-      },
-      {
-        // Allow Googlebot-Image specifically for image crawling
-        userAgent: 'Googlebot-Image',
-        allow: ['/', '/_next/image', '/img/', '/recipe-images/'],
-        disallow: ['/api/'],
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
+          '/setup-social-media',
+        ],
       },
     ],
-    sitemap: 'https://vegancooking.recipes/sitemap.xml',
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }
-
