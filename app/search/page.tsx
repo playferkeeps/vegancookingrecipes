@@ -218,7 +218,7 @@ function SearchResults() {
 
     // Get ALL matching results (no limit)
     const results = searchRecipes(allRecipes, searchTerm, {
-      minScore: 0.4, // Only show reasonably relevant results
+      minScore: 0.6, // More lenient to catch content matches (0 = perfect, 1 = no match)
     });
 
     // Apply all filters

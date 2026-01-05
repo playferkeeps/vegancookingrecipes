@@ -2,9 +2,9 @@
  * Script to analyze recipes and ensure they belong to the correct categories
  * 
  * Usage:
- *   npm run analyze-categories -- --dry-run    # Show what categories would be added/removed (default)
- *   npm run analyze-categories -- --execute    # Actually update categories in database
- *   npm run analyze-categories -- --limit 10   # Only analyze first 10 recipes
+ *   npm run analyze-categories -- --dry-run    # Show what categories would be added/removed (default, analyzes ALL recipes)
+ *   npm run analyze-categories -- --execute     # Actually update categories in database (analyzes ALL recipes)
+ *   npm run analyze-categories -- --limit 10    # Only analyze first 10 recipes
  *   npm run analyze-categories -- --recipe-id <id>  # Analyze specific recipe
  * 
  * This script:
@@ -66,13 +66,14 @@ async function analyzeRecipeCategories(
   recipe: any
 ): Promise<string[]> {
   // Collect all recipe content for analysis
-  const ingredients = recipe.ingredients.map((ing: any) => ing.name).join(', ');
-  const instructions = recipe.instructions
+  // Handle cases where relations might be undefined or empty
+  const ingredients = (recipe.ingredients || []).map((ing: any) => ing.name).join(', ');
+  const instructions = (recipe.instructions || [])
     .map((inst: any) => inst.text)
     .join(' ');
-  const currentCategories = recipe.categories.map((cat: any) => cat.category).join(', ');
-  const veganTypes = recipe.veganTypes.map((vt: any) => vt.veganType).join(', ');
-  const tags = recipe.tags.map((tag: any) => tag.tag).join(', ');
+  const currentCategories = (recipe.categories || []).map((cat: any) => cat.category).join(', ');
+  const veganTypes = (recipe.veganTypes || []).map((vt: any) => vt.veganType).join(', ');
+  const tags = (recipe.tags || []).map((tag: any) => tag.tag).join(', ');
 
   const analysisPrompt = `You are a recipe categorization expert. Analyze this vegan recipe and determine which categories it should belong to.
 
@@ -231,8 +232,10 @@ async function findRecipesToAnalyze(
       categories: true,
       veganTypes: true,
       tags: true,
+      ingredients: true,
+      instructions: true,
     },
-    take: options.all ? undefined : (options.limit || 10),
+    take: options.all ? undefined : options.limit,
     orderBy: { datePublished: 'desc' },
   });
 
@@ -423,7 +426,7 @@ async function main() {
   // Parse options
   let limit: number | undefined;
   let recipeId: string | undefined;
-  let all = false;
+  let all = true; // Default to analyzing all recipes
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--limit' && args[i + 1]) {
@@ -432,9 +435,11 @@ async function main() {
         console.error('❌ Error: --limit must be a positive number');
         process.exit(1);
       }
+      all = false; // If limit is specified, don't analyze all
       i++;
     } else if (args[i] === '--recipe-id' && args[i + 1]) {
       recipeId = args[i + 1].trim();
+      all = false; // If specific recipe ID is specified, don't analyze all
       i++;
     } else if (args[i] === '--all') {
       all = true;

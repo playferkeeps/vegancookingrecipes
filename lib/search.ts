@@ -27,13 +27,21 @@ export function prepareRecipeForSearch(recipe: Recipe) {
     .map(ing => typeof ing === 'string' ? ing : ing.name)
     .join(' ');
   
+  // Include instructions content
+  const instructionsText = recipe.instructions
+    .map(inst => typeof inst === 'string' ? inst : inst.text)
+    .join(' ');
+  
   const tagsText = recipe.tags.join(' ');
   const categoryText = recipe.category.join(' ');
   const veganTypeText = recipe.veganType.join(' ');
+  const prologueText = recipe.prologue || '';
 
   const titleLower = recipe.title.toLowerCase();
   const descriptionLower = recipe.description.toLowerCase();
   const ingredientsTextLower = ingredientsText.toLowerCase();
+  const instructionsTextLower = instructionsText.toLowerCase();
+  const prologueTextLower = prologueText.toLowerCase();
 
   return {
     ...recipe,
@@ -41,8 +49,9 @@ export function prepareRecipeForSearch(recipe: Recipe) {
     searchableText: [
       recipe.title,
       recipe.description,
-      recipe.prologue || '',
+      prologueText,
       ingredientsText,
+      instructionsText,
       tagsText,
       categoryText,
       veganTypeText,
@@ -51,11 +60,14 @@ export function prepareRecipeForSearch(recipe: Recipe) {
     titleLower,
     descriptionLower,
     ingredientsText: ingredientsTextLower,
+    instructionsText: instructionsTextLower,
+    prologueText: prologueTextLower,
     tagsText: tagsText.toLowerCase(),
     categoryText: categoryText.toLowerCase(),
     // Normalized versions for better plural/singular matching
     titleNormalized: normalizeSearchText(recipe.title),
     ingredientsNormalized: normalizeSearchText(ingredientsText),
+    instructionsNormalized: normalizeSearchText(instructionsText),
   };
 }
 
@@ -69,34 +81,50 @@ export function createSearchIndex(recipes: Recipe[]): Fuse<Recipe> {
     keys: [
       {
         name: 'title',
-        weight: 0.4, // Highest weight for title matches
+        weight: 0.35, // Highest weight for title matches
       },
       {
         name: 'titleNormalized',
-        weight: 0.35, // High weight for normalized title (handles plurals)
+        weight: 0.30, // High weight for normalized title (handles plurals)
       },
       {
         name: 'description',
-        weight: 0.3,
-      },
-      {
-        name: 'ingredientsText',
-        weight: 0.15,
-      },
-      {
-        name: 'ingredientsNormalized',
-        weight: 0.12, // Normalized ingredients (handles plurals)
+        weight: 0.20,
       },
       {
         name: 'tagsText',
-        weight: 0.1,
+        weight: 0.15, // Increased weight for tags
       },
       {
         name: 'categoryText',
-        weight: 0.05,
+        weight: 0.12, // Increased weight for categories
+      },
+      {
+        name: 'ingredientsText',
+        weight: 0.10,
+      },
+      {
+        name: 'ingredientsNormalized',
+        weight: 0.08, // Normalized ingredients (handles plurals)
+      },
+      {
+        name: 'instructionsText',
+        weight: 0.06, // Search in instructions
+      },
+      {
+        name: 'instructionsNormalized',
+        weight: 0.05, // Normalized instructions
+      },
+      {
+        name: 'prologueText',
+        weight: 0.04, // Search in prologue
+      },
+      {
+        name: 'searchableText',
+        weight: 0.02, // Fallback: search in combined text
       },
     ],
-    threshold: 0.4, // Slightly more lenient to handle plural/singular differences
+    threshold: 0.5, // More lenient to catch partial matches and content matches
     distance: 100, // Maximum distance for character matching
     minMatchCharLength: 2, // Minimum character length to match
     includeScore: true, // Include relevance scores
