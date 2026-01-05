@@ -328,27 +328,40 @@ async function generateStructuredData(recipe: Recipe) {
   const schemas = [recipeSchema];
   
   // Only add FAQPage schema if we have valid FAQs with both questions and answers
-  if (recipe.faqs && recipe.faqs.length > 0) {
-    const validFAQs = recipe.faqs.filter(faq => 
-      faq && 
-      faq.question && 
-      faq.question.trim().length > 0 && 
-      faq.answer && 
-      faq.answer.trim().length > 0
-    );
+  // IMPORTANT: Only add ONE FAQPage schema per page to avoid "Duplicate field" errors
+  // Google requires mainEntity to be a non-empty array of Question objects
+  if (recipe.faqs && Array.isArray(recipe.faqs) && recipe.faqs.length > 0) {
+    // Filter and map FAQs to ensure they're valid
+    const mainEntity = recipe.faqs
+      .filter(faq => 
+        faq && 
+        typeof faq === 'object' &&
+        faq.question && 
+        typeof faq.question === 'string' &&
+        faq.question.trim().length > 0 && 
+        faq.answer && 
+        typeof faq.answer === 'string' &&
+        faq.answer.trim().length > 0
+      )
+      .map(faq => ({
+        '@type': 'Question',
+        name: String(faq.question).trim(),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: String(faq.answer).trim(),
+        },
+      }))
+      .filter((item): item is { '@type': 'Question'; name: string; acceptedAnswer: { '@type': 'Answer'; text: string } } => 
+        item.name.length > 0 && item.acceptedAnswer.text.length > 0
+      );
     
-    if (validFAQs.length > 0) {
+    // Only add FAQPage if we have at least one valid Question in mainEntity
+    // This prevents "Missing field 'mainEntity'" errors
+    if (mainEntity.length > 0) {
       schemas.push({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: validFAQs.map(faq => ({
-          '@type': 'Question',
-          name: faq.question.trim(),
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer.trim(),
-          },
-        })),
+        mainEntity: mainEntity, // Required field - must be non-empty array
       });
     }
   }
