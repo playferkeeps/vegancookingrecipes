@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabase, isSupabaseConfigured } from '@/lib/supabase';
+import { getPrismaClient } from '@/lib/prisma';
 
 /**
  * GET /api/analytics
@@ -40,6 +41,9 @@ export async function GET() {
     const emptyViewsResponse = { count: 0, data: null, error: null };
     const emptyViewsArrayResponse = { data: [], error: null };
 
+    // Get Prisma client for blog posts and veganized recipes
+    const prisma = getPrismaClient();
+
     // Fetch all analytics data in parallel
     const [
       totalRecipes,
@@ -51,6 +55,9 @@ export async function GET() {
       topRecipesByComments,
       recentComments,
       recentViews,
+      blogPostsData,
+      veganizedRecipesData,
+      recentVeganizedRecipes,
     ] = await Promise.all([
       // Total recipes
       supabase.from('Recipe').select('id', { count: 'exact', head: true }),
@@ -102,6 +109,47 @@ export async function GET() {
             .order('viewed_at', { ascending: false })
             .limit(10)
         : Promise.resolve(emptyViewsArrayResponse),
+      
+      // Blog posts data (using Prisma)
+      prisma
+        ? Promise.all([
+            prisma.blogPost.count(),
+            prisma.blogPost.count({ where: { published: true } }),
+          ]).then(([total, published]) => ({ total, published, error: null }))
+        : Promise.resolve({ total: 0, published: 0, error: null }),
+      
+      // Veganized recipes data (using Prisma)
+      prisma
+        ? prisma.recipe.count({
+            where: {
+              originalUrl: {
+                not: null,
+              },
+            },
+          }).then((count) => ({ count, error: null }))
+        : Promise.resolve({ count: 0, error: null }),
+      
+      // Recent veganized recipes (last 10) (using Prisma)
+      prisma
+        ? prisma.recipe.findMany({
+            where: {
+              originalUrl: {
+                not: null,
+              },
+            },
+            select: {
+              id: true,
+              title: true,
+              slug: true,
+              originalUrl: true,
+              datePublished: true,
+            },
+            orderBy: {
+              datePublished: 'desc',
+            },
+            take: 10,
+          }).then((recipes) => ({ data: recipes, error: null }))
+        : Promise.resolve({ data: [], error: null }),
     ]);
 
     // Process top recipes by views
@@ -190,12 +238,24 @@ export async function GET() {
       viewedAt: view.viewed_at,
     })) || [];
 
+    // Format recent veganized recipes
+    const formattedRecentVeganized = recentVeganizedRecipes.data?.map((recipe: any) => ({
+      id: recipe.id,
+      title: recipe.title,
+      slug: recipe.slug,
+      originalUrl: recipe.originalUrl,
+      datePublished: recipe.datePublished?.toISOString() || new Date().toISOString(),
+    })) || [];
+
     return NextResponse.json({
       summary: {
         totalRecipes: totalRecipes.count || 0,
         totalComments: totalComments.count || 0,
         totalVotes: totalVotes.count || 0,
         totalViews: totalViews.count || 0,
+        totalBlogPosts: blogPostsData.total || 0,
+        publishedBlogPosts: blogPostsData.published || 0,
+        totalVeganizedRecipes: veganizedRecipesData.count || 0,
       },
       topRecipes: {
         byViews: topByViews,
@@ -205,6 +265,7 @@ export async function GET() {
       recent: {
         comments: formattedRecentComments,
         views: formattedRecentViews,
+        veganizedRecipes: formattedRecentVeganized,
       },
     });
   } catch (error: any) {

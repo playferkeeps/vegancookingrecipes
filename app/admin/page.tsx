@@ -11,6 +11,9 @@ interface AnalyticsData {
     totalComments: number;
     totalVotes: number;
     totalViews: number;
+    totalBlogPosts: number;
+    publishedBlogPosts: number;
+    totalVeganizedRecipes: number;
   };
   topRecipes: {
     byViews: Array<{
@@ -52,6 +55,13 @@ interface AnalyticsData {
       recipeTitle: string;
       recipeSlug: string;
       viewedAt: string;
+    }>;
+    veganizedRecipes: Array<{
+      id: string;
+      title: string;
+      slug: string;
+      originalUrl: string | null;
+      datePublished: string;
     }>;
   };
 }
@@ -205,6 +215,28 @@ export default function AdminDashboard() {
         </div>
       </div>
 
+      {/* Blog Posts & Veganize Metrics */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
+        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-indigo-500">
+          <h3 className="text-sm font-semibold text-gray-600 uppercase mb-2">Total Blog Posts</h3>
+          <p className="text-3xl font-bold text-gray-900">{analytics.summary.totalBlogPosts}</p>
+        </div>
+        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-teal-500">
+          <h3 className="text-sm font-semibold text-gray-600 uppercase mb-2">Published Posts</h3>
+          <p className="text-3xl font-bold text-gray-900">{analytics.summary.publishedBlogPosts}</p>
+        </div>
+        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-pink-500">
+          <h3 className="text-sm font-semibold text-gray-600 uppercase mb-2">Veganized Recipes</h3>
+          <p className="text-3xl font-bold text-gray-900">{analytics.summary.totalVeganizedRecipes}</p>
+        </div>
+        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500">
+          <h3 className="text-sm font-semibold text-gray-600 uppercase mb-2">Draft Posts</h3>
+          <p className="text-3xl font-bold text-gray-900">
+            {analytics.summary.totalBlogPosts - analytics.summary.publishedBlogPosts}
+          </p>
+        </div>
+      </div>
+
       {/* Top Recipes Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         {/* Top Recipes by Views */}
@@ -287,7 +319,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recent Comments */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-bold mb-4">Recent Comments</h2>
@@ -337,6 +369,41 @@ export default function AdminDashboard() {
             </div>
           ) : (
             <p className="text-gray-500">No views tracked yet</p>
+          )}
+        </div>
+
+        {/* Recent Veganized Recipes */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-bold mb-4">Recent Veganized Recipes</h2>
+          {analytics.recent.veganizedRecipes.length > 0 ? (
+            <div className="space-y-3">
+              {analytics.recent.veganizedRecipes.map((recipe) => (
+                <div key={recipe.id} className="border-b border-gray-200 pb-3 last:border-0">
+                  <div className="flex items-start justify-between mb-1">
+                    <Link
+                      href={`/recipes/${recipe.slug}`}
+                      className="text-blue-600 hover:text-blue-800 hover:underline font-semibold flex-1"
+                    >
+                      {recipe.title}
+                    </Link>
+                    <span className="text-sm text-gray-500 ml-2">{formatDate(recipe.datePublished)}</span>
+                  </div>
+                  {recipe.originalUrl && (
+                    <a
+                      href={recipe.originalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-gray-500 hover:text-gray-700 truncate block"
+                      title={recipe.originalUrl}
+                    >
+                      Source: {recipe.originalUrl.length > 40 ? `${recipe.originalUrl.substring(0, 40)}...` : recipe.originalUrl}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500">No veganized recipes yet</p>
           )}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
+import { Suspense } from 'react';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -98,7 +99,9 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="vegancooking.recipes" />
       </head>
       <body className={inter.className}>
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
         <RecaptchaProvider>
           <Header />
           <main className="min-h-screen">{children}</main>
