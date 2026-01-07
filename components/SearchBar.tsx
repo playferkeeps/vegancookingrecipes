@@ -27,10 +27,10 @@ export default function SearchBar({
   const router = useRouter();
 
   useEffect(() => {
-    // Load recipes on client side via API
+    // Load limited recipes for autocomplete (only need first 200 for autocomplete performance)
     const loadRecipes = async () => {
       try {
-        const response = await fetch('/api/recipes');
+        const response = await fetch('/api/recipes?limit=200');
         const data = await response.json();
         setRecipes(data.recipes || []);
       } catch (error) {

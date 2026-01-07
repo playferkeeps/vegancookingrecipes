@@ -25,22 +25,38 @@ export default function SearchAutocomplete({
   const [isVisible, setIsVisible] = useState(false);
   const listRef = useRef<HTMLUListElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const INITIAL_DISPLAY_COUNT = 10;
   const LOAD_MORE_COUNT = 10;
 
-  // Get all search results (no limit for infinite scroll)
+  // Debounced search - wait for typing pause to avoid blocking input
   useEffect(() => {
+    // Clear any existing debounce timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
     if (query.trim().length >= 2) {
-      // User is typing - show search results
-      const searchResults = searchRecipes(recipes, query, {
-        minScore: 0.5, // Slightly more lenient for autocomplete
-      });
-      setResults(searchResults);
-      setDisplayedResults(searchResults.slice(0, INITIAL_DISPLAY_COUNT));
-      setIsVisible(searchResults.length > 0);
-      setSelectedIndex(-1);
+      // Wait for typing pause before searching (prevents blocking input)
+      debounceTimerRef.current = setTimeout(() => {
+        // User paused typing - show search results
+        // Use a simple, fast search for autocomplete (only search titles and tags)
+        const queryLower = query.toLowerCase();
+        const searchResults = recipes
+          .filter(recipe => {
+            const titleMatch = recipe.title.toLowerCase().includes(queryLower);
+            const tagMatch = recipe.tags.some(tag => tag.toLowerCase().includes(queryLower));
+            return titleMatch || tagMatch;
+          })
+          .slice(0, 20); // Limit to 20 results for autocomplete
+        
+        setResults(searchResults);
+        setDisplayedResults(searchResults.slice(0, INITIAL_DISPLAY_COUNT));
+        setIsVisible(searchResults.length > 0);
+        setSelectedIndex(-1);
+      }, 300); // 300ms debounce for autocomplete
     } else if (query.trim().length === 0 && recipes.length > 0) {
-      // Empty query - show popular recipes (passed from parent)
+      // Empty query - show popular recipes immediately (no search needed)
       setResults(recipes);
       setDisplayedResults(recipes.slice(0, INITIAL_DISPLAY_COUNT));
       setIsVisible(true);
@@ -51,6 +67,13 @@ export default function SearchAutocomplete({
       setIsVisible(false);
       setSelectedIndex(-1);
     }
+
+    // Cleanup on unmount or query change
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
   }, [query, recipes]);
 
   // Handle infinite scroll

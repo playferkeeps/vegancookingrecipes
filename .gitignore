@@ -220,3 +220,5 @@ temp/
 logs/
 
 /lib/generated/prisma
+
+public/recipe-images/png/

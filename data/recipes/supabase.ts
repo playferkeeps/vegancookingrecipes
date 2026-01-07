@@ -78,7 +78,7 @@ async function checkTablesExist(): Promise<boolean> {
 /**
  * Convert Supabase recipe to Recipe type
  */
-function supabaseToRecipe(row: any): Recipe {
+export function supabaseToRecipe(row: any): Recipe {
   return {
     id: row.id,
     title: row.title,

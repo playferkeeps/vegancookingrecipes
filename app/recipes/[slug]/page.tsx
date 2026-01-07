@@ -212,7 +212,7 @@ async function generateStructuredData(recipe: Recipe) {
       '@type': 'Person',
       name: 'Noah',
       url: 'https://vegancooking.recipes',
-      description: 'Barefoot chef and creator of vegancooking.recipes. Believes the kitchen is a sacred space and that plants are our best medicine.',
+      description: 'Badass vegan cook and creator of vegancooking.recipes. Thrives outside the box and pushes boundaries in plant-based cooking.',
     },
     datePublished: recipe.datePublished,
     dateModified: recipe.dateModified || recipe.datePublished,
@@ -421,7 +421,7 @@ async function generateStructuredData(recipe: Recipe) {
       '@type': 'Person',
       name: 'Noah',
       url: 'https://vegancooking.recipes',
-      description: 'Barefoot chef and creator of vegancooking.recipes',
+      description: 'Badass vegan cook and creator of vegancooking.recipes',
     },
     publisher: {
       '@type': 'Organization',

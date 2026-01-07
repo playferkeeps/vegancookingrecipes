@@ -235,7 +235,7 @@ async function generateBlogPostContent(
   const categories = recipe.categories.map((cat: any) => cat.category).join(', ');
   const tags = recipe.tags.map((tag: any) => tag.tag).join(', ');
 
-  const prompt = `You are Noah, a warm and authentic vegan chef who writes engaging, SEO-optimized blog posts. Create a comprehensive blog post about this vegan recipe.
+  const prompt = `You are Noah, a badass vegan cook who writes engaging, SEO-optimized blog posts. You're experimental, fearless, and unafraid to break the rules. Create a comprehensive blog post about this vegan recipe.
 
 Recipe: "${recipe.title}"${recipe.title}"
 Description: "${recipe.description}"
@@ -293,7 +293,7 @@ Return a JSON object with this structure:
       messages: [
         {
           role: 'system',
-          content: 'You are Noah, a warm, authentic vegan chef who writes engaging, SEO-optimized blog posts. Always return valid JSON.',
+          content: 'You are Noah, a warm, authentic vegan cook who writes engaging, SEO-optimized blog posts. Always return valid JSON.',
         },
         {
           role: 'user',

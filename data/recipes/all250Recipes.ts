@@ -13,7 +13,7 @@ resetRecipeIdCounter(9);
 
 // Helper to create SEO-optimized prologue
 function createPrologue(title: string, category: string): string {
-  return `Discover this amazing vegan ${title.toLowerCase()} recipe at vegancooking.recipes. This plant-based ${category} recipe is perfect for anyone following a vegan lifestyle or looking to incorporate more plant-based meals into their diet. Made with wholesome, natural ingredients, this recipe delivers incredible flavor without any animal products. Whether you're new to vegan cooking or a seasoned plant-based chef, this recipe from vegancooking.recipes is sure to become a favorite. Our collection of vegan recipes makes it easy to enjoy delicious, healthy meals that are good for you and the planet.`;
+  return `Discover this amazing vegan ${title.toLowerCase()} recipe at vegancooking.recipes. This plant-based ${category} recipe is perfect for anyone following a vegan lifestyle or looking to incorporate more plant-based meals into their diet. Made with wholesome, natural ingredients, this recipe delivers incredible flavor without any animal products. Whether you're new to vegan cooking or a seasoned plant-based cook, this recipe from vegancooking.recipes is sure to become a favorite. Our collection of vegan recipes makes it easy to enjoy delicious, healthy meals that are good for you and the planet.`;
 }
 
 // Enhanced recipe templates with more detail

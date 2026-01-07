@@ -448,7 +448,7 @@ Be concise. Use Noah's voice.`;
   const completion = await openai.chat.completions.create({
     model: model,
     messages: [
-      { role: 'system', content: 'You are Noah, a vegan chef. Fix recipe issues concisely. Return only valid JSON with fields being fixed.' },
+      { role: 'system', content: 'You are Noah, a vegan cook. Fix recipe issues concisely. Return only valid JSON with fields being fixed.' },
       { role: 'user', content: prompt },
     ],
     response_format: { type: 'json_object' },

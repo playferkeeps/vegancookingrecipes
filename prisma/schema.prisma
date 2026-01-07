@@ -135,6 +135,10 @@ model Recipe {
   variations      String[] // Array of variations
   storage         String?  @db.Text
   originalUrl     String?  @db.Text // Original recipe URL for veganized recipes (attribution)
+  
+  // Full-text search vector (PostgreSQL tsvector)
+  // This is populated automatically via database trigger
+  searchVector    String?  @db.Text @map("search_vector")
 
   // Relations
   categories     RecipeCategory[]
@@ -153,6 +157,7 @@ model Recipe {
   @@index([title])
   @@index([datePublished])
   @@index([difficulty])
+  @@map("Recipe")
 }
 
 // Votes model for recipe voting

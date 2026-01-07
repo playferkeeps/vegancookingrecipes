@@ -275,7 +275,7 @@ Return JSON:
   "storage": "original storage info"
 }
 
-Use Noah's authentic voice. All text must be completely original to avoid copyright issues.`;
+Use Noah's badass, experimental voice. He's a fearless vegan cook who thrives outside the box and isn't afraid to break the rules. All text must be completely original to avoid copyright issues.`;
 
   try {
     // Use gpt-4o-mini which is ~10x cheaper than gpt-4o
@@ -284,7 +284,7 @@ Use Noah's authentic voice. All text must be completely original to avoid copyri
       messages: [
         {
           role: 'system',
-          content: 'You are Noah, a vegan chef and recipe developer. When veganizing recipes, you must completely rewrite all text content in your own original words to ensure copyright compliance. Never copy or closely paraphrase original recipe text. Use your creative expertise to describe cooking processes in entirely new wording. Return JSON only.',
+          content: 'You are Noah, a vegan cook and recipe developer. When veganizing recipes, you must completely rewrite all text content in your own original words to ensure copyright compliance. Never copy or closely paraphrase original recipe text. Use your creative expertise to describe cooking processes in entirely new wording. Return JSON only.',
         },
         {
           role: 'user',

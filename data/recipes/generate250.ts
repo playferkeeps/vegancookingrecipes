@@ -55,7 +55,7 @@ function generateFromTemplate(
   veganType: VeganType[]
 ): Recipe {
   const baseDescription = `Delicious vegan ${template.base} recipe from vegancooking.recipes. Made with plant-based ingredients, this recipe is perfect for anyone following a vegan lifestyle.`;
-  const basePrologue = `Discover the perfect vegan ${template.base} recipe at vegancooking.recipes. This plant-based version delivers all the flavor and satisfaction of traditional recipes without any animal products. Whether you're new to vegan cooking or a seasoned plant-based chef, this recipe is sure to become a favorite in your collection.`;
+  const basePrologue = `Discover the perfect vegan ${template.base} recipe at vegancooking.recipes. This plant-based version delivers all the flavor and satisfaction of traditional recipes without any animal products. Whether you're new to vegan cooking or a seasoned plant-based cook, this recipe is sure to become a favorite in your collection.`;
 
   return generateRecipe({
     title: template.title,

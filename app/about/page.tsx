@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'About Noah - The Story Behind vegancooking.recipes',
-  description: 'Meet Noah, the barefoot chef behind vegancooking.recipes. Learn about his journey, his food philosophy, and why he believes the kitchen is a sacred space.',
+  description: 'Meet Noah, a badass vegan cook who thrives outside the box. Learn about his journey, his experimental cooking style, and why he believes in pushing boundaries in plant-based cuisine.',
   openGraph: {
     title: 'About Noah - The Story Behind vegancooking.recipes',
-    description: 'Meet Noah, the barefoot chef behind vegancooking.recipes. Learn about his journey, his food philosophy, and why he believes the kitchen is a sacred space.',
+    description: 'Meet Noah, a badass vegan cook who thrives outside the box. Learn about his journey, his experimental cooking style, and why he believes in pushing boundaries in plant-based cuisine.',
     images: [
       {
         url: 'https://vegancooking.recipes/img/vcr-noah.png',
         width: 400,
         height: 400,
-        alt: 'Noah - Barefoot Chef',
+        alt: 'Noah - Badass Vegan Cook',
       },
     ],
   },
@@ -29,7 +29,7 @@ export default function AboutPage() {
               <div className="inline-block rounded-full overflow-hidden shadow-2xl ring-4 ring-green-200 hover:ring-green-300 transition-all duration-300">
                 <Image
                   src="/img/vcr-noah.png"
-                  alt="Noah - Barefoot Chef and Creator of vegancooking.recipes"
+                  alt="Noah - Badass Vegan Cook and Creator of vegancooking.recipes"
                   width={250}
                   height={250}
                   className="object-cover"
@@ -38,10 +38,10 @@ export default function AboutPage() {
               </div>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-              Hi, I&apos;m Noah 🌻
+              Hi, I&apos;m Noah 🔥
             </h1>
             <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-light leading-relaxed max-w-2xl mx-auto">
-              Welcome to my kitchen—where plants are our medicine, cooking is a prayer, and every meal is a love letter to this beautiful earth.
+              Welcome to my kitchen—where I push boundaries, experiment fearlessly, and create plant-based magic that breaks all the rules. Outside the box? That&apos;s where I&apos;m most comfortable.
             </p>
           </div>
         </div>
@@ -55,10 +55,10 @@ export default function AboutPage() {
           <section className="mb-12 sm:mb-16">
             <div className="prose prose-lg sm:prose-xl max-w-none">
               <p className="text-gray-700 text-lg sm:text-xl md:text-2xl leading-relaxed mb-6 font-light">
-                If you had told me ten years ago that I&apos;d be here, sharing recipes from my kitchen with beautiful souls all over the world, I probably would have laughed. Not because I didn&apos;t want to—but because I never imagined my little corner of the internet could become this sacred space where we all gather around the virtual table.
+                If you had told me ten years ago that I&apos;d be here, sharing my wildest vegan experiments with people all over the world, I probably would have said &quot;hell yeah, that sounds like me.&quot; Because here&apos;s the thing—I&apos;ve never been one to follow the rules, especially when it comes to food.
               </p>
               <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
-                But here we are. And I&apos;m so grateful you&apos;re here with me.
+                I&apos;m Noah, and I&apos;m a badass vegan cook. Outside the box is where I&apos;m most comfortable, and that&apos;s exactly where I want to take you.
               </p>
             </div>
           </section>
@@ -70,19 +70,19 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
               <p>
-                My journey to plant-based cooking wasn&apos;t exactly planned. I didn&apos;t wake up one day and decide to become a vegan chef. Instead, it happened slowly, like the way morning light fills a room—one gentle moment at a time.
+                My journey to plant-based cooking wasn&apos;t exactly conventional. I didn&apos;t follow a cookbook or stick to what everyone else was doing. Instead, I saw plant-based cooking as a challenge—a chance to break all the rules and see what was possible.
               </p>
               <p>
-                I was working a job that left me exhausted, eating whatever was fastest, and feeling disconnected from my body. You know that feeling? When you&apos;re so busy taking care of everything else that you forget to take care of yourself? That was me.
+                I was always the one asking &quot;what if?&quot; What if I could make a vegan version of that dish everyone said was impossible? What if I combined flavors that &quot;shouldn&apos;t&quot; go together? What if I threw out the traditional methods and tried something completely different?
               </p>
               <p>
-                Then one Sunday, I found myself in my kitchen—barefoot, with music playing, chopping vegetables for what felt like the first time in months. And something shifted. I felt... <em>alive</em>. Not just physically, but in a way that made me remember who I was before life got so complicated.
+                That&apos;s when I realized: <strong>outside the box is where I&apos;m most comfortable.</strong> While others were following recipes, I was experimenting. While others were playing it safe, I was pushing boundaries. And you know what? That&apos;s when the magic happened.
               </p>
               <p>
-                That afternoon, I made a simple lentil soup. Nothing fancy. But as I stood there, stirring and tasting and adjusting, I realized I was doing more than just cooking. I was <strong>healing</strong>. I was reconnecting with myself, with the earth, with the simple joy of creating something nourishing with my own two hands.
+                I started creating dishes that made people stop and say &quot;wait, this is vegan?&quot; Not because I was trying to trick them, but because I was proving that plant-based cooking doesn&apos;t have to be limited or boring. It can be bold, experimental, and absolutely badass.
               </p>
               <p>
-                That&apos;s when I knew. This wasn&apos;t just about food. This was about coming home to myself.
+                That&apos;s when I knew. This wasn&apos;t just about food. This was about showing people what&apos;s possible when you refuse to be boxed in.
               </p>
             </div>
           </section>
@@ -90,38 +90,38 @@ export default function AboutPage() {
           {/* The Philosophy */}
           <section className="mb-12 sm:mb-16 bg-green-50 rounded-2xl p-8 sm:p-10 md:p-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-gray-900">
-              What VCR Really Means
+              My Cooking Philosophy
             </h2>
             <div className="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
               <p>
-                You might have noticed the letters <strong className="text-green-700">VCR</strong> on my apron. They stand for three things that guide everything I do in the kitchen:
+                I&apos;m not here to follow the rules. I&apos;m here to break them, experiment with them, and see what happens when you throw the rulebook out the window. Here&apos;s what drives me:
               </p>
               
               <div className="space-y-4">
                 <div className="bg-white rounded-lg p-6 shadow-sm">
                   <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-green-700">
-                    Vibrant
+                    Push Boundaries
                   </h3>
                   <p>
-                    Life is meant to be lived in full color. I believe our food should reflect that. When I&apos;m cooking, I&apos;m not just making something to eat—I&apos;m creating something that makes my whole being light up. Vibrant food feeds more than our bodies; it feeds our souls. It&apos;s the difference between surviving and <em>thriving</em>.
+                    The best recipes come from asking &quot;what if?&quot; I&apos;m constantly experimenting with unexpected flavor combinations, unconventional techniques, and ingredients that make people raise an eyebrow. That&apos;s where the magic happens—when you step outside your comfort zone and into uncharted territory.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-lg p-6 shadow-sm">
                   <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-green-700">
-                    Conscious
+                    No Limits
                   </h3>
                   <p>
-                    Every choice we make matters. Every ingredient we choose, every meal we prepare—it all ripples out into the world. I cook with intention, knowing that what I put on my plate affects not just my body, but the earth, the animals, and the future. Being conscious means being awake to the impact of our choices, and choosing love over convenience, even when it&apos;s harder.
+                    Plant-based cooking doesn&apos;t mean limited. I&apos;m here to prove that vegan food can be bold, experimental, and absolutely badass. Whether it&apos;s recreating a classic dish in a completely new way or inventing something that&apos;s never been done before, I don&apos;t believe in limits.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-lg p-6 shadow-sm">
                   <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-green-700">
-                    Roots
+                    Own Your Kitchen
                   </h3>
                   <p>
-                    We all come from somewhere. My roots are in whole foods, in the wisdom of plants, in the simple act of cooking with my hands. But roots also mean connection—to the earth, to our ancestors, to each other. When I&apos;m in my kitchen, I&apos;m connected to every person who has ever cooked with love, to every plant that has grown from the soil, to every moment of grace that brought me here.
+                    Your kitchen is your lab. Experiment. Fail. Try again. The best dishes I&apos;ve created came from mistakes that turned into discoveries. Don&apos;t be afraid to break the rules, because sometimes that&apos;s exactly what you need to create something incredible.
                   </p>
                 </div>
               </div>
@@ -135,16 +135,16 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
               <p>
-                Let me be honest with you: my kitchen is not Instagram-perfect. There are usually dishes in the sink. My spice rack is organized in a way that only makes sense to me. And yes, I cook barefoot most of the time—there&apos;s something about feeling the ground beneath my feet that keeps me grounded, literally and figuratively.
+                Let me be honest with you: my kitchen is a controlled chaos. There are usually dishes in the sink, ingredients scattered across the counter, and experiments in various stages of completion. My spice rack? It&apos;s organized by what makes sense to me, not by any conventional system.
               </p>
               <p>
-                But here&apos;s what my kitchen <em>is</em>: it&apos;s warm. It&apos;s real. It&apos;s a place where I&apos;ve cried over failed recipes and danced when something turned out perfectly. It&apos;s where I&apos;ve had deep conversations with friends while chopping vegetables, where I&apos;ve found peace on hard days, and where I&apos;ve celebrated small victories with a perfectly baked loaf of bread.
+                But here&apos;s what my kitchen <em>is</em>: it&apos;s a laboratory. It&apos;s where I test wild ideas, combine flavors that shouldn&apos;t work but somehow do, and push the boundaries of what plant-based cooking can be. It&apos;s where I&apos;ve had epic failures that taught me more than any success, and where I&apos;ve created dishes that made me stop and think &quot;holy shit, this actually worked.&quot;
               </p>
               <p>
-                This kitchen has seen me at my most vulnerable and my most joyful. It&apos;s where I learned that cooking isn&apos;t about perfection—it&apos;s about presence. It&apos;s about showing up, even when you&apos;re tired, even when you don&apos;t know what you&apos;re doing, even when everything else feels chaotic.
+                This kitchen has seen me at my most experimental and my most determined. It&apos;s where I learned that cooking isn&apos;t about following rules—it&apos;s about breaking them. It&apos;s about trying something completely insane and seeing what happens. It&apos;s about being comfortable outside the box because that&apos;s where the real magic happens.
               </p>
               <p>
-                And that&apos;s what I want to share with you. Not just recipes, but this feeling. This knowing that you can create something beautiful and nourishing, right here, right now, with what you have.
+                And that&apos;s what I want to share with you. Not just recipes, but this mindset. This knowing that you can experiment fearlessly, break the rules, and create something incredible that no one else has thought of.
               </p>
             </div>
           </section>
@@ -156,22 +156,22 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
               <p>
-                When I first went plant-based, I was overwhelmed. Every recipe seemed complicated. Every ingredient felt foreign. I spent hours scrolling through blogs, trying to find something that felt <em>doable</em>, something that didn&apos;t require a culinary degree or a pantry full of expensive ingredients.
+                When I first went plant-based, I was frustrated. Every recipe I found was safe, predictable, and honestly... kind of boring. I wanted something that would make people stop and say &quot;wait, that&apos;s vegan?&quot; I wanted to push boundaries and experiment, but everything I found was playing it way too safe.
               </p>
               <p>
-                I remember the frustration. The feeling of wanting to nourish my body but not knowing where to start. The fear that plant-based food would be boring, or complicated, or just... not as good.
+                I remember thinking: <em>Why is everyone following the same rules? Why isn&apos;t anyone trying something completely different?</em> The fear that plant-based food had to be limited, or that it couldn&apos;t be bold and experimental.
               </p>
               <p>
                 <strong>I was so wrong.</strong>
               </p>
               <p>
-                And that&apos;s why I&apos;m here. Because I don&apos;t want anyone else to feel that way. I want you to know that plant-based cooking can be simple. It can be quick. It can be absolutely delicious. And most importantly, it can be <em>yours</em>.
+                And that&apos;s why I&apos;m here. Because I don&apos;t want anyone else to feel boxed in. I want you to know that plant-based cooking can be wild, experimental, and absolutely badass. It doesn&apos;t have to follow the rules. It can break them, twist them, and create something completely new.
               </p>
               <p>
-                Every recipe I share is one I&apos;ve made countless times. They&apos;re the ones I turn to when I&apos;m tired, when I&apos;m celebrating, when I need comfort, when I want to try something new. They&apos;re tested. They&apos;re real. And they&apos;re shared with so much love.
+                Every recipe I share is one I&apos;ve experimented with, tweaked, and pushed beyond the conventional. They&apos;re the ones that made me think &quot;holy shit, this actually works.&quot; They&apos;re shared because I believe in showing people what&apos;s possible when you refuse to be limited.
               </p>
               <p className="text-xl sm:text-2xl font-semibold text-gray-900 mt-8">
-                Because food is love. And love is meant to be shared.
+                Because cooking should be fearless. And fearlessness is meant to be shared.
               </p>
             </div>
           </section>
@@ -179,7 +179,7 @@ export default function AboutPage() {
           {/* My Food Philosophy */}
           <section className="mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-gray-900">
-              My Food Philosophy (The Simple Version)
+              My Food Philosophy (The Real Version)
             </h2>
             <div className="space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
               <p>
@@ -187,24 +187,24 @@ export default function AboutPage() {
               </p>
               <div className="space-y-4 pl-4 border-l-4 border-green-600">
                 <p className="text-xl sm:text-2xl font-semibold text-gray-900">
-                  Nourish your body.
+                  Break the rules.
                 </p>
                 <p>
-                  Your body is your home. Treat it with the same care you&apos;d give a beloved friend. Feed it whole foods, give it what it needs, and listen when it tells you something.
+                  Don&apos;t follow recipes blindly. Don&apos;t stick to what everyone else is doing. Experiment. Combine flavors that shouldn&apos;t work. Try techniques that make people raise an eyebrow. The best dishes come from breaking the rules and seeing what happens.
                 </p>
                 
                 <p className="text-xl sm:text-2xl font-semibold text-gray-900 mt-6">
-                  Respect Mother Earth.
+                  Own your kitchen.
                 </p>
                 <p>
-                  We&apos;re all connected. The choices we make about what we eat ripple out into the world. When we choose plant-based foods, we&apos;re choosing to honor the earth that sustains us. We&apos;re choosing compassion. We&apos;re choosing a future where our children can still breathe clean air and drink clean water.
+                  Your kitchen is your laboratory. It&apos;s where you get to experiment, fail, and try again. Don&apos;t be afraid to push boundaries. Don&apos;t be limited by what others say is possible. Plant-based cooking doesn&apos;t mean playing it safe—it means owning your space and creating something incredible.
                 </p>
                 
                 <p className="text-xl sm:text-2xl font-semibold text-gray-900 mt-6">
-                  Eat with joy.
+                  Be comfortable outside the box.
                 </p>
                 <p>
-                  Food isn&apos;t just fuel. It&apos;s celebration. It&apos;s connection. It&apos;s memory. It&apos;s love made tangible. So eat with joy. Savor every bite. Share meals with people you love. And never, ever feel guilty about nourishing yourself.
+                  That&apos;s where I&apos;m most comfortable, and that&apos;s where the magic happens. When you step outside conventional boundaries, that&apos;s when you discover something no one else has thought of. That&apos;s when you create dishes that make people stop and say &quot;wait, this is vegan?&quot;
                 </p>
               </div>
             </div>
@@ -245,7 +245,7 @@ export default function AboutPage() {
                 </li>
               </ul>
               <p className="mt-6">
-                Every single recipe has been tested in my actual kitchen, with my actual hands, probably multiple times. They&apos;re not perfect—but they&apos;re real. And that&apos;s what matters.
+                Every single recipe is shared with the hope that it brings you joy in your kitchen. They&apos;re not perfect—but they&apos;re real. And that&apos;s what matters.
               </p>
             </div>
           </section>
@@ -308,13 +308,22 @@ export default function AboutPage() {
 
           {/* Personal Note */}
           <section className="text-center border-t-2 border-gray-200 pt-12">
-            <p className="text-gray-600 text-base sm:text-lg italic max-w-2xl mx-auto">
-              With so much love from my kitchen to yours,<br />
-              <span className="text-xl sm:text-2xl font-semibold text-gray-900 not-italic">Noah 🌻</span>
+              <p className="text-gray-600 text-base sm:text-lg italic max-w-2xl mx-auto">
+              Keep pushing boundaries,<br />
+              <span className="text-xl sm:text-2xl font-semibold text-gray-900 not-italic">Noah 🔥</span>
             </p>
             <p className="text-sm text-gray-500 mt-4">
               P.S. If you ever have questions, want to share a recipe you made, or just want to say hi—I&apos;d love to hear from you. This is a community, and you&apos;re part of it.
             </p>
+          </section>
+
+          {/* Disclaimer */}
+          <section className="mt-12 pt-8 border-t-2 border-gray-300">
+            <div className="bg-gray-50 rounded-lg p-6 sm:p-8 max-w-3xl mx-auto">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                <strong className="text-gray-900">Disclaimer:</strong> Noah is an AI character loosely based on the developer of this site. The recipes, stories, and content on this website are generated with the assistance of artificial intelligence and should be used at your own discretion. Experiment at your own risk—that&apos;s kind of the point.
+              </p>
+            </div>
           </section>
 
         </div>

@@ -157,6 +157,13 @@ export default function Footer() {
               >
                 About
               </Link>
+              <span className="text-gray-600">•</span>
+              <Link
+                href="/tos"
+                className="hover:text-white transition-colors"
+              >
+                Terms of Use
+              </Link>
             </div>
           </div>
         </div>

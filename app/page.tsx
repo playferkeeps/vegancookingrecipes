@@ -163,7 +163,7 @@ export default async function Home() {
                 <div className="rounded-full overflow-hidden shadow-2xl ring-4 ring-white/30 hover:ring-white/50 transition-all duration-300">
                   <Image
                     src="/img/vcr-noah.png"
-                    alt="Noah - Barefoot Chef and Creator of vegancooking.recipes"
+                    alt="Noah - Badass Vegan Cook and Creator of vegancooking.recipes"
                     width={180}
                     height={180}
                     className="object-cover"
@@ -192,7 +192,7 @@ export default async function Home() {
                     What does <strong className="text-white">VCR</strong> mean?
                   </p>
                   <p className="text-sm sm:text-base leading-relaxed">
-                    The <strong className="font-semibold">V</strong>ibrant, <strong className="font-semibold">C</strong>onscious, <strong className="font-semibold">R</strong>oots on my apron—that&apos;s what I hope my recipes help you cultivate. Welcome to my warm, slightly messy, hippie kitchen where plants are our best medicine and cooking is a sacred practice. 🌱✨
+                    Welcome to my kitchen—where I push boundaries, experiment fearlessly, and create plant-based magic that breaks all the rules. Outside the box? That&apos;s where I&apos;m most comfortable. 🔥
                   </p>
                 </div>
                 
@@ -221,7 +221,7 @@ export default async function Home() {
         <section className="py-16 container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Some of My Favorites</h2>
           <p className="text-gray-600 mb-6 text-center max-w-3xl mx-auto">
-            These are recipes I come back to again and again—the ones I make when I need something comforting, or when I want to impress friends, or just when I&apos;m craving something really good. I&apos;ve tested every single one, and I promise they&apos;re worth making. Whether you&apos;re just starting your plant-based journey or you&apos;ve been at this for years, I think you&apos;ll find something here that speaks to you.
+            These are recipes I come back to again and again—the ones I make when I need something comforting, or when I want to impress friends, or just when I&apos;m craving something really good. Whether you&apos;re just starting your plant-based journey or you&apos;ve been at this for years, I think you&apos;ll find something here that speaks to you.
           </p>
           <div className="mb-8 flex flex-col items-center gap-3">
             <p className="text-sm font-semibold text-gray-700">Share vegancooking.recipes with friends:</p>
@@ -339,7 +339,7 @@ export default async function Home() {
                   Want to Know More About Me?
                 </h3>
                 <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto">
-                  Hello beautiful souls! I&apos;m Noah. 🌻 I believe the kitchen is a sacred space and that plants are our best medicine. I&apos;m a barefoot chef obsessed with whole foods, healing herbs, and cooking with intention.
+                  Hey! I&apos;m Noah. 🔥 I&apos;m a badass vegan cook who thrives outside the box. I push boundaries, experiment fearlessly, and create plant-based dishes that break all the rules. Outside the box is where I&apos;m most comfortable, and that&apos;s where the magic happens.
                 </p>
                 <Link
                   href="/about"
