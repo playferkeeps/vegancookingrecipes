@@ -49,6 +49,9 @@ lerna-debug.log*
 .env.production.local
 .env.local
 
+# Browser profile (contains cookies and session data)
+.browser-profile
+
 # Vercel
 .vercel
 

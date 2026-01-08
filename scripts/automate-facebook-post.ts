@@ -20,6 +20,9 @@ const FACEBOOK_LOGIN_URL = 'https://www.facebook.com/login';
 const RECIPE_IMAGES_DIR = path.join(process.cwd(), 'public', 'recipe-images');
 const PNG_IMAGES_DIR = path.join(RECIPE_IMAGES_DIR, 'png');
 
+// Persistent browser profile directory (saves cookies and session)
+const BROWSER_USER_DATA_DIR = path.join(process.cwd(), '.browser-profile');
+
 // Facebook login credentials from environment
 const FACEBOOK_EMAIL = process.env.FACEBOOK_EMAIL || '';
 const FACEBOOK_PASSWORD = process.env.FACEBOOK_PASSWORD || '';
@@ -192,6 +195,82 @@ async function waitForElement(
 }
 
 /**
+ * Check if already logged into Facebook
+ */
+async function isLoggedIntoFacebook(page: Page): Promise<boolean> {
+  try {
+    // Navigate to Facebook home page
+    await page.goto('https://www.facebook.com', { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await delay(3000); // Wait for page to fully load
+    
+    // Check URL first - if redirected to login, we're not logged in
+    const currentUrl = page.url();
+    if (currentUrl.includes('/login') || currentUrl.includes('/checkpoint')) {
+      console.log('   URL indicates not logged in');
+      return false;
+    }
+    
+    // Check for login form elements (strong indicator of not logged in)
+    const loginFormExists = await page.evaluate(() => {
+      const emailInput = document.querySelector('input[name="email"]') || document.querySelector('input[type="email"]');
+      const loginButton = document.querySelector('button[name="login"]') || document.querySelector('button[type="submit"]');
+      return !!(emailInput && loginButton);
+    });
+    
+    if (loginFormExists) {
+      console.log('   Login form found - not logged in');
+      return false;
+    }
+    
+    // Check for logged-in indicators (strong indicators of being logged in)
+    const loggedInIndicators = [
+      'div[aria-label*="Account"]',
+      'div[aria-label*="Menu"]',
+      'a[href*="/me"]',
+      'div[role="banner"]',
+      'div[data-pagelet="LeftRail"]', // Facebook left sidebar when logged in
+      'div[role="navigation"]', // Navigation bar when logged in
+    ];
+    
+    for (const selector of loggedInIndicators) {
+      try {
+        const element = await page.$(selector);
+        if (element) {
+          console.log(`   Found logged-in indicator: ${selector}`);
+          return true; // Logged in
+        }
+      } catch (error) {
+        continue;
+      }
+    }
+    
+    // Check if we can access a protected page (like business.facebook.com)
+    try {
+      await page.goto('https://business.facebook.com', { waitUntil: 'domcontentloaded', timeout: 10000 });
+      await delay(2000);
+      const businessUrl = page.url();
+      if (!businessUrl.includes('login') && !businessUrl.includes('checkpoint')) {
+        console.log('   Can access business.facebook.com - logged in');
+        return true;
+      }
+    } catch (error) {
+      // If we can't access business.facebook.com, might not be logged in
+    }
+    
+    // If URL doesn't have login/checkpoint and no login form, assume logged in
+    if (!currentUrl.includes('login') && !currentUrl.includes('checkpoint')) {
+      console.log('   No login indicators found - assuming logged in');
+      return true;
+    }
+    
+    return false;
+  } catch (error) {
+    console.log(`   Error checking login status: ${error}`);
+    return false;
+  }
+}
+
+/**
  * Login to Facebook
  */
 async function loginToFacebook(page: Page): Promise<void> {
@@ -200,9 +279,25 @@ async function loginToFacebook(page: Page): Promise<void> {
     throw new Error('Facebook credentials not provided! Set FACEBOOK_EMAIL and FACEBOOK_PASSWORD environment variables.');
   }
 
-  console.log('🔐 Logging into Facebook...');
-  await page.goto(FACEBOOK_LOGIN_URL, { waitUntil: 'networkidle2', timeout: 30000 });
-  await delay(2000);
+  console.log('🔐 Checking Facebook login status...');
+  
+  // Check if already logged in - try multiple times
+  let loggedIn = false;
+  for (let i = 0; i < 3; i++) {
+    loggedIn = await isLoggedIntoFacebook(page);
+    if (loggedIn) {
+      console.log('✅ Already logged into Facebook (using saved session)\n');
+      // Save cookies explicitly
+      const cookies = await page.cookies();
+      console.log(`   Session has ${cookies.length} cookies saved`);
+      return;
+    }
+    await delay(1000);
+  }
+
+  console.log('🔐 Not logged in, attempting login...');
+  await page.goto(FACEBOOK_LOGIN_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  await delay(3000);
 
   // Fill in email
   const emailSelectors = [
@@ -290,15 +385,22 @@ async function loginToFacebook(page: Page): Promise<void> {
   // Wait for navigation after login
   await delay(5000);
 
-  // Check if we're logged in (look for common post-login elements)
-  const currentUrl = page.url();
-  if (currentUrl.includes('login') || currentUrl.includes('checkpoint')) {
-    console.warn('⚠️  May need to complete 2FA or security check manually');
-    console.warn('   Waiting 30 seconds for manual intervention...');
-    await delay(30000);
-  } else {
-    console.log('✅ Successfully logged into Facebook');
-  }
+    // Check if we're logged in (look for common post-login elements)
+    const currentUrl = page.url();
+    if (currentUrl.includes('login') || currentUrl.includes('checkpoint')) {
+      console.warn('⚠️  May need to complete 2FA or security check manually');
+      console.warn('   Waiting 30 seconds for manual intervention...');
+      await delay(30000);
+    } else {
+      console.log('✅ Successfully logged into Facebook');
+    }
+    
+    // Explicitly save cookies after login
+    const cookies = await page.cookies();
+    console.log(`   Saved ${cookies.length} cookies to persistent profile`);
+    
+    // Wait a bit for cookies to persist
+    await delay(2000);
 }
 
 /**
@@ -331,22 +433,35 @@ async function automateFacebookPost() {
   const hashtags = generateHashtags(recipe);
   console.log(`📝 Generated ${hashtags.length} hashtags\n`);
 
-  // Launch browser
+  // Launch browser with persistent user data directory (saves cookies/session)
   console.log('🌐 Launching Chrome browser...');
+  console.log(`   Using persistent profile: ${BROWSER_USER_DATA_DIR}`);
+  
+  // Ensure the profile directory exists
+  if (!fs.existsSync(BROWSER_USER_DATA_DIR)) {
+    fs.mkdirSync(BROWSER_USER_DATA_DIR, { recursive: true });
+    console.log('   Created new browser profile directory');
+  } else {
+    console.log('   Using existing browser profile (session should be saved)');
+  }
   
   // Try to use system Chrome/Chromium if available, otherwise use bundled Chrome
   let browser;
   try {
     browser = await puppeteer.launch({
       headless: false, // Show browser for debugging
+      userDataDir: BROWSER_USER_DATA_DIR, // Persistent profile - saves cookies and session
       defaultViewport: { width: 1280, height: 720 },
       args: [
         '--start-maximized',
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
+        '--disable-blink-features=AutomationControlled', // Reduce detection
+        '--disable-notifications', // Block notifications
       ],
     });
+    console.log('   Browser launched with persistent profile');
   } catch (error: any) {
     if (error.message?.includes('shared libraries') || error.message?.includes('libnspr4')) {
       console.error('\n❌ Missing system dependencies for Chrome!');
@@ -363,10 +478,117 @@ async function automateFacebookPost() {
 
   const page = await browser.newPage();
   
+  // Set user agent to reduce detection
+  await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+  
+  // Block notifications
+  const context = browser.defaultBrowserContext();
+  await context.overridePermissions('https://www.facebook.com', ['notifications']);
+  await context.overridePermissions('https://business.facebook.com', ['notifications']);
+  
+  // Function to dismiss notification popups - AGGRESSIVE VERSION
+  async function dismissNotificationPopup(): Promise<void> {
+    try {
+      // Wait a bit for popup to appear
+      await delay(1000);
+      
+      // Try multiple times with different strategies
+      for (let attempt = 0; attempt < 5; attempt++) {
+        // Strategy 1: Find by text content (most reliable)
+        const clicked = await page.evaluate(() => {
+          const allClickable = Array.from(document.querySelectorAll('button, div[role="button"], a, span[role="button"]'));
+          for (const el of allClickable) {
+            const text = (el as HTMLElement).textContent?.trim() || '';
+            const ariaLabel = el.getAttribute('aria-label')?.trim() || '';
+            const lowerText = text.toLowerCase();
+            const lowerAria = ariaLabel.toLowerCase();
+            
+            // Check if it's a dismiss button
+            if (lowerText.includes('not now') || lowerText.includes('notnow') ||
+                lowerText.includes('close') || lowerText.includes('dismiss') ||
+                lowerText.includes('skip') || lowerText.includes('cancel') ||
+                lowerAria.includes('not now') || lowerAria.includes('close') ||
+                lowerAria.includes('dismiss')) {
+              // Check if visible
+              const rect = (el as HTMLElement).getBoundingClientRect();
+              if (rect.width > 0 && rect.height > 0) {
+                (el as HTMLElement).click();
+                return true;
+              }
+            }
+          }
+          return false;
+        });
+        
+        if (clicked) {
+          console.log(`   Dismissed notification popup (attempt ${attempt + 1})`);
+          await delay(1000);
+          return;
+        }
+        
+        // Strategy 2: Find dialogs/modals and close them
+        const dialogClosed = await page.evaluate(() => {
+          // Find any dialog or modal
+          const dialogs = document.querySelectorAll('[role="dialog"], div[class*="modal"], div[class*="popup"], div[class*="overlay"]');
+          for (const dialog of dialogs) {
+            // Look for close buttons inside dialog
+            const closeButtons = dialog.querySelectorAll('button, div[role="button"]');
+            for (const btn of closeButtons) {
+              const text = (btn as HTMLElement).textContent?.toLowerCase() || '';
+              const ariaLabel = btn.getAttribute('aria-label')?.toLowerCase() || '';
+              if (text.includes('close') || text.includes('not now') || text.includes('dismiss') ||
+                  ariaLabel.includes('close') || ariaLabel.includes('not now')) {
+                (btn as HTMLElement).click();
+                return true;
+              }
+            }
+            // If no close button found, try clicking outside or pressing Escape
+            (dialog as HTMLElement).dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+          }
+          return false;
+        });
+        
+        if (dialogClosed) {
+          console.log(`   Closed dialog/modal (attempt ${attempt + 1})`);
+          await delay(1000);
+          return;
+        }
+        
+        // Strategy 3: Press Escape key
+        await page.keyboard.press('Escape');
+        await delay(500);
+        
+        // Strategy 4: Click outside popup (click at center of viewport)
+        await page.mouse.click(640, 360);
+        await delay(500);
+      }
+    } catch (error) {
+      // Ignore errors
+    }
+  }
+  
+  // Set up popup listener to automatically dismiss
+  page.on('dialog', async (dialog) => {
+    console.log('   Auto-dismissing dialog:', dialog.type());
+    await dialog.dismiss();
+  });
+  
   try {
-    // Login to Facebook first
+    // Login to Facebook first (will check if already logged in)
     await loginToFacebook(page);
     await delay(2000);
+    
+    // Dismiss any notification popups
+    await dismissNotificationPopup();
+    
+    // Verify session is saved by checking again
+    console.log('🔍 Verifying session persistence...');
+    const stillLoggedIn = await isLoggedIntoFacebook(page);
+    if (stillLoggedIn) {
+      console.log('✅ Session verified - you are logged in\n');
+    } else {
+      console.log('⚠️  Session check failed - you may need to log in again\n');
+    }
 
     // Navigate to the recipe page on vegancooking.recipes
     // Ensure URL has protocol
@@ -384,9 +606,13 @@ async function automateFacebookPost() {
     console.log('📘 Navigating to Facebook Business Composer...');
     await page.goto(FACEBOOK_COMPOSER_URL, { waitUntil: 'networkidle2', timeout: 60000 });
     await delay(3000); // Wait for composer to load
+    
+    // Dismiss any notification popups
+    await dismissNotificationPopup();
+    
     console.log('✅ Loaded Facebook Composer\n');
 
-    // Wait for and fill in the post text area
+    // Wait for and fill in the post text area using REAL clipboard paste
     console.log('✍️  Writing post content...');
     const postText = `${recipe.title}\n\n${recipe.description || ''}\n\nGet the full recipe: ${recipeUrl}\n\n${hashtags.join(' ')}`;
 
@@ -406,20 +632,72 @@ async function automateFacebookPost() {
     for (const selector of textAreaSelectors) {
       try {
         await page.waitForSelector(selector, { timeout: 8000, visible: true });
-        await page.click(selector, { clickCount: 3 }); // Triple click to select all if there's placeholder text
+        await page.click(selector, { clickCount: 3 }); // Triple click to select all
         await delay(500);
         
         // Clear any existing content
         await page.keyboard.down('Control');
         await page.keyboard.press('a');
         await page.keyboard.up('Control');
-        await delay(200);
+        await delay(300);
         
-        // Type the post text
-        await page.type(selector, postText, { delay: 30 });
-        textAreaFound = true;
-        console.log('✅ Post text entered\n');
-        break;
+        // Set clipboard content using page.evaluate with proper clipboard API
+        await page.evaluate(async (text) => {
+          // Try modern clipboard API first
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch (e) {
+            // Fallback: create temporary textarea
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+          }
+        }, postText);
+        
+        await delay(300);
+        
+        // PASTE using keyboard shortcut (Ctrl+V)
+        await page.keyboard.down('Control');
+        await page.keyboard.press('v');
+        await page.keyboard.up('Control');
+        await delay(1000);
+        
+        // Verify text was pasted by checking content
+        const pastedContent = await page.evaluate((sel) => {
+          const el = document.querySelector(sel);
+          return el ? (el.textContent || el.innerText || '') : '';
+        }, selector);
+        
+        if (pastedContent.includes(recipe.title) || pastedContent.length > 10) {
+          textAreaFound = true;
+          console.log('✅ Post text pasted from clipboard\n');
+          break;
+        } else {
+          // Fallback: set text directly via JavaScript
+          await page.evaluate((sel, text) => {
+            const el = document.querySelector(sel);
+            if (el) {
+              el.textContent = text;
+              el.innerText = text;
+              // Trigger all necessary events
+              ['input', 'change', 'keyup', 'paste'].forEach(eventType => {
+                const event = new Event(eventType, { bubbles: true });
+                el.dispatchEvent(event);
+              });
+            }
+          }, selector, postText);
+          await delay(500);
+          textAreaFound = true;
+          console.log('✅ Post text set directly (fallback method)\n');
+          break;
+        }
       } catch (error) {
         // Try next selector
         continue;
@@ -430,89 +708,257 @@ async function automateFacebookPost() {
       throw new Error('Could not find post text area. Make sure you are on the Facebook Business Composer page.');
     }
 
-    // Click "Add photo/video" button in the Media section
-    console.log('📷 Clicking "Add photo/video" button...');
-    const photoButtonSelectors = [
-      'button:has-text("Add photo/video")',
-      'button:has-text("Add photo")',
-      'button:has-text("Add video")',
-      'div[aria-label*="Add photo/video"]',
-      'div[aria-label*="Add photo"]',
-      'button[aria-label*="Add photo/video"]',
-      'button[aria-label*="Add photo"]',
-      'div[role="button"]:has-text("Add photo/video")',
-      'div[role="button"]:has-text("Add photo")',
-      '[data-testid="photo-upload-button"]',
-      'button:has([aria-label*="photo"])',
-    ];
-
-    let photoButtonFound = false;
-    for (const selector of photoButtonSelectors) {
-      try {
-        await page.waitForSelector(selector, { timeout: 8000, visible: true });
-        await page.click(selector);
-        await delay(2000); // Wait for file picker or upload dialog
-        photoButtonFound = true;
-        console.log('✅ Photo button clicked\n');
-        break;
-      } catch (error) {
-        continue;
-      }
-    }
-
-    if (!photoButtonFound) {
-      console.warn('⚠️  Could not find photo button, trying file input directly...');
-    }
-
-    // Handle file upload - try file chooser first (most reliable)
-    console.log('📤 Uploading image...');
-    let fileInputFound = false;
-
-    // Method 1: Wait for file chooser (most reliable for Facebook)
+    // Handle file upload - AGGRESSIVE MULTIPLE METHODS
+    console.log('📷 Setting up file upload...');
+    
+    let fileChooser = null;
+    let fileUploaded = false;
+    
+    // Wait a bit for page to fully load
+    await delay(2000);
+    
+    // Method 1: Direct file input click with file chooser listener
     try {
-      // If we just clicked the button, file chooser might already be open
-      // Otherwise, click again to trigger it
-      if (!photoButtonFound) {
-        const photoBtn = await page.$('button:has-text("Add photo/video")');
-        if (photoBtn) {
-          await photoBtn.click();
-          await delay(1000);
+      console.log('   Method 1: Direct file input click...');
+      
+      // Set up file chooser listener FIRST
+      const fileChooserPromise = page.waitForFileChooser({ timeout: 5000 }).catch(() => null);
+      
+      // Find ALL file inputs
+      const fileInputs = await page.$$('input[type="file"]');
+      console.log(`   Found ${fileInputs.length} file input(s)`);
+      
+      if (fileInputs.length > 0) {
+        // Try clicking each file input
+        for (let i = 0; i < fileInputs.length; i++) {
+          try {
+            // Click using Puppeteer
+            await fileInputs[i].click();
+            await delay(500);
+            
+            // Also try JavaScript click
+            await page.evaluate((index) => {
+              const inputs = document.querySelectorAll('input[type="file"]');
+              if (inputs[index]) {
+                (inputs[index] as HTMLInputElement).click();
+                // Dispatch events
+                const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
+                (inputs[index] as HTMLElement).dispatchEvent(clickEvent);
+              }
+            }, i);
+            
+            await delay(500);
+            fileChooser = await fileChooserPromise;
+            if (fileChooser) {
+              console.log(`✅ File chooser opened via file input #${i + 1}`);
+              break;
+            }
+          } catch (error) {
+            continue;
+          }
         }
       }
-
-      const fileChooser = await page.waitForFileChooser({ timeout: 5000 });
-      await fileChooser.accept([imagePath]);
-      await delay(3000); // Wait for upload to process
-      fileInputFound = true;
-      console.log('✅ Image uploaded via file chooser\n');
     } catch (error) {
-      // Method 2: Try direct file input
-      console.log('   Trying direct file input...');
-      const fileInputSelectors = [
-        'input[type="file"]',
-        'input[accept*="image"]',
-        'input[accept*="video"]',
-      ];
-
-      for (const selector of fileInputSelectors) {
-        try {
-          const fileInput = await page.$(selector);
-          if (fileInput) {
-            await fileInput.uploadFile(imagePath);
-            await delay(3000); // Wait for upload
-            fileInputFound = true;
-            console.log('✅ Image uploaded via file input\n');
-            break;
+      console.log('   Method 1 failed');
+    }
+    
+    // Method 2: Find and click "Add photo/video" button
+    if (!fileChooser && !fileUploaded) {
+      try {
+        console.log('   Method 2: Clicking "Add photo/video" button...');
+        
+        const fileChooserPromise = page.waitForFileChooser({ timeout: 5000 }).catch(() => null);
+        
+        // Find button by text/aria-label using JavaScript
+        const buttonClicked = await page.evaluate(() => {
+          const allElements = Array.from(document.querySelectorAll('button, div[role="button"], span[role="button"], a[role="button"]'));
+          for (const el of allElements) {
+            const text = (el as HTMLElement).textContent?.toLowerCase() || '';
+            const ariaLabel = el.getAttribute('aria-label')?.toLowerCase() || '';
+            const title = el.getAttribute('title')?.toLowerCase() || '';
+            
+            if (text.includes('add photo') || text.includes('photo/video') ||
+                ariaLabel.includes('add photo') || ariaLabel.includes('photo/video') ||
+                title.includes('add photo') || title.includes('photo/video')) {
+              // Check if visible
+              const rect = (el as HTMLElement).getBoundingClientRect();
+              if (rect.width > 0 && rect.height > 0) {
+                (el as HTMLElement).click();
+                // Also dispatch events
+                const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
+                el.dispatchEvent(clickEvent);
+                return true;
+              }
+            }
           }
-        } catch (error) {
-          continue;
+          return false;
+        });
+        
+        if (buttonClicked) {
+          await delay(1000);
+          fileChooser = await fileChooserPromise;
+          if (fileChooser) {
+            console.log('✅ File chooser opened via button click');
+          }
         }
+      } catch (error) {
+        console.log('   Method 2 failed');
+      }
+    }
+    
+    // Method 3: Try clicking button using selectors
+    if (!fileChooser && !fileUploaded) {
+      try {
+        console.log('   Method 3: Trying button selectors...');
+        const fileChooserPromise = page.waitForFileChooser({ timeout: 3000 }).catch(() => null);
+        
+        const buttonSelectors = [
+          'button[aria-label*="Add photo/video"]',
+          'button[aria-label*="Add photo"]',
+          'div[role="button"][aria-label*="Add photo/video"]',
+          'div[role="button"][aria-label*="Add photo"]',
+          'button:has-text("Add photo/video")',
+          'button:has-text("Add photo")',
+          '[data-testid*="photo"]',
+          '[data-testid*="upload"]',
+        ];
+        
+        for (const selector of buttonSelectors) {
+          try {
+            const element = await page.$(selector);
+            if (element) {
+              await element.click();
+              await delay(1000);
+              fileChooser = await fileChooserPromise;
+              if (fileChooser) {
+                console.log(`✅ File chooser opened via selector: ${selector}`);
+                break;
+              }
+            }
+          } catch (error) {
+            continue;
+          }
+        }
+      } catch (error) {
+        console.log('   Method 3 failed');
+      }
+    }
+    
+    // Method 4: Direct upload to file input (bypass file chooser)
+    if (!fileChooser && !fileUploaded) {
+      try {
+        console.log('   Method 4: Direct file upload (bypassing file chooser)...');
+        const fileInputs = await page.$$('input[type="file"]');
+        if (fileInputs.length > 0) {
+          // Try uploading to each input
+          for (let i = 0; i < fileInputs.length; i++) {
+            try {
+              await fileInputs[i].uploadFile(imagePath);
+              await delay(3000);
+              fileUploaded = true;
+              console.log(`✅ File uploaded directly to input #${i + 1}`);
+              break;
+            } catch (error) {
+              continue;
+            }
+          }
+        }
+      } catch (error) {
+        console.log('   Method 4 failed');
+      }
+    }
+    
+    // Method 5: Use JavaScript to set file directly
+    if (!fileChooser && !fileUploaded) {
+      try {
+        console.log('   Method 5: JavaScript file assignment...');
+        await page.evaluate((imgPath) => {
+          const inputs = document.querySelectorAll('input[type="file"]');
+          for (const input of inputs) {
+            try {
+              // Create a File object (this is a hack but might work)
+              const dataTransfer = new DataTransfer();
+              // Note: This won't work with local paths, but worth trying
+              const file = new File([''], imgPath.split('/').pop() || 'image.png', { type: 'image/png' });
+              dataTransfer.items.add(file);
+              (input as HTMLInputElement).files = dataTransfer.files;
+              
+              // Trigger change event
+              const changeEvent = new Event('change', { bubbles: true });
+              input.dispatchEvent(changeEvent);
+            } catch (e) {
+              // Ignore
+            }
+          }
+        }, imagePath);
+        await delay(2000);
+      } catch (error) {
+        console.log('   Method 5 failed');
       }
     }
 
-    if (!fileInputFound) {
-      console.warn('⚠️  Could not upload image automatically. You may need to upload manually.');
-      console.warn('   Image path:', imagePath);
+    // Handle file upload using the file chooser we opened
+    console.log('📤 Uploading image...');
+    let fileUploaded = false;
+
+    // If we got a file chooser, use it
+    if (fileChooser) {
+      try {
+        await fileChooser.accept([imagePath]);
+        await delay(3000); // Wait for upload to process
+        fileUploaded = true;
+        console.log('✅ Image uploaded via file chooser\n');
+      } catch (error) {
+        console.log('   File chooser accept failed, trying direct upload...');
+      }
+    }
+    
+    // If file chooser didn't work, try direct file input upload
+    if (!fileUploaded) {
+      try {
+        const fileInputs = await page.$$('input[type="file"]');
+        if (fileInputs.length > 0) {
+          await fileInputs[0].uploadFile(imagePath);
+          await delay(3000);
+          fileUploaded = true;
+          console.log('✅ Image uploaded directly to file input\n');
+        }
+      } catch (error) {
+        console.log('   Direct upload failed');
+      }
+    }
+    
+    // Final fallback: Use JavaScript to set file
+    if (!fileUploaded) {
+      try {
+        await page.evaluate((imgPath) => {
+          const input = document.querySelector('input[type="file"]') as HTMLInputElement;
+          if (input) {
+            // Create a FileList with the file
+            const dataTransfer = new DataTransfer();
+            // Note: This won't work with local file paths, but worth trying
+            const file = new File([''], imgPath, { type: 'image/png' });
+            dataTransfer.items.add(file);
+            input.files = dataTransfer.files;
+            
+            // Trigger change event
+            const changeEvent = new Event('change', { bubbles: true });
+            input.dispatchEvent(changeEvent);
+          }
+        }, imagePath);
+        await delay(2000);
+        console.log('   Attempted JavaScript file upload');
+      } catch (error) {
+        // Ignore
+      }
+    }
+
+    if (!fileUploaded) {
+      console.warn('⚠️  Could not upload image automatically.');
+      console.warn('   Please upload the image manually:');
+      console.warn(`   Image path: ${imagePath}`);
+      console.warn('   Waiting 10 seconds for manual upload...');
+      await delay(10000);
     }
 
     // Wait a bit for image to process
@@ -579,10 +1025,29 @@ async function automateFacebookPost() {
     console.error('   - Facebook UI may have changed - you may need to update selectors');
     throw error;
   } finally {
-    // Keep browser open for 10 seconds to see the result
-    console.log('\n⏸️  Keeping browser open for 10 seconds...');
-    await delay(10000);
+    // Save session before closing - wait a bit for cookies to persist
+    console.log('\n💾 Saving session...');
+    await delay(3000);
+    
+    // Verify cookies are saved
+    const cookies = await page.cookies();
+    console.log(`   Saved ${cookies.length} cookies to persistent profile`);
+    
+    // Keep browser open for a few seconds to ensure everything is saved
+    console.log('⏸️  Keeping browser open for 5 seconds to ensure session is saved...');
+    await delay(5000);
+    
+    // Close pages first
+    const pages = await browser.pages();
+    for (const p of pages) {
+      if (p !== page) {
+        await p.close();
+      }
+    }
+    
+    // Close browser (cookies should be saved to userDataDir)
     await browser.close();
+    console.log('✅ Browser closed - session saved to:', BROWSER_USER_DATA_DIR);
   }
 }
 

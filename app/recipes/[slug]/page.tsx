@@ -16,10 +16,10 @@ import ViewTracker from '@/components/ViewTracker';
 import EmailSignup from '@/components/EmailSignup';
 import { Recipe } from '@/types/recipe';
 
-// Use dynamic rendering but allow static generation for better SEO
-// This allows Next.js to pre-generate pages while still fetching fresh data
-export const dynamic = 'force-dynamic';
-export const revalidate = 3600; // Revalidate every hour for fresh data
+// Use auto rendering for better SEO - allows static generation with ISR
+// Changed from 'force-dynamic' to 'auto' to enable static generation for better Google indexing
+export const dynamic = 'auto';
+export const revalidate = 3600; // Revalidate every hour for fresh data (ISR)
 
 interface PageProps {
   params: Promise<{
@@ -253,6 +253,8 @@ async function generateStructuredData(recipe: Recipe) {
       'https://schema.org/VeganDiet',
     ],
     recipeCuisine: recipe.category.includes('international') ? 'International' : 'Vegan',
+    // recipeYield is required for rich results - format as "X servings" or "X people"
+    recipeYield: recipe.servings ? `${recipe.servings} ${recipe.servings === 1 ? 'serving' : 'servings'}` : '4 servings',
   };
 
   // Add AggregateRating for rich results with stars (2025/2026 best practice)

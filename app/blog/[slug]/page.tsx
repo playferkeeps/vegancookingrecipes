@@ -6,7 +6,10 @@ import { getPrismaClient } from '@/lib/prisma';
 import AdBanner from '@/components/AdBanner';
 import AdRectangle from '@/components/AdRectangle';
 
-export const dynamic = 'force-dynamic';
+// Use auto rendering for better SEO - allows static generation with ISR
+// Changed from 'force-dynamic' to 'auto' to enable static generation for better Google indexing
+export const dynamic = 'auto';
+export const revalidate = 3600; // Revalidate every hour for fresh data (ISR)
 
 async function getBlogPost(slug: string) {
   try {
@@ -35,6 +38,32 @@ async function getBlogPost(slug: string) {
       console.error('Stack trace:', error.stack);
     }
     return null;
+  }
+}
+
+// Generate static params for all blog posts (better SEO)
+export async function generateStaticParams() {
+  try {
+    const prisma = getPrismaClient();
+    if (!prisma) {
+      return [];
+    }
+
+    const posts = await prisma.blogPost.findMany({
+      where: {
+        published: true,
+      },
+      select: {
+        slug: true,
+      },
+    });
+
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch (error: any) {
+    console.error('Error generating static params for blog posts:', error?.message || error);
+    return [];
   }
 }
 
@@ -136,6 +165,71 @@ export default async function BlogPostPage({
   // Get other blog posts for engagement
   const otherPosts = await getOtherBlogPosts(post.slug, 3);
   
+  // Generate structured data for rich results
+  const url = `https://vegancooking.recipes/blog/${post.slug}`;
+  const imageUrl = post.featuredImage
+    ? (post.featuredImage.startsWith('http') || post.featuredImage.startsWith('data:'))
+      ? post.featuredImage
+      : `https://vegancooking.recipes${post.featuredImage.startsWith('/') ? post.featuredImage : `/${post.featuredImage}`}`
+    : 'https://vegancooking.recipes/img/vcr-logo-lg.png';
+  
+  // Article schema for rich results (Google's requirements)
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt || post.metaDescription || '',
+    image: [imageUrl], // Array format for better rich results
+    datePublished: post.datePublished?.toISOString() || new Date().toISOString(),
+    dateModified: post.dateModified?.toISOString() || post.datePublished?.toISOString() || new Date().toISOString(),
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      url: 'https://vegancooking.recipes',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'vegancooking.recipes',
+      url: 'https://vegancooking.recipes',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://vegancooking.recipes/img/vcr-logo-lg.png',
+        width: 150,
+        height: 150,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+  };
+  
+  // BreadcrumbList schema for navigation
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://vegancooking.recipes',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://vegancooking.recipes/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: url,
+      },
+    ],
+  };
+  
   // Clean up HTML content and ensure proper spacing between elements
   const cleanContent = post.content
     .trim()
@@ -150,8 +244,18 @@ export default async function BlogPostPage({
     .replace(/>\s+</g, '><'); // Remove whitespace between tags (but keep our newlines)
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <article className="container mx-auto px-4 py-8 sm:py-12">
+    <>
+      {/* Structured Data for Rich Results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className="min-h-screen bg-gray-50">
+        <article className="container mx-auto px-4 py-8 sm:py-12">
         <div className="max-w-4xl mx-auto">
           {/* Back to Blog Link */}
           <Link
@@ -322,7 +426,8 @@ export default async function BlogPostPage({
           </div>
         </div>
       </article>
-    </div>
+      </div>
+    </>
   );
 }
 
